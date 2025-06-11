@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Stronghold Crusader Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69c2746fc8410a401967abce78c6643175bd1656")]
 [assembly: System.Reflection.AssemblyProductAttribute("Stronghold Crusader Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Stronghold Crusader Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
