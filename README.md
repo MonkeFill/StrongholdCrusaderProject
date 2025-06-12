@@ -1,0 +1,1 @@
+Stronghold Crusader Project is my Computer Science NEA project, it is a game based off Stronghold Crusader (2012) and created in C# using the dotnet framework and monogame, a lot of my units, UI and the way everything functions will be heavily inspired by Stronghold Crusdaer, lots of the assets will be taken directly off Stronghold Crusdaer like units, animals and tiles. 
