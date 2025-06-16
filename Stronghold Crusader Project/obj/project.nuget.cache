@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UCDtEOdA+Vw=",
+  "dgSpecHash": "PJ2RHh/aj7Y=",
   "success": true,
-  "projectFilePath": "/Users/filippos/Desktop/Dev/Stronghold Crusader Project/Stronghold Crusader Project/Stronghold Crusader Project.csproj",
+  "projectFilePath": "/Users/filippos/RiderProjects/StrongholdCrusaderProject/Stronghold Crusader Project/Stronghold Crusader Project.csproj",
   "expectedPackageFiles": [
     "/Users/filippos/.nuget/packages/monogame.content.builder.task/3.8.4/monogame.content.builder.task.3.8.4.nupkg.sha512",
     "/Users/filippos/.nuget/packages/monogame.framework.desktopgl/3.8.4/monogame.framework.desktopgl.3.8.4.nupkg.sha512",

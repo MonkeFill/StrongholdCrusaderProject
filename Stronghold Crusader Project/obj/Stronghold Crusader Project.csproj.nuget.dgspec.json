@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/filippos/Desktop/Dev/Stronghold Crusader Project/Stronghold Crusader Project/Stronghold Crusader Project.csproj": {}
+    "/Users/filippos/RiderProjects/StrongholdCrusaderProject/Stronghold Crusader Project/Stronghold Crusader Project.csproj": {}
   },
   "projects": {
-    "/Users/filippos/Desktop/Dev/Stronghold Crusader Project/Stronghold Crusader Project/Stronghold Crusader Project.csproj": {
+    "/Users/filippos/RiderProjects/StrongholdCrusaderProject/Stronghold Crusader Project/Stronghold Crusader Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/filippos/Desktop/Dev/Stronghold Crusader Project/Stronghold Crusader Project/Stronghold Crusader Project.csproj",
+        "projectUniqueName": "/Users/filippos/RiderProjects/StrongholdCrusaderProject/Stronghold Crusader Project/Stronghold Crusader Project.csproj",
         "projectName": "Stronghold Crusader Project",
-        "projectPath": "/Users/filippos/Desktop/Dev/Stronghold Crusader Project/Stronghold Crusader Project/Stronghold Crusader Project.csproj",
+        "projectPath": "/Users/filippos/RiderProjects/StrongholdCrusaderProject/Stronghold Crusader Project/Stronghold Crusader Project.csproj",
         "packagesPath": "/Users/filippos/.nuget/packages/",
-        "outputPath": "/Users/filippos/Desktop/Dev/Stronghold Crusader Project/Stronghold Crusader Project/obj/",
+        "outputPath": "/Users/filippos/RiderProjects/StrongholdCrusaderProject/Stronghold Crusader Project/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/filippos/.nuget/NuGet/NuGet.Config"
