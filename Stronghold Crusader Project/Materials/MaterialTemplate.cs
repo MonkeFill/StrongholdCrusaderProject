@@ -5,6 +5,7 @@ public class MaterialTemplate
     int GoldBuyCost {get; set;}
     int GoldSellCost {get; set;}
     string Name {get; set;}
+    int Amount { get; set; }
 
     public void GainMaterial()
     {
