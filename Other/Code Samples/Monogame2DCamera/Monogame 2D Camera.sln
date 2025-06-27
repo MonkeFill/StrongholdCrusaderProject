@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monogame 2D Camera", "Monogame 2D Camera\Monogame 2D Camera.csproj", "{8D348EDD-8893-4DB3-B934-8443E0D86616}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D348EDD-8893-4DB3-B934-8443E0D86616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D348EDD-8893-4DB3-B934-8443E0D86616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D348EDD-8893-4DB3-B934-8443E0D86616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D348EDD-8893-4DB3-B934-8443E0D86616}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
