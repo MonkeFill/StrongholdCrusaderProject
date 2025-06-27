@@ -30,6 +30,11 @@
       <Content Include="Assets\.DS_Store" />
       <Content Include="Code\Player\.DS_Store" />
       <Content Include="Other\.DS_Store" />
+      <Content Include="Other\Assets\.DS_Store" />
+      <Content Include="Other\Assets\Assets To Revamp\.DS_Store" />
+      <Content Include="Other\Assets\Assets To Revamp\Tiles\.DS_Store" />
+      <Content Include="Other\Assets\Original Assets\.DS_Store" />
+      <Content Include="Other\Assets\Original Assets\Tiles\.DS_Store" />
       <Content Include="Other\Code Samples\Pathfinding\.idea\.idea.Pathfinding\.idea\.gitignore" />
       <Content Include="Other\Code Samples\Pathfinding\.idea\.idea.Pathfinding\.idea\AndroidProjectSystem.xml" />
       <Content Include="Other\Code Samples\Pathfinding\.idea\.idea.Pathfinding\.idea\discord.xml" />
