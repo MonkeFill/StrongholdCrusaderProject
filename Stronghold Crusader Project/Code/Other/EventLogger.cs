@@ -4,9 +4,9 @@ using System.IO;
 namespace Stronghold_Crusader_Project.Other;
 
 
-public class EventLogger
+public static class EventLogger
 {
-    string LogFilePath = "Log.txt";
+    static string LogFilePath = "Log.txt";
     public enum LogType
     {
         Error,
@@ -15,7 +15,7 @@ public class EventLogger
         Info,
     }
 
-    public void LogEvent(string Log, LogType TypeOfLog)
+    public static void LogEvent(string Log, LogType TypeOfLog)
     {
         ConsoleColor LogColour =  ConsoleColor.White;
         switch (TypeOfLog)
@@ -42,7 +42,7 @@ public class EventLogger
         FileWrite.Close();
     }
 
-    public void StartEventLog()
+    public static void StartEventLog()
     {
         Console.ForegroundColor = ConsoleColor.DarkCyan;
         Console.WriteLine("Event Log Started");
