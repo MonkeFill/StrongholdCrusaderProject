@@ -9,13 +9,38 @@ namespace Stronghold_Crusader_Project.Code.User_Input;
 
 public static class KeyManager //Keybinds that will be used to control everything
 {
-    private static readonly Dictionary<string, KeyMap> Keybinds = new();
+    public static readonly Dictionary<string, KeyMap> Keybinds = new();
 
+    public static void CreateDefaults()
+    {
+        AddNewKeybind("MoveUp", Keys.W);
+        AddNewKeybind("MoveDown", Keys.S);
+        AddNewKeybind("MoveLeft", Keys.A);
+        AddNewKeybind("MoveRight", Keys.D);
+        AddNewKeybind("RotateCameraLeft", Keys.Q);
+        AddNewKeybind("RotateCameraRight", Keys.E);
+        AddNewKeybind("PreviousMenu", Keys.Escape);
+        AddNewKeybind("test", Keys.Escape);
+        RemoveKeybind("MoveUp");
+        RemoveKeybind("MoveUp");
+        UpdateKeybind("MoveUp", Keys.Up);
+        UpdateKeybind("MoveDown", Keys.Down);
+        UpdateKeybind("MoveDown", Keys.A);
+        GetKeyFromControl("MoveUp");
+        GetKeyFromControl("MoveDown");
+        ResetAllToDefault();
+
+    }
+        
     public static void AddNewKeybind(string Control, Keys DefaultKey)
     {
         if (Keybinds.ContainsKey(Control))
         {
-            EventLogger.LogEvent($"Keybind for {Control} already exists", EventLogger.LogType.Warning);
+            EventLogger.LogEvent($"Keybind for {Control} is used somewhere else", EventLogger.LogType.Warning);
+        }
+        else if (KeyAlreadyUsed(DefaultKey))
+        {
+            EventLogger.LogEvent($"Keybind for {Control} - {DefaultKey} already used", EventLogger.LogType.Warning);
         }
         else
         {
@@ -44,16 +69,7 @@ public static class KeyManager //Keybinds that will be used to control everythin
     {
         if (Keybinds.ContainsKey(Control))
         {
-            bool KeybindUsed = false;
-            foreach (KeyMap ActiveKey in Keybinds.Values)
-            {
-                if (ActiveKey.CurrentKey == NewKey)
-                {
-                    KeybindUsed = true;
-                    break;
-                }
-            }
-            if (KeybindUsed == false)
+            if (!KeyAlreadyUsed(NewKey))
             {
                 KeyMap ActiveKey = Keybinds[Control];
                 EventLogger.LogEvent($"Updating Keybind for {Control}, OldKey - {ActiveKey.CurrentKey}, NewKey - {NewKey}", EventLogger.LogType.Info);
@@ -93,5 +109,17 @@ public static class KeyManager //Keybinds that will be used to control everythin
         }
         EventLogger.LogEvent($"No Keybind found for {Control}", EventLogger.LogType.Warning);
         return Keys.None;
+    }
+
+    public static bool KeyAlreadyUsed(Keys KeyChange)
+    {
+        foreach (KeyMap ActiveKey in Keybinds.Values)
+        {
+            if (ActiveKey.CurrentKey == KeyChange)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -30,7 +30,7 @@ public static class EventLogger
                 LogColour = ConsoleColor.Green;
                 break;
             case LogType.Info:
-                LogColour = ConsoleColor.White;
+                LogColour = ConsoleColor.Cyan;
                 break;
         }
         Console.ForegroundColor = LogColour;
@@ -44,7 +44,7 @@ public static class EventLogger
 
     public static void StartEventLog()
     {
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("Event Log Started");
         File.Delete(LogFilePath);
     }
