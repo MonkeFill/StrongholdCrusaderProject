@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
 
 namespace Stronghold_Crusader_Project;
 
@@ -9,7 +13,7 @@ public class PathFinding
     
 public class PathFind
 {
-    public static List<Coordinate> FindPath(Char[,] Grid, Coordinate StartCoordinate, Coordinate EndCoordinate)
+    public static List<Vector2> FindPath(Char[,] Grid, Vector2 StartCoordinate, Vector2 EndCoordinate)
     {
         
         int GridMaxY = Grid.GetLength(0) - 1;
@@ -32,18 +36,18 @@ public class PathFind
             {
                 for (int DifferenceY = -1; DifferenceY < 2; DifferenceY++) 
                 {
-                    Coordinate NeighbourCoordinate = new Coordinate(DifferenceX + CurrentNode.Position.X, DifferenceY + CurrentNode.Position.Y, true);
+                    Vector2 NeighbourCoordinate = new Vector2(DifferenceX + CurrentNode.Position.X, DifferenceY + CurrentNode.Position.Y);
                     if (NeighbourCoordinate.X < 0 || NeighbourCoordinate.X > GridMaxX || NeighbourCoordinate.Y < 0 || NeighbourCoordinate.Y > GridMaxY) //Checking if neighbours are out of bounds or not walkable anyways 
                     {
                         continue;
                     }
-                    if (Grid[NeighbourCoordinate.Y, NeighbourCoordinate.X] == 'W')
+                    if (Grid[(int)NeighbourCoordinate.Y, (int)NeighbourCoordinate.X] == 'W')
                     {
                         continue;
                     }
                     if (DifferenceX != 0 && DifferenceY != 0) //If it is a diagnal move
                     {
-                        if (Grid[CurrentNode.Position.Y, NeighbourCoordinate.X] == 'W' || Grid[NeighbourCoordinate.Y, CurrentNode.Position.X] == 'W') //Blocked by walls next to it
+                        if (Grid[(int)CurrentNode.Position.Y, (int)NeighbourCoordinate.X] == 'W' || Grid[(int)NeighbourCoordinate.Y, (int)CurrentNode.Position.X] == 'W') //Blocked by walls next to it
                         {
                             continue;
                         }
@@ -79,7 +83,7 @@ public class PathFind
                 }
             }
         }
-        return new List<Coordinate>(); //No path found
+        return new List<Vector2>(); //No path found
     }
 
     private static void AddNodeAndSort(List<Node> NodesToBeEvaluated, Node NodeToAdd)
@@ -95,9 +99,9 @@ public class PathFind
         }
     }
 
-    private static List<Coordinate> ReconstructPath(Node EndNode) //Recreate the best path
+    private static List<Vector2> ReconstructPath(Node EndNode) //Recreate the best path
     {
-        List<Coordinate> Path = new List<Coordinate>(); //New Path list
+        List<Vector2> Path = new List<Vector2>(); //New Path list
         Node CurrentNode = EndNode; //Final node
         while (CurrentNode != null) //Going through all the nodes for their previous positions
         {

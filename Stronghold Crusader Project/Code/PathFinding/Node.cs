@@ -1,27 +1,31 @@
 using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Stronghold_Crusader_Project;
 
 public class Node
 {
-    public Coordinate Position {get; set;}
+    public Vector2 Position {get; set;}
     public Node PreviousNode {get; set;}
     public float CostFromStart  {get; set;}
     public float CostFromEnd {get; set;}
     public float TotalCost => CostFromStart + CostFromEnd;
 
-    public Node(Coordinate position, float costFromStart, float costFromEnd)
+    public Node(Vector2 position, float costFromStart, float costFromEnd)
     {
         Position = position;
         CostFromStart = costFromStart;
         CostFromEnd = costFromEnd;
     }
 
-    public static float EstimatedDistance(Coordinate Start, Coordinate End) //Estimates the distance between two points
+    public static float EstimatedDistance(Vector2 Start, Vector2 End) //Estimates the distance between two points
     {
         //Octile distance - diagonal is not an equal move to straight moves
-        int DifferentX = Math.Abs(Start.X - End.X); 
-        int DifferentY = Math.Abs(Start.Y - End.Y); //Getting differences in positions
+        int DifferentX = Math.Abs((int)Start.X - (int)End.X); 
+        int DifferentY = Math.Abs((int)Start.Y - (int)End.Y); //Getting differences in positions
         float StraightCost = 1; //Amount it costs to move straight
         float DiagnalCost = 1.414f; //Amount it costs to move diagnally
         int Min = Math.Min(DifferentX, DifferentY); //Biggest Number
