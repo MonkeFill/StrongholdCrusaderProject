@@ -5,12 +5,10 @@ namespace Stronghold_Crusader_Project
 {
     public static class Program
     {
-        public static EventLogger Logger;
         public static Exception LatestException;
         public static void Main()
         {
-            bool UseExceptionHandler = true; //If error handling should be with the default handler
-            Logger = new EventLogger(); //Starting the logger
+            bool UseExceptionHandler = false; //If error handling should be with the default handler
             if (UseExceptionHandler)
             {
                 try
@@ -19,7 +17,7 @@ namespace Stronghold_Crusader_Project
                 }
                 catch (Exception ExceptionError)
                 {
-                    Logger.LogEvent($"{ExceptionError.StackTrace} - {ExceptionError.Message}", EventLogger.LogType.Error); //Logging the error it has had and where
+                    EventLogger.LogEvent($"{ExceptionError.StackTrace} - {ExceptionError.Message}", EventLogger.LogType.Error); //Logging the error it has had and where
                     LatestException = ExceptionError; //Storing the exception
                 }
             }
@@ -31,7 +29,7 @@ namespace Stronghold_Crusader_Project
 
         private static void RunGame()
         {
-            using var game = new Game1(Logger);
+            using var game = new Game1();
             game.Run();
         }
     }
