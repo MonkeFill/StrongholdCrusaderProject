@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Text.Json;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using Newtonsoft.Json;
+using Stronghold_Crusader_Project.Other;
+using JsonException = System.Text.Json.JsonException;
 
 namespace Stronghold_Crusader_Project.Mapping;
-public class Map
+public class MapData
 {
-    private string[,] TileMap;
+    public string[,] TileMap;
     private string[,] WalkSpace;
     private int MapHeight;
     private int MapLength;
@@ -19,12 +23,12 @@ public class Map
     private Dictionary<string, string> TileReference = new Dictionary<string, string>(); //Reference to where the tiles type folder can be found
     private string TileFolderPath = ""; //Folderpath for all the tile types
 
-    public Map()
+    public MapData()
     {
-        MapHeight = 200;
-        MapLength = 200;
+        MapHeight = GlobalConfig.MapHeght;
+        MapLength = GlobalConfig.MapLength;
         TileSize = 20;
-
+        TileMap = new string[MapHeight, MapLength];
         //Adding all the tiles
         TileReference.Add("W", Path.Combine(TileFolderPath, "Water")); //Water
         TileReference.Add("G", Path.Combine(TileFolderPath, "Grass")); //Grass
@@ -75,14 +79,49 @@ public class Map
         return Content.Load<Texture2D>(TexturePath);
     }
 
-    public void LoadMap(string FilePath)
+    public bool MapValid(string[,] ActiveMap)
     {
-        for (int HeightCount = 0; HeightCount < MapHeight; HeightCount++)
+        if (ActiveMap.GetLength(0) != MapHeight || ActiveMap.GetLength(1) != MapLength) //If it is the correct size
         {
-            for (int LengthCount = 0; LengthCount < MapLength; LengthCount++)
+            EventLogger.LogEvent("Map isn't the correct size", EventLogger.LogType.Error);
+            return false;
+        }
+
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapLength; PositionX++) //if any of the tiles are blank
             {
-                
+                string ActiveTile = ActiveMap[PositionY, PositionX];
+                if (string.IsNullOrEmpty(ActiveTile))
+                {
+                    EventLogger.LogEvent($"Map is empty at [{PositionY}, {PositionX}]", EventLogger.LogType.Error);
+                    return false;
+                }
             }
         }
+
+        return true;
+    }
+
+
+    public string MapAsText(string[,] ActiveMap)
+    {
+        StringBuilder MapText = new System.Text.StringBuilder();
+        MapText.AppendLine("Map = [");
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapLength; PositionX++)
+            {
+                string ActiveTile = ActiveMap[PositionY, PositionX];
+                MapText.Append(ActiveTile);
+                if (PositionX < MapLength - 1)
+                {
+                    MapText.Append(", ");
+                }
+            }
+            MapText.AppendLine();
+        }
+        MapText.AppendLine("]");
+        return MapText.ToString();
     }
 }
