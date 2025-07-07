@@ -6,11 +6,15 @@ namespace Stronghold_Crusader_Project;
 
 public static class GlobalConfig
 {
-    private static string CurrentDirectory = Environment.CurrentDirectory; //Directory of where the .csproj is 
-    private static string DefaultFolder = Directory.GetParent(CurrentDirectory).Parent.Parent.FullName;
-    public static string GameDataFolder = Path.Combine(DefaultFolder, "GameData");
+    //Folder Paths
+    private static string CurrentDirectory = Environment.CurrentDirectory; //Debug folder 
+    private static string DefaultFolder = Directory.GetParent(CurrentDirectory).Parent.Parent.FullName; //Directory of where the .csproj is 
+    public static string GameDataFolder = Path.Combine(DefaultFolder, "GameData"); 
     public static string MapsFolder = Path.Combine(GameDataFolder, "Maps");
     public static string SavesFolder = Path.Combine(GameDataFolder, "Saves");
+    private static string ContentFolder = Path.Combine(DefaultFolder, "Content", "Assets");
+    public static string TilesFolderFullPath = Path.Combine(ContentFolder, "Tiles");
+    public static string TilesFolderPathFromContent = "Assets/Tiles";
 
     public static int MapHeght = 3;
     public static int MapLength = 3;

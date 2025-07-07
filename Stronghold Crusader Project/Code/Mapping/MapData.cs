@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Text.Json;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Newtonsoft.Json;
 using Stronghold_Crusader_Project.Other;
-using JsonException = System.Text.Json.JsonException;
+using static Stronghold_Crusader_Project.Other.EventLogger;
 
 namespace Stronghold_Crusader_Project.Mapping;
 public class MapData
@@ -21,7 +19,8 @@ public class MapData
 
     // Tiles and the reference to their texture
     private Dictionary<string, string> TileReference = new Dictionary<string, string>(); //Reference to where the tiles type folder can be found
-    private string TileFolderPath = ""; //Folderpath for all the tile types
+    private string TilesFolderFullPath = GlobalConfig.TilesFolderFullPath; //Folderpath for all the tile types
+    private string TilesFolderPathFromContent = GlobalConfig.TilesFolderPathFromContent; //Folderpath from content for loading content
 
     public MapData()
     {
@@ -30,22 +29,23 @@ public class MapData
         TileSize = 20;
         TileMap = new string[MapHeight, MapLength];
         //Adding all the tiles
-        TileReference.Add("W", Path.Combine(TileFolderPath, "Water")); //Water
-        TileReference.Add("G", Path.Combine(TileFolderPath, "Grass")); //Grass
-        TileReference.Add("L", Path.Combine(TileFolderPath, "Land")); //Land
-        TileReference.Add("S", Path.Combine(TileFolderPath, "Stone")); //Stone
-        TileReference.Add("I", Path.Combine(TileFolderPath, "Iron")); //Iron
+        TileReference.Add("W", "Water"); //Water
+        TileReference.Add("L", "Land"); //Land
+        TileReference.Add("R", "Rock"); //Rock
+        TileReference.Add("S", "Stone"); //Stone
+        TileReference.Add("I", "Iron"); //Iron
+        TileReference.Add("G", "Grass"); //Grass
     }
 
     public void DrawMap(ContentManager Content, SpriteBatch ActiveSprite)
     {
-        for (int HeightCount = 0; HeightCount < MapHeight; HeightCount++)
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
         {
-            for (int LengthCount = 0; LengthCount < MapLength; LengthCount++)
+            for (int PositionX = 0; PositionX < MapLength; PositionX++)
             {
-                string ActiveTile = TileMap[LengthCount, HeightCount];
+                string ActiveTile = TileMap[PositionY, PositionX];
                 Texture2D ActiveTexture = LoadRandomTileTexture(TileReference[ActiveTile], Content);
-                Vector2 ActivePosition = new Vector2(LengthCount * TileSize, HeightCount * TileSize);
+                Vector2 ActivePosition = new Vector2(PositionX * TileSize, PositionY * TileSize);
                 ActiveSprite.Draw(ActiveTexture, ActivePosition, Color.White);
             }
         }
@@ -69,14 +69,24 @@ public class MapData
         }
     }
 
-    private Texture2D LoadRandomTileTexture(string FolderPath, ContentManager Content)
+    private Texture2D LoadRandomTileTexture(string TileName, ContentManager Content)
     {
-        int FolderFilesCount = Directory.GetFiles(FolderPath).Length;
-        Random RNG = new Random();
-        int TileVariantNumber = RNG.Next(1, FolderFilesCount + 1);
-        string FolderName = Path.GetFileName(FolderPath);
-        string TexturePath = Path.Combine(FolderPath, FolderName + TileVariantNumber.ToString());
-        return Content.Load<Texture2D>(TexturePath);
+        string ActiveContentPath = Path.Combine(TilesFolderPathFromContent, TileName);
+        string ActiveFilePath = Path.Combine(TilesFolderFullPath, TileName);
+        if (Directory.Exists(ActiveFilePath))
+        {
+            LogEvent($"{ActiveFilePath} is being accessed for the tiles", LogType.Info);
+            int FolderFilesCount = Directory.GetFiles(ActiveFilePath).Length;
+            Random RNG = new Random();
+            int TileVariantNumber = RNG.Next(1, FolderFilesCount + 1);
+            string TexturePath = Path.Combine(ActiveContentPath, (TileName + TileVariantNumber.ToString()));
+            return Content.Load<Texture2D>(TexturePath);
+        }
+        else
+        {
+            LogEvent($"{ActiveFilePath} does not exist!", LogType.Error);
+        }
+        return null;
     }
 
     public bool MapValid(string[,] ActiveMap)

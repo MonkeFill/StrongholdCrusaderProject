@@ -1,13 +1,15 @@
 using System;
 using System.IO;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using Stronghold_Crusader_Project.Other;
 
 namespace Stronghold_Crusader_Project.Mapping;
 
-public static class MapHandler
+public static class MapHandler //Handles Map logic
 {
-    static private MapData Map = new MapData();
+    static private MapData Map = new MapData(); 
     static string ActiveMapName = "TestMap";
     static string MapFolder = GlobalConfig.MapsFolder;
     static string MapPath = "";
@@ -23,6 +25,11 @@ public static class MapHandler
         Map.TileMap[2, 0] = "W";
         Map.TileMap[2, 1] = "R";
         Map.TileMap[2, 2] = "G";
+    }
+
+    public static void DisplayMap(ContentManager Content, SpriteBatch spriteBatch)
+    {
+        Map.DrawMap(Content, spriteBatch);
     }
 
     public static void ExportMap()
