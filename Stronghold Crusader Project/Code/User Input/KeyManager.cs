@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Input;
-using Stronghold_Crusader_Project.Other;
-
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
 public static class KeyManager //Keybinds that will be used to control everything

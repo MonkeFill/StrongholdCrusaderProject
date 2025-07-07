@@ -1,4 +1,4 @@
-namespace Stronghold_Crusader_Project.Mapping.Buildings;
+namespace Stronghold_Crusader_Project.Code.Buildings;
 
 public abstract class BuildingTemplate
 {

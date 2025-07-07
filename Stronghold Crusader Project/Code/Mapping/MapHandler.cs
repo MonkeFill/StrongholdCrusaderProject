@@ -1,11 +1,4 @@
-using System;
-using System.IO;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Newtonsoft.Json;
-using Stronghold_Crusader_Project.Other;
-
-namespace Stronghold_Crusader_Project.Mapping;
+namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public static class MapHandler //Handles Map logic
 {

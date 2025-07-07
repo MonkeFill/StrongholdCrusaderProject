@@ -1,7 +1,4 @@
-﻿using System;
-using Stronghold_Crusader_Project.Other; 
-
-namespace Stronghold_Crusader_Project
+﻿namespace Stronghold_Crusader_Project
 {
     public static class Program
     {

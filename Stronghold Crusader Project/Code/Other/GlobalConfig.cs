@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using Stronghold_Crusader_Project.Other;
-
-namespace Stronghold_Crusader_Project;
+namespace Stronghold_Crusader_Project.Code.Other;
 
 public static class GlobalConfig
 {
@@ -15,7 +11,8 @@ public static class GlobalConfig
     private static string ContentFolder = Path.Combine(DefaultFolder, "Content", "Assets");
     public static string TilesFolderFullPath = Path.Combine(ContentFolder, "Tiles");
     public static string TilesFolderPathFromContent = "Assets/Tiles";
-
+    
+    //Map Variables
     public static int MapHeght = 3;
     public static int MapLength = 3;
     public static void CheckGameDataFolder()

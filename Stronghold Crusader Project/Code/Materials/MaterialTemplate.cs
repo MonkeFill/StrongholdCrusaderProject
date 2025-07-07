@@ -1,4 +1,4 @@
-namespace Stronghold_Crusader_Project.Materials;
+namespace Stronghold_Crusader_Project.Code.Materials;
 
 public class MaterialTemplate
 {

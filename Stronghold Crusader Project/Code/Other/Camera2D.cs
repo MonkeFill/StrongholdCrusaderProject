@@ -1,10 +1,4 @@
-using System;
-using System.Reflection.PortableExecutable;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
-namespace Stronghold_Crusader_Project;
+namespace Stronghold_Crusader_Project.Code.Other;
 
 public class Camera2D
 {

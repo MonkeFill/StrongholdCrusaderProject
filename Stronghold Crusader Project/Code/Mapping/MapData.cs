@@ -1,14 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Stronghold_Crusader_Project.Other;
-using static Stronghold_Crusader_Project.Other.EventLogger;
-
-namespace Stronghold_Crusader_Project.Mapping;
+namespace Stronghold_Crusader_Project.Code.Mapping;
 public class MapData
 {
     public string[,] TileMap;

@@ -1,13 +1,9 @@
-using System;
-using System.IO;
+namespace Stronghold_Crusader_Project.Code.Other;
 
-namespace Stronghold_Crusader_Project.Other;
-
-
-public static class EventLogger
+public static class EventLogger //Event logger that will log to both console and a textfile
 {
-    static string LogFilePath = "Log.txt";
-    public enum LogType
+    static string LogFilePath = "Log.txt"; //Default path to where log.txt will be
+    public enum LogType //Log types will be outputted in a different colour
     {
         Error,
         Warning,
@@ -15,7 +11,7 @@ public static class EventLogger
         Info,
     }
 
-    public static void LogEvent(string Log, LogType TypeOfLog)
+    public static void LogEvent(string Log, LogType TypeOfLog) //Method to create an event for it to log
     {
         ConsoleColor LogColour =  ConsoleColor.White;
         switch (TypeOfLog)
@@ -42,7 +38,7 @@ public static class EventLogger
         FileWrite.Close();
     }
 
-    public static void StartEventLog()
+    public static void StartEventLog() //A method to start the log and delete the old log
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("Event Log Started");

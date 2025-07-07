@@ -1,7 +1,3 @@
-using System.Text.Json.Serialization;
-using Microsoft.Xna.Framework.Input;
-using Stronghold_Crusader_Project.Other;
-
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
 public class KeyMap //Keybind class so it has both current key, default key, ways to reset it, update it and make sure it all gets logged
