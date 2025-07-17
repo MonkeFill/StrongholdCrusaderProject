@@ -24,9 +24,21 @@ public class MapHandler
         Content = InputContent;
         LoadTextureMap();
     }
-    
-    
 
+    public void MapExportHandler()
+    {
+        string[,] SavedMap = SaveMap();
+        ExportMap(SavedMap);
+    }
+
+    public void MapImportHandler(string MapName)
+    {
+        string[,] ImportedMap = ImportMap(MapName);
+        if (ImportedMap != null)
+        {
+            LoadMap(ImportedMap);
+        }
+    }
     private void LoadTextureMap()
     {
         LogEvent("Loading texture map started", LogType.Info);
@@ -73,21 +85,7 @@ public class MapHandler
         }
         LogEvent("Loaded texture map finished" , LogType.Info);
     }
-    
-
-    private void SaveMap()
-    {
-        string[,] BasicMap = new string[MapHeight, MapWidth];
-        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
-        {
-            for (int PositionX = 0; PositionX < MapWidth; PositionX++)
-            {
-                string ActiveTileKey = Map[PositionY, PositionX].ExportTileKey();
-                BasicMap[PositionY, PositionX] = ActiveTileKey;
-            }
-        }
-    }
-    private bool ImportMap(string MapName)
+    private string[,] ImportMap(string MapName)
     {
         ActiveMapName = MapName;
         if (File.Exists(MapPath)) //Check if the map exists 
@@ -101,7 +99,7 @@ public class MapHandler
                 if (ValidMap(LoadedMap)) //If none of the map is null
                 {
                     LogEvent($"Map {MapName} has been imported", LogType.Info);
-                    return true;
+                    return LoadedMap;
                 }
             }
             catch (JsonSerializationException) //If it cannot deserialize it because it is not in the correct format
@@ -117,7 +115,18 @@ public class MapHandler
         {
             EventLogger.LogEvent($"Map {MapName} not found", LogType.Error);
         }
-        return false;
+        return null;
+    }
+    
+    public void ExportMap(string[,] ExportMap)
+    {
+        if (File.Exists(MapPath))
+        {
+            EventLogger.LogEvent($"{MapPath} already exists!", EventLogger.LogType.Warning);
+        }
+        string Json = JsonConvert.SerializeObject(ExportMap, Formatting.Indented);
+        File.WriteAllText(MapPath, Json);
+        EventLogger.LogEvent($"Map {Json} saved to {MapPath}", EventLogger.LogType.Info);
     }
     
     private bool ValidMap(string[,] LoadedMap) //Checking through all the tiles to make sure they aren't null
@@ -149,6 +158,20 @@ public class MapHandler
                 Map[PositionX, PositionY].ImportMapTile(ActiveTileKey, ActiveTexture, ActivePosition);
             }
         }
+    }
+    
+    private string[,] SaveMap()
+    {
+        string[,] BasicMap = new string[MapHeight, MapWidth];
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapWidth; PositionX++)
+            {
+                string ActiveTileKey = Map[PositionY, PositionX].ExportTileKey();
+                BasicMap[PositionY, PositionX] = ActiveTileKey;
+            }
+        }
+        return BasicMap;
     }
 
     private Texture2D GetTileTexture(string TileKey)
