@@ -8,13 +8,16 @@ public static class GlobalConfig
     public static string GameDataFolder = Path.Combine(DefaultFolder, "GameData"); 
     public static string MapsFolder = Path.Combine(GameDataFolder, "Maps");
     public static string SavesFolder = Path.Combine(GameDataFolder, "Saves");
-    private static string ContentFolder = Path.Combine(DefaultFolder, "Content", "Assets");
-    public static string TilesFolderFullPath = Path.Combine(ContentFolder, "Tiles");
+    private static string ContentFolder = Path.Combine(DefaultFolder, "Content");
     public static string TilesFolderPathFromContent = "Assets/Tiles";
+    public static string TilesFolderFullPath = Path.Combine(ContentFolder, "bin","DesktopGL", TilesFolderPathFromContent);
     
     //Map Variables
-    public static int MapHeght = 3;
-    public static int MapLength = 3;
+    public static int MapHeight = 3;
+    public static int MapWidth = 3;
+    public static int TileHeight = 32;
+    public static int TileWidth = 64;
+    public static int TileReferencePrefixLength = 1;
     public static void CheckGameDataFolder()
     {
         if (Directory.Exists(GameDataFolder)) //Does exist which it should do
