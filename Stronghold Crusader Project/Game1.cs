@@ -4,6 +4,7 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private MapHandler Mapping;
 
     public Game1()
     {
@@ -16,7 +17,8 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        MapHandler.AddTestData();
+        StartEventLog();
+        Mapping = new MapHandler(Content);
         base.Initialize();
     }
 
@@ -34,7 +36,6 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin();
-        MapHandler.DisplayMap(Content, _spriteBatch);
         // TODO: Add your drawing code here
         _spriteBatch.End();
         base.Draw(gameTime);
