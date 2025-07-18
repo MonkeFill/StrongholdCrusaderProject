@@ -20,7 +20,6 @@ global using Stronghold_Crusader_Project.Code.Buildings;
 global using Stronghold_Crusader_Project.Code.Mapping;
 global using Stronghold_Crusader_Project.Code.Materials;
 global using Stronghold_Crusader_Project.Code.Other;
-global using Stronghold_Crusader_Project.Code.PathFinding;
 global using Stronghold_Crusader_Project.Code.Player;
 global using Stronghold_Crusader_Project.Code.User_Input;
 

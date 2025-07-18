@@ -19,6 +19,7 @@ public class Game1 : Game
     {
         StartEventLog();
         Mapping = new MapHandler(Content);
+        Mapping.MapImportHandler("WrongFormatMap");
         base.Initialize();
     }
 

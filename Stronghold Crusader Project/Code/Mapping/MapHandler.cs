@@ -33,7 +33,8 @@ public class MapHandler
 
     public void MapImportHandler(string MapName)
     {
-        string[,] ImportedMap = ImportMap(MapName);
+        ActiveMapName = MapName;
+        string[,] ImportedMap = ImportMap();
         if (ImportedMap != null)
         {
             LoadMap(ImportedMap);
@@ -85,9 +86,8 @@ public class MapHandler
         }
         LogEvent("Loaded texture map finished" , LogType.Info);
     }
-    private string[,] ImportMap(string MapName)
+    private string[,] ImportMap() //Will import a map 
     {
-        ActiveMapName = MapName;
         if (File.Exists(MapPath)) //Check if the map exists 
         {
             string Json = File.ReadAllText(MapPath);
@@ -98,27 +98,27 @@ public class MapHandler
                 LoadedMap = JsonConvert.DeserializeObject<string[,]>(Json);
                 if (ValidMap(LoadedMap)) //If none of the map is null
                 {
-                    LogEvent($"Map {MapName} has been imported", LogType.Info);
+                    LogEvent($"Map {ActiveMapName} has been imported", LogType.Info);
                     return LoadedMap;
                 }
             }
             catch (JsonSerializationException) //If it cannot deserialize it because it is not in the correct format
             {
-                LogEvent($"Map {MapName} is not in the correct format and hasn't been loaded", LogType.Error);
+                LogEvent($"Map {ActiveMapName} is not in the correct format and hasn't been loaded", LogType.Error);
             }
             catch (Exception Error)
             {
-                LogEvent($"Map {MapName} could not be loaded, {Error.Message}", LogType.Error);
+                LogEvent($"Map {ActiveMapName} could not be loaded, {Error.Message}", LogType.Error);
             }
         }
         else
         {
-            EventLogger.LogEvent($"Map {MapName} not found", LogType.Error);
+            EventLogger.LogEvent($"Map {ActiveMapName} not found", LogType.Error);
         }
         return null;
     }
     
-    public void ExportMap(string[,] ExportMap)
+    public void ExportMap(string[,] ExportMap) //Export the basic key tile grid to a file
     {
         if (File.Exists(MapPath))
         {
@@ -131,46 +131,40 @@ public class MapHandler
     
     private bool ValidMap(string[,] LoadedMap) //Checking through all the tiles to make sure they aren't null
     {
-        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        bool Valid = true;
+        LoopThroughTiles((PositionX, PositionY) =>
         {
-            for (int PositionX = 0; PositionX < MapWidth; PositionX++)
+            if (string.IsNullOrWhiteSpace(LoadedMap[PositionX, PositionY]) )
             {
-                if (LoadedMap[PositionX, PositionY] == null)
-                {
-                    EventLogger.LogEvent($"tile at ({PositionX},{PositionY}) is invalid", LogType.Error);
-                    return false;
-                }
+                EventLogger.LogEvent($"tile at ({PositionX},{PositionY}) is invalid", LogType.Error);
+                Valid = false;
             }
-        }
+        });
         EventLogger.LogEvent($"{ActiveMapName} is a valid map", LogType.Info);
-        return true;
+        return Valid;
     }
 
-    private void LoadMap(string[,] LoadedMap)
+    private void LoadMap(string[,] LoadedMap) //Load Map will turn the basic grid of tile keys into actual tiles 
     {
-        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        LoopThroughTiles((PositionX, PositionY) =>
         {
-            for (int PositionX = 0; PositionX < MapWidth; PositionX++)
-            {
-                string ActiveTileKey = LoadedMap[PositionX, PositionY];
-                Texture2D ActiveTexture = GetTileTexture(ActiveTileKey);
-                Vector2 ActivePosition = new Vector2((TileWidth * PositionX), (TileHeight * PositionY));
-                Map[PositionX, PositionY].ImportMapTile(ActiveTileKey, ActiveTexture, ActivePosition);
-            }
-        }
+            string ActiveTileKey = LoadedMap[PositionX, PositionY];
+            Texture2D ActiveTexture = GetTileTexture(ActiveTileKey);
+            Vector2 ActivePosition = new Vector2((TileWidth * PositionX), (TileHeight * PositionY));
+            Map[PositionX, PositionY] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
+        });
+        LogEvent($"Map {ActiveMapName} has been loaded, here is the map \n {MapAsText()}", LogType.Info);
+        Console.WriteLine("");
     }
     
-    private string[,] SaveMap()
+    private string[,] SaveMap() //Save the map meaning it will turn the Map tiles into a basic grid of tile keys
     {
+        
         string[,] BasicMap = new string[MapHeight, MapWidth];
-        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        LoopThroughTiles((PositionX, PositionY) =>
         {
-            for (int PositionX = 0; PositionX < MapWidth; PositionX++)
-            {
-                string ActiveTileKey = Map[PositionY, PositionX].ExportTileKey();
-                BasicMap[PositionY, PositionX] = ActiveTileKey;
-            }
-        }
+            BasicMap[PositionX, PositionY] = Map[PositionX, PositionY].TileKey;
+        });
         return BasicMap;
     }
 
@@ -183,5 +177,42 @@ public class MapHandler
         LogEvent($"Tile Key {TileKey} could not be found in texture map" , LogType.Error);
         return TextureMap.First().Value;
     }
+
+    private string MapAsText()
+    {
+        StringBuilder MapText = new StringBuilder();
+        LoopThroughTiles((PositionX, PositionY) =>
+        {
+           MapText.Append(Map[PositionX, PositionY].TileKey);
+           if (PositionX == MapWidth-1)
+           {
+               MapText.AppendLine();
+           }
+           else
+           {
+               MapText.Append(",");
+           }
+        });
+        return MapText.ToString();
+    }
+
+    private void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
+    {
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+            {
+                ActionToDo(PositionX, PositionY); //Execute the action for that specific tile
+            }
+        }
+    }
+    
+    /*Template Lambda expression to use the method, must use lambda line to create a method inside a method but don't want to actually separate it
+    using the lambda it will run pieces of code after it for each x and y
+    LoopThroughTiles((PositionX, PositionY) =>
+    {
+    Any code you want to run here
+    });
+    end*/
 }
 

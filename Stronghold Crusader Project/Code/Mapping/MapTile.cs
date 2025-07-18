@@ -2,7 +2,7 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapTile
 {
-    string TileKey;
+    public string TileKey;
     bool Walkable;
     Texture2D Texture;
     Vector2 Position;
@@ -11,24 +11,14 @@ public class MapTile
     static readonly int TileWidth = GlobalConfig.TileWidth;
     static readonly int TileHeight = GlobalConfig.TileHeight;
     
-    public MapTile()
-    {
-        
-    }
-
-    public void ImportMapTile(string InputTileKey, Texture2D InputTexture, Vector2 InputPosition)
+    public MapTile(string InputTileKey, Texture2D InputTexture, Vector2 InputPosition)
     {
         TileKey = InputTileKey;
         Walkable = true;
         Texture = InputTexture;
         Position = InputPosition;
     }
-
-    public string ExportTileKey()
-    {
-        return TileKey;
-    }
-
+    
     public void Draw(SpriteBatch ActiveSpriteBatch, float CameraRotation)
     {
         ActiveSpriteBatch.Begin();
@@ -41,16 +31,9 @@ public class MapTile
         ActiveSpriteBatch.End();
     }
 
-    public void UpdateWalkable()
+    public void UpdateWalkable(bool NewWalkable)
     {
-        if (Walkable)
-        {
-            Walkable = false;
-        }
-        else
-        {
-            Walkable = true;
-        }
+        Walkable = NewWalkable;
     }
 
     public bool TileContains(Vector2 MousePosition) //Checks to see if the position of the mouse contains a tile 
