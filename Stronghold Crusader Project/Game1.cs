@@ -17,9 +17,14 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
+        Window.IsBorderless = true;
+        _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+        _graphics.ApplyChanges();
         StartEventLog();
+        Camera2D.Initialize(GraphicsDevice.Viewport);
         Mapping = new MapHandler(Content);
-        Mapping.MapImportHandler("WrongFormatMap");
+        Mapping.MapImportHandler("ValidMap");
         base.Initialize();
     }
 
@@ -36,8 +41,9 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        _spriteBatch.Begin();
         // TODO: Add your drawing code here
+        _spriteBatch.Begin();
+        Mapping.DrawMap(_spriteBatch);
         _spriteBatch.End();
         base.Draw(gameTime);
     }

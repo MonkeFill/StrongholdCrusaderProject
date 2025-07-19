@@ -19,16 +19,11 @@ public class MapTile
         Position = InputPosition;
     }
     
-    public void Draw(SpriteBatch ActiveSpriteBatch, float CameraRotation)
+    public void Draw(SpriteBatch ActiveSpriteBatch)
     {
-        ActiveSpriteBatch.Begin();
-        /*
         Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
-        Vector2 DrawPosition = Position +  TileCentre; //Setting the position of where to draw on the centre of the tile where its position is to be able to correctly rotate it
-        ActiveSpriteBatch.Draw(Texture, DrawPosition,null, Color.White, CameraRotation, TileCentre, 1f, SpriteEffects.None, 0f);
-        */
-        ActiveSpriteBatch.Draw(Texture, Position, Color.White);
-        ActiveSpriteBatch.End();
+        Vector2 IsometricPosition = ConvertPositionToIsometric();
+        ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, Camera2D.Rotation, TileCentre, 1f, SpriteEffects.None, 0f);
     }
 
     public void UpdateWalkable(bool NewWalkable)
@@ -56,6 +51,13 @@ public class MapTile
             return true;
         }
         return false;
+    }
+
+    private Vector2 ConvertPositionToIsometric()
+    {
+        float IsometricPositionX = (Position.X - Position.Y) * (TileWidth / 2.0f); 
+        float IsometricPositionY = (Position.Y + Position.X) * (TileHeight / 2.0f);
+        return new Vector2(IsometricPositionX, IsometricPositionY);
     }
     
 }

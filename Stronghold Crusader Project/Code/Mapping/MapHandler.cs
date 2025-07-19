@@ -150,7 +150,7 @@ public class MapHandler
         {
             string ActiveTileKey = LoadedMap[PositionX, PositionY];
             Texture2D ActiveTexture = GetTileTexture(ActiveTileKey);
-            Vector2 ActivePosition = new Vector2((TileWidth * PositionX), (TileHeight * PositionY));
+            Vector2 ActivePosition = new Vector2(PositionX, PositionY);
             Map[PositionX, PositionY] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
         });
         LogEvent($"Map {ActiveMapName} has been loaded, here is the map \n {MapAsText()}", LogType.Info);
@@ -214,5 +214,13 @@ public class MapHandler
     Any code you want to run here
     });
     end*/
+
+    public void DrawMap(SpriteBatch ActiveSpriteBatch)
+    {
+        LoopThroughTiles((PositionX, PositionY) =>
+        {
+            Map[PositionX, PositionY].Draw(ActiveSpriteBatch);
+        });
+    }
 }
 

@@ -1,20 +1,23 @@
+using System.Numerics;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
+
 namespace Stronghold_Crusader_Project.Code.Other;
 
-public class Camera2D
+public static class Camera2D
 {
-    private Vector2 Position {get; set;} //Position of camera
-    private float Zoom {get; set;} //Camera zoom
-    private float Rotation {get; set;} //Rotation of camera
-    private Viewport WindowFrame {get; set;} //Frame of the window 
-    private int PreviousScrollWheelValue {get; set;}
-    private float MinZoom = 0.2f;
-    private float MaxZoom = 5f;
-    private float ZoomSensitivity = 0.1f;
-    private Vector2 Direction;
-    private float MovementAmount = 20;
-    private float RotationAmount = MathHelper.ToRadians(90);
+    static Vector2 Position = Vector2.Zero; //Position of camera
+    static float Zoom = 1f; //Camera zoom
+    public static float Rotation = 0f; //Rotation of camera
+    static Viewport WindowFrame;  //Frame of the window 
+    static int PreviousScrollWheelValue = 0;
+    private static float MinZoom = 0.2f;
+    private static float MaxZoom = 5f;
+    private static float ZoomSensitivity = 0.1f;
+    private static Vector2 Direction;
+    private static float MovementAmount = 20;
+    private static float RotationAmount = MathHelper.ToRadians(90);
 
-    public Camera2D(Viewport viewport) //Initalise of a new camera
+    public static void Initialize(Viewport viewport) //Initialise of a new camera
     {
         Position = Vector2.Zero; //default values set
         Zoom = 1f;
@@ -23,7 +26,7 @@ public class Camera2D
         PreviousScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
     }
 
-    public Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
+    public static Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
     {
         Matrix NewTranslation = Matrix.CreateTranslation(-Position.X, -Position.Y, 0f);
         Matrix NewRotation = Matrix.CreateRotationZ(Rotation);
@@ -33,7 +36,7 @@ public class Camera2D
         return NewViewMatrix;
     }
 
-    public void UpdateCamera(MouseState ActiveMouse, KeyboardState ActiveKeyboard) //Updating the camera if a key is pressed or the mouse is scrolled
+    public static void UpdateCamera(MouseState ActiveMouse, KeyboardState ActiveKeyboard) //Updating the camera if a key is pressed or the mouse is scrolled
     {
         Direction = Vector2.Zero;
         int NewScrollWheelValue = Mouse.GetState().ScrollWheelValue - PreviousScrollWheelValue;
