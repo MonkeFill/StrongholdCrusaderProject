@@ -1,29 +1,49 @@
-using System.Numerics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Stronghold_Crusader_Project.Code.Other;
 
 public static class Camera2D
 {
+    
+    static readonly int MaxMapHeight = GlobalConfig.MaxMapHeight;
+    static readonly int MaxMapWidth = GlobalConfig.MaxMapWidth;
+    static readonly float MaxZoom = GlobalConfig.MaxZoom;
+    static readonly float ZoomSensitivity = GlobalConfig.ZoomSensitivity;
+    static readonly float MovementAmount = GlobalConfig.MovementAmount;
+    static readonly float MovementSpeed = GlobalConfig.MovementSpeed;
+    static readonly float RotationAmount = GlobalConfig.RotationAmount;
+    
     static Vector2 Position = Vector2.Zero; //Position of camera
-    static float Zoom = 1f; //Camera zoom
-    public static float Rotation = 0f; //Rotation of camera
+    private static Vector2 TargetPosition = Vector2.Zero;
+    private static float Zoom; //Camera zoom
+    public static float Rotation; //Rotation of camera
     static Viewport WindowFrame;  //Frame of the window 
-    static int PreviousScrollWheelValue = 0;
-    private static float MinZoom = 0.2f;
-    private static float MaxZoom = 5f;
-    private static float ZoomSensitivity = 0.1f;
-    private static Vector2 Direction;
-    private static float MovementAmount = 20;
-    private static float RotationAmount = MathHelper.ToRadians(90);
+    static int PreviousScrollWheelValue;
+    private static float HalfScreenHeight => WindowFrame.Height / 2f / Zoom;
+    private static float HalfScreenWidth => WindowFrame.Width / 2f / Zoom;
+    private static float MinZoom;
+
+    public enum CameraAction
+    {
+        Move,
+        Zoom,
+        Rotate,
+        None
+    }
 
     public static void Initialize(Viewport viewport) //Initialise of a new camera
     {
-        Position = Vector2.Zero; //default values set
-        Zoom = 1f;
+        //default values set
         Rotation = 0f;
         WindowFrame = viewport;
         PreviousScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
+       //Make sure that zoom min is fitting the whole map on either vertical or horizontal
+       float ZoomToFitVer = Math.Abs(MaxMapHeight / WindowFrame.Height);
+       float ZoomToFitHoriz = Math.Abs(MaxMapWidth / WindowFrame.Width);
+       MinZoom = Math.Min(ZoomToFitVer, ZoomToFitHoriz);
+       MinZoom = Math.Max(MinZoom, 0.5f);
+       Zoom = MinZoom;
+       Position = new Vector2(MaxMapWidth / 2f, MaxMapHeight / 2f);
     }
 
     public static Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
@@ -36,45 +56,55 @@ public static class Camera2D
         return NewViewMatrix;
     }
 
-    public static void UpdateCamera(MouseState ActiveMouse, KeyboardState ActiveKeyboard) //Updating the camera if a key is pressed or the mouse is scrolled
+    public static void UpdateCamera(GameTime InputGameTime, CameraAction InputAction, Vector2 PositionChange , float RotationChange, float ZoomChange) //Updating the camera
     {
-        Direction = Vector2.Zero;
-        int NewScrollWheelValue = Mouse.GetState().ScrollWheelValue - PreviousScrollWheelValue;
-        if (Keyboard.GetState().IsKeyDown(Keys.W))
+        float DeltaTime = (float)InputGameTime.ElapsedGameTime.TotalSeconds;
+        switch (InputAction)
         {
-            Direction += new Vector2(0, -1); //Move up
+            case  CameraAction.Move: //Move the camera to a new position
+                PositionChange.Normalize(); //Move same speed horizontally, vertically and diagonally
+                PositionChange = Vector2.Transform(PositionChange, Matrix.CreateRotationZ(Rotation)); //Create the new position change based on the rotation
+                TargetPosition += PositionChange * MovementAmount * DeltaTime; //New position for where it should go
+                break;
+            case  CameraAction.Zoom: //Zooming into where the mouse is 
+                MouseState ActiveMouse = Mouse.GetState(); //Getting coordinates of mouse
+                Vector2 MouseScreenPreZoom = CameraScreenToWorld(new Vector2(ActiveMouse.X, ActiveMouse.Y)); //Turning it into coordinates of the world
+                Zoom += (ZoomChange * ZoomSensitivity); //Adding the zoom
+                Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom); //Making sure it isn't too high or low
+                Vector2 MouseScreenAfterZoom = CameraScreenToWorld(new Vector2(ActiveMouse.X, ActiveMouse.Y)); //Getting coordinates of mouse after zoom
+                Vector2 MouseZoomOffset = MouseScreenPreZoom - MouseScreenAfterZoom; //Finding difference
+                Position += MouseZoomOffset; //Adding difference to camera position
+                TargetPosition = Position; //Target Position to use lerp to go to it
+                break;
         }
-        if (Keyboard.GetState().IsKeyDown(Keys.S))
+        Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
+        ClampCamera();
+       }
+    private static Vector2 CameraScreenToWorld(Vector2 ScreenPosition) //Converting screen position to actual world position
+    {
+        Matrix InvertedMatrix = Matrix.Invert(GetViewMatrix());
+        return Vector2.Transform(ScreenPosition, InvertedMatrix);
+    }
+
+    private static void ClampCamera() //A method to make sure that the camera doesn't go outside the bounds
+    {
+        float MaxPositionX = MaxMapWidth - HalfScreenWidth; //MaxHeight Camera can go
+        float MaxPositionY = MaxMapHeight - HalfScreenHeight;
+
+        float MinPositionX = HalfScreenWidth; //Smallest height camera can go
+        float MinPositionY = HalfScreenHeight;
+
+        if (MaxMapWidth <= HalfScreenWidth * 2) //Checking if the tiles fit all on the screen
         {
-            Direction += new Vector2(0, 1); //Move Down
+            MinPositionX = MaxPositionX = MaxMapWidth / 2f;
         }
-        if (Keyboard.GetState().IsKeyDown(Keys.A))
+        if (MaxMapHeight <= HalfScreenHeight * 2)
         {
-            Direction += new Vector2(-1, 0); //Move Left
+            MinPositionY = MaxPositionY = MaxMapHeight / 2f;
         }
-        if (Keyboard.GetState().IsKeyDown(Keys.D))
-        {
-            Direction += new Vector2(1, 0); //Move Right
-        }
-        if (Keyboard.GetState().IsKeyDown(Keys.Q))
-        {
-            Rotation -= RotationAmount; //Rotating the camera left
-        }
-        if (Keyboard.GetState().IsKeyDown(Keys.E))
-        {
-            Rotation += RotationAmount; //Rotating the camera right
-        }
-        if (NewScrollWheelValue != PreviousScrollWheelValue)
-        {
-            Zoom  += (NewScrollWheelValue / 120f) * ZoomSensitivity; //Create the new zoom
-            Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom); //Making sure it doesn't zoom too much
-        }
-        PreviousScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Setting the new scroll wheel value
-        if (Direction != Vector2.Zero) //Setting the new direction
-        {
-            Direction.Normalize();
-            Direction = Vector2.Transform(Direction, Matrix.CreateRotationZ(-Rotation));
-            Position += Direction * MovementAmount;
-        }
+        Position.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
+        Position.Y = MathHelper.Clamp(Position.Y, MinPositionY, MaxPositionY);
+        TargetPosition.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
+        TargetPosition.Y = MathHelper.Clamp(Position.Y, MinPositionY, MaxPositionY);
     }
 }

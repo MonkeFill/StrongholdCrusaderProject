@@ -13,11 +13,23 @@ public static class GlobalConfig
     public static string TilesFolderFullPath = Path.Combine(ContentFolder, "bin","DesktopGL", TilesFolderPathFromContent);
     
     //Map Variables
-    public static int MapHeight = 3;
-    public static int MapWidth = 3;
+    public static int MapHeight = 100;
+    public static int MapWidth = 100;
     public static int TileHeight = 32;
     public static int TileWidth = 64;
     public static int TileReferencePrefixLength = 1;
+    public static int BorderHeight = 200;
+    public static int BorderWidth = 200;
+    public static int MaxMapHeight = ((MapHeight * TileHeight) /2) + BorderHeight;
+    public static int MaxMapWidth = (MapWidth * TileWidth) + BorderWidth;
+    
+    //Camera Variables
+    public static float MaxZoom = 3f;
+    public static float ZoomSensitivity = 0.01f;
+    public static float MovementAmount = 200f;
+    public static float MovementSpeed = 150f;
+    public static float RotationAmount = MathHelper.ToRadians(90);
+    
     public static void CheckGameDataFolder()
     {
         if (Directory.Exists(GameDataFolder)) //Does exist which it should do

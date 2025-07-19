@@ -22,9 +22,9 @@ public class Game1 : Game
         _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         _graphics.ApplyChanges();
         StartEventLog();
-        Camera2D.Initialize(GraphicsDevice.Viewport);
         Mapping = new MapHandler(Content);
-        Mapping.MapImportHandler("ValidMap");
+        Mapping.MapImportHandler("Map1");
+        Camera2D.Initialize(GraphicsDevice.Viewport);
         base.Initialize();
     }
 
@@ -35,6 +35,52 @@ public class Game1 : Game
 
     protected override void Update(GameTime gameTime)
     { 
+        
+        double deltaTime = gameTime.ElapsedGameTime.TotalSeconds;
+
+        if (deltaTime > 0)
+        {
+            double fps = 1.0 / deltaTime;
+            //Console.WriteLine($"FPS: {fps:F2}");
+        }
+        
+        
+        CameraAction Action = CameraAction.None;
+        KeyboardState keyboardState = Keyboard.GetState();
+        Vector2 PositionChange = Vector2.Zero;
+        float ZoomChange = 0f;
+        float  RotationChange = 0f;
+        if (keyboardState.IsKeyDown(Keys.W))
+        {
+            PositionChange.Y--;
+            Action = CameraAction.Move;
+        }
+        else if (keyboardState.IsKeyDown(Keys.S))
+        {
+            PositionChange.Y++;
+            Action = CameraAction.Move;
+        }
+        if (keyboardState.IsKeyDown(Keys.A))
+        {
+            PositionChange.X--;
+            Action = CameraAction.Move;
+        }
+        else if (keyboardState.IsKeyDown(Keys.D))
+        {
+            PositionChange.X++;
+            Action = CameraAction.Move;
+        }
+        if (keyboardState.IsKeyDown(Keys.OemPlus))
+        {
+            Action = CameraAction.Zoom;
+            ZoomChange = 1; 
+        }
+        else if (keyboardState.IsKeyDown(Keys.OemMinus))
+        {
+            Action = CameraAction.Zoom;
+            ZoomChange = -1; 
+        }
+        UpdateCamera(gameTime, Action, PositionChange, RotationChange, ZoomChange);
         base.Update(gameTime);
     }
 
@@ -42,7 +88,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin();
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
         Mapping.DrawMap(_spriteBatch);
         _spriteBatch.End();
         base.Draw(gameTime);
