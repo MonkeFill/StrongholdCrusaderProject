@@ -10,6 +10,8 @@ public class MapTile
     //Static readonly variables that will be used across multiple methods but don't want it to update constantly or keep storing it in every instance
     static readonly int TileWidth = GlobalConfig.TileWidth;
     static readonly int TileHeight = GlobalConfig.TileHeight;
+    static readonly int BorderHeight = GlobalConfig.BorderHeight;
+    static readonly int BorderWidth = GlobalConfig.BorderWidth;
     
     public MapTile(string InputTileKey, Texture2D InputTexture, Vector2 InputPosition)
     {
@@ -23,6 +25,8 @@ public class MapTile
     {
         Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
         Vector2 IsometricPosition = GridToStaggeredDraw();
+        IsometricPosition.X += BorderWidth;
+        IsometricPosition.Y += BorderHeight;
         ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, Camera2D.Rotation, TileCentre, 1f, SpriteEffects.None, 0f);
     }
 

@@ -20,11 +20,11 @@ public static class GlobalConfig
     public static int TileReferencePrefixLength = 1;
     public static int BorderHeight = 200;
     public static int BorderWidth = 200;
-    public static int MaxMapHeight = ((MapHeight * TileHeight) /2) + BorderHeight;
-    public static int MaxMapWidth = (MapWidth * TileWidth) + BorderWidth;
+    public static int MaxMapHeight = ((MapHeight * TileHeight) /2) +(BorderHeight * 2);
+    public static int MaxMapWidth = (MapWidth * TileWidth) + (BorderWidth * 2);
     
     //Camera Variables
-    public static float MaxZoom = 3f;
+    public static float MaxZoom = 2f;
     public static float ZoomSensitivity = 0.01f;
     public static float MovementAmount = 200f;
     public static float MovementSpeed = 150f;
