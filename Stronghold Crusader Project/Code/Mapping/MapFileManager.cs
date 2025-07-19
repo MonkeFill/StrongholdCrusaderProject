@@ -110,6 +110,7 @@ public class MapFileManager
             if (PositionX == MapWidth-1)
             {
                 MapText.AppendLine();
+                MapText.AppendLine();
             }
             else
             {

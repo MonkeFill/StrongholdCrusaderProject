@@ -22,7 +22,7 @@ public class MapTile
     public void Draw(SpriteBatch ActiveSpriteBatch)
     {
         Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
-        Vector2 IsometricPosition = GridToIsometric();
+        Vector2 IsometricPosition = GridToStaggeredDraw();
         ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, Camera2D.Rotation, TileCentre, 1f, SpriteEffects.None, 0f);
     }
 
@@ -53,11 +53,18 @@ public class MapTile
         return false;
     }
 
-    private Vector2 GridToIsometric()
+    private Vector2 GridToStaggeredDraw()
     {
-        float IsometricPositionX = (Position.X - Position.Y) * (TileWidth / 2.0f); 
-        float IsometricPositionY = (Position.Y + Position.X) * (TileHeight / 2.0f);
-        return new Vector2(IsometricPositionX, IsometricPositionY);
+        float OffSetX = 0;
+        float OffSetY = 0;
+        if ((int)Position.Y % 2 != 0)//If it is an even row it will be shifted right by half a tile
+        {
+            OffSetX = TileWidth / 2; 
+            OffSetY = TileHeight / 2;
+        }
+        float NewPositionX = (Position.X * TileWidth) + OffSetX;
+        float NewPositionY = (Position.Y * (TileHeight / 2));
+        return new Vector2(NewPositionX, NewPositionY);
     }
     
 }
