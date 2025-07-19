@@ -14,7 +14,7 @@ public class MapHandler
     static readonly int TileHeight = GlobalConfig.TileHeight;
     static readonly int TileWidth = GlobalConfig.TileWidth;
     
-    public MapTile[,] Map = new MapTile[MapWidth, MapHeight];
+    public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
     public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
     public string ActiveMapName;
     public string MapPath => Path.Combine(MapFolder, (ActiveMapName + ".json"));
@@ -96,7 +96,7 @@ public class MapHandler
         {
             for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
             {
-                ActionToDo(PositionX, PositionY); //Execute the action for that specific tile
+                ActionToDo(PositionY, PositionX); //Execute the action for that specific tile
             }
         }
     }
@@ -113,7 +113,7 @@ public class MapHandler
     {
         LoopThroughTiles((PositionX, PositionY) =>
         {
-            Map[PositionX, PositionY].Draw(ActiveSpriteBatch);
+            Map[PositionY, PositionX].Draw(ActiveSpriteBatch);
         });
     }
 }

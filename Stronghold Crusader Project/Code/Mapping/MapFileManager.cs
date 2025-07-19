@@ -25,7 +25,7 @@ public class MapFileManager
         if (File.Exists(MapPath)) //Check if the map exists 
         {
             string Json = File.ReadAllText(MapPath);
-            string[,] LoadedMap = new string[MapWidth, MapHeight];
+            string[,] LoadedMap = new string[MapHeight, MapWidth];
             EventLogger.LogEvent($"{MapPath} found and is being loaded", LogType.Info);
             try
             {
@@ -69,7 +69,7 @@ public class MapFileManager
         string[,] BasicMap = new string[MapHeight, MapWidth];
         MapHandling.LoopThroughTiles((PositionX, PositionY) =>
         {
-            BasicMap[PositionX, PositionY] = Map[PositionX, PositionY].TileKey;
+            BasicMap[PositionY, PositionX] = Map[PositionY, PositionX].TileKey;
         });
         return BasicMap;
     }
@@ -78,10 +78,10 @@ public class MapFileManager
     {
         MapHandling.LoopThroughTiles((PositionX, PositionY) =>
         {
-            string ActiveTileKey = LoadedMap[PositionX, PositionY];
+            string ActiveTileKey = LoadedMap[PositionY, PositionX];
             Texture2D ActiveTexture = GetTileTexture(ActiveTileKey);
             Vector2 ActivePosition = new Vector2(PositionX, PositionY);
-            Map[PositionX, PositionY] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
+            Map[PositionY, PositionX] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
         });
         LogEvent($"Map {MapName} has been loaded, here is the map \n {MapAsText(LoadedMap)}", LogType.Info);
     }
@@ -91,7 +91,7 @@ public class MapFileManager
         bool Valid = true;
         MapHandling.LoopThroughTiles((PositionX, PositionY) =>
         {
-            if (string.IsNullOrWhiteSpace(LoadedMap[PositionX, PositionY]) )
+            if (string.IsNullOrWhiteSpace(LoadedMap[PositionY, PositionX]) )
             {
                 EventLogger.LogEvent($"tile at ({PositionX},{PositionY}) is invalid", LogType.Error);
                 Valid = false;
@@ -106,7 +106,7 @@ public class MapFileManager
         StringBuilder MapText = new StringBuilder();
         MapHandling.LoopThroughTiles((PositionX, PositionY) =>
         {
-            MapText.Append(Map[PositionX, PositionY]);
+            MapText.Append(Map[PositionY, PositionX]);
             if (PositionX == MapWidth-1)
             {
                 MapText.AppendLine();
