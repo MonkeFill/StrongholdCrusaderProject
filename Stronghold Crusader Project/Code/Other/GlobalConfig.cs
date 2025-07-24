@@ -20,15 +20,23 @@ public static class GlobalConfig
     public static int TileReferencePrefixLength = 1;
     public static int BorderHeight = 200;
     public static int BorderWidth = 200;
-    public static int MaxMapHeight = ((MapHeight * TileHeight) /2) +(BorderHeight * 2);
-    public static int MaxMapWidth = (MapWidth * TileWidth) + (BorderWidth * 2);
+    public static int MapTotalHeight = (MapHeight - 1) * (TileHeight / 2);
+    public static int MapTotalWidth = (MapWidth - 1) * TileWidth; 
+    public static int MaxMapHeight => GetMaxMapHeight();
+    public static int MaxMapWidth => GetMaxMapWidth();
     
     //Camera Variables
     public static float MaxZoom = 2f;
     public static float ZoomSensitivity = 0.01f;
     public static float MovementAmount = 200f;
     public static float MovementSpeed = 150f;
-    public static float RotationAmount = MathHelper.ToRadians(90);
+    private static float Degree90InPi = MathHelper.PiOver2;
+    private static float Degree270InPi = 3 * MathHelper.PiOver2;
+    private static float Degree90Difference => Math.Abs(Rotation - Degree90InPi);
+    private static float Degree270Difference => Math.Abs(Rotation - Degree270InPi);
+    static float DegreeDifferenceTolerance = 0.1f;
+    public static float RotationAmount = Degree90InPi;
+    public static bool MapVertical => MapIsVertical();
     
     public static void CheckGameDataFolder()
     {
@@ -73,5 +81,30 @@ public static class GlobalConfig
         EventLogger.LogEvent("SavesFolder folder not found", EventLogger.LogType.Error);
         Directory.CreateDirectory(SavesFolder);
         EventLogger.LogEvent($"SavesFolder created at {SavesFolder}", EventLogger.LogType.Info);
+    }
+    private static int GetMaxMapHeight()
+    {
+        if (MapVertical)
+        {
+            return MapTotalWidth + (BorderHeight * 2);
+        }
+        return MapTotalHeight + (BorderHeight * 2);
+    }
+    private static int GetMaxMapWidth()
+    {
+        if (MapVertical)
+        {
+            return MapTotalHeight + (BorderWidth * 2);
+        }
+        return MapTotalWidth + (BorderWidth * 2);
+    }
+
+    public static bool MapIsVertical()
+    {
+        if (Degree90Difference < DegreeDifferenceTolerance || Degree270Difference < DegreeDifferenceTolerance)
+        {
+            return true;
+        }
+        return false;
     }
 }

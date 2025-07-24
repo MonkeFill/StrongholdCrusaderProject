@@ -1,10 +1,21 @@
-﻿namespace Stronghold_Crusader_Project;
+﻿using System.Threading;
+
+namespace Stronghold_Crusader_Project;
 
 public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private MapHandler Mapping;
+    float RotationCooldownTime = 1f;
+    float RotationCoolDown = 0f;
+    Texture2D TempPixel;
+    static readonly int MapTotalHeight = GlobalConfig.MapTotalHeight;
+    static readonly int MapTotalWidth = GlobalConfig.MapTotalWidth;
+    static readonly int BorderHeight = GlobalConfig.BorderHeight;
+    static readonly int BorderWidth = GlobalConfig.BorderWidth;
+    static readonly int MaxMapHeight = GlobalConfig.MaxMapHeight;
+    static readonly int MaxMapWidth = GlobalConfig.MaxMapWidth;
 
     public Game1()
     {
@@ -31,17 +42,19 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        TempPixel = new Texture2D(GraphicsDevice, 1, 1);
+        TempPixel.SetData(new[] { Color.White });
     }
 
     protected override void Update(GameTime gameTime)
     { 
-        
         double deltaTime = gameTime.ElapsedGameTime.TotalSeconds;
+        RotationCoolDown -= (float)deltaTime;
 
         if (deltaTime > 0)
         {
-            double fps = 1.0 / deltaTime;
-            //Console.WriteLine($"FPS: {fps:F2}");
+            double FPS = 1.0 / deltaTime;
+            //Console.WriteLine($"FPS - {FPS:F2}");
         }
         
         
@@ -80,6 +93,21 @@ public class Game1 : Game
             Action = CameraAction.Zoom;
             ZoomChange = -1; 
         }
+        if (RotationCoolDown <= 0)
+        {
+            if (keyboardState.IsKeyDown(Keys.Q))
+            {
+                Action = CameraAction.Rotate;
+                RotationChange = 1;
+                RotationCoolDown = RotationCooldownTime;
+            }
+            else if (keyboardState.IsKeyDown(Keys.E))
+            {
+                Action = CameraAction.Rotate;
+                RotationChange = -1;
+                RotationCoolDown = RotationCooldownTime;
+            }
+        }
         UpdateCamera(gameTime, Action, PositionChange, RotationChange, ZoomChange);
         base.Update(gameTime);
     }
@@ -88,9 +116,14 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.PointClamp);
         Mapping.DrawMap(_spriteBatch);
+        _spriteBatch.Draw(TempPixel, new Rectangle(0,0, MaxMapWidth, BorderHeight), Color.Red);
+        _spriteBatch.Draw(TempPixel, new Rectangle(0,0,BorderWidth, MaxMapHeight), Color.Pink);
+        _spriteBatch.Draw(TempPixel, new Rectangle(0,MaxMapHeight - BorderWidth, MaxMapWidth, BorderHeight), Color.BlueViolet);
+        _spriteBatch.Draw(TempPixel, new Rectangle(MaxMapWidth - BorderWidth,0, BorderWidth, MaxMapHeight), Color.Orange);
         _spriteBatch.End();
+        
         base.Draw(gameTime);
     }
 }

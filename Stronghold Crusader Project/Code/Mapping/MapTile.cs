@@ -25,9 +25,9 @@ public class MapTile
     {
         Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
         Vector2 IsometricPosition = GridToStaggeredDraw();
-        IsometricPosition.X += BorderWidth;
-        IsometricPosition.Y += BorderHeight;
-        ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, Camera2D.Rotation, TileCentre, 1f, SpriteEffects.None, 0f);
+        IsometricPosition.X += BorderWidth - (TileWidth / 2);
+        IsometricPosition.Y += BorderHeight - (TileHeight / 2);
+        ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, 0f, TileCentre, 1f, SpriteEffects.None, 0f);
     }
 
     public void UpdateWalkable(bool NewWalkable)

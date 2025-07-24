@@ -5,8 +5,13 @@ namespace Stronghold_Crusader_Project.Code.Other;
 public static class Camera2D
 {
     
-    static readonly int MaxMapHeight = GlobalConfig.MaxMapHeight;
-    static readonly int MaxMapWidth = GlobalConfig.MaxMapWidth;
+    static readonly int MapTotalHeight = GlobalConfig.MapTotalHeight;
+    static readonly int MapTotalWidth = GlobalConfig.MapTotalWidth;
+    static readonly int BorderHeight = GlobalConfig.BorderHeight;
+    static readonly int BorderWidth = GlobalConfig.BorderWidth;
+    static float MaxMapHeight => GlobalConfig.MaxMapHeight;
+    static float MaxMapWidth => GlobalConfig.MaxMapWidth;
+    static bool  MapVertical => GlobalConfig.MapVertical;
     static readonly float MaxZoom = GlobalConfig.MaxZoom;
     static readonly float ZoomSensitivity = GlobalConfig.ZoomSensitivity;
     static readonly float MovementAmount = GlobalConfig.MovementAmount;
@@ -22,6 +27,7 @@ public static class Camera2D
     private static float HalfScreenHeight => WindowFrame.Height / 2f / Zoom;
     private static float HalfScreenWidth => WindowFrame.Width / 2f / Zoom;
     private static float MinZoom;
+    private static Vector2 ScreenCentre =>  new Vector2(WindowFrame.Width / 2f, WindowFrame.Height / 2f);
 
     public enum CameraAction
     {
@@ -37,13 +43,10 @@ public static class Camera2D
         Rotation = 0f;
         WindowFrame = viewport;
         PreviousScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
-       //Make sure that zoom min is fitting the whole map on either vertical or horizontal
-       float ZoomToFitVer = Math.Abs(MaxMapHeight / WindowFrame.Height);
-       float ZoomToFitHoriz = Math.Abs(MaxMapWidth / WindowFrame.Width);
-       MinZoom = Math.Min(ZoomToFitVer, ZoomToFitHoriz);
-       MinZoom = Math.Max(MinZoom, 0.5f);
-       Zoom = MinZoom;
-       Position = new Vector2(MaxMapWidth / 2f, MaxMapHeight / 2f);
+        MinZoom = GetMinimumZoom();
+        Zoom = MinZoom;
+        //Zoom = MaxZoom - MinZoom;
+        Position = new Vector2(MaxMapWidth / 2f, MaxMapHeight / 2f);
     }
 
     public static Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
@@ -51,31 +54,34 @@ public static class Camera2D
         Matrix NewTranslation = Matrix.CreateTranslation(-Position.X, -Position.Y, 0f);
         Matrix NewRotation = Matrix.CreateRotationZ(Rotation);
         Matrix NewScale = Matrix.CreateScale(Zoom, Zoom, 1f);
-        Matrix ScreenCentre = Matrix.CreateTranslation(WindowFrame.Width / 2f, WindowFrame.Height / 2f, 0f);
-        Matrix NewViewMatrix = NewTranslation * NewRotation * NewScale * ScreenCentre;
+        Matrix ScreenCentreMatrix = Matrix.CreateTranslation(ScreenCentre.X, ScreenCentre.Y, 0f);
+        Matrix NewViewMatrix = NewTranslation * NewScale * NewRotation * ScreenCentreMatrix;
         return NewViewMatrix;
     }
 
     public static void UpdateCamera(GameTime InputGameTime, CameraAction InputAction, Vector2 PositionChange , float RotationChange, float ZoomChange) //Updating the camera
     {
         float DeltaTime = (float)InputGameTime.ElapsedGameTime.TotalSeconds;
-        switch (InputAction)
+        if (InputAction != CameraAction.None)
         {
-            case  CameraAction.Move: //Move the camera to a new position
-                PositionChange.Normalize(); //Move same speed horizontally, vertically and diagonally
-                PositionChange = Vector2.Transform(PositionChange, Matrix.CreateRotationZ(Rotation)); //Create the new position change based on the rotation
-                TargetPosition += PositionChange * MovementAmount * DeltaTime; //New position for where it should go
-                break;
-            case  CameraAction.Zoom: //Zooming into where the mouse is 
-                MouseState ActiveMouse = Mouse.GetState(); //Getting coordinates of mouse
-                Vector2 MouseScreenPreZoom = CameraScreenToWorld(new Vector2(ActiveMouse.X, ActiveMouse.Y)); //Turning it into coordinates of the world
-                Zoom += (ZoomChange * ZoomSensitivity); //Adding the zoom
-                Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom); //Making sure it isn't too high or low
-                Vector2 MouseScreenAfterZoom = CameraScreenToWorld(new Vector2(ActiveMouse.X, ActiveMouse.Y)); //Getting coordinates of mouse after zoom
-                Vector2 MouseZoomOffset = MouseScreenPreZoom - MouseScreenAfterZoom; //Finding difference
-                Position += MouseZoomOffset; //Adding difference to camera position
-                TargetPosition = Position; //Target Position to use lerp to go to it
-                break;
+            Vector2 WorldBeforeChange = CameraScreenToWorld(ScreenCentre); //Getting how the world it is before 
+            switch (InputAction)
+            {
+                case CameraAction.Move: //Move the camera to a new position
+                    PositionChange.Normalize(); //Move same speed horizontally, vertically and diagonally
+                    PositionChange = Vector2.Transform(PositionChange, Matrix.CreateRotationZ(-Rotation)); //Create the new position change based on the rotation
+                    TargetPosition += PositionChange * MovementAmount * DeltaTime; //New position for where it should go
+                    break;
+                case CameraAction.Zoom: //Zooming into where the mouse is 
+                    Zoom += (ZoomChange * ZoomSensitivity); //Adding the zoom
+                    break;
+                case CameraAction.Rotate:
+                    Rotation += RotationAmount * RotationChange; //Adding rotations
+                    break;
+            }
+            Vector2 WorldAfterChange = CameraScreenToWorld(ScreenCentre);
+            Vector2 WorldOffSet = WorldBeforeChange - WorldAfterChange;
+            Position += WorldOffSet;
         }
         Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
         ClampCamera();
@@ -88,23 +94,65 @@ public static class Camera2D
 
     private static void ClampCamera() //A method to make sure that the camera doesn't go outside the bounds
     {
-        float MaxPositionX = MaxMapWidth - HalfScreenWidth; //MaxHeight Camera can go
-        float MaxPositionY = MaxMapHeight - HalfScreenHeight;
-
-        float MinPositionX = HalfScreenWidth; //Smallest height camera can go
-        float MinPositionY = HalfScreenHeight;
-
-        if (MaxMapWidth <= HalfScreenWidth * 2) //Checking if the tiles fit all on the screen
+        //Camera Zoom Clamping
+        Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom); //Making sure it isn't too high or low
+        //Camera Rotation Clamping
+        Rotation = Rotation % MathHelper.TwoPi; //Making it loop through 360 degrees
+        if (Rotation < 0) //If it goes negative whilst turning left
         {
-            MinPositionX = MaxPositionX = MaxMapWidth / 2f;
+            Rotation += MathHelper.TwoPi; //Adding 360 to keep it within the loop
         }
-        if (MaxMapHeight <= HalfScreenHeight * 2)
+        
+        //Camera Movement Clamping
+        float MaxPositionX = 0;
+        float MaxPositionY = 0;
+        float MinPositionX = 0;
+        float MinPositionY = 0;
+        if (MapVertical) //Two seperate clamps wether the map is vertical or not since it will use different variables as it inverts the coordinates
         {
-            MinPositionY = MaxPositionY = MaxMapHeight / 2f;
+            MaxPositionY = MaxMapWidth - HalfScreenWidth; //Max width the camera can go to
+            MaxPositionX = MaxMapHeight - HalfScreenHeight; //Max height the camera can go to
+            MinPositionY = HalfScreenWidth; //min width the camera can go to
+            MinPositionX = HalfScreenHeight; //min height the camera can go to
+            
+            if (MaxMapWidth <= HalfScreenWidth * 2) //If the map isn't as wide as the monitor
+            {
+                MinPositionY = MaxPositionY = MaxMapWidth / 2; //set the min and max to the width of the monitor
+            }
+            if (MaxMapHeight <= HalfScreenHeight * 2) //if the map isn't as tall as the monitor
+            {
+                MinPositionX = MaxPositionX = MaxMapHeight / 2; //set the min and max to the height of the monitor
+            }
+        }
+        else
+        {
+            MaxPositionX = MaxMapWidth - HalfScreenWidth; //Max width the camera can go to
+            MaxPositionY = MaxMapHeight - HalfScreenHeight; //Max height the camera can go to
+            MinPositionX = HalfScreenWidth; //min width the camera can go to
+            MinPositionY = HalfScreenHeight; //min height the camera can go to
+            
+            if (MaxMapWidth <= HalfScreenWidth * 2) //If the map isn't as wide as the monitor
+            {
+                MinPositionX = MaxPositionX = MaxMapWidth / 2; //set the min and max to the width of the monitor
+            }
+            if (MaxMapHeight <= HalfScreenHeight * 2) //if the map isn't as tall as the monitor
+            {
+                MinPositionY = MaxPositionY = MaxMapHeight / 2; //set the min and max to the height of the monitor
+            }
         }
         Position.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
         Position.Y = MathHelper.Clamp(Position.Y, MinPositionY, MaxPositionY);
         TargetPosition.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
         TargetPosition.Y = MathHelper.Clamp(Position.Y, MinPositionY, MaxPositionY);
+    }
+
+    private static float GetMinimumZoom()
+    {
+        float ScreenWidth = WindowFrame.Width;
+        float ScreenHeight = WindowFrame.Height;
+        
+        float ZoomNormal = Math.Min(MaxMapWidth / ScreenWidth, MaxMapHeight / ScreenHeight); //Which is smaller when normally rotated
+        float ZoomRotated = Math.Min(MaxMapHeight / ScreenWidth, MaxMapWidth / ScreenHeight); //Which is smaller when rotated once
+        return Math.Min(ZoomNormal, ZoomRotated) * 0.98f;
     }
 }
