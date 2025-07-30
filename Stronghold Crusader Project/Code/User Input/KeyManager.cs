@@ -3,17 +3,6 @@ namespace Stronghold_Crusader_Project.Code.User_Input;
 public static class KeyManager //Keybinds that will be used to control everything
 {
     public static readonly Dictionary<string, KeyMap> Keybinds = new(); //Dictionary that will store the control of the key and then use KeyMap class to store data for it
-
-    public static void CreateDefaults() //Creating the default keybinds to add 
-    {
-        AddNewKeybind("MoveUp", Keys.W);
-        AddNewKeybind("MoveDown", Keys.S);
-        AddNewKeybind("MoveLeft", Keys.A);
-        AddNewKeybind("MoveRight", Keys.D);
-        AddNewKeybind("RotateCameraLeft", Keys.Q);
-        AddNewKeybind("RotateCameraRight", Keys.E);
-        AddNewKeybind("PreviousMenu", Keys.Escape);
-    }
         
     public static void AddNewKeybind(string Control, Keys DefaultKey) //Method for adding a new keybind to the dictionary 
     {

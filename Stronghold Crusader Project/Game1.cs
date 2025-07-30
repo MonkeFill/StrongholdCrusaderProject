@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace Stronghold_Crusader_Project;
+﻿namespace Stronghold_Crusader_Project;
 
 public class Game1 : Game
 {
@@ -16,6 +14,17 @@ public class Game1 : Game
     static readonly int BorderWidth = GlobalConfig.BorderWidth;
     static readonly int MaxMapHeight = GlobalConfig.MaxMapHeight;
     static readonly int MaxMapWidth = GlobalConfig.MaxMapWidth;
+    enum GameState
+    {
+        StartMenu,
+        GamePicking,
+        GamePreview,
+        PausedMenu,
+        LoadGame,
+        SaveMenu,
+        SettingsMenu,
+        ErrorCatch
+    }
 
     public Game1()
     {

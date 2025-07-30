@@ -155,4 +155,14 @@ public static class Camera2D
         float ZoomRotated = Math.Min(MaxMapHeight / ScreenWidth, MaxMapWidth / ScreenHeight); //Which is smaller when rotated once
         return Math.Min(ZoomNormal, ZoomRotated) * 0.98f;
     }
+
+    public static Matrix GetViewMatrixWithoutRotation()
+    {
+        Matrix NewTranslation = Matrix.CreateTranslation(new Vector3(-Position, 0));
+        Matrix NewRotation = Matrix.CreateRotationZ(Rotation);
+        Matrix NewScale = Matrix.CreateScale(Zoom, Zoom, 1);
+        Matrix NewScreenCentreTanslation = Matrix.CreateTranslation(new Vector3(ScreenCentre, 0));
+        Matrix InverseRotation = Matrix.CreateRotationZ(-Rotation);
+        return NewTranslation * NewRotation * NewScale * NewScreenCentreTanslation * InverseRotation;
+    }
 }

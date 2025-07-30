@@ -26,4 +26,5 @@ global using Stronghold_Crusader_Project.Code.User_Input;
 //Methods that need to be accessed globally
 global using static Stronghold_Crusader_Project.Code.Other.EventLogger;
 global using static Stronghold_Crusader_Project.Code.Other.Camera2D;
+global using static Stronghold_Crusader_Project.Code.User_Input.KeyManager;
 

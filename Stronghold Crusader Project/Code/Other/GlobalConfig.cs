@@ -18,8 +18,8 @@ public static class GlobalConfig
     public static int TileHeight = 32;
     public static int TileWidth = 64;
     public static int TileReferencePrefixLength = 1;
-    public static int BorderHeight = 200;
-    public static int BorderWidth = 200;
+    public static int BorderHeight = 100 * TileHeight;
+    public static int BorderWidth = 5 * TileWidth;
     public static int MapTotalHeight = (MapHeight - 1) * (TileHeight / 2);
     public static int MapTotalWidth = (MapWidth - 1) * TileWidth; 
     public static int MaxMapHeight => GetMaxMapHeight();
@@ -38,50 +38,6 @@ public static class GlobalConfig
     public static float RotationAmount = Degree90InPi;
     public static bool MapVertical => MapIsVertical();
     
-    public static void CheckGameDataFolder()
-    {
-        if (Directory.Exists(GameDataFolder)) //Does exist which it should do
-        {
-            EventLogger.LogEvent("Found GameData folder", EventLogger.LogType.Info);
-            if (Directory.Exists(MapsFolder))
-            {
-                EventLogger.LogEvent("Found Maps folder", EventLogger.LogType.Info);
-            }
-            else
-            {
-                CreateMapsFolder();
-            }
-            if (Directory.Exists(SavesFolder))
-            {
-                EventLogger.LogEvent("Found Saves folder", EventLogger.LogType.Info);
-            }
-            else
-            {
-                CreateSavesFolder();
-            }
-        }
-        else
-        {
-            EventLogger.LogEvent("GameData Folder not found", EventLogger.LogType.Error);
-            Directory.CreateDirectory(GameDataFolder);
-            EventLogger.LogEvent($"GameData Folder created at {GameDataFolder}", EventLogger.LogType.Info);
-            CreateMapsFolder();
-            CreateSavesFolder();
-        }
-    }
-
-    private static void CreateMapsFolder()
-    {
-        EventLogger.LogEvent("MapsFolder folder not found", EventLogger.LogType.Error);
-        Directory.CreateDirectory(MapsFolder);
-        EventLogger.LogEvent($"MapsFolder created at {MapsFolder}", EventLogger.LogType.Info);
-    }
-    private static void CreateSavesFolder()
-    {
-        EventLogger.LogEvent("SavesFolder folder not found", EventLogger.LogType.Error);
-        Directory.CreateDirectory(SavesFolder);
-        EventLogger.LogEvent($"SavesFolder created at {SavesFolder}", EventLogger.LogType.Info);
-    }
     private static int GetMaxMapHeight()
     {
         if (MapVertical)
