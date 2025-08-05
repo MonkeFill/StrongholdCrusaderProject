@@ -64,7 +64,9 @@ public static class Camera2D
         float DeltaTime = (float)InputGameTime.ElapsedGameTime.TotalSeconds;
         if (InputAction != CameraAction.None)
         {
-            Vector2 WorldBeforeChange = CameraScreenToWorld(ScreenCentre); //Getting how the world it is before 
+            MouseState ActiveMouseState = Mouse.GetState();
+            Vector2 MouseCentre =  -new Vector2(ActiveMouseState.X, ActiveMouseState.Y);
+            Vector2 WorldBeforeChange = CameraScreenToWorld(MouseCentre); //Getting how the world it is before 
             switch (InputAction)
             {
                 case CameraAction.Move: //Move the camera to a new position
@@ -79,12 +81,13 @@ public static class Camera2D
                     Rotation += RotationAmount * RotationChange; //Adding rotations
                     break;
             }
-            Vector2 WorldAfterChange = CameraScreenToWorld(ScreenCentre);
+            Vector2 WorldAfterChange = CameraScreenToWorld(MouseCentre);
             Vector2 WorldOffSet = WorldBeforeChange - WorldAfterChange;
             Position += WorldOffSet;
         }
         Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
         ClampCamera();
+        Console.WriteLine($"Zoom - {Zoom}");
        }
     private static Vector2 CameraScreenToWorld(Vector2 ScreenPosition) //Converting screen position to actual world position
     {
@@ -104,11 +107,11 @@ public static class Camera2D
         }
         
         //Camera Movement Clamping
-        float MaxPositionX = 0;
-        float MaxPositionY = 0;
-        float MinPositionX = 0;
-        float MinPositionY = 0;
-        if (MapVertical) //Two seperate clamps wether the map is vertical or not since it will use different variables as it inverts the coordinates
+        float MaxPositionX;
+        float MaxPositionY;
+        float MinPositionX;
+        float MinPositionY;
+        if (MapVertical) //Two separate clamps weather the map is vertical or not since it will use different variables as it inverts the coordinates
         {
             MaxPositionY = MaxMapWidth - HalfScreenWidth; //Max width the camera can go to
             MaxPositionX = MaxMapHeight - HalfScreenHeight; //Max height the camera can go to
@@ -151,9 +154,9 @@ public static class Camera2D
         float ScreenWidth = WindowFrame.Width;
         float ScreenHeight = WindowFrame.Height;
         
-        float ZoomNormal = Math.Min(MaxMapWidth / ScreenWidth, MaxMapHeight / ScreenHeight); //Which is smaller when normally rotated
-        float ZoomRotated = Math.Min(MaxMapHeight / ScreenWidth, MaxMapWidth / ScreenHeight); //Which is smaller when rotated once
-        return Math.Min(ZoomNormal, ZoomRotated) * 0.98f;
+        float ZoomNormal = Math.Max(ScreenWidth / MaxMapWidth, ScreenHeight / MaxMapHeight); //Which is bigger when normally rotated
+        float ZoomRotated = Math.Max(ScreenWidth / MaxMapHeight, ScreenHeight / MaxMapWidth); //Which is bigger when rotated once
+        return Math.Max(ZoomNormal, ZoomRotated);
     }
 
     public static Matrix GetViewMatrixWithoutRotation()
@@ -161,8 +164,8 @@ public static class Camera2D
         Matrix NewTranslation = Matrix.CreateTranslation(new Vector3(-Position, 0));
         Matrix NewRotation = Matrix.CreateRotationZ(Rotation);
         Matrix NewScale = Matrix.CreateScale(Zoom, Zoom, 1);
-        Matrix NewScreenCentreTanslation = Matrix.CreateTranslation(new Vector3(ScreenCentre, 0));
+        Matrix NewScreenCentreTranslation = Matrix.CreateTranslation(new Vector3(ScreenCentre, 0));
         Matrix InverseRotation = Matrix.CreateRotationZ(-Rotation);
-        return NewTranslation * NewRotation * NewScale * NewScreenCentreTanslation * InverseRotation;
+        return NewTranslation * NewRotation * NewScale * NewScreenCentreTranslation * InverseRotation;
     }
 }
