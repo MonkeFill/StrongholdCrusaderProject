@@ -2,17 +2,19 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapTile
 {
+    //Global Variables
+    private static readonly int TileWidth = GlobalConfig.TileWidth;
+    private static readonly int TileHeight = GlobalConfig.TileHeight;
+    private static readonly int BorderHeight = GlobalConfig.BorderHeight;
+    private static readonly int BorderWidth = GlobalConfig.BorderWidth;
+    
+    //Class Variables
     public string TileKey;
-    bool Walkable;
-    Texture2D Texture;
-    Vector2 Position;
+    private bool Walkable;
+    private Texture2D Texture;
+    private Vector2 Position;
     
-    //Static readonly variables that will be used across multiple methods but don't want it to update constantly or keep storing it in every instance
-    static readonly int TileWidth = GlobalConfig.TileWidth;
-    static readonly int TileHeight = GlobalConfig.TileHeight;
-    static readonly int BorderHeight = GlobalConfig.BorderHeight;
-    static readonly int BorderWidth = GlobalConfig.BorderWidth;
-    
+    //Methods
     public MapTile(string InputTileKey, Texture2D InputTexture, Vector2 InputPosition)
     {
         TileKey = InputTileKey;
@@ -25,8 +27,8 @@ public class MapTile
     {
         Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
         Vector2 IsometricPosition = GridToStaggeredDraw();
-        IsometricPosition.X += BorderWidth - (TileWidth / 2);
-        IsometricPosition.Y += BorderHeight - (TileHeight / 2);
+        IsometricPosition.X += BorderWidth - (TileWidth / 2f);
+        IsometricPosition.Y += BorderHeight - (TileHeight / 2f);
         ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, 0f, TileCentre, 1f, SpriteEffects.None, 0f);
     }
 
@@ -37,7 +39,7 @@ public class MapTile
 
     public bool TileContains(Vector2 MousePosition) //Checks to see if the position of the mouse contains a tile 
     {
-        //Halfing to get the centres
+        //Halving to get the centres
         float TileHalfWidth = TileWidth / 2.0f;
         float TileHalfHeight = TileHeight / 2.0f;
         
@@ -60,14 +62,12 @@ public class MapTile
     private Vector2 GridToStaggeredDraw()
     {
         float OffSetX = 0;
-        float OffSetY = 0;
         if ((int)Position.Y % 2 != 0)//If it is an even row it will be shifted right by half a tile
         {
-            OffSetX = TileWidth / 2; 
-            OffSetY = TileHeight / 2;
+            OffSetX = TileWidth / 2f; 
         }
         float NewPositionX = (Position.X * TileWidth) + OffSetX;
-        float NewPositionY = (Position.Y * (TileHeight / 2));
+        float NewPositionY = (Position.Y * (TileHeight / 2f));
         return new Vector2(NewPositionX, NewPositionY);
     }
     

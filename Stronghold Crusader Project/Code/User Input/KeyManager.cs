@@ -2,8 +2,10 @@ namespace Stronghold_Crusader_Project.Code.User_Input;
 
 public static class KeyManager //Keybinds that will be used to control everything
 {
+    //Class Variables
     public static readonly Dictionary<string, KeyMap> Keybinds = new(); //Dictionary that will store the control of the key and then use KeyMap class to store data for it
-        
+    
+    //Methods
     public static void AddNewKeybind(string Control, Keys DefaultKey) //Method for adding a new keybind to the dictionary 
     {
         if (Keybinds.ContainsKey(Control)) //If the control is already used

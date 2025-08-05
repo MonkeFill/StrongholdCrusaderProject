@@ -4,18 +4,20 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapFileManager
 {
-    static readonly string MapFolder = GlobalConfig.MapsFolder;
-    static readonly int MapHeight = GlobalConfig.MapHeight;
-    static readonly int MapWidth = GlobalConfig.MapWidth;
+    //Global Variables
+    private string MapPath => MapHandling.MapPath;
+    private MapTile[,] Map => MapHandling.Map;
+    private Dictionary<string, Texture2D> TextureMap => MapHandling.TextureMap;
+    private string MapName => MapHandling.ActiveMapName;
+    
+    private static readonly int MapHeight = GlobalConfig.MapHeight;
+    private static readonly int MapWidth = GlobalConfig.MapWidth;
 
-    MapHandler MapHandling;
-    string MapPath => MapHandling.MapPath;
-    MapTile[,] Map => MapHandling.Map;
-    Dictionary<string, Texture2D> TextureMap => MapHandling.TextureMap;
-    string MapName => MapHandling.ActiveMapName;
+    //Class Variables
+    private MapHandler MapHandling;
     
-    
-    public MapFileManager(MapHandler Handler)
+    //Methods
+    public MapFileManager(MapHandler Handler) //Initializer
     {
         MapHandling = Handler;
     }
@@ -25,8 +27,8 @@ public class MapFileManager
         if (File.Exists(MapPath)) //Check if the map exists 
         {
             string Json = File.ReadAllText(MapPath);
-            string[,] LoadedMap = new string[MapHeight, MapWidth];
-            EventLogger.LogEvent($"{MapPath} found and is being loaded", LogType.Info);
+            string[,] LoadedMap;
+            LogEvent($"{MapPath} found and is being loaded", LogType.Info);
             try
             {
                 LoadedMap = JsonConvert.DeserializeObject<string[,]>(Json);
@@ -56,11 +58,11 @@ public class MapFileManager
     {
         if (File.Exists(MapPath))
         {
-            EventLogger.LogEvent($"{MapPath} already exists!", EventLogger.LogType.Warning);
+            LogEvent($"{MapPath} already exists!", LogType.Warning);
         }
         string Json = JsonConvert.SerializeObject(ExportMap, Formatting.Indented);
         File.WriteAllText(MapPath, Json);
-        EventLogger.LogEvent($"Map {MapName} saved to {MapPath}", EventLogger.LogType.Info);
+        LogEvent($"Map {MapName} saved to {MapPath}", LogType.Info);
     }
     
     public string[,] SaveMap() //Save the map meaning it will turn the Map tiles into a basic grid of tile keys

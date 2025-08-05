@@ -1,8 +1,11 @@
 namespace Stronghold_Crusader_Project.Code.Other;
 
-public static class EventLogger //Event logger that will log to both console and a textfile
+public static class EventLogger //Event logger that will log to both console and a text file
 {
-    static string LogFilePath = "Log.txt"; //Default path to where log.txt will be
+    //Class Variables
+    private static string LogFilePath = "Log.txt"; //Default path to where log.txt will be
+    
+    //Enumerated Variables
     public enum LogType //Log types will be outputted in a different colour
     {
         Error,
@@ -11,6 +14,7 @@ public static class EventLogger //Event logger that will log to both console and
         Info,
     }
 
+    //Methods
     public static void LogEvent(string Log, LogType TypeOfLog) //Method to create an event for it to log
     {
         ConsoleColor LogColour =  ConsoleColor.White;

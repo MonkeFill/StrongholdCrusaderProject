@@ -128,9 +128,9 @@ public class Game1 : Game
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.PointClamp);
         Mapping.DrawMap(_spriteBatch);
         _spriteBatch.Draw(TempPixel, new Rectangle(0,0, MaxMapWidth, BorderHeight), Color.Red);
-        _spriteBatch.Draw(TempPixel, new Rectangle(0,0,BorderWidth, MaxMapHeight), Color.Pink);
-        _spriteBatch.Draw(TempPixel, new Rectangle(0,MaxMapHeight - BorderWidth, MaxMapWidth, BorderHeight), Color.BlueViolet);
-        _spriteBatch.Draw(TempPixel, new Rectangle(MaxMapWidth - BorderWidth,0, BorderWidth, MaxMapHeight), Color.Orange);
+        //_spriteBatch.Draw(TempPixel, new Rectangle(0,0,BorderWidth, MaxMapHeight), Color.Pink);
+        //_spriteBatch.Draw(TempPixel, new Rectangle(0,MaxMapHeight - BorderHeight, MaxMapWidth, BorderHeight), Color.BlueViolet);
+        //_spriteBatch.Draw(TempPixel, new Rectangle(MaxMapWidth - BorderWidth,0, BorderWidth, MaxMapHeight), Color.Orange);
         _spriteBatch.End();
         
         base.Draw(gameTime);

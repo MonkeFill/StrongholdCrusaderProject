@@ -1,27 +1,27 @@
-using System.Linq;
-
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapHandler
 {
-    //Static readonly variables that will be used across multiple methods but don't want it to update constantly or keep storing it in every instance
-    static readonly int MapHeight = GlobalConfig.MapHeight;
-    static readonly int MapWidth = GlobalConfig.MapWidth;
-    static readonly string TilesFolderPathFromContent = GlobalConfig.TilesFolderPathFromContent;
-    static readonly string TilesFolderFullPath = GlobalConfig.TilesFolderFullPath;
-    static readonly int TileReferencePrefixLength = GlobalConfig.TileReferencePrefixLength;
-    static readonly string MapFolder = GlobalConfig.MapsFolder;
-    static readonly int TileHeight = GlobalConfig.TileHeight;
-    static readonly int TileWidth = GlobalConfig.TileWidth;
+    //Global Variables
+    public string MapPath => Path.Combine(MapFolder, (ActiveMapName + ".json"));
     
+    private static readonly int MapHeight = GlobalConfig.MapHeight;
+    private static readonly int MapWidth = GlobalConfig.MapWidth;
+    private static readonly string TilesFolderPathFromContent = GlobalConfig.TilesFolderPathFromContent;
+    private static readonly string TilesFolderFullPath = GlobalConfig.TilesFolderFullPath;
+    private static readonly int TileReferencePrefixLength = GlobalConfig.TileReferencePrefixLength;
+    private static readonly string MapFolder = GlobalConfig.MapsFolder;
+    
+    //Class Variables
     public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
     public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
-    public string ActiveMapName;
-    public string MapPath => Path.Combine(MapFolder, (ActiveMapName + ".json"));
-    ContentManager Content;
-    MapFileManager FileManager;
     
-    public MapHandler(ContentManager InputContent)
+    public string ActiveMapName;
+    private ContentManager Content;
+    private MapFileManager FileManager;
+    
+    //Methods
+    public MapHandler(ContentManager InputContent) 
     {
         FileManager = new MapFileManager(this);
         Content = InputContent;

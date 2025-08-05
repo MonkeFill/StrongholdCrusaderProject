@@ -4,31 +4,30 @@ namespace Stronghold_Crusader_Project.Code.Other;
 
 public static class Camera2D
 {
-    
-    static readonly int MapTotalHeight = GlobalConfig.MapTotalHeight;
-    static readonly int MapTotalWidth = GlobalConfig.MapTotalWidth;
-    static readonly int BorderHeight = GlobalConfig.BorderHeight;
-    static readonly int BorderWidth = GlobalConfig.BorderWidth;
-    static float MaxMapHeight => GlobalConfig.MaxMapHeight;
-    static float MaxMapWidth => GlobalConfig.MaxMapWidth;
-    static bool  MapVertical => GlobalConfig.MapVertical;
-    static readonly float MaxZoom = GlobalConfig.MaxZoom;
-    static readonly float ZoomSensitivity = GlobalConfig.ZoomSensitivity;
-    static readonly float MovementAmount = GlobalConfig.MovementAmount;
-    static readonly float MovementSpeed = GlobalConfig.MovementSpeed;
-    static readonly float RotationAmount = GlobalConfig.RotationAmount;
-    
-    static Vector2 Position = Vector2.Zero; //Position of camera
-    private static Vector2 TargetPosition = Vector2.Zero;
-    private static float Zoom; //Camera zoom
-    public static float Rotation; //Rotation of camera
-    static Viewport WindowFrame;  //Frame of the window 
-    static int PreviousScrollWheelValue;
+    //Global Variables
+    private static float MaxMapHeight => GlobalConfig.MaxMapHeight;
+    private static float MaxMapWidth => GlobalConfig.MaxMapWidth;
+    private static bool  MapVertical => GlobalConfig.MapVertical;
     private static float HalfScreenHeight => WindowFrame.Height / 2f / Zoom;
     private static float HalfScreenWidth => WindowFrame.Width / 2f / Zoom;
-    private static float MinZoom;
     private static Vector2 ScreenCentre =>  new Vector2(WindowFrame.Width / 2f, WindowFrame.Height / 2f);
+    
+    private static readonly float MaxZoom = GlobalConfig.MaxZoom;
+    private static readonly float ZoomSensitivity = GlobalConfig.ZoomSensitivity;
+    private static readonly float MovementAmount = GlobalConfig.MovementAmount;
+    private static readonly float MovementSpeed = GlobalConfig.MovementSpeed;
+    private static readonly float RotationAmount = GlobalConfig.RotationAmount;
+    
+    //Class Variables
+    private static Vector2 Position = Vector2.Zero; //Position of camera
+    private static Vector2 TargetPosition = Vector2.Zero;
+    private static float Zoom; //Camera zoom
+    private static Viewport WindowFrame;  //Frame of the window 
+    private static int MouseScrollWheelValue; //The value of the scroll wheel
+    private static float MinZoom; //Minium zoom the camera can do
+    public static float Rotation; //Rotation of camera
 
+    //Enumerated Variables
     public enum CameraAction
     {
         Move,
@@ -37,12 +36,13 @@ public static class Camera2D
         None
     }
 
+    //Methods
     public static void Initialize(Viewport viewport) //Initialise of a new camera
     {
         //default values set
         Rotation = 0f;
         WindowFrame = viewport;
-        PreviousScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
+        MouseScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
         MinZoom = GetMinimumZoom();
         Zoom = MinZoom;
         //Zoom = MaxZoom - MinZoom;

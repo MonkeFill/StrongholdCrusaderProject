@@ -1,12 +1,13 @@
 ﻿namespace Stronghold_Crusader_Project.Code.Other
 {
-    public static class GlobalConfigManager
+    public static class GlobalConfigManager //Config manager for global config to make sure all its data is there
     {
-
+        //Class Variables
         static readonly string GameDataFolder = GlobalConfig.GameDataFolder;
         static readonly string MapsFolder = GlobalConfig.MapsFolder;
         static readonly string SavesFolder = GlobalConfig.SavesFolder;
-
+        
+        //Methods
         public static void InitializeGlobalConfig()
         {
             InitializeKeybinds();

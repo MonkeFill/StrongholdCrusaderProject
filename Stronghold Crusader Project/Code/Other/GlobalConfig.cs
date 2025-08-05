@@ -18,7 +18,7 @@ public static class GlobalConfig
     public static int TileHeight = 32;
     public static int TileWidth = 64;
     public static int TileReferencePrefixLength = 1;
-    public static int BorderHeight = 100 * TileHeight;
+    public static int BorderHeight = 7 * TileHeight;
     public static int BorderWidth = 5 * TileWidth;
     public static int MapTotalHeight = (MapHeight - 1) * (TileHeight / 2);
     public static int MapTotalWidth = (MapWidth - 1) * TileWidth; 
@@ -38,6 +38,7 @@ public static class GlobalConfig
     public static float RotationAmount = Degree90InPi;
     public static bool MapVertical => MapIsVertical();
     
+    //Methods
     private static int GetMaxMapHeight()
     {
         if (MapVertical)
