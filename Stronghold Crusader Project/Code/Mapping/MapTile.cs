@@ -27,8 +27,6 @@ public class MapTile
     {
         Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
         Vector2 IsometricPosition = GridToStaggeredDraw();
-        IsometricPosition.X += BorderWidth - (TileWidth / 2f);
-        IsometricPosition.Y += BorderHeight - (TileHeight / 2f);
         ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, 0f, TileCentre, 1f, SpriteEffects.None, 0f);
     }
 

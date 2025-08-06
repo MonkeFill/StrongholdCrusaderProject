@@ -14,6 +14,8 @@ public class Game1 : Game
     static readonly int BorderWidth = GlobalConfig.BorderWidth;
     static readonly int MaxMapHeight = GlobalConfig.MaxMapHeight;
     static readonly int MaxMapWidth = GlobalConfig.MaxMapWidth;
+    static readonly int TileWidth = GlobalConfig.TileWidth;
+    static readonly int TileHeight = GlobalConfig.TileHeight;
     enum GameState
     {
         StartMenu,
@@ -127,10 +129,10 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.PointClamp);
         Mapping.DrawMap(_spriteBatch);
-        _spriteBatch.Draw(TempPixel, new Rectangle(0,0, MaxMapWidth, BorderHeight), Color.Red);
-        //_spriteBatch.Draw(TempPixel, new Rectangle(0,0,BorderWidth, MaxMapHeight), Color.Pink);
-        //_spriteBatch.Draw(TempPixel, new Rectangle(0,MaxMapHeight - BorderHeight, MaxMapWidth, BorderHeight), Color.BlueViolet);
-        //_spriteBatch.Draw(TempPixel, new Rectangle(MaxMapWidth - BorderWidth,0, BorderWidth, MaxMapHeight), Color.Orange);
+        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2,-BorderHeight + (TileHeight / 2), MaxMapWidth - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.Red); //Top
+        _spriteBatch.Draw(TempPixel, new Rectangle(-BorderWidth + (TileWidth / 2),TileHeight / 2 ,BorderWidth, MaxMapHeight - (BorderHeight * 2) - TileHeight / 2), Color.Pink); //Left
+        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2 ,MaxMapHeight - (BorderHeight * 2), MaxMapWidth - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.BlueViolet); //Bottom
+        _spriteBatch.Draw(TempPixel, new Rectangle(MaxMapWidth - (BorderWidth * 2),TileHeight / 2, BorderWidth, MaxMapHeight - (BorderHeight * 2)), Color.Orange); //Right
         _spriteBatch.End();
         
         base.Draw(gameTime);

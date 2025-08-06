@@ -21,7 +21,7 @@ public static class GlobalConfig
     public static int BorderHeight = 7 * TileHeight;
     public static int BorderWidth = 5 * TileWidth;
     public static int MapTotalHeight = (MapHeight - 1) * (TileHeight / 2);
-    public static int MapTotalWidth = (MapWidth - 1) * TileWidth; 
+    public static int MapTotalWidth = MapWidth * TileWidth; 
     public static int MaxMapHeight => GetMaxMapHeight();
     public static int MaxMapWidth => GetMaxMapWidth();
     
