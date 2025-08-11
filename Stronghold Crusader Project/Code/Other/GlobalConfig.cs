@@ -20,10 +20,10 @@ public static class GlobalConfig
     public static int TileReferencePrefixLength = 1;
     public static int BorderHeight = 7 * TileHeight;
     public static int BorderWidth = 5 * TileWidth;
-    public static int MapTotalHeight = (MapHeight - 1) * (TileHeight / 2);
-    public static int MapTotalWidth = MapWidth * TileWidth; 
-    public static int MaxMapHeight => GetMaxMapHeight();
-    public static int MaxMapWidth => GetMaxMapWidth();
+    public static int RealMapHeight = (MapHeight - 1) * (TileHeight / 2);
+    public static int RealMapWidth = MapWidth * TileWidth; 
+    public static int MapHeightSize => GetMaxMapHeight();
+    public static int MapWidthSize => GetMaxMapWidth();
     
     //Camera Variables
     public static float MaxZoom = 2f;
@@ -43,17 +43,17 @@ public static class GlobalConfig
     {
         if (MapVertical)
         {
-            return MapTotalWidth + (BorderHeight * 2);
+            return RealMapWidth;
         }
-        return MapTotalHeight + (BorderHeight * 2);
+        return RealMapHeight;
     }
     private static int GetMaxMapWidth()
     {
         if (MapVertical)
         {
-            return MapTotalHeight + (BorderWidth * 2);
+            return RealMapHeight;
         }
-        return MapTotalWidth + (BorderWidth * 2);
+        return RealMapWidth;
     }
 
     public static bool MapIsVertical()

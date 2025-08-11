@@ -5,8 +5,8 @@ namespace Stronghold_Crusader_Project.Code.Other;
 public static class Camera2D
 {
     //Global Variables
-    private static float MaxMapHeight => GlobalConfig.MaxMapHeight;
-    private static float MaxMapWidth => GlobalConfig.MaxMapWidth;
+    private static float MapHeightSize => GlobalConfig.MapHeightSize;
+    private static float MapWidthSize => GlobalConfig.MapWidthSize;
     private static bool  MapVertical => GlobalConfig.MapVertical;
     private static float HalfScreenHeight => WindowFrame.Height / 2f / Zoom;
     private static float HalfScreenWidth => WindowFrame.Width / 2f / Zoom;
@@ -44,9 +44,8 @@ public static class Camera2D
         WindowFrame = viewport;
         MouseScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
         MinZoom = GetMinimumZoom();
-        Zoom = MinZoom;
-        //Zoom = MaxZoom - MinZoom;
-        Position = new Vector2(MaxMapWidth / 2f, MaxMapHeight / 2f);
+        Zoom = MaxZoom - MinZoom;
+        Position = new Vector2(MapWidthSize / 2f, MapHeightSize / 2f);
     }
 
     public static Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
@@ -65,7 +64,7 @@ public static class Camera2D
         if (InputAction != CameraAction.None)
         {
             MouseState ActiveMouseState = Mouse.GetState();
-            Vector2 MouseCentre =  -new Vector2(ActiveMouseState.X, ActiveMouseState.Y);
+            Vector2 MouseCentre = new Vector2(ActiveMouseState.X, ActiveMouseState.Y);
             Vector2 WorldBeforeChange = CameraScreenToWorld(MouseCentre); //Getting how the world it is before 
             switch (InputAction)
             {
@@ -87,7 +86,6 @@ public static class Camera2D
         }
         Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
         ClampCamera();
-        Console.WriteLine($"Zoom - {Zoom}");
        }
     private static Vector2 CameraScreenToWorld(Vector2 ScreenPosition) //Converting screen position to actual world position
     {
@@ -113,34 +111,34 @@ public static class Camera2D
         float MinPositionY;
         if (MapVertical) //Two separate clamps weather the map is vertical or not since it will use different variables as it inverts the coordinates
         {
-            MaxPositionY = MaxMapWidth - HalfScreenWidth; //Max width the camera can go to
-            MaxPositionX = MaxMapHeight - HalfScreenHeight; //Max height the camera can go to
+            MaxPositionY = MapWidthSize - HalfScreenWidth; //Max width the camera can go to
+            MaxPositionX = MapHeightSize - HalfScreenHeight; //Max height the camera can go to
             MinPositionY = HalfScreenWidth; //min width the camera can go to
             MinPositionX = HalfScreenHeight; //min height the camera can go to
             
-            if (MaxMapWidth <= HalfScreenWidth * 2) //If the map isn't as wide as the monitor
+            if (MapWidthSize <= HalfScreenWidth * 2) //If the map isn't as wide as the monitor
             {
-                MinPositionY = MaxPositionY = MaxMapWidth / 2; //set the min and max to the width of the monitor
+                MinPositionY = MaxPositionY = MapWidthSize / 2; //set the min and max to the width of the monitor
             }
-            if (MaxMapHeight <= HalfScreenHeight * 2) //if the map isn't as tall as the monitor
+            if (MapHeightSize <= HalfScreenHeight * 2) //if the map isn't as tall as the monitor
             {
-                MinPositionX = MaxPositionX = MaxMapHeight / 2; //set the min and max to the height of the monitor
+                MinPositionX = MaxPositionX = MapHeightSize / 2; //set the min and max to the height of the monitor
             }
         }
         else
         {
-            MaxPositionX = MaxMapWidth - HalfScreenWidth; //Max width the camera can go to
-            MaxPositionY = MaxMapHeight - HalfScreenHeight; //Max height the camera can go to
+            MaxPositionX = MapWidthSize - HalfScreenWidth; //Max width the camera can go to
+            MaxPositionY = MapHeightSize - HalfScreenHeight; //Max height the camera can go to
             MinPositionX = HalfScreenWidth; //min width the camera can go to
             MinPositionY = HalfScreenHeight; //min height the camera can go to
             
-            if (MaxMapWidth <= HalfScreenWidth * 2) //If the map isn't as wide as the monitor
+            if (MapWidthSize <= HalfScreenWidth * 2) //If the map isn't as wide as the monitor
             {
-                MinPositionX = MaxPositionX = MaxMapWidth / 2; //set the min and max to the width of the monitor
+                MinPositionX = MaxPositionX = MapWidthSize / 2; //set the min and max to the width of the monitor
             }
-            if (MaxMapHeight <= HalfScreenHeight * 2) //if the map isn't as tall as the monitor
+            if (MapHeightSize <= HalfScreenHeight * 2) //if the map isn't as tall as the monitor
             {
-                MinPositionY = MaxPositionY = MaxMapHeight / 2; //set the min and max to the height of the monitor
+                MinPositionY = MaxPositionY = MapHeightSize / 2; //set the min and max to the height of the monitor
             }
         }
         Position.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
@@ -154,8 +152,8 @@ public static class Camera2D
         float ScreenWidth = WindowFrame.Width;
         float ScreenHeight = WindowFrame.Height;
         
-        float ZoomNormal = Math.Max(ScreenWidth / MaxMapWidth, ScreenHeight / MaxMapHeight); //Which is bigger when normally rotated
-        float ZoomRotated = Math.Max(ScreenWidth / MaxMapHeight, ScreenHeight / MaxMapWidth); //Which is bigger when rotated once
+        float ZoomNormal = Math.Max(ScreenWidth / MapWidthSize, ScreenHeight / MapHeightSize); //Which is bigger when normally rotated
+        float ZoomRotated = Math.Max(ScreenWidth / MapHeightSize, ScreenHeight / MapWidthSize); //Which is bigger when rotated once
         return Math.Max(ZoomNormal, ZoomRotated);
     }
 

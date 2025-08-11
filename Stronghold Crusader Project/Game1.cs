@@ -8,12 +8,10 @@ public class Game1 : Game
     float RotationCooldownTime = 1f;
     float RotationCoolDown = 0f;
     Texture2D TempPixel;
-    static readonly int MapTotalHeight = GlobalConfig.MapTotalHeight;
-    static readonly int MapTotalWidth = GlobalConfig.MapTotalWidth;
+    static readonly int MapHeightSize = GlobalConfig.MapHeightSize;
+    static readonly int MapWidthSize = GlobalConfig.MapWidthSize;
     static readonly int BorderHeight = GlobalConfig.BorderHeight;
     static readonly int BorderWidth = GlobalConfig.BorderWidth;
-    static readonly int MaxMapHeight = GlobalConfig.MaxMapHeight;
-    static readonly int MaxMapWidth = GlobalConfig.MaxMapWidth;
     static readonly int TileWidth = GlobalConfig.TileWidth;
     static readonly int TileHeight = GlobalConfig.TileHeight;
     enum GameState
@@ -129,10 +127,10 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.PointClamp);
         Mapping.DrawMap(_spriteBatch);
-        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2,-BorderHeight + (TileHeight / 2), MaxMapWidth - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.Red); //Top
-        _spriteBatch.Draw(TempPixel, new Rectangle(-BorderWidth + (TileWidth / 2),TileHeight / 2 ,BorderWidth, MaxMapHeight - (BorderHeight * 2) - TileHeight / 2), Color.Pink); //Left
-        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2 ,MaxMapHeight - (BorderHeight * 2), MaxMapWidth - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.BlueViolet); //Bottom
-        _spriteBatch.Draw(TempPixel, new Rectangle(MaxMapWidth - (BorderWidth * 2),TileHeight / 2, BorderWidth, MaxMapHeight - (BorderHeight * 2)), Color.Orange); //Right
+        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2,-BorderHeight + (TileHeight / 2), MapWidthSize - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.Red); //Top
+        _spriteBatch.Draw(TempPixel, new Rectangle(-BorderWidth + (TileWidth / 2),TileHeight / 2 ,BorderWidth, MapHeightSize - (BorderHeight * 2) - TileHeight / 2), Color.Pink); //Left
+        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2 ,MapHeightSize - (BorderHeight * 2), MapWidthSize - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.BlueViolet); //Bottom
+        _spriteBatch.Draw(TempPixel, new Rectangle(MapWidthSize - (BorderWidth * 2),TileHeight / 2, BorderWidth, MapHeightSize - (BorderHeight * 2)), Color.Orange); //Right
         _spriteBatch.End();
         
         base.Draw(gameTime);
