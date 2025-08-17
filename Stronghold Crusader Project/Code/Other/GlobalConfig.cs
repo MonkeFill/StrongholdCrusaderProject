@@ -11,19 +11,22 @@ public static class GlobalConfig
     private static string ContentFolder = Path.Combine(DefaultFolder, "Content");
     public static string TilesFolderPathFromContent = "Assets/Tiles";
     public static string TilesFolderFullPath = Path.Combine(ContentFolder, "bin","DesktopGL", TilesFolderPathFromContent);
+    public static string BorderPath =  Path.Combine(TilesFolderPathFromContent, "Borders/Border");
     
     //Map Variables
     public static int MapHeight = 100;
     public static int MapWidth = 100;
-    public static int TileHeight = 32;
-    public static int TileWidth = 64;
+    public static int TileHeight = 16;
+    public static int TileWidth = 32;
     public static int TileReferencePrefixLength = 1;
-    public static int BorderHeight = 7 * TileHeight;
-    public static int BorderWidth = 5 * TileWidth;
-    public static int RealMapHeight = (MapHeight - 1) * (TileHeight / 2);
+    public static int BorderHeight = (int) 10 * TileHeight;
+    public static int BorderWidth = Convert.ToInt32(TileWidth * 2.5);
+    public static int RealMapHeight = TileHeight + ((MapHeight - 1) * (TileHeight / 2));
     public static int RealMapWidth = MapWidth * TileWidth; 
     public static int MapHeightSize => GetMaxMapHeight();
     public static int MapWidthSize => GetMaxMapWidth();
+    public static int TotalMapHeight => MapHeightSize + (BorderHeight * 2);
+    public static int TotalMapWidth => MapWidthSize + (BorderWidth * 2);
     
     //Camera Variables
     public static float MaxZoom = 2f;

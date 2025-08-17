@@ -5,6 +5,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private MapHandler Mapping;
+    private Borders BorderHandler;
     float RotationCooldownTime = 1f;
     float RotationCoolDown = 0f;
     Texture2D TempPixel;
@@ -45,6 +46,7 @@ public class Game1 : Game
         Mapping = new MapHandler(Content);
         Mapping.MapImportHandler("Map1");
         Camera2D.Initialize(GraphicsDevice.Viewport);
+        BorderHandler = new Borders(Content);
         base.Initialize();
     }
 
@@ -127,10 +129,10 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.PointClamp);
         Mapping.DrawMap(_spriteBatch);
-        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2,-BorderHeight + (TileHeight / 2), MapWidthSize - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.Red); //Top
-        _spriteBatch.Draw(TempPixel, new Rectangle(-BorderWidth + (TileWidth / 2),TileHeight / 2 ,BorderWidth, MapHeightSize - (BorderHeight * 2) - TileHeight / 2), Color.Pink); //Left
-        _spriteBatch.Draw(TempPixel, new Rectangle(TileWidth / 2 ,MapHeightSize - (BorderHeight * 2), MapWidthSize - (BorderWidth * 2) - (TileWidth / 2), BorderHeight), Color.BlueViolet); //Bottom
-        _spriteBatch.Draw(TempPixel, new Rectangle(MapWidthSize - (BorderWidth * 2),TileHeight / 2, BorderWidth, MapHeightSize - (BorderHeight * 2)), Color.Orange); //Right
+        //_spriteBatch.End();
+        //_spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrixWithoutRotation());
+        BorderHandler.Draw(_spriteBatch);
+        //_spriteBatch.Draw(TempPixel, new Rectangle(0, -80, 80, 120), Color.Orange); //Right
         _spriteBatch.End();
         
         base.Draw(gameTime);
