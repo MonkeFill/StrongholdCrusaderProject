@@ -1,13 +1,19 @@
-﻿namespace Stronghold_Crusader_Project.Code.Mapping
+﻿using System.Numerics;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
+
+namespace Stronghold_Crusader_Project.Code.Mapping
 {
     public class Borders
     {
-        Texture2D BorderTexture;
+        //Class Variables
+        Texture2D ActiveTexture;
         SpriteBatch ActiveSpriteBatch;
-
+        Dictionary<string, Texture2D> BorderTextures = new  Dictionary<string, Texture2D>();
+    
+        //Methods
         public Borders(ContentManager Content)
         {
-            BorderTexture = Content.Load<Texture2D>(BorderPath);
+            LoadBorderTextures(Content);
         }
         public void Draw(SpriteBatch ActiveSpriteBatchInput)
         {
@@ -26,7 +32,7 @@
                         break;
                     case 1: //Bottom
                         OffSetX = TileWidth / 2;
-                        OffSetY = MapHeightSize;
+                        OffSetY = MapHeightSize - (TileHeight / 2);
                         DrawHorizontal(OffSetX, OffSetY);
                         break;
                     case 2: //Left
@@ -35,8 +41,8 @@
                         DrawVertical(OffSetX, OffSetY);
                         break;
                     case 3: //Right
-                        OffSetX = MapWidthSize + (TileWidth / 2);
-                        OffSetY = -(BorderHeight - (TileHeight / 2));
+                        OffSetX = MapWidthSize - (TileWidth / 2);
+                        OffSetY = -(BorderHeight - (TileHeight / 2)); 
                         DrawVertical(OffSetX, OffSetY);
                         break;
                 }
@@ -47,11 +53,20 @@
         {
             int PositionX = OffSetX;
             int PositionY = OffSetY;
-            for (int Count = 0; Count < (MapHeightSize / BorderHeight) + 2; Count++)
+            for (int Count = 0; Count < (RealMapHeight / BorderHeight) + 2; Count++)
             {
-                Console.WriteLine(MapHeightSize / BorderHeight);
+                if (Count == (RealMapHeight / BorderHeight) / 2) //Second first and second last border must be a small top texture
+                {
+                    ActiveTexture = BorderTextures[TopSmallBorderTexture];
+                    OffSetY = -(TileHeight / 2);
+                }
+                else
+                {
+                    ActiveTexture = BorderTextures[DefaultBorderTexture];
+                    OffSetY = 0;
+                }
                 DrawBorder(PositionX, PositionY);
-                PositionY += BorderHeight;
+                PositionY += BorderHeight + OffSetY;
             }
         }
 
@@ -59,17 +74,36 @@
         {
             int PositionX = OffSetX;
             int PositionY = OffSetY;
-            for (int Count = 0; Count < MapWidthSize / BorderWidth; Count++)
+            
+            for (int Count = 0; Count < (RealMapWidth / BorderWidth); Count++)
             {
+                if (Count == (RealMapWidth / BorderWidth) / 2) //First and last border must be a small side texture
+                {
+                    ActiveTexture = BorderTextures[SideSmallBorderTexture];
+                    OffSetX = -(TileWidth / 2);
+                }
+                else
+                {
+                    ActiveTexture = BorderTextures[DefaultBorderTexture];
+                    OffSetX = 0;
+                }
                 DrawBorder(PositionX, PositionY);
-                PositionX += BorderWidth;
+                PositionX += BorderWidth + OffSetX;
             }
         }
         private void DrawBorder(int PositionX, int PositionY)
         {
             Vector2 Position = new Vector2(PositionX, PositionY);
             Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
-            ActiveSpriteBatch.Draw(BorderTexture, Position,null, Color.White, 0f, TileCentre, 0.12f, SpriteEffects.None, 0f);
+            ActiveSpriteBatch.Draw(ActiveTexture, Position,null, Color.White, CameraRotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+        }
+        
+        private void LoadBorderTextures(ContentManager Content)
+        {
+            LogEvent("Loading border textures", LogType.Info);
+            BorderTextures.Add(DefaultBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, DefaultBorderTexture)));
+            BorderTextures.Add(TopSmallBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, TopSmallBorderTexture)));
+            BorderTextures.Add(SideSmallBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, SideSmallBorderTexture)));
         }
     }
 }

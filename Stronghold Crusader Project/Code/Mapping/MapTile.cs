@@ -2,12 +2,6 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapTile
 {
-    //Global Variables
-    private static readonly int TileWidth = GlobalConfig.TileWidth;
-    private static readonly int TileHeight = GlobalConfig.TileHeight;
-    private static readonly int BorderHeight = GlobalConfig.BorderHeight;
-    private static readonly int BorderWidth = GlobalConfig.BorderWidth;
-    
     //Class Variables
     public string TileKey;
     private bool Walkable;
@@ -25,9 +19,8 @@ public class MapTile
     
     public void Draw(SpriteBatch ActiveSpriteBatch)
     {
-        Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
         Vector2 IsometricPosition = GridToStaggeredDraw();
-        ActiveSpriteBatch.Draw(Texture, IsometricPosition + TileCentre,null, Color.White, 0f, TileCentre, 1f, SpriteEffects.None, 0f);
+        ActiveSpriteBatch.Draw(Texture, IsometricPosition,null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
     }
 
     public void UpdateWalkable(bool NewWalkable)

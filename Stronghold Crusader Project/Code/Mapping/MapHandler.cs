@@ -2,19 +2,11 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapHandler
 {
-    //Global Variables
-    public string MapPath => Path.Combine(MapFolder, (ActiveMapName + ".json"));
-    
-    private static readonly int MapHeight = GlobalConfig.MapHeight;
-    private static readonly int MapWidth = GlobalConfig.MapWidth;
-    private static readonly string TilesFolderPathFromContent = GlobalConfig.TilesFolderPathFromContent;
-    private static readonly string TilesFolderFullPath = GlobalConfig.TilesFolderFullPath;
-    private static readonly int TileReferencePrefixLength = GlobalConfig.TileReferencePrefixLength;
-    private static readonly string MapFolder = GlobalConfig.MapsFolder;
-    
+
     //Class Variables
     public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
     public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
+    public string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
     
     public string ActiveMapName;
     private ContentManager Content;

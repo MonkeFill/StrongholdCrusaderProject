@@ -1,20 +1,13 @@
-using System.Linq;
-
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapFileManager
 {
-    //Global Variables
+    //Class Variables
+    private MapHandler MapHandling;
     private string MapPath => MapHandling.MapPath;
     private MapTile[,] Map => MapHandling.Map;
     private Dictionary<string, Texture2D> TextureMap => MapHandling.TextureMap;
     private string MapName => MapHandling.ActiveMapName;
-    
-    private static readonly int MapHeight = GlobalConfig.MapHeight;
-    private static readonly int MapWidth = GlobalConfig.MapWidth;
-
-    //Class Variables
-    private MapHandler MapHandling;
     
     //Methods
     public MapFileManager(MapHandler Handler) //Initializer

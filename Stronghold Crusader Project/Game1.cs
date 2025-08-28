@@ -9,12 +9,6 @@ public class Game1 : Game
     float RotationCooldownTime = 1f;
     float RotationCoolDown = 0f;
     Texture2D TempPixel;
-    static readonly int MapHeightSize = GlobalConfig.MapHeightSize;
-    static readonly int MapWidthSize = GlobalConfig.MapWidthSize;
-    static readonly int BorderHeight = GlobalConfig.BorderHeight;
-    static readonly int BorderWidth = GlobalConfig.BorderWidth;
-    static readonly int TileWidth = GlobalConfig.TileWidth;
-    static readonly int TileHeight = GlobalConfig.TileHeight;
     enum GameState
     {
         StartMenu,
@@ -104,7 +98,7 @@ public class Game1 : Game
             Action = CameraAction.Zoom;
             ZoomChange = -1; 
         }
-        if (RotationCoolDown <= 0)
+        /*if (RotationCoolDown <= 0)
         {
             if (keyboardState.IsKeyDown(Keys.Q))
             {
@@ -118,7 +112,7 @@ public class Game1 : Game
                 RotationChange = -1;
                 RotationCoolDown = RotationCooldownTime;
             }
-        }
+        }*/
         UpdateCamera(gameTime, Action, PositionChange, RotationChange, ZoomChange);
         base.Update(gameTime);
     }
@@ -127,12 +121,9 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.PointClamp);
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
         Mapping.DrawMap(_spriteBatch);
-        //_spriteBatch.End();
-        //_spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrixWithoutRotation());
         BorderHandler.Draw(_spriteBatch);
-        //_spriteBatch.Draw(TempPixel, new Rectangle(0, -80, 80, 120), Color.Orange); //Right
         _spriteBatch.End();
         
         base.Draw(gameTime);

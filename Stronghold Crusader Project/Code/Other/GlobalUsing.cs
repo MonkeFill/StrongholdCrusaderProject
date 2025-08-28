@@ -5,6 +5,7 @@ global using System;
 global using System.IO;
 global using System.Text;
 global using System.Collections.Generic;
+global using System.Linq;
 
 //Monogame/XNA frameworks
 global using Microsoft.Xna.Framework;
@@ -24,7 +25,9 @@ global using Stronghold_Crusader_Project.Code.Player;
 global using Stronghold_Crusader_Project.Code.User_Input;
 
 //Methods that need to be accessed globally
+global using static Stronghold_Crusader_Project.Code.Other.GlobalConfig;
 global using static Stronghold_Crusader_Project.Code.Other.EventLogger;
 global using static Stronghold_Crusader_Project.Code.Other.Camera2D;
 global using static Stronghold_Crusader_Project.Code.User_Input.KeyManager;
+
 
