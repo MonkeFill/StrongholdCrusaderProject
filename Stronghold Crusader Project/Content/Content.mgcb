@@ -1,9 +1,9 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/$(Platform)
-/intermediateDir:obj/$(Platform)
-/platform:DesktopGL
+/outputDir:bin
+/intermediateDir:obj
+/platform:Windows
 /config:
 /profile:Reach
 /compress:False
@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Assets/Tiles/Borders/Border.png
+#begin Assets/Mapping/Borders/BorderSideSmall.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Borders/Border.png
+/build:Assets/Mapping/Borders/BorderSideSmall.png
 
-#begin Assets/Tiles/Grass/Grass1.png
+#begin Assets/Mapping/Borders/BorderTopSmall.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,9 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Grass/Grass1.png
+/build:Assets/Mapping/Borders/BorderTopSmall.png
 
-#begin Assets/Tiles/Grass/Grass2.png
+#begin Assets/Mapping/Borders/DefaultBorder.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Grass/Grass2.png
+/build:Assets/Mapping/Borders/DefaultBorder.png
 
-#begin Assets/Tiles/Grass/Grass3.png
+#begin Assets/Mapping/Borders/Reference.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Grass/Grass3.png
+/build:Assets/Mapping/Borders/Reference.png
 
-#begin Assets/Tiles/Grass/Grass4.png
+#begin Assets/Mapping/Tiles/Grass/Grass1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,9 +71,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Grass/Grass4.png
+/build:Assets/Mapping/Tiles/Grass/Grass1.png
 
-#begin Assets/Tiles/Grass/Grass5.png
+#begin Assets/Mapping/Tiles/Grass/Grass2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,9 +83,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Grass/Grass5.png
+/build:Assets/Mapping/Tiles/Grass/Grass2.png
 
-#begin Assets/Tiles/Grass/Grass6.png
+#begin Assets/Mapping/Tiles/Grass/Grass3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -95,9 +95,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Grass/Grass6.png
+/build:Assets/Mapping/Tiles/Grass/Grass3.png
 
-#begin Assets/Tiles/Iron/Iron1.png
+#begin Assets/Mapping/Tiles/Grass/Grass4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -107,9 +107,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Iron/Iron1.png
+/build:Assets/Mapping/Tiles/Grass/Grass4.png
 
-#begin Assets/Tiles/Iron/Iron2.png
+#begin Assets/Mapping/Tiles/Grass/Grass5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -119,9 +119,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Iron/Iron2.png
+/build:Assets/Mapping/Tiles/Grass/Grass5.png
 
-#begin Assets/Tiles/Iron/Iron3.png
+#begin Assets/Mapping/Tiles/Grass/Grass6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -131,9 +131,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Iron/Iron3.png
+/build:Assets/Mapping/Tiles/Grass/Grass6.png
 
-#begin Assets/Tiles/Iron/Iron4.png
+#begin Assets/Mapping/Tiles/Iron/Iron1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -143,9 +143,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Iron/Iron4.png
+/build:Assets/Mapping/Tiles/Iron/Iron1.png
 
-#begin Assets/Tiles/Land/Land1.png
+#begin Assets/Mapping/Tiles/Iron/Iron2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -155,9 +155,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Land/Land1.png
+/build:Assets/Mapping/Tiles/Iron/Iron2.png
 
-#begin Assets/Tiles/Land/Land2.png
+#begin Assets/Mapping/Tiles/Iron/Iron3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -167,9 +167,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Land/Land2.png
+/build:Assets/Mapping/Tiles/Iron/Iron3.png
 
-#begin Assets/Tiles/Land/Land3.png
+#begin Assets/Mapping/Tiles/Iron/Iron4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -179,9 +179,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Land/Land3.png
+/build:Assets/Mapping/Tiles/Iron/Iron4.png
 
-#begin Assets/Tiles/Land/Land4.png
+#begin Assets/Mapping/Tiles/Land/Land1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -191,9 +191,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Land/Land4.png
+/build:Assets/Mapping/Tiles/Land/Land1.png
 
-#begin Assets/Tiles/Land/Land5.png
+#begin Assets/Mapping/Tiles/Land/Land2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -203,9 +203,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Land/Land5.png
+/build:Assets/Mapping/Tiles/Land/Land2.png
 
-#begin Assets/Tiles/Land/Land6.png
+#begin Assets/Mapping/Tiles/Land/Land3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,9 +215,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Land/Land6.png
+/build:Assets/Mapping/Tiles/Land/Land3.png
 
-#begin Assets/Tiles/Rock/Rock1.png
+#begin Assets/Mapping/Tiles/Land/Land4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -227,9 +227,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Rock/Rock1.png
+/build:Assets/Mapping/Tiles/Land/Land4.png
 
-#begin Assets/Tiles/Rock/Rock2.png
+#begin Assets/Mapping/Tiles/Land/Land5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -239,9 +239,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Rock/Rock2.png
+/build:Assets/Mapping/Tiles/Land/Land5.png
 
-#begin Assets/Tiles/Rock/Rock3.png
+#begin Assets/Mapping/Tiles/Land/Land6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -251,9 +251,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Rock/Rock3.png
+/build:Assets/Mapping/Tiles/Land/Land6.png
 
-#begin Assets/Tiles/Rock/Rock4.png
+#begin Assets/Mapping/Tiles/Rock/Rock1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -263,9 +263,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Rock/Rock4.png
+/build:Assets/Mapping/Tiles/Rock/Rock1.png
 
-#begin Assets/Tiles/Rock/Rock5.png
+#begin Assets/Mapping/Tiles/Rock/Rock2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -275,9 +275,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Rock/Rock5.png
+/build:Assets/Mapping/Tiles/Rock/Rock2.png
 
-#begin Assets/Tiles/Rock/Rock6.png
+#begin Assets/Mapping/Tiles/Rock/Rock3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -287,9 +287,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Rock/Rock6.png
+/build:Assets/Mapping/Tiles/Rock/Rock3.png
 
-#begin Assets/Tiles/Stone/Stone1.png
+#begin Assets/Mapping/Tiles/Rock/Rock4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -299,9 +299,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Stone/Stone1.png
+/build:Assets/Mapping/Tiles/Rock/Rock4.png
 
-#begin Assets/Tiles/Stone/Stone2.png
+#begin Assets/Mapping/Tiles/Rock/Rock5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -311,9 +311,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Stone/Stone2.png
+/build:Assets/Mapping/Tiles/Rock/Rock5.png
 
-#begin Assets/Tiles/Stone/Stone3.png
+#begin Assets/Mapping/Tiles/Rock/Rock6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -323,9 +323,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Stone/Stone3.png
+/build:Assets/Mapping/Tiles/Rock/Rock6.png
 
-#begin Assets/Tiles/Water/Water1.png
+#begin Assets/Mapping/Tiles/Stone/Stone1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -335,9 +335,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water1.png
+/build:Assets/Mapping/Tiles/Stone/Stone1.png
 
-#begin Assets/Tiles/Water/Water10.png
+#begin Assets/Mapping/Tiles/Stone/Stone2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -347,9 +347,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water10.png
+/build:Assets/Mapping/Tiles/Stone/Stone2.png
 
-#begin Assets/Tiles/Water/Water2.png
+#begin Assets/Mapping/Tiles/Stone/Stone3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -359,9 +359,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water2.png
+/build:Assets/Mapping/Tiles/Stone/Stone3.png
 
-#begin Assets/Tiles/Water/Water3.png
+#begin Assets/Mapping/Tiles/Water/Water1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -371,9 +371,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water3.png
+/build:Assets/Mapping/Tiles/Water/Water1.png
 
-#begin Assets/Tiles/Water/Water4.png
+#begin Assets/Mapping/Tiles/Water/Water10.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -383,9 +383,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water4.png
+/build:Assets/Mapping/Tiles/Water/Water10.png
 
-#begin Assets/Tiles/Water/Water5.png
+#begin Assets/Mapping/Tiles/Water/Water2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -395,9 +395,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water5.png
+/build:Assets/Mapping/Tiles/Water/Water2.png
 
-#begin Assets/Tiles/Water/Water6.png
+#begin Assets/Mapping/Tiles/Water/Water3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -407,9 +407,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water6.png
+/build:Assets/Mapping/Tiles/Water/Water3.png
 
-#begin Assets/Tiles/Water/Water7.png
+#begin Assets/Mapping/Tiles/Water/Water4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -419,9 +419,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water7.png
+/build:Assets/Mapping/Tiles/Water/Water4.png
 
-#begin Assets/Tiles/Water/Water8.png
+#begin Assets/Mapping/Tiles/Water/Water5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -431,9 +431,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water8.png
+/build:Assets/Mapping/Tiles/Water/Water5.png
 
-#begin Assets/Tiles/Water/Water9.png
+#begin Assets/Mapping/Tiles/Water/Water6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -443,7 +443,43 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/Tiles/Water/Water9.png
+/build:Assets/Mapping/Tiles/Water/Water6.png
+
+#begin Assets/Mapping/Tiles/Water/Water7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/Mapping/Tiles/Water/Water7.png
+
+#begin Assets/Mapping/Tiles/Water/Water8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/Mapping/Tiles/Water/Water8.png
+
+#begin Assets/Mapping/Tiles/Water/Water9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/Mapping/Tiles/Water/Water9.png
 
 #begin DefaultFont.spritefont
 /importer:FontDescriptionImporter
