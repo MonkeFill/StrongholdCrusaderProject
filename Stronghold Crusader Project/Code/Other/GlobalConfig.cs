@@ -1,6 +1,6 @@
 namespace Stronghold_Crusader_Project.Code.Other;
 
-public static class GlobalConfig
+public static class GlobalConfig //Method to store global variables and paths that will be used across multiple classes
 {
     //Folder Paths
     private static string CurrentDirectory = Environment.CurrentDirectory; //Debug folder 
@@ -14,8 +14,8 @@ public static class GlobalConfig
     public static string TilesFolderFullPath = Path.Combine(ContentFolder, "bin","DesktopGL", TilesFolderPathFromContent);
     
     //Map Variables
-    public static int MapHeight = 100;
     public static int MapWidth = 100;
+    public static int MapHeight = 100;
     public static int TileHeight = 16;
     public static int TileWidth = 32;
     public static int TileReferencePrefixLength = 1;

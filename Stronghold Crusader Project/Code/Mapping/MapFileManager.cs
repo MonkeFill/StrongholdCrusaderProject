@@ -1,6 +1,6 @@
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
-public class MapFileManager
+public class MapFileManager //Class that will handle any map file operations
 {
     //Class Variables
     private MapHandler MapHandling;
@@ -35,14 +35,14 @@ public class MapFileManager
             {
                 LogEvent($"Map {MapName} is not in the correct format and hasn't been loaded", LogType.Error);
             }
-            catch (Exception Error)
+            catch (Exception Error) //Any other error that may happen
             {
                 LogEvent($"Map {MapName} could not be loaded, {Error.Message}", LogType.Error);
             }
         }
-        else
+        else //Map doesn't exist
         {
-            EventLogger.LogEvent($"Map {MapName} not found", LogType.Error);
+            LogEvent($"Map {MapName} not found", LogType.Error);
         }
         return null;
     }
@@ -96,7 +96,7 @@ public class MapFileManager
         return Valid;
     }
     
-    private string MapAsText(string[,] Map)
+    private string MapAsText(string[,] Map) //Convert to a string so you are able to read the map easily and for debugging
     {
         StringBuilder MapText = new StringBuilder();
         MapHandling.LoopThroughTiles((PositionX, PositionY) =>
@@ -115,7 +115,7 @@ public class MapFileManager
         return MapText.ToString();
     }
     
-    private Texture2D GetTileTexture(string TileKey)
+    private Texture2D GetTileTexture(string TileKey) //Method to get the texture of a tile based on its key
     {
         if (TextureMap.ContainsKey(TileKey)) //If the dictionary has the tile
         {

@@ -3,7 +3,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Stronghold_Crusader_Project.Code.Mapping
 {
-    public class Borders
+    public class Borders //Class to handle drawing borders around the map
     {
         //Class Variables
         Texture2D ActiveTexture;
@@ -11,11 +11,11 @@ namespace Stronghold_Crusader_Project.Code.Mapping
         Dictionary<string, Texture2D> BorderTextures = new  Dictionary<string, Texture2D>();
     
         //Methods
-        public Borders(ContentManager Content)
+        public Borders(ContentManager Content) //Setting up borders class
         {
-            LoadBorderTextures(Content);
+            LoadBorderTextures(Content); //Loading all the border textures
         }
-        public void Draw(SpriteBatch ActiveSpriteBatchInput)
+        public void Draw(SpriteBatch ActiveSpriteBatchInput) //Method to draw all borders
         {
             ActiveSpriteBatch = ActiveSpriteBatchInput;
             int OffSetX = 0;
@@ -49,13 +49,15 @@ namespace Stronghold_Crusader_Project.Code.Mapping
             }
         }
 
-        private void DrawVertical(int OffSetX, int OffSetY)
+        private void DrawVertical(int OffSetX, int OffSetY) //Method to draw a vertical row of borders
         {
             int PositionX = OffSetX;
             int PositionY = OffSetY;
-            for (int Count = 0; Count < (RealMapHeight / BorderHeight) + 2; Count++)
+            
+            int AmountOfBorders = (RealMapHeight / BorderHeight) + 2;
+            for (int Count = 0; Count < AmountOfBorders; Count++)
             {
-                if (Count == (RealMapHeight / BorderHeight) / 2) //Second first and second last border must be a small top texture
+                if (Count == AmountOfBorders / 2) //Drawing a smaller border in the middle
                 {
                     ActiveTexture = BorderTextures[TopSmallBorderTexture];
                     OffSetY = -(TileHeight / 2);
@@ -70,14 +72,15 @@ namespace Stronghold_Crusader_Project.Code.Mapping
             }
         }
 
-        private void DrawHorizontal(int OffSetX, int OffSetY)
+        private void DrawHorizontal(int OffSetX, int OffSetY) //Method to draw a horizontal column of borders
         {
             int PositionX = OffSetX;
             int PositionY = OffSetY;
+            int AmountOfBorders = (RealMapWidth / BorderWidth);
             
-            for (int Count = 0; Count < (RealMapWidth / BorderWidth); Count++)
+            for (int Count = 0; Count < AmountOfBorders; Count++)
             {
-                if (Count == (RealMapWidth / BorderWidth) / 2) //First and last border must be a small side texture
+                if (Count == AmountOfBorders / 2) //Drawing a smaller border in the middle
                 {
                     ActiveTexture = BorderTextures[SideSmallBorderTexture];
                     OffSetX = -(TileWidth / 2);
@@ -91,14 +94,14 @@ namespace Stronghold_Crusader_Project.Code.Mapping
                 PositionX += BorderWidth + OffSetX;
             }
         }
-        private void DrawBorder(int PositionX, int PositionY)
+        private void DrawBorder(int PositionX, int PositionY) //Method to draw a single border
         {
             Vector2 Position = new Vector2(PositionX, PositionY);
             Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
             ActiveSpriteBatch.Draw(ActiveTexture, Position,null, Color.White, CameraRotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
         
-        private void LoadBorderTextures(ContentManager Content)
+        private void LoadBorderTextures(ContentManager Content) //Adding the 3 possible textures into the texturemap
         {
             LogEvent("Loading border textures", LogType.Info);
             BorderTextures.Add(DefaultBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, DefaultBorderTexture)));

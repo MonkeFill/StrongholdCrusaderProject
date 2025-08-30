@@ -38,7 +38,7 @@ public class Game1 : Game
         _graphics.ApplyChanges();
         StartEventLog();
         Mapping = new MapHandler(Content);
-        Mapping.MapImportHandler("Map1");
+        Mapping.SetupNewMap();
         Camera2D.Initialize(GraphicsDevice.Viewport);
         BorderHandler = new Borders(Content);
         base.Initialize();

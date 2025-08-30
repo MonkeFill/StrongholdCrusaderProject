@@ -4,7 +4,7 @@ using Vector3 = Microsoft.Xna.Framework.Vector3;
 
 namespace Stronghold_Crusader_Project.Code.Other;
 
-public static class Camera2D
+public static class Camera2D //Class that controls the camera for the game
 { 
     //Class Variables
     private static Vector2 Position = Vector2.Zero; //Position of camera
@@ -127,7 +127,7 @@ public static class Camera2D
         TargetPosition.Y = MathHelper.Clamp(TargetPosition.Y, MinPositionY, MaxPositionY);
     }
 
-    private static float GetMinimumZoom()
+    private static float GetMinimumZoom() //Method to calculate how much the camera can zoom out
     {
         
         float ZoomNormal = Math.Max(ScreenWidth / TotalMapWidth, ScreenHeight / TotalMapHeight); //Which is bigger when normally rotated
@@ -135,7 +135,7 @@ public static class Camera2D
         return Math.Max(ZoomNormal, ZoomRotated);
     }
     
-    public static int GetCameraRotationDegrees()
+    public static int GetCameraRotationDegrees() //Getting the camera rotation in degrees
     {
         float RotationInDegrees = MathHelper.ToDegrees(CameraRotation);
         double RoundedDegrees = Math.Round(RotationInDegrees);

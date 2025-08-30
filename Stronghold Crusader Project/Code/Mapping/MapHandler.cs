@@ -1,6 +1,6 @@
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
-public class MapHandler
+public class MapHandler //Class to handle any map functions
 {
 
     //Class Variables
@@ -13,20 +13,20 @@ public class MapHandler
     private MapFileManager FileManager;
     
     //Methods
-    public MapHandler(ContentManager InputContent) 
+    public MapHandler(ContentManager InputContent)  //Initializer
     {
         FileManager = new MapFileManager(this);
         Content = InputContent;
         LoadTextureMap();
     }
 
-    public void MapExportHandler()
+    public void MapExportHandler() //Handler for exporting maps
     {
         string[,] SavedMap = FileManager.SaveMap();
         FileManager.ExportMap(SavedMap);
     }
 
-    public void MapImportHandler(string MapName)
+    public void MapImportHandler(string MapName) //Handler for importing maps
     {
         ActiveMapName = MapName;
         string[,] ImportedMap = FileManager.ImportMap();
@@ -35,7 +35,7 @@ public class MapHandler
             FileManager.LoadMap(ImportedMap);
         }
     }
-    private void LoadTextureMap()
+    private void LoadTextureMap() //Method to load all textures from the textures folder
     {
         LogEvent("Loading texture map started", LogType.Info);
         string[] TileFolders =  Directory.GetDirectories(TilesFolderFullPath); //Getting any of the tile folders
@@ -88,7 +88,7 @@ public class MapHandler
         {
             for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
             {
-                ActionToDo(PositionY, PositionX); //Execute the action for that specific tile
+                ActionToDo(PositionX, PositionY); //Execute the action for that specific tile
             }
         }
     }
@@ -101,12 +101,24 @@ public class MapHandler
     });
     end*/
 
-    public void DrawMap(SpriteBatch ActiveSpriteBatch)
+    public void DrawMap(SpriteBatch ActiveSpriteBatch) //Method to draw all the tiles for the map
     {
         LoopThroughTiles((PositionX, PositionY) =>
         {
             Map[PositionY, PositionX].Draw(ActiveSpriteBatch);
         });
+    }
+    public void SetupNewMap() //Method to create a new blank map
+    {
+        String[,] BlankMap = new string[MapHeight, MapWidth];
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+            {
+                BlankMap[PositionY, PositionX] = TextureMap.Last().Key; //Set all the tiles to be grass
+            }
+        }
+        FileManager.LoadMap(BlankMap);
     }
 }
 
