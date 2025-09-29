@@ -38,9 +38,10 @@ public class Game1 : Game
         _graphics.ApplyChanges();
         StartEventLog();
         Mapping = new MapHandler(Content);
-        Mapping.SetupNewMap();
+        Mapping.MapImportHandler("ValidMap");
         Camera2D.Initialize(GraphicsDevice.Viewport);
         BorderHandler = new Borders(Content);
+        InitializeDefaultKeybinds();
         base.Initialize();
     }
 
@@ -61,43 +62,7 @@ public class Game1 : Game
             double FPS = 1.0 / deltaTime;
             //Console.WriteLine($"FPS - {FPS:F2}");
         }
-        
-        
-        CameraAction Action = CameraAction.None;
-        KeyboardState keyboardState = Keyboard.GetState();
-        Vector2 PositionChange = Vector2.Zero;
-        float ZoomChange = 0f;
-        float  RotationChange = 0f;
-        if (keyboardState.IsKeyDown(Keys.W))
-        {
-            PositionChange.Y--;
-            Action = CameraAction.Move;
-        }
-        else if (keyboardState.IsKeyDown(Keys.S))
-        {
-            PositionChange.Y++;
-            Action = CameraAction.Move;
-        }
-        if (keyboardState.IsKeyDown(Keys.A))
-        {
-            PositionChange.X--;
-            Action = CameraAction.Move;
-        }
-        else if (keyboardState.IsKeyDown(Keys.D))
-        {
-            PositionChange.X++;
-            Action = CameraAction.Move;
-        }
-        if (keyboardState.IsKeyDown(Keys.OemPlus))
-        {
-            Action = CameraAction.Zoom;
-            ZoomChange = 1; 
-        }
-        else if (keyboardState.IsKeyDown(Keys.OemMinus))
-        {
-            Action = CameraAction.Zoom;
-            ZoomChange = -1; 
-        }
+        UpdateInputManager(gameTime);
         /*if (RotationCoolDown <= 0)
         {
             if (keyboardState.IsKeyDown(Keys.Q))
@@ -113,8 +78,8 @@ public class Game1 : Game
                 RotationCoolDown = RotationCooldownTime;
             }
         }*/
-        UpdateCamera(gameTime, Action, PositionChange, RotationChange, ZoomChange);
         base.Update(gameTime);
+        
     }
 
     protected override void Draw(GameTime gameTime)

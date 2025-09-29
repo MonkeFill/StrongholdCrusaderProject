@@ -29,5 +29,6 @@ global using static Stronghold_Crusader_Project.Code.Other.GlobalConfig;
 global using static Stronghold_Crusader_Project.Code.Other.EventLogger;
 global using static Stronghold_Crusader_Project.Code.Other.Camera2D;
 global using static Stronghold_Crusader_Project.Code.User_Input.KeyManager;
+global using static Stronghold_Crusader_Project.Code.User_Input.InputManager;
 
 

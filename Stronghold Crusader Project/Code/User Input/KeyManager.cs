@@ -10,18 +10,18 @@ public static class KeyManager //Keybinds that will be used to control everythin
     {
         if (Keybinds.ContainsKey(Control)) //If the control is already used
         {
-            EventLogger.LogEvent($"Keybind for {Control} is used somewhere else", EventLogger.LogType.Warning);
+            LogEvent($"Keybind for {Control} is used somewhere else", LogType.Warning);
         }
         else if (KeyAlreadyUsed(DefaultKey)) //If the keybind is used for another control
         {
-            EventLogger.LogEvent($"Keybind for {Control} - {DefaultKey} already used", EventLogger.LogType.Warning);
+            LogEvent($"Keybind for {Control} - {DefaultKey} already used", LogType.Warning);
         }
         else
         {
             //Valid so its both a unique control and keybind
             KeyMap NewKey = new KeyMap(Control, DefaultKey);
             Keybinds.Add(Control, NewKey);
-            EventLogger.LogEvent($"Added new keybind for {Control} - {NewKey.CurrentKey}", EventLogger.LogType.Info);
+            LogEvent($"Added new keybind for {Control} - {NewKey.CurrentKey}", LogType.Info);
         }
     }
     
@@ -30,12 +30,12 @@ public static class KeyManager //Keybinds that will be used to control everythin
         if (Keybinds.ContainsKey(Control)) //Checking if control is in the dictionary
         {
             KeyMap ActiveKey =  Keybinds[Control];
-            EventLogger.LogEvent($"Removed Keybind {Control} - {ActiveKey.CurrentKey}", EventLogger.LogType.Info);
+            LogEvent($"Removed Keybind {Control} - {ActiveKey.CurrentKey}", LogType.Info);
             Keybinds.Remove(Control);
         }
         else //If not found in dictionary
         {
-            EventLogger.LogEvent($"No Keybind found for {Control} to be removed", EventLogger.LogType.Warning);
+            LogEvent($"No Keybind found for {Control} to be removed", LogType.Warning);
         }
     }
 
@@ -46,42 +46,41 @@ public static class KeyManager //Keybinds that will be used to control everythin
             if (!KeyAlreadyUsed(NewKey)) //Checking if the keybind is already used
             {
                 KeyMap ActiveKey = Keybinds[Control];
-                EventLogger.LogEvent($"Updating Keybind for {Control}, OldKey - {ActiveKey.CurrentKey}, NewKey - {NewKey}", EventLogger.LogType.Info);
+                LogEvent($"Updating Keybind for {Control}, OldKey - {ActiveKey.CurrentKey}, NewKey - {NewKey}", LogType.Info);
                 ActiveKey.CurrentKey = NewKey;
                 return true;
             }
             else //If keybind is already used
             {
-                EventLogger.LogEvent($"Keybind for {Control} already exists", EventLogger.LogType.Warning);
+                LogEvent($"Keybind for {Control} already exists", LogType.Warning);
                 return false;
             }
         }
         else //If control isn't found
         {
-            EventLogger.LogEvent($"No Keybind found for {Control}", EventLogger.LogType.Warning);
+            LogEvent($"No Keybind found for {Control}", LogType.Warning);
             return false;
         }
     }
     
     public static void ResetAllToDefault() //Resetting all the keybinds to their default value
     {
-        EventLogger.LogEvent("Currently resetting all keys to default",EventLogger.LogType.Info);
-        foreach (KeyMap Key in Keybinds.Values) //Going through each keybind int he dictionary
+        LogEvent("Currently resetting all keys to default",EventLogger.LogType.Info);
+        foreach (KeyMap Key in Keybinds.Values) //Going through each keybind in the dictionary
         {
             Key.CurrentKey = Key.DefaultKey;
-            EventLogger.LogEvent($"Resetting Keybind for {Key.Control} - {Key.CurrentKey}", EventLogger.LogType.Info);
+            LogEvent($"Resetting Keybind for {Key.Control} - {Key.CurrentKey}", LogType.Info);
         }
-        EventLogger.LogEvent("All keys reset to default", EventLogger.LogType.Info);
+        LogEvent("All keys reset to default", LogType.Info);
     }
 
     public static Keys GetKeyFromControl(string Control) //Getting the key of a control
     {
         if (Keybinds.ContainsKey(Control)) //Checking if it exists
         {
-            EventLogger.LogEvent($"Lookup for {Control} - {Keybinds[Control].CurrentKey}", EventLogger.LogType.Info);
             return Keybinds[Control].CurrentKey;
         }
-        EventLogger.LogEvent($"No Keybind found for {Control}", EventLogger.LogType.Warning);
+        LogEvent($"No Keybind found for {Control}", LogType.Warning);
         return Keys.None;
     }
 
@@ -95,5 +94,15 @@ public static class KeyManager //Keybinds that will be used to control everythin
             }
         }
         return false;
+    }
+    
+    public static void InitializeDefaultKeybinds() //Method to initialise all the default keybinds
+    {
+        AddNewKeybind("MoveUp", Keys.W);
+        AddNewKeybind("MoveDown", Keys.S);
+        AddNewKeybind("MoveLeft", Keys.A);
+        AddNewKeybind("MoveRight", Keys.D);
+        AddNewKeybind("RotateClockwise", Keys.Q);
+        AddNewKeybind("RotateCounterClockwise", Keys.E);
     }
 }

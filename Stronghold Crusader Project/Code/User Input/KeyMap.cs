@@ -19,7 +19,14 @@ public class KeyMap //Keybind class so it has both current key, default key, way
 
     public void UpdateKeybind(Keys NewKeybind)
     {
-        CurrentKey = NewKeybind;
+        try //If keybind isn't valid to catch it
+        {
+            CurrentKey = NewKeybind;
+        }
+        catch
+        {
+            LogEvent($"Failed to update keybind for {Control} to {NewKeybind}", EventLogger.LogType.Error);
+        } 
     }
     public void ResetKeybind()
     {
