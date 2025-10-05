@@ -7,14 +7,17 @@ public class KeyMap //Keybind class so it has both current key, default key, way
     public Keys CurrentKey {get; set;}
     [JsonIgnore] //Won't save the default key
     public Keys DefaultKey {get;}
+    [JsonIgnore] //Won't save the value change
+    public object ValueChange {get;}
 
     [JsonConstructor]
     //Methods
-    public KeyMap(string Control, Keys CurrentKey)
+    public KeyMap(string Control, Keys CurrentKey, object ValueChange)
     {
         this.Control = Control;
         this.CurrentKey = CurrentKey;
         this.DefaultKey = CurrentKey;
+        this.ValueChange = ValueChange;
     }
 
     public void UpdateKeybind(Keys NewKeybind)

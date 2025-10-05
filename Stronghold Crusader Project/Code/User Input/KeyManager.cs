@@ -6,7 +6,7 @@ public static class KeyManager //Keybinds that will be used to control everythin
     public static readonly Dictionary<string, KeyMap> Keybinds = new(); //Dictionary that will store the control of the key and then use KeyMap class to store data for it
     
     //Methods
-    public static void AddNewKeybind(string Control, Keys DefaultKey) //Method for adding a new keybind to the dictionary 
+    public static void AddNewKeybind(string Control, Keys DefaultKey, object ChangeValue) //Method for adding a new keybind to the dictionary 
     {
         if (Keybinds.ContainsKey(Control)) //If the control is already used
         {
@@ -19,7 +19,7 @@ public static class KeyManager //Keybinds that will be used to control everythin
         else
         {
             //Valid so its both a unique control and keybind
-            KeyMap NewKey = new KeyMap(Control, DefaultKey);
+            KeyMap NewKey = new KeyMap(Control, DefaultKey, ChangeValue);
             Keybinds.Add(Control, NewKey);
             LogEvent($"Added new keybind for {Control} - {NewKey.CurrentKey}", LogType.Info);
         }
@@ -83,6 +83,16 @@ public static class KeyManager //Keybinds that will be used to control everythin
         LogEvent($"No Keybind found for {Control}", LogType.Warning);
         return Keys.None;
     }
+    
+    public static object GetValueChangeFromControl(string Control) //Getting the value change of a control
+    {
+        if (Keybinds.ContainsKey(Control)) //Checking if it exists
+        {
+            return Keybinds[Control].ValueChange;
+        }
+        LogEvent($"No Keybind found for {Control}", LogType.Warning);
+        return null;
+    }
 
     private static bool KeyAlreadyUsed(Keys KeyChange) //A method to check if a key is being used by any other control
     {
@@ -98,11 +108,11 @@ public static class KeyManager //Keybinds that will be used to control everythin
     
     public static void InitializeDefaultKeybinds() //Method to initialise all the default keybinds
     {
-        AddNewKeybind("MoveUp", Keys.W);
-        AddNewKeybind("MoveDown", Keys.S);
-        AddNewKeybind("MoveLeft", Keys.A);
-        AddNewKeybind("MoveRight", Keys.D);
-        AddNewKeybind("RotateClockwise", Keys.Q);
-        AddNewKeybind("RotateCounterClockwise", Keys.E);
+        AddNewKeybind("MoveUp", Keys.W, new Vector2(0,-1));
+        AddNewKeybind("MoveDown", Keys.S, new Vector2(0,1));
+        AddNewKeybind("MoveLeft", Keys.A, new Vector2(-1, 0));
+        AddNewKeybind("MoveRight", Keys.D, new Vector2(1,0));
+        AddNewKeybind("RotateClockwise", Keys.Q, 1);
+        AddNewKeybind("RotateCounterClockwise", Keys.E, -1);
     }
 }

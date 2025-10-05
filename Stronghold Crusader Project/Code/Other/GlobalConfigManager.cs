@@ -10,21 +10,11 @@
         //Methods
         public static void InitializeGlobalConfig()
         {
-            InitializeKeybinds();
+            InitializeDefaultKeybinds();
         }
         private static void CheckAllConfigs()
         {
             CheckGameDataFolder();
-        }
-        private static void InitializeKeybinds()
-        {
-            AddNewKeybind("MoveUp", Keys.W); 
-            AddNewKeybind("MoveDown", Keys.S);
-            AddNewKeybind("MoveLeft", Keys.A);
-            AddNewKeybind("MoveRight", Keys.D);
-            AddNewKeybind("RotateCameraLeft", Keys.Q);
-            AddNewKeybind("RotateCameraRight", Keys.E);
-            AddNewKeybind("PreviousMenu", Keys.Escape);
         }
 
         public static void CheckGameDataFolder()
