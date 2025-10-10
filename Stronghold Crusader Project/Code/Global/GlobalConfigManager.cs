@@ -1,4 +1,4 @@
-﻿namespace Stronghold_Crusader_Project.Code.Other
+﻿namespace Stronghold_Crusader_Project.Code.Global
 {
     public static class GlobalConfigManager //Config manager for global config to make sure all its data is there
     {

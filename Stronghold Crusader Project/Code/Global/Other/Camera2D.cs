@@ -2,7 +2,7 @@ using System.Numerics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 
-namespace Stronghold_Crusader_Project.Code.Other;
+namespace Stronghold_Crusader_Project.Code.Global.Other;
 
 public static class Camera2D //Class that controls the camera for the game
 { 

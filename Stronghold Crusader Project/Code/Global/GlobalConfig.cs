@@ -1,4 +1,4 @@
-namespace Stronghold_Crusader_Project.Code.Other;
+namespace Stronghold_Crusader_Project.Code.Global;
 
 public static class GlobalConfig //Method to store global variables and paths that will be used across multiple classes
 {

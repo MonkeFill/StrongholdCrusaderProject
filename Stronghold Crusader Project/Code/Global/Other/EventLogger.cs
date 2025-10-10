@@ -1,4 +1,4 @@
-namespace Stronghold_Crusader_Project.Code.Other;
+namespace Stronghold_Crusader_Project.Code.Global.Other;
 
 public static class EventLogger //Event logger that will log to both console and a text file
 {
