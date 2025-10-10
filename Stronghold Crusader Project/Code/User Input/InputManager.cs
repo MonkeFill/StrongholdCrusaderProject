@@ -7,7 +7,7 @@ public static class InputManager
     private static Vector2 PositionChange;
     private static float RotationChange;
     private static float ZoomChange;
-    private static CameraAction NewAction;
+    private static List<PossibleCameraAction> NewCameraActions = new List<PossibleCameraAction>();
     private static KeyboardState PreviousKeyBoardState;
     private static MouseState PreviousMouseState;
     private static Rectangle SelectionBox = new Rectangle(0, 0, 0, 0);
@@ -23,28 +23,23 @@ public static class InputManager
         PositionChange = Vector2.Zero;
         RotationChange = 0f;
         ZoomChange = 0f;
-        NewAction = CameraAction.None;
         HandleKeyboardInput();
-        /*
-        MouseState ActiveMouseState = Mouse.GetState();
-        int ActiveMouseScrollValue = ActiveMouseState.ScrollWheelValue;
-        
-        if (ActiveMouseScrollValue != PreviousMouseScrollValue) //Zooming
-        {
-            ActiveMouseScrollValue /= 120;
-            int MouseScrollChange = PreviousMouseScrollValue - ActiveMouseScrollValue;
-            ZoomChange = MouseScrollChange * ZoomSensitivity * -1;
-            NewAction = CameraAction.Zoom;
-            PreviousMouseScrollValue = ActiveMouseScrollValue;
-        }*/
-        
-        UpdateCamera(InputGameTime, NewAction, PositionChange, RotationChange, ZoomChange);
+        HandleMouseInput();
+        UpdateCamera(InputGameTime, NewCameraActions, PositionChange, RotationChange, ZoomChange);
     }
 
     private static void HandleMouseInput() //Handle any mouse inputs
     {
         MouseState ActiveMouseState = Mouse.GetState();
-        //Code
+        int ActiveMouseScrollValue = ActiveMouseState.ScrollWheelValue;
+        if (ActiveMouseScrollValue != PreviousMouseScrollValue) //Zooming
+        {
+            ActiveMouseScrollValue /= 120;
+            int MouseScrollChange = PreviousMouseScrollValue - ActiveMouseScrollValue;
+            ZoomChange = MouseScrollChange * ZoomSensitivity * -1;
+            NewCameraActions.Add(PossibleCameraAction.Zoom);
+            PreviousMouseScrollValue = ActiveMouseScrollValue;
+        }
         PreviousMouseState = ActiveMouseState;
     }
 
@@ -64,7 +59,7 @@ public static class InputManager
         {
             Vector2 TempPositionChange = (Vector2)GetValueChangeFromControl(Control);
             PositionChange += new Vector2(TempPositionChange.X * MovementAmount, TempPositionChange.Y * MovementAmount);
-            NewAction = CameraAction.Move;
+            NewCameraActions.Add(PossibleCameraAction.Move);
         }
     }
 

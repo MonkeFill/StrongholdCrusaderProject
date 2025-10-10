@@ -6,6 +6,14 @@ namespace Stronghold_Crusader_Project.Code.Other;
 
 public static class Camera2D //Class that controls the camera for the game
 { 
+    //Enumerated Variables
+    public enum PossibleCameraAction
+    {
+        Move,
+        Zoom,
+        Rotate
+    }
+    
     //Class Variables
     private static Vector2 Position = Vector2.Zero; //Position of camera
     private static Vector2 TargetPosition = Vector2.Zero;
@@ -17,15 +25,6 @@ public static class Camera2D //Class that controls the camera for the game
     private static float ScreenWidth; //Width of monitor
     private static Vector2 ScreenCentre; //Centre of the screen
     public static float CameraRotation; //Rotation of camera
-
-    //Enumerated Variables
-    public enum CameraAction
-    {
-        Move,
-        Zoom,
-        Rotate,
-        None
-    }
 
     //Methods
     public static void Initialize(Viewport viewport) //Initialise of a new camera
@@ -41,6 +40,7 @@ public static class Camera2D //Class that controls the camera for the game
         CameraRotation = 0f;
         MouseScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
         Position = new Vector2(MapWidthSize / 2f, MapHeightSize / 2f);
+        TargetPosition = Position;
     }
 
     public static Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
@@ -53,27 +53,36 @@ public static class Camera2D //Class that controls the camera for the game
         return NewViewMatrix;
     }
 
-    public static void UpdateCamera(GameTime InputGameTime, CameraAction InputAction, Vector2 PositionChange , float RotationChange, float ZoomChange) //Updating the camera
+    public static void UpdateCamera(GameTime InputGameTime, List<PossibleCameraAction> CameraActions,Vector2 PositionChange , float RotationChange, float ZoomChange) //Updating the camera
     {
         float DeltaTime = (float)InputGameTime.ElapsedGameTime.TotalSeconds;
-        if (InputAction != CameraAction.None)
+        if (CameraActions.Count > 0) //If there is camera action
         {
             MouseState ActiveMouseState = Mouse.GetState();
             Vector2 MouseCentre = new Vector2(ActiveMouseState.X, ActiveMouseState.Y);
             Vector2 WorldBeforeChange = CameraScreenToWorld(MouseCentre); //Getting how the world it is before 
-            switch (InputAction)
+            if (CameraActions.Contains(PossibleCameraAction.Move)) //Move the camera to a new position
             {
-                case CameraAction.Move: //Move the camera to a new position
+                if (PositionChange != Vector2.Zero) //Making sure it isn't zero
+                {
                     PositionChange.Normalize(); //Move same speed horizontally, vertically and diagonally
-                    PositionChange = Vector2.Transform(PositionChange, Matrix.CreateRotationZ(-CameraRotation)); //Create the new position change based on the rotation
-                    TargetPosition += PositionChange * MovementAmount * DeltaTime; //New position for where it should go
-                    break;
-                case CameraAction.Zoom: //Zooming into where the mouse is 
-                    Zoom += (ZoomChange * ZoomSensitivity); //Adding the zoom
-                    break;
-                case CameraAction.Rotate:
-                    CameraRotation += RotationAmount * RotationChange; //Adding rotations
-                    break;
+                }
+                PositionChange = Vector2.Transform(PositionChange, Matrix.CreateRotationZ(-CameraRotation)); //Create the new position change based on the rotation
+                TargetPosition += PositionChange * MovementAmount * DeltaTime; //New position for where it should go
+                CameraActions.Remove(PossibleCameraAction.Move);
+                ClampCameraMovement();
+            }
+            if (CameraActions.Contains(PossibleCameraAction.Zoom)) //Zooming into where the mouse is 
+            {
+                Zoom += (ZoomChange * ZoomSensitivity); //Adding the zoom
+                ClampCameraZoom();
+                CameraActions.Remove(PossibleCameraAction.Zoom);
+            }
+            if (CameraActions.Contains(PossibleCameraAction.Rotate))
+            {
+                CameraRotation += RotationAmount * RotationChange; //Adding rotations
+                CameraActions.Remove(PossibleCameraAction.Rotate);
+                ClampCameraRotation();
             }
             Vector2 WorldAfterChange = CameraScreenToWorld(MouseCentre);
             Vector2 WorldOffSet = WorldBeforeChange - WorldAfterChange;
@@ -81,6 +90,7 @@ public static class Camera2D //Class that controls the camera for the game
         }
         Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
         ClampCamera();
+        LogEvent($"ActivePosition - {Position}, TargetPosition - {TargetPosition}", LogType.Debug);
        }
     private static Vector2 CameraScreenToWorld(Vector2 ScreenPosition) //Converting screen position to actual world position
     {
@@ -88,18 +98,14 @@ public static class Camera2D //Class that controls the camera for the game
         return Vector2.Transform(ScreenPosition, InvertedMatrix);
     }
 
-    private static void ClampCamera() //A method to make sure that the camera doesn't go outside the bounds
+    private static void ClampCamera() //Clamping all the camera movements
     {
-        //Camera Zoom Clamping
-        Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom); //Making sure it isn't too high or low
-        //Camera Rotation Clamping
-        CameraRotation = CameraRotation % MathHelper.TwoPi; //Making it loop through 360 degrees
-        if (CameraRotation < 0) //If it goes negative whilst turning left
-        {
-            CameraRotation += MathHelper.TwoPi; //Adding 360 to keep it within the loop
-        }
-        
-        //Camera Position Clamping
+        ClampCameraMovement();
+        ClampCameraRotation();
+        ClampCameraZoom();
+    }
+    private static void ClampCameraMovement() //A method to make sure that the camera movement
+    {
         //Creating minimum positions for how close to origin the camera can go
         float ViewWorldWidth = ScreenWidth / Zoom;
         float ViewWorldHeight = ScreenHeight / Zoom;
@@ -125,6 +131,20 @@ public static class Camera2D //Class that controls the camera for the game
         Position.Y = MathHelper.Clamp(Position.Y, MinPositionY, MaxPositionY);
         TargetPosition.X = MathHelper.Clamp(TargetPosition.X, MinPositionX, MaxPositionX);
         TargetPosition.Y = MathHelper.Clamp(TargetPosition.Y, MinPositionY, MaxPositionY);
+    }
+
+    private static void ClampCameraRotation() //Making sure the camera has the same rotation format
+    {
+        CameraRotation = CameraRotation % MathHelper.TwoPi; //Making it loop through 360 degrees
+        if (CameraRotation < 0) //If it goes negative whilst turning left
+        {
+            CameraRotation += MathHelper.TwoPi; //Adding 360 to keep it within the loop
+        }
+    }
+
+    private static void ClampCameraZoom() //Making sure zom doesn't leave the bounds
+    {
+        Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom);
     }
 
     private static float GetMinimumZoom() //Method to calculate how much the camera can zoom out
