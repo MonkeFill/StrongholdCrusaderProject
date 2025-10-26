@@ -1,97 +1,90 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
 
-namespace NavigationMenu
+public class ButtonsManager //Manages button logic and creation
 {
-    public class ButtonsManager
+    //Variables
+    List<Button> ButtonsCreated = new List<Button>();
+
+    //Methods
+    public void CreateButton(Button ButtonToCreate) //Initalising button class
     {
-        List<Button> ButtonsCreated = new List<Button>();
-
-        public void CreateButton(Button ButtonToCreate)
+        if (GetButtonFromName(ButtonToCreate.Name) == null)
         {
-            if (GetButtonFromName(ButtonToCreate.Name) == null)
-            {
-                ButtonsCreated.Add(ButtonToCreate);
-                //LogEvent($"Button  {ButtonToCreate.Name} created", ErrorType.Info);
-            }
-            else
-            {
-                //LogEvent($"Button name {ButtonToCreate.Name} already exists", ErrorType.Error);
-            }
+            ButtonsCreated.Add(ButtonToCreate);
+            LogEvent($"Button  {ButtonToCreate.Name} created", LogType.Info);
         }
-
-        public void UpdateButtons(MouseState ActiveMouse)
+        else
         {
-            foreach (Button ActiveButton in ButtonsCreated)
+            LogEvent($"Button name {ButtonToCreate.Name} already exists", LogType.Error);
+        }
+    }
+
+    public void UpdateButtons(MouseState ActiveMouse) //Updating button logic
+    {
+        foreach (Button ActiveButton in ButtonsCreated) //Looping through all buttons
+        {
+            ActiveButton.Hover = false;
+            if (ActiveButton.Update(ActiveMouse)) //If it has a change
             {
-                ActiveButton.Hover = false;
-                if (ActiveButton.Update(ActiveMouse))
+                string TempCategory = ActiveButton.Category;
+                if (TempCategory != null)
                 {
-                    string TempCategory = ActiveButton.Category;
-                    if (TempCategory != null)
+                    foreach (Button SecondActiveButton in ButtonsCreated) //Looping through all buttons in the same category
                     {
-                        foreach (Button SecondActiveButton in ButtonsCreated)
+                        if (SecondActiveButton != ActiveButton)
                         {
-                            if (SecondActiveButton != ActiveButton)
+                            if (SecondActiveButton.Category == TempCategory)
                             {
-                                if (SecondActiveButton.Category == TempCategory)
-                                {
-                                    SecondActiveButton.Active = false;
-                                }
+                                SecondActiveButton.Active = false; //Making the button unactive
                             }
                         }
                     }
                 }
             }
         }
+    }
 
-        public void DrawButtons(SpriteBatch ActiveSpriteBatch)
+    public void DrawButtons(SpriteBatch ActiveSpriteBatch) //Drawing every button
+    {
+        foreach (Button ActiveButton in ButtonsCreated)
         {
-            foreach (Button ActiveButton in ButtonsCreated)
-            {
-                ActiveButton.Draw(ActiveSpriteBatch);
-            }
+            ActiveButton.Draw(ActiveSpriteBatch);
         }
+    }
 
-        public void ResetButton(string ButtonName)
+    public void ResetButton(string ButtonName) //Resetting a button
+    {
+        Button ActiveButton = GetButtonFromName(ButtonName);
+        if (ActiveButton != null)
         {
-            Button ActiveButton = GetButtonFromName(ButtonName);
-            if (ActiveButton != null)
-            {
-                ActiveButton.ResetButton();
-            }
-            else
-            {
-                //LogEvent($"Can't find button {ButtonName}", ErrorType.Warning);
-            }
+            ActiveButton.ResetButton();
         }
-        
-        public void HideButtonsInCategory(string CategoryName)
+        else
         {
-            foreach (Button ActiveButton in ButtonsCreated)
-            {
-                if (ActiveButton.Category == CategoryName)
-                {
-                    ActiveButton.Visible = false;
-                }
-            }
+            LogEvent($"Can't find button {ButtonName}", LogType.Warning);
         }
+    }
 
-        public Button GetButtonFromName(string ButtonName)
+    public void HideButtonsInCategory(string CategoryName) //Hidding all buttons in a category
+    {
+        foreach (Button ActiveButton in ButtonsCreated)
         {
-            foreach (Button ActiveButton in ButtonsCreated)
+            if (ActiveButton.Category == CategoryName)
             {
-                if (ActiveButton.Name == ButtonName)
-                {
-                    return ActiveButton;
-                }
+                ActiveButton.Visible = false;
             }
-            return null;
         }
+    }
+
+    public Button GetButtonFromName(string ButtonName) //Getting the button from the list
+    {
+        foreach (Button ActiveButton in ButtonsCreated)
+        {
+            if (ActiveButton.Name == ButtonName)
+            {
+                return ActiveButton;
+            }
+        }
+        return null;
     }
 }
