@@ -90,7 +90,6 @@ public static class Camera2D //Class that controls the camera for the game
         }
         Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
         ClampCamera();
-        LogEvent($"ActivePosition - {Position}, TargetPosition - {TargetPosition}", LogType.Debug);
        }
     private static Vector2 CameraScreenToWorld(Vector2 ScreenPosition) //Converting screen position to actual world position
     {
