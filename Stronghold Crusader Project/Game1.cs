@@ -1,14 +1,16 @@
-﻿namespace Stronghold_Crusader_Project;
+﻿using System.Threading;
+
+namespace Stronghold_Crusader_Project;
 
 public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private StartupManager GameManager = new StartupManager();
     private MapHandler Mapping;
-    private Borders BorderHandler;
-    float RotationCooldownTime = 1f;
-    float RotationCoolDown = 0f;
     Texture2D TempPixel;
+    
+    
     enum GameState
     {
         StartMenu,
@@ -32,16 +34,16 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
+        //Setting the game to full screen borderless
         Window.IsBorderless = true;
         _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         _graphics.ApplyChanges();
-        StartEventLog();
+        //Starting the game and initialising everything
+        GameManager.StartGame(Content);
         Mapping = new MapHandler(Content);
-        Mapping.MapImportHandler("ValidMap");
+        Mapping.SetupNewMap();
         Camera2D.Initialize(GraphicsDevice.Viewport);
-        BorderHandler = new Borders(Content);
-        InitializeDefaultKeybinds();
         base.Initialize();
     }
 
@@ -55,7 +57,6 @@ public class Game1 : Game
     protected override void Update(GameTime gameTime)
     { 
         double deltaTime = gameTime.ElapsedGameTime.TotalSeconds;
-        RotationCoolDown -= (float)deltaTime;
 
         if (deltaTime > 0)
         {
@@ -63,21 +64,6 @@ public class Game1 : Game
             //Console.WriteLine($"FPS - {FPS:F2}");
         }
         UpdateInputManager(gameTime);
-        /*if (RotationCoolDown <= 0)
-        {
-            if (keyboardState.IsKeyDown(Keys.Q))
-            {
-                Action = CameraAction.Rotate;
-                RotationChange = 1;
-                RotationCoolDown = RotationCooldownTime;
-            }
-            else if (keyboardState.IsKeyDown(Keys.E))
-            {
-                Action = CameraAction.Rotate;
-                RotationChange = -1;
-                RotationCoolDown = RotationCooldownTime;
-            }
-        }*/
         base.Update(gameTime);
         
     }
@@ -88,7 +74,6 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
         Mapping.DrawMap(_spriteBatch);
-        BorderHandler.Draw(_spriteBatch);
         _spriteBatch.End();
         
         base.Draw(gameTime);

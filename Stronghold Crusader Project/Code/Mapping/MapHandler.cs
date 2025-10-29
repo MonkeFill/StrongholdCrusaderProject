@@ -7,6 +7,7 @@ public class MapHandler //Class to handle any map functions
     public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
     public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
     public string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
+    Borders BorderHandler;
     
     public string ActiveMapName;
     private ContentManager Content;
@@ -18,6 +19,7 @@ public class MapHandler //Class to handle any map functions
         FileManager = new MapFileManager(this);
         Content = InputContent;
         LoadTextureMap();
+        BorderHandler = new Borders(InputContent);
     }
 
     public void MapExportHandler() //Handler for exporting maps
@@ -107,15 +109,17 @@ public class MapHandler //Class to handle any map functions
         {
             Map[PositionY, PositionX].Draw(ActiveSpriteBatch);
         });
+        BorderHandler.Draw(ActiveSpriteBatch);
     }
     public void SetupNewMap() //Method to create a new blank map
     {
+        Random RanInt = new Random();
         String[,] BlankMap = new string[MapHeight, MapWidth];
         for (int PositionY = 0; PositionY < MapHeight; PositionY++)
         {
             for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
             {
-                BlankMap[PositionY, PositionX] = TextureMap.Last().Key; //Set all the tiles to be grass
+                BlankMap[PositionY, PositionX] = TextureMap.ElementAt(RanInt.Next(TextureMap.Count)).Key; //Set all the tiles to be grass
             }
         }
         FileManager.LoadMap(BlankMap);

@@ -41,7 +41,6 @@ public static class EventLogger //Event logger that will log to both console and
         string FullLog = $"[{DateTime.Now}] {TypeOfLog.ToString().ToUpper()}: {Log}";
         Console.WriteLine(FullLog);
         Console.ResetColor();
-        //StreamWriter FileWrite = new StreamWriter(LogFilePath, true);
         FileWrite.WriteLine(FullLog);
     }
 
@@ -56,12 +55,12 @@ public static class EventLogger //Event logger that will log to both console and
             }
         }
         FileWrite = new StreamWriter(Path.Combine(EventLoggerPath, DateTime.Now.ToString("dd-MM")) + ".txt", true);
-        LogEvent("Event Log Started", LogType.Status);
+        LogEvent(" Event Log Started \n \n", LogType.Status);
     }
 
     public static void EndEventLog() //Finish off the log
     {
-        LogEvent("Event Log Ended", LogType.Status);
+        LogEvent("Event Log Ended \n \n", LogType.Status);
         FileWrite.Close();
     }
 }
