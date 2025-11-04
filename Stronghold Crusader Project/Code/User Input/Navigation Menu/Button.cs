@@ -92,9 +92,7 @@ public class Button
                         Hover = true;
                     }
                 }
-                return false;
             }
-            return true;
         }
         return false;
     }

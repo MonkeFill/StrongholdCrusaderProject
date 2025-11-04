@@ -69,7 +69,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: );
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
         Mapping.DrawMap(_spriteBatch);
         _spriteBatch.End();
         
