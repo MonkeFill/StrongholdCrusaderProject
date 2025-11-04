@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace Stronghold_Crusader_Project;
+﻿namespace Stronghold_Crusader_Project;
 
 public class Game1 : Game
 {
@@ -13,14 +11,13 @@ public class Game1 : Game
     
     enum GameState
     {
-        StartMenu,
-        GamePicking,
-        GamePreview,
-        PausedMenu,
+        MainMenu,
+        Game,
+        Error,
+        Exit,
         LoadGame,
-        SaveMenu,
-        SettingsMenu,
-        ErrorCatch
+        PlayGame,
+        Settings
     }
 
     public Game1()
@@ -72,7 +69,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: );
         Mapping.DrawMap(_spriteBatch);
         _spriteBatch.End();
         
