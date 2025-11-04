@@ -1,6 +1,6 @@
 namespace Stronghold_Crusader_Project.Code.User_Input.User_Interface;
 
-public class BaseUI
+public abstract class BaseUI
 {
     //Class Variables
     protected List<Button> UIButtons;
@@ -11,23 +11,26 @@ public class BaseUI
         Visible = false;
     }
     
-    public virtual void Update(MouseState ActiveMouse) //Updating the UI logic
+    public void Update(MouseState ActiveMouse) //Updating the UI logic
     {
-        foreach (Button ActiveButton in UIButtons) //Looping through all buttons to update them
+        if (Visible == true) //You can see the UI
         {
-            ActiveButton.Hover = false;
-            if (ActiveButton.Update(ActiveMouse)) //If it has a change
+            foreach (Button ActiveButton in UIButtons) //Looping through all buttons to update them
             {
-                string TempCategory = ActiveButton.Category;
-                if (TempCategory != null)
+                ActiveButton.Hover = false;
+                if (ActiveButton.Update(ActiveMouse)) //If it has a change
                 {
-                    foreach (Button SecondActiveButton in UIButtons) //Looping through all buttons in the same category
+                    string TempCategory = ActiveButton.Category;
+                    if (TempCategory != null)
                     {
-                        if (SecondActiveButton != ActiveButton)
+                        foreach (Button SecondActiveButton in UIButtons) //Looping through all buttons in the same category
                         {
-                            if (SecondActiveButton.Category == TempCategory)
+                            if (SecondActiveButton != ActiveButton)
                             {
-                                SecondActiveButton.Active = false; //Making the button unactive
+                                if (SecondActiveButton.Category == TempCategory)
+                                {
+                                    SecondActiveButton.Active = false; //Making the button unactive
+                                }
                             }
                         }
                     }
@@ -44,7 +47,7 @@ public class BaseUI
         }
     }
 
-    public virtual void ResetUI() //Setting the UI to its default
+    public void ResetUI() //Setting the UI to its default
     {
         foreach (Button ActiveButton in UIButtons)
         {

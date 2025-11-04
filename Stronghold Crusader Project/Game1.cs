@@ -7,18 +7,6 @@ public class Game1 : Game
     private StartupManager GameManager = new StartupManager();
     private MapHandler Mapping;
     Texture2D TempPixel;
-    
-    
-    enum GameState
-    {
-        MainMenu,
-        Game,
-        Error,
-        Exit,
-        LoadGame,
-        PlayGame,
-        Settings
-    }
 
     public Game1()
     {
@@ -69,7 +57,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: );
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
         Mapping.DrawMap(_spriteBatch);
         _spriteBatch.End();
         
