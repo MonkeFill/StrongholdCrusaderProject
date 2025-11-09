@@ -23,7 +23,19 @@ public class SelectionDrawer : BaseButtonDrawer
 
     public void Draw(SpriteBatch ActiveSpriteBatch, Button ActiveButton)
     {
-        
+        Texture2D BackgroundDrawTexture = Background;
+        if (ActiveButton.Hover == true) //if it is being hovered over
+        {
+            BackgroundDrawTexture = HoverBackground;
+        }
+        ActiveSpriteBatch.Draw(BackgroundDrawTexture, ActiveButton.Bounds, Color.White);
+        Vector2 TextPosition = new Vector2(ActiveButton.Bounds.X + 35, (ActiveButton.Bounds.Y + ActiveButton.Bounds.Height / 2f) - FontSize);
+        ActiveSpriteBatch.DrawString(Font, Text, TextPosition, Color.White);
+        if (ActiveButton.Hover == true)
+        {
+            Vector2 IconPosition = new Vector2(ActiveButton.Bounds.X - 75, ActiveButton.Bounds.Y - 10);
+            ActiveSpriteBatch.Draw(HoverIcon, IconPosition, Color.White);
+        }
     }
 }
 

@@ -51,6 +51,7 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static int VirtualWidth = 1024;
     public static int VirtualHeight = 768;
     public static Matrix MatrixScale;
+    public static int FontSize = 12;
     
     //Methods
     private static int GetMaxMapHeight()
