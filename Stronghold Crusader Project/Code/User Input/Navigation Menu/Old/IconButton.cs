@@ -1,5 +1,5 @@
 ﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
-
+/*
 public class IconButton : Button_Old
 {
     //Class Variables
@@ -52,3 +52,4 @@ public class IconButton : Button_Old
         }
     }
 }
+*/

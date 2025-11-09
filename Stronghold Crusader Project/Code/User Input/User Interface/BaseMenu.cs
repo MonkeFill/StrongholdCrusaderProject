@@ -4,7 +4,7 @@ public abstract class BaseMenu
 {
     //Class Variables
     public bool IsSubMenu = false;
-    protected List<Button_Old> MenuButtons = new List<Button_Old>();
+    protected List<Button> MenuButtons = new List<Button>();
     protected MenuManager Manager;
     
     
@@ -15,8 +15,8 @@ public abstract class BaseMenu
 
     public void Update(MouseState ActiveMouse) //Updating the buttons within the UI
     {
-        Button_Old ButtonClicked = null;
-        foreach (Button_Old ActiveButton in MenuButtons) //Looping through all the buttons updating them
+        Button ButtonClicked = null;
+        foreach (Button ActiveButton in MenuButtons) //Looping through all the buttons updating them
         {
             if (ActiveButton.Update(ActiveMouse)) //If the button is clicked on it will return true
             {
@@ -26,7 +26,7 @@ public abstract class BaseMenu
 
         if (ButtonClicked != null) //A button got clicked
         {
-            foreach (Button_Old ActiveButton in MenuButtons) //Looping through all buttons
+            foreach (Button ActiveButton in MenuButtons) //Looping through all buttons
             {
                 if (ActiveButton.Category == ButtonClicked.Category && ActiveButton != ButtonClicked) //Button is in same category and is not the same as the clicked button
                 {
@@ -38,7 +38,7 @@ public abstract class BaseMenu
     
     public virtual void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the UI
     {
-        foreach (Button_Old ActiveButton in MenuButtons) //Draw every button
+        foreach (Button ActiveButton in MenuButtons) //Draw every button
         {
             ActiveButton.Draw(ActiveSpriteBatch);
         }
