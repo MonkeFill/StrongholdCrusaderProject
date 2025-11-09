@@ -21,8 +21,8 @@ public class MenuManager
         SaveGame
     }
     
-    private Dictionary<GameState, BaseUI> MenuUI = new Dictionary<GameState, BaseUI>();
-    private Dictionary<SubGameState, BaseUI> SubMenuUI = new Dictionary<SubGameState, BaseUI>();
+    private Dictionary<GameState, BaseMenu> MenuUI = new Dictionary<GameState, BaseMenu>();
+    private Dictionary<SubGameState, BaseMenu> SubMenuUI = new Dictionary<SubGameState, BaseMenu>();
     public MenuManager()
     {
 

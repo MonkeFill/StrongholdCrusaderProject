@@ -24,11 +24,16 @@ public class Game1 : Game
         _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         _graphics.ApplyChanges();
+        
         //Starting the game and initialising everything
         GameManager.StartGame(Content);
         Mapping = new MapHandler(Content);
         Mapping.SetupNewMap();
         Camera2D.Initialize(GraphicsDevice.Viewport);
+        CreateViewScale(_graphics);
+        
+        //Testing
+        
         base.Initialize();
     }
 
@@ -57,10 +62,26 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         // TODO: Add your drawing code here
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix());
+        //Drawing anything that requires the camera like the map
+        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.AnisotropicClamp); 
         Mapping.DrawMap(_spriteBatch);
         _spriteBatch.End();
         
+        //Anything else that will be drawn using the Matrix Scale depending on the monitor
+        _spriteBatch.Begin(transformMatrix: MatrixScale);
+        
+        _spriteBatch.End();
+        
         base.Draw(gameTime);
+    }
+
+    private void CreateViewScale(GraphicsDeviceManager Graphics)
+    {
+        //Getting the scale against the monitor sides
+        float ScaleY = Graphics.PreferredBackBufferHeight / VirtualHeight;
+        float ScaleX = Graphics.PreferredBackBufferWidth / VirtualWidth;
+
+        float Scale = Math.Min(ScaleX, ScaleY); //Getting whatever is the smaller scale
+        MatrixScale = Matrix.CreateScale(Scale, Scale, 1f); //Creating the scale
     }
 }

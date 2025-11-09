@@ -1,6 +1,6 @@
 ﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
 
-public class IconButton : Button
+public class IconButton : Button_Old
 {
     //Class Variables
     private Texture2D Icon;

@@ -40,12 +40,17 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static string CornerBorderTexture = "BorderCorner";
     
     //Camera Variables
-    public static float MaxZoom = 3.5f;
+    public  static float MaxZoom = 3.5f;
     public static float ZoomSensitivity = 0.1f;
     public static float MovementAmount = 200f;
     public static float MovementSpeed = 75;
     public static float RotationAmount = MathHelper.PiOver2;
     public static bool MapVertical => MapIsVertical();
+    
+    //Other Variables
+    public static int VirtualWidth = 1024;
+    public static int VirtualHeight = 768;
+    public static Matrix MatrixScale;
     
     //Methods
     private static int GetMaxMapHeight()
