@@ -13,9 +13,9 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static string TilesFolderPathFromContent = Path.Combine(MappingFolder, "Tiles");
     public static string TilesFolderFullPath = Path.Combine(ContentFolder, "bin","DesktopGL", "Content", TilesFolderPathFromContent);
     public static string EventLoggerPath = Path.Combine(DefaultFolder, "Logs");
-    private static string UIElementFolder = Path.Combine(ContentFolder, "UI");
-    public static string MainMenuFolder = Path.Combine(UIElementFolder, "MainMenu");
-    public static string ButtonsFolder = Path.Combine(UIElementFolder, "Buttons");
+    private static string UIElementFolder = Path.Combine("Assets/UI");
+    public static string MenuFolder = Path.Combine(UIElementFolder, "Menus");
+    public static string ButtonsFolder = Path.Combine(MenuFolder, "Buttons");
     
     //Map Variables
     public static int MapWidth = 100;

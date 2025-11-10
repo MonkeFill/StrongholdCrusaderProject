@@ -23,6 +23,7 @@ public class Game1 : Game
     Button ActiveIconButton1;
     Button ActiveIconButton2;
     Button ActiveIconButton3;
+    BaseMenu TestMenu;
 
     public Game1()
     {
@@ -99,6 +100,8 @@ public class Game1 : Game
         Texture2D ActiveButton3_Active = Content.Load<Texture2D>("Assets/UI/Game/Categories/Town_Active");
         Drawer = new ActiveIconDrawer(ActiveButton3, ActiveButton3_Hover, ActiveButton3_Active);
         ActiveIconButton3 = new Button("ActiveIconButton3", "test", new Rectangle(320, 575, 30, 35), Drawer, null);
+
+        TestMenu = new HomeScreen(null, Content);
     }
 
     protected override void Update(GameTime gameTime)
@@ -113,16 +116,18 @@ public class Game1 : Game
         UpdateInputManager(gameTime);
 
         //Testing
-        SelectButton1.Update(Mouse.GetState());
-        SelectButton2.Update(Mouse.GetState());
-        SelectButton3.Update(Mouse.GetState());
-        SelectButton4.Update(Mouse.GetState());
-        SelectButton5.Update(Mouse.GetState());
-        IconButton1.Update(Mouse.GetState());
-        IconButton2.Update(Mouse.GetState());
-        ActiveIconButton1.Update(Mouse.GetState());
-        ActiveIconButton2.Update(Mouse.GetState());
-        ActiveIconButton3.Update(Mouse.GetState());
+        MouseState ActiveMouse = Mouse.GetState();
+        SelectButton1.Update(ActiveMouse);
+        SelectButton2.Update(ActiveMouse);
+        SelectButton3.Update(ActiveMouse);
+        SelectButton4.Update(ActiveMouse);
+        SelectButton5.Update(ActiveMouse);
+        IconButton1.Update(ActiveMouse);
+        IconButton2.Update(ActiveMouse);
+        ActiveIconButton1.Update(ActiveMouse);
+        ActiveIconButton2.Update(ActiveMouse);
+        ActiveIconButton3.Update(ActiveMouse);
+        TestMenu.Update(ActiveMouse);
         base.Update(gameTime);
         
     }
@@ -141,6 +146,7 @@ public class Game1 : Game
         _spriteBatch.Begin();
 
         //Testing
+        /*
         SelectButton1.Draw(_spriteBatch);
         SelectButton2.Draw(_spriteBatch);
         SelectButton3.Draw(_spriteBatch);
@@ -151,6 +157,8 @@ public class Game1 : Game
         ActiveIconButton1.Draw(_spriteBatch);
         ActiveIconButton2.Draw(_spriteBatch);
         ActiveIconButton3.Draw(_spriteBatch);
+        */
+        TestMenu.Draw(_spriteBatch);
         _spriteBatch.End();
         
         base.Draw(gameTime);
