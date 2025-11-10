@@ -52,6 +52,13 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static int VirtualHeight = 768;
     public static Matrix MatrixScale;
     public static int FontSize = 12;
+
+    //File Addons
+    public static string HoverAdd = "_Hover";
+    public static string ActiveAdd = "_Active";
+    public static string LockedAdd = "_Locked";
+    public static string AvailableAdd = "_Available";
+    public static string UnavailableAdd = "_Unavailable";
     
     //Methods
     private static int GetMaxMapHeight()
