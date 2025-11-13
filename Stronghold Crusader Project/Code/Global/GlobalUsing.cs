@@ -25,6 +25,8 @@ global using Stronghold_Crusader_Project.Code.Player;
 global using Stronghold_Crusader_Project.Code.User_Input;
 global using Stronghold_Crusader_Project.Code.Global.Other;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
+global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
+global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 
 //Methods that need to be accessed globally
 global using static Stronghold_Crusader_Project.Code.Global.GlobalConfig;

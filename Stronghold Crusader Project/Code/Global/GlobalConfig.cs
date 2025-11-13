@@ -15,7 +15,8 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static string EventLoggerPath = Path.Combine(DefaultFolder, "Logs");
     private static string UIElementFolder = Path.Combine("Assets/UI");
     public static string MenuFolder = Path.Combine(UIElementFolder, "Menus");
-    public static string ButtonsFolder = Path.Combine(MenuFolder, "Buttons");
+    private static string GlobalMenuFolder = Path.Combine(MenuFolder, "Global");
+    public static string BoxMenuFolder = Path.Combine(GlobalMenuFolder, "Box");
     
     //Map Variables
     public static int MapWidth = 100;
@@ -46,12 +47,6 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static float MovementSpeed = 75;
     public static float RotationAmount = MathHelper.PiOver2;
     public static bool MapVertical => MapIsVertical();
-    
-    //Other Variables
-    public static int VirtualWidth = 1024;
-    public static int VirtualHeight = 768;
-    public static Matrix MatrixScale;
-    public static int FontSize = 12;
 
     //File Addons
     public static string HoverAdd = "_Hover";
@@ -59,7 +54,15 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static string LockedAdd = "_Locked";
     public static string AvailableAdd = "_Available";
     public static string UnavailableAdd = "_Unavailable";
-    
+
+    //Other Variables
+    public static int VirtualWidth = 1024;
+    public static int VirtualHeight = 768;
+    public static Matrix MatrixScale;
+    public static int FontSize = 12;
+    public static int BoxWidth = 24;
+    public static int BoxHeight = 8;
+
     //Methods
     private static int GetMaxMapHeight()
     {

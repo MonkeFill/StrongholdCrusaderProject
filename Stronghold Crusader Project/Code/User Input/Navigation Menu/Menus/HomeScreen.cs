@@ -1,5 +1,3 @@
-using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
-
 namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 
 public class HomeScreen : BaseMenu
@@ -10,14 +8,15 @@ public class HomeScreen : BaseMenu
         Manager = Input_MenuManager;
         
         string Assets = Path.Combine(MenuFolder, "HomeScreen");
-        string ButtonAssets = Path.Combine(ButtonsFolder, "Backgrounds");
-        float FontScale = 1f;
+        string ButtonAssets = Path.Combine(Assets, "Buttons");
+        float FontScale = 1.5f;
         Color TextColour = Color.White;
         int ButtonOffSetX = 260;
         int ButtonOffSetY = 275;
         int ButtonHeightDifference = 75;
         
-        List<string> ButtonNames = new List<string>{"Start Game", "Load Game", "Save Game"};
+        List<string> ButtonNames = new List<string>{"New Game", "Load Game", "Setting"};
+        List<Action> ButtonActions = new List<Action> {null, null, null};
         SpriteFont Font = Content.Load<SpriteFont>("DefaultFont");
         
         Background = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));
@@ -31,12 +30,12 @@ public class HomeScreen : BaseMenu
             Texture2D ButtonBackgroundHover = Content.Load<Texture2D>(Path.Combine(ButtonAssets, $"Button{Count}{HoverAdd}"));
             TempDrawer = new SelectionDrawer(ButtonBackground, ButtonBackgroundHover, Axe, Font, FontScale, TextColour, ButtonNames[Count - 1]);
             int TempY = ButtonOffSetY + (ButtonHeightDifference * (Count - 1));
-            TempButton = new Button(ButtonNames[Count - 1], "", new Rectangle(ButtonOffSetX, TempY, ButtonBackground.Width, ButtonBackground.Height), TempDrawer, null);
+            TempButton = new Button(ButtonNames[Count - 1], "", new Rectangle(ButtonOffSetX, TempY, ButtonBackground.Width, ButtonBackground.Height), TempDrawer, ButtonActions[Count - 1]);
             MenuButtons.Add(TempButton);
         }
         Texture2D ExitButton = Content.Load<Texture2D>(Path.Combine(Assets, "ExitButton"));
         TempDrawer = new IconDrawer(ExitButton, Content.Load<Texture2D>(Path.Combine(Assets, $"ExitButton{HoverAdd}")));
-        TempButton = new Button("Exit", "", new Rectangle(145, 590, ExitButton.Width, ExitButton.Height), TempDrawer, null);
+        TempButton = new Button("Exit", "", new Rectangle(145, 590, ExitButton.Width, ExitButton.Height), TempDrawer, Manager.RemoveMenu);
         MenuButtons.Add(TempButton);
 
     }
@@ -44,7 +43,10 @@ public class HomeScreen : BaseMenu
     public override void Draw(SpriteBatch ActiveSpriteBatch)
     {
         ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
-        base.Draw(ActiveSpriteBatch);
+        if (Manager.TopSubMenu == null)
+        {
+            base.Draw(ActiveSpriteBatch);
+        }
     }
 }
 
