@@ -10,6 +10,7 @@ public class Game1 : Game
     private StartupManager GameManager = new StartupManager();
     private MapHandler Mapping;
     private MenuManager Menus;
+    private Box TestBox;
 
     public Game1()
     {
@@ -35,6 +36,7 @@ public class Game1 : Game
         Camera2D.Initialize(GraphicsDevice.Viewport);
         CreateViewScale(_graphics);
         Menus = new MenuManager(this);
+        TestBox = new Box(new Rectangle(50, 50, 750, 500), Content);
         base.Initialize();
     }
 
@@ -72,8 +74,9 @@ public class Game1 : Game
         
         //Anything else that will be drawn using the Matrix Scale depending on the monitor
         //transformMatrix: MatrixScale
-        _spriteBatch.Begin();
+        _spriteBatch.Begin(transformMatrix: MatrixScale);
         Menus.Draw(_spriteBatch);
+        TestBox.Draw(_spriteBatch);
         _spriteBatch.End();
         
         base.Draw(gameTime);
