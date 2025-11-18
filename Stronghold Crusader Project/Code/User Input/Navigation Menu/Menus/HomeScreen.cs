@@ -2,10 +2,14 @@ namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 
 public class HomeScreen : BaseMenu
 {
+    //Class Variables
     Texture2D Background;
-    public HomeScreen(MenuManager Input_MenuManager, ContentManager Content) : base(Input_MenuManager, Content)
+
+    //Class Methods
+    public HomeScreen(MenuManager Input_MenuManager) : base(Input_MenuManager)
     {
         Manager = Input_MenuManager;
+        ContentManager Content = Manager.Content;
         
         string Assets = Path.Combine(MenuFolder, "HomeScreen");
         string ButtonAssets = Path.Combine(Assets, "Buttons");
@@ -16,7 +20,12 @@ public class HomeScreen : BaseMenu
         int ButtonHeightDifference = 75;
         
         List<string> ButtonNames = new List<string>{"New Game", "Load Game", "Setting"};
-        List<Action> ButtonActions = new List<Action> {null, null, null};
+        List<Action> ButtonActions = new List<Action> 
+        {
+            null, 
+            () => Manager.AddMenu(new LoadGameMenu(Manager)), //When invoked
+            null
+        };
         SpriteFont Font = Content.Load<SpriteFont>("DefaultFont");
         
         Background = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));

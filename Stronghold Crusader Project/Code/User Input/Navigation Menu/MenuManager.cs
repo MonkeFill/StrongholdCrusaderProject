@@ -5,7 +5,8 @@ public class MenuManager //Manages Menus
     //Class Variables
     private Stack<BaseMenu> Menus = new Stack<BaseMenu>();
     private Game ActiveGame;
-    private ContentManager Content;
+    public ContentManager Content;
+    public GraphicsDevice GraphicDevice;
     private BaseMenu TopMenu;
     public BaseMenu TopSubMenu;
 
@@ -14,7 +15,8 @@ public class MenuManager //Manages Menus
     {
         ActiveGame = Input_ActiveGame;
         Content = ActiveGame.Content;
-        BaseMenu StartingMenu = new HomeScreen(this, Content);
+        GraphicDevice = ActiveGame.GraphicsDevice;
+        BaseMenu StartingMenu = new HomeScreen(this);
         AddMenu(StartingMenu);
     }
 

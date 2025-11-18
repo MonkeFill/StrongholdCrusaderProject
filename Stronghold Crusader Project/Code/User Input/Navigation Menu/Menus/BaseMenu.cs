@@ -8,7 +8,7 @@ public abstract class BaseMenu
     public bool IsSubMenu;
     
     //Class Methods
-    public BaseMenu(MenuManager Input_MenuManager, ContentManager Content)
+    public BaseMenu(MenuManager Input_MenuManager)
     {
         Manager = Input_MenuManager;
     }

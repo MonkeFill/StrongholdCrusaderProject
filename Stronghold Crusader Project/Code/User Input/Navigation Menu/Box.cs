@@ -2,22 +2,30 @@
 
 public class Box
 {
-    Rectangle Bounds;
-    List<string> TextureNames = new List<string> { "TLCorner", "TRCorner", "BLCorner", "BRCorner", "Top", "Bottom", "Left", "Right" };
-    Dictionary<string, Texture2D> LineTextures = new Dictionary<string, Texture2D>();
+    //Class Variables
+    private Rectangle Bounds;
+    private Texture2D Pixel;
+    private Color BoxBackground;
+    private List<string> TextureNames = new List<string> { "TLCorner", "TRCorner", "BLCorner", "BRCorner", "Top", "Bottom", "Left", "Right" };
+    private Dictionary<string, Texture2D> LineTextures = new Dictionary<string, Texture2D>();
 
-    public Box(Rectangle Input_Bounds, ContentManager Content)
+    //Class Methods
+    public Box(Rectangle Input_Bounds, Color Input_BoxBackground, ContentManager Content, GraphicsDevice Graphics)
     {
         Bounds = Input_Bounds;
+        BoxBackground = Input_BoxBackground;
         foreach (string ActiveTextureName in TextureNames)
         {
             LineTextures.Add(ActiveTextureName, Content.Load<Texture2D>(Path.Combine(BoxMenuFolder, ActiveTextureName)));
         }
         TextureNames.Clear();
+        Pixel = new Texture2D(Graphics, 1, 1);
+        Pixel.SetData(new[] { Color.White });
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
     {
+        ActiveSpriteBatch.Draw(Pixel, Bounds, BoxBackground);
         int HorizontalLines = (int)Math.Ceiling(Bounds.Width / (double)BoxSize) - 1;
         int VerticalLines = (int)Math.Ceiling(Bounds.Height / (double)BoxSize) - 1;
         DrawHorizontal(ActiveSpriteBatch, Bounds.X + BoxSize, Bounds.Y, HorizontalLines, LineTextures["Top"]); //Draw Top Line
