@@ -9,6 +9,7 @@ public class MenuManager //Manages Menus
     public GraphicsDevice GraphicDevice;
     private BaseMenu TopMenu;
     public BaseMenu TopSubMenu;
+    public string ActiveFilePath;
 
     //Class Methods
     public MenuManager(Game Input_ActiveGame)
