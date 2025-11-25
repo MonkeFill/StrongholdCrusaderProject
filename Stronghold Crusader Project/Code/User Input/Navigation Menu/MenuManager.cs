@@ -23,7 +23,7 @@ public class MenuManager //Manages Menus
 
     public void Update(MouseState ActiveMouseState) //Updates the menus logic (buttons)
     {
-        Menus.ElementAt(Menus.Count - 1).Update(ActiveMouseState);
+        Menus.ElementAt(0).Update(ActiveMouseState);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws the menus

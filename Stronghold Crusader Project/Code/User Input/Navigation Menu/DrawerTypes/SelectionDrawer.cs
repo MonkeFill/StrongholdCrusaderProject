@@ -31,7 +31,8 @@ public class SelectionDrawer : BaseButtonDrawer
             BackgroundDrawTexture = HoverBackground;
         }
         ActiveSpriteBatch.Draw(BackgroundDrawTexture, ActiveButton.Bounds, Color.White);
-        Vector2 TextPosition = new Vector2(ActiveButton.Bounds.X + 35, (ActiveButton.Bounds.Y + ActiveButton.Bounds.Height / 2f) - ((FontSize * FontScale) / 1.25f));
+        Vector2 TextSize = Font.MeasureString(Text) * FontScale;
+        Vector2 TextPosition = new Vector2(ActiveButton.Bounds.X + 35, ActiveButton.Bounds.Y + (TextSize.Y / 2f));
         ActiveSpriteBatch.DrawString(Font, Text, TextPosition, TextColour, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
         if (ActiveButton.Hover == true)
         {

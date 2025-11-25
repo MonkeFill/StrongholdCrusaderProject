@@ -1,7 +1,4 @@
-﻿using Assimp;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
+﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 public class LoadGameMenu : BaseMenu 
 {
     //Class Variables
@@ -11,6 +8,7 @@ public class LoadGameMenu : BaseMenu
     private Box Title;
     private Box SavesBox;
     private SpriteFont TitleFont;
+    private string ActiveFile;
 
     //Class Methods
     public LoadGameMenu(MenuManager Input_MenuManager) : base(Input_MenuManager)
@@ -25,7 +23,7 @@ public class LoadGameMenu : BaseMenu
         TitleFont = Content.Load<SpriteFont>("DefaultFont");
         SavesBox = new Box(new Rectangle(500, 210, 310, 350), Color.FromNonPremultiplied(0, 0, 0, 0), Content, Manager.GraphicDevice);
         BaseButtonDrawer TestDraw = new FileSelecterDrawer("TestFile", TitleFont, Color.FromNonPremultiplied(110, 25, 0, 150), new Texture2D(Manager.GraphicDevice, 1, 1));
-        Button TestButton = new Button("test", "test", new Rectangle(1500, 600, 310, 25), TestDraw, null);
+        Button TestButton = new Button("test", "test", new Rectangle(200, 900, 310, 25), TestDraw, null);
         MenuButtons.Add(TestButton);
     }
 
