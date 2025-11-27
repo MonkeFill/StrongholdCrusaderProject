@@ -1,5 +1,5 @@
 ﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
-public class LoadGameMenu : BaseMenu 
+public class LoadGameMenu : BaseMenu //Menu for loading maps
 {
     //Class Variables
     private List<string> FileNames;
@@ -9,10 +9,15 @@ public class LoadGameMenu : BaseMenu
     private Box SavesBox;
     private SpriteFont TitleFont;
     private string ActiveFile;
+    private List<Button> FileButtons;
+    private int ActiveFileSkip;
+    private int FileHeight;
+    private Texture2D Pixel;
 
     //Class Methods
-    public LoadGameMenu(MenuManager Input_MenuManager) : base(Input_MenuManager)
+    public LoadGameMenu(MenuManager Input_MenuManager, bool InputIsSubMenu) : base(Input_MenuManager)
     {
+        IsSubMenu = InputIsSubMenu;
         FileNames = Directory.GetFiles(SavesFolder).ToList();
         Manager = Input_MenuManager;
         ContentManager Content = Manager.Content;
@@ -22,18 +27,48 @@ public class LoadGameMenu : BaseMenu
         Title = new Box(new Rectangle(200, 210, 270, 65), Color.FromNonPremultiplied(150, 15, 15, 200), Content, Manager.GraphicDevice);
         TitleFont = Content.Load<SpriteFont>("DefaultFont");
         SavesBox = new Box(new Rectangle(500, 210, 310, 350), Color.FromNonPremultiplied(0, 0, 0, 0), Content, Manager.GraphicDevice);
-        BaseButtonDrawer TestDraw = new FileSelecterDrawer("TestFile", TitleFont, Color.FromNonPremultiplied(110, 25, 0, 150), new Texture2D(Manager.GraphicDevice, 1, 1));
-        Button TestButton = new Button("test", "test", new Rectangle(200, 900, 310, 25), TestDraw, null);
-        MenuButtons.Add(TestButton);
+        Pixel = new Texture2D(Manager.GraphicDevice, 1, 1);
+
+        FileHeight = 25;
     }
 
-    public override void Draw(SpriteBatch ActiveSpriteBatch)
+    public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the menu
     {
-        base.Draw(ActiveSpriteBatch);
-        ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
+        if (IsSubMenu != true) //If the loadgame menu hasn't been set as a sub menu
+        {
+            ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
+        }
         MainRectangle.Draw(ActiveSpriteBatch);
         Title.Draw(ActiveSpriteBatch);
         SavesBox.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.DrawString(TitleFont, "Load Map", new Vector2(220, 220), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+        base.Draw(ActiveSpriteBatch);
+    }
+
+    private void SkipFile(int Amount)
+    {
+
+        ActiveFileSkip += Amount;
+        int PreMenuButtonCount = MenuButtons.Count;
+        Color ActiveButtonColour = Color.FromNonPremultiplied(150, 150, 120, 200);
+        Color ActiveColour;
+        List<Color> ButtonColours = new List<Color> { Color.FromNonPremultiplied(110, 25, 0, 150), Color.FromNonPremultiplied(100, 35, 5, 150) };
+        for (int Count = 0; Count < Math.Floor(SavesBox.Bounds.Height / (float)FileHeight) - 1; Count++) //Adding the buttons that can be seen to MenuButtons
+        {
+            string ActiveFile;
+            if (Count <= FileNames.Count) //If there aren't enough saves to display
+            {
+                ActiveFile = FileNames.ElementAt(Count + ActiveFileSkip);
+            }
+            else
+            {
+                ActiveFile = "null";
+            }
+            ActiveColour = ButtonColours.ElementAt((MenuButtons.Count - PreMenuButtonCount) % ButtonColours.Count);
+            BaseButtonDrawer ButtonDrawer = new FileSelecterDrawer(ActiveFile, TitleFont, ActiveColour, ActiveButtonColour, Pixel);
+            Rectangle FileBounds = new Rectangle(SavesBox.Bounds.X, SavesBox.Bounds.Y + (FileHeight * Count), SavesBox.Bounds.Width, FileHeight);
+            Button ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, null);
+            FileButtons.Add(ActiveButton);
+        }
     }
 }

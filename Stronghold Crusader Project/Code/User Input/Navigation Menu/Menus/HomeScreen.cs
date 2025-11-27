@@ -1,6 +1,6 @@
 namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 
-public class HomeScreen : BaseMenu
+public class HomeScreen : BaseMenu //First screen you get when yu open the game
 {
     //Class Variables
     Texture2D Background;
@@ -23,7 +23,7 @@ public class HomeScreen : BaseMenu
         List<Action> ButtonActions = new List<Action> 
         {
             null, 
-            () => Manager.AddMenu(new LoadGameMenu(Manager)), //When invoked
+            () => Manager.AddMenu(new LoadGameMenu(Manager, true)), //When invoked
             null
         };
         SpriteFont Font = Content.Load<SpriteFont>("DefaultFont");
@@ -33,7 +33,7 @@ public class HomeScreen : BaseMenu
         BaseButtonDrawer TempDrawer;
         Button TempButton;
         
-        for (int Count = 1; Count <= 3; Count++)
+        for (int Count = 1; Count <= 3; Count++) //Adding all the buttons I need
         {
             Texture2D ButtonBackground = Content.Load<Texture2D>(Path.Combine(ButtonAssets, $"Button{Count}"));
             Texture2D ButtonBackgroundHover = Content.Load<Texture2D>(Path.Combine(ButtonAssets, $"Button{Count}{HoverAdd}"));
@@ -49,10 +49,10 @@ public class HomeScreen : BaseMenu
 
     }
 
-    public override void Draw(SpriteBatch ActiveSpriteBatch)
+    public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the button
     {
         ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
-        if (Manager.TopSubMenu == null)
+        if (Manager.TopSubMenu == null) //if there is a sub menu only show the background
         {
             base.Draw(ActiveSpriteBatch);
         }

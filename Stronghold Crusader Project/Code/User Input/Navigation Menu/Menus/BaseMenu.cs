@@ -1,6 +1,6 @@
 ﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 
-public abstract class BaseMenu
+public abstract class BaseMenu //Abstract class for all menus
 {
     //Class Variables
     protected List<Button> MenuButtons = new List<Button>();
@@ -13,7 +13,7 @@ public abstract class BaseMenu
         Manager = Input_MenuManager;
     }
 
-    public virtual void Update(MouseState ActiveMouse)
+    public virtual void Update(MouseState ActiveMouse) //Updating the menu buttons
     {
         foreach (Button ActiveButton in MenuButtons)
         {
@@ -30,12 +30,12 @@ public abstract class BaseMenu
                         }
                     }
                 }
-                ActiveButton.OnClick.Invoke();
+                ActiveButton.OnClick.Invoke(); //if button is clicked on run its code
             }
         }
     }
 
-    public virtual void Draw(SpriteBatch ActiveSpriteBatch)
+    public virtual void Draw(SpriteBatch ActiveSpriteBatch) //Drawing all buttons in a menu
     {
         foreach (Button ActiveButton in MenuButtons)
         {
