@@ -19,17 +19,19 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
     {
         IsSubMenu = InputIsSubMenu;
         FileNames = Directory.GetFiles(SavesFolder).ToList();
-        Manager = Input_MenuManager;
-        ContentManager Content = Manager.Content;
+        Menus = Input_MenuManager;
+        ContentManager Content = Menus.Content;
         string Assets = Path.Combine(MenuFolder, "LoadingMap");
         Background = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));
-        MainRectangle = new Box(new Rectangle(175, 184, 675, 400), Color.FromNonPremultiplied(0, 0, 0, 175), Content, Manager.GraphicDevice);
-        Title = new Box(new Rectangle(200, 210, 270, 65), Color.FromNonPremultiplied(150, 15, 15, 200), Content, Manager.GraphicDevice);
+        MainRectangle = new Box(new Rectangle(175, 184, 675, 400), Color.FromNonPremultiplied(0, 0, 0, 175), Content, Menus.GraphicDevice);
+        Title = new Box(new Rectangle(200, 210, 270, 65), Color.FromNonPremultiplied(150, 15, 15, 200), Content, Menus.GraphicDevice);
         TitleFont = Content.Load<SpriteFont>("DefaultFont");
-        SavesBox = new Box(new Rectangle(500, 210, 310, 350), Color.FromNonPremultiplied(0, 0, 0, 0), Content, Manager.GraphicDevice);
-        Pixel = new Texture2D(Manager.GraphicDevice, 1, 1);
-
-        FileHeight = 25;
+        SavesBox = new Box(new Rectangle(500, 210, 310, 350), Color.FromNonPremultiplied(0, 0, 0, 0), Content, Menus.GraphicDevice);
+        Pixel = new Texture2D(Menus.GraphicDevice, 1, 1);
+        FileHeight = 35;
+        FileButtons = new List<Button>();
+        ActiveFileSkip = 0;
+        SkipFile(0);
     }
 
     public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the menu
@@ -40,11 +42,11 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
         }
         MainRectangle.Draw(ActiveSpriteBatch);
         Title.Draw(ActiveSpriteBatch);
-        SavesBox.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.DrawString(TitleFont, "Load Map", new Vector2(220, 220), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
         base.Draw(ActiveSpriteBatch);
+        SavesBox.Draw(ActiveSpriteBatch);
     }
-
+    
     private void SkipFile(int Amount)
     {
 
@@ -56,7 +58,7 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
         for (int Count = 0; Count < Math.Floor(SavesBox.Bounds.Height / (float)FileHeight) - 1; Count++) //Adding the buttons that can be seen to MenuButtons
         {
             string ActiveFile;
-            if (Count <= FileNames.Count) //If there aren't enough saves to display
+            if (Count < FileNames.Count) //If there aren't enough saves to display
             {
                 ActiveFile = FileNames.ElementAt(Count + ActiveFileSkip);
             }
@@ -66,9 +68,10 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
             }
             ActiveColour = ButtonColours.ElementAt((MenuButtons.Count - PreMenuButtonCount) % ButtonColours.Count);
             BaseButtonDrawer ButtonDrawer = new FileSelecterDrawer(ActiveFile, TitleFont, ActiveColour, ActiveButtonColour, Pixel);
-            Rectangle FileBounds = new Rectangle(SavesBox.Bounds.X, SavesBox.Bounds.Y + (FileHeight * Count), SavesBox.Bounds.Width, FileHeight);
+            Rectangle FileBounds = new Rectangle(SavesBox.Bounds.X + BoxSmallSize, SavesBox.Bounds.Y + BoxSmallSize + (FileHeight * Count), SavesBox.Bounds.Width - BoxSmallSize, FileHeight);
             Button ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, null);
-            FileButtons.Add(ActiveButton);
+            MenuButtons.Add(ActiveButton);
         }
+        
     }
 }

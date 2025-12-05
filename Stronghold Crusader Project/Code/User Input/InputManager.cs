@@ -1,74 +1,52 @@
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
-public static class InputManager
+public class InputManager
 {
-    //Class Variables
-    private static int PreviousMouseScrollValue = 0;
-    private static Vector2 PositionChange;
-    private static float RotationChange;
-    private static float ZoomChange;
-    private static List<PossibleCameraAction> NewCameraActions = new List<PossibleCameraAction>();
-    private static KeyboardState PreviousKeyBoardState;
-    private static MouseState PreviousMouseState;
-    private static Rectangle SelectionBox = new Rectangle(0, 0, 0, 0);
-    private static bool SelectingTroops = false;
-    private static bool Positioning = false;
-    private static BuildingTemplate ActiveBuilding;
-    private static List<TroopTemplate> CurrentlySelectedTroops = new List<TroopTemplate>();
-
+    //New 
+    private MenuManager GameMenuManager;
+    private KeyboardState ActiveKeyboardState;
+    private KeyboardState PreviousKeyboardState;
+    private MouseState ActiveMouseState;
+    private MouseState PreviousMouseState;
+    private KeyMap GlobalKeybindManager;
     
     //Methods
-    public static void UpdateInputManager(GameTime InputGameTime)
-    {
-        PositionChange = Vector2.Zero;
-        RotationChange = 0f;
-        ZoomChange = 0f;
-        HandleKeyboardInput();
-        HandleMouseInput();
-        UpdateCamera(InputGameTime, NewCameraActions, PositionChange, RotationChange, ZoomChange);
-    }
 
-    private static void HandleMouseInput() //Handle any mouse inputs
+    public InputManager(MenuManager Input_GameMenuManager)
     {
-        MouseState ActiveMouseState = Mouse.GetState();
-        int ActiveMouseScrollValue = ActiveMouseState.ScrollWheelValue;
-        if (ActiveMouseScrollValue != PreviousMouseScrollValue) //Zooming
-        {
-            ActiveMouseScrollValue /= 120;
-            int MouseScrollChange = PreviousMouseScrollValue - ActiveMouseScrollValue;
-            ZoomChange = MouseScrollChange * ZoomSensitivity * -1;
-            NewCameraActions.Add(PossibleCameraAction.Zoom);
-            PreviousMouseScrollValue = ActiveMouseScrollValue;
-        }
+        GameMenuManager = Input_GameMenuManager;
+    }
+    public void Update()
+    {
+        //new
+        PreviousKeyboardState = ActiveKeyboardState;
         PreviousMouseState = ActiveMouseState;
-    }
-
-    private static void HandleKeyboardInput() //Handle any keyboard inputs
-    {
-        KeyboardState ActiveKeyboardState = Keyboard.GetState();
-        HandleMapMovement("MoveUp", ActiveKeyboardState);
-        HandleMapMovement("MoveDown", ActiveKeyboardState);
-        HandleMapMovement("MoveLeft", ActiveKeyboardState);
-        HandleMapMovement("MoveRight", ActiveKeyboardState);
-        PreviousKeyBoardState = ActiveKeyboardState;
-    }
-    
-    private static void HandleMapMovement(string Control, KeyboardState ActiveKeyboardState)
-    {
-        if (ControlCurrentlyPressed(Control, ActiveKeyboardState))
+        ActiveKeyboardState = Keyboard.GetState();
+        ActiveMouseState = Mouse.GetState();
+        if (GameMenuManager.Update(ActiveKeyboardState, ActiveMouseState))
         {
-            Vector2 TempPositionChange = (Vector2)GetValueChangeFromControl(Control);
-            PositionChange += new Vector2(TempPositionChange.X * MovementAmount, TempPositionChange.Y * MovementAmount);
-            NewCameraActions.Add(PossibleCameraAction.Move);
+            
         }
     }
 
-    private static bool ControlCurrentlyPressed(string Control, KeyboardState ActiveKeyboardState)
+    private bool MouseClicked()
     {
-        if (ActiveKeyboardState.IsKeyDown(GetKeyFromControl(Control)))
+        if (PreviousMouseState.LeftButton != ButtonState.Pressed && ActiveMouseState.LeftButton == ButtonState.Pressed)
         {
             return true;
         }
         return false;
+    }
+
+    private bool KeybindPressed()
+    {
+        return true;
+    }
+
+    private Point GetScaledMousePosition() //Convert the original mouse position to whatever resolution we already upscale the UI to
+    {
+        Matrix InverseScaleMatrix = Matrix.Invert(MatrixScale); //Inversing the matrix scale since we are going from upscaled to original size
+        Vector2 NewPosition = Vector2.Transform(new Vector2(ActiveMouseState.X, ActiveMouseState.Y), InverseScaleMatrix);
+        return new Point((int)NewPosition.X, (int)NewPosition.Y);
     }
 }

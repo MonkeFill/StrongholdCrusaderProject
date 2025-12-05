@@ -1,4 +1,4 @@
-﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
+﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
 
 public class ActiveIconDrawer : BaseButtonDrawer //A drawer that will draw an icon button that only changes when you hover over it
 {

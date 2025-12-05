@@ -9,7 +9,7 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private StartupManager GameManager = new StartupManager();
     private MapHandler Mapping;
-    private MenuManager Menus;
+    public MenuManager Menus;
 
     public Game1()
     {
@@ -53,10 +53,6 @@ public class Game1 : Game
             //Console.WriteLine($"FPS - {FPS:F2}");
         }
         MouseState ActiveMouse = Mouse.GetState();
-
-        UpdateInputManager(gameTime);
-        Menus.Update(ActiveMouse);
-
         base.Update(gameTime);
         
     }

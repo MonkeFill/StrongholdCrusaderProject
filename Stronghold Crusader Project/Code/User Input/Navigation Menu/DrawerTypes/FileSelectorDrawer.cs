@@ -1,5 +1,3 @@
-using Assimp;
-
 namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
 
 public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show file buttons

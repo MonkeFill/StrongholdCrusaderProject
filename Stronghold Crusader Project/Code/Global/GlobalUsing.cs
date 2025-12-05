@@ -32,7 +32,5 @@ global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
 global using static Stronghold_Crusader_Project.Code.Global.GlobalConfig;
 global using static Stronghold_Crusader_Project.Code.Global.Other.EventLogger;
 global using static Stronghold_Crusader_Project.Code.Global.Other.Camera2D;
-global using static Stronghold_Crusader_Project.Code.User_Input.KeyManager;
-global using static Stronghold_Crusader_Project.Code.User_Input.InputManager;
 
 

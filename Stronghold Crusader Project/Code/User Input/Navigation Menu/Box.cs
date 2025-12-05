@@ -8,8 +8,6 @@ public class Box //Drawing a custom rectangle that has multiple colours and work
     private Color BoxBackground;
     private List<string> TextureNames = new List<string> { "TLCorner", "TRCorner", "BLCorner", "BRCorner", "Top", "Bottom", "Left", "Right" };
     private Dictionary<string, Texture2D> LineTextures = new Dictionary<string, Texture2D>();
-    private int BoxBigSize = 24;
-    private int BoxSmallSize = 8;
 
     //Class Methods
     public Box(Rectangle Input_Bounds, Color Input_BoxBackground, ContentManager Content, GraphicsDevice Graphics)

@@ -8,8 +8,8 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
     //Class Methods
     public HomeScreen(MenuManager Input_MenuManager) : base(Input_MenuManager)
     {
-        Manager = Input_MenuManager;
-        ContentManager Content = Manager.Content;
+        Menus = Input_MenuManager;
+        ContentManager Content = Menus.Content;
         
         string Assets = Path.Combine(MenuFolder, "HomeScreen");
         string ButtonAssets = Path.Combine(Assets, "Buttons");
@@ -22,9 +22,9 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         List<string> ButtonNames = new List<string>{"New Game", "Load Game", "Setting"};
         List<Action> ButtonActions = new List<Action> 
         {
-            null, 
-            () => Manager.AddMenu(new LoadGameMenu(Manager, true)), //When invoked
-            null
+            null,
+            () => Menus.AddMenu(new LoadGameMenu(Menus, false)), //When invoked
+            null,
         };
         SpriteFont Font = Content.Load<SpriteFont>("DefaultFont");
         
@@ -44,7 +44,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         }
         Texture2D ExitButton = Content.Load<Texture2D>(Path.Combine(Assets, "ExitButton"));
         TempDrawer = new IconDrawer(ExitButton, Content.Load<Texture2D>(Path.Combine(Assets, $"ExitButton{HoverAdd}")));
-        TempButton = new Button("Exit", "", new Rectangle(145, 590, ExitButton.Width, ExitButton.Height), TempDrawer, Manager.RemoveMenu);
+        TempButton = new Button("Exit", "", new Rectangle(145, 590, ExitButton.Width, ExitButton.Height), TempDrawer, Menus.RemoveMenu);
         MenuButtons.Add(TempButton);
 
     }
@@ -52,7 +52,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
     public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the button
     {
         ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
-        if (Manager.TopSubMenu == null) //if there is a sub menu only show the background
+        if (Menus.TopSubMenu == null) //if there is a sub menu only show the background
         {
             base.Draw(ActiveSpriteBatch);
         }

@@ -1,5 +1,4 @@
 namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
-
 public class MenuManager //Manages Menus
 {
     //Class Variables
@@ -21,9 +20,9 @@ public class MenuManager //Manages Menus
         AddMenu(StartingMenu);
     }
 
-    public void Update(MouseState ActiveMouseState) //Updates the menus logic (buttons)
+    public bool Update(KeyboardState ActiveKeyboardState, MouseState ActiveMouseState) //Updates the menus logic (buttons)
     {
-        Menus.ElementAt(0).Update(ActiveMouseState);
+        return Menus.ElementAt(0).Update(ActiveKeyboardState, ActiveMouseState);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws the menus

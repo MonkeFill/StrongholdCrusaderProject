@@ -15,7 +15,7 @@
             CheckAllConfigs(); //Checking all configs and folders
             //Initialising everything that will be needed
             
-            InitializeDefaultKeybinds();
+            //InitializeDefaultKeybinds();
             
         }
         
