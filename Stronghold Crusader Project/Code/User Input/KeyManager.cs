@@ -1,118 +1,110 @@
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
-public class KeyManager //Keybinds that will be used to control everything
+public class KeyManager //Managers a set of keybinds
 {
     //Class Variables
-    public readonly Dictionary<string, KeyMap> Keybinds = new(); //Dictionary that will store the control of the key and then use KeyMap class to store data for it
+    private string ManagerName;
+    public Dictionary<string, KeyMap> Keybinds = new Dictionary<string, KeyMap>();
     
-    //Methods
-    public void AddNewKeybind(string Control, Keys DefaultKey, object ChangeValue) //Method for adding a new keybind to the dictionary 
+    //Class Methods
+    public KeyManager(string Input_ManagerName)
     {
-        if (Keybinds.ContainsKey(Control)) //If the control is already used
+        ManagerName = Input_ManagerName;
+    }
+
+    public void AddNewKeybind(string Name, Keys DefaultKey, Action KeybindAction, KeybindActiveType KeybindActivationType) //Method for adding a new keybind to the keybinds list
+    {
+        if (!KeybindExists(Name)) //If the keybind doesn't already exists
         {
-            LogEvent($"Keybind for {Control} is used somewhere else", LogType.Warning);
-        }
-        else if (KeyAlreadyUsed(DefaultKey)) //If the keybind is used for another control
-        {
-            LogEvent($"Keybind for {Control} - {DefaultKey} already used", LogType.Warning);
+            if (!KeyInUse(DefaultKey)) //If the key isn't already used
+            {
+                KeyMap NewKey = new KeyMap(Name, DefaultKey, DefaultKey, KeybindAction, KeybindActivationType);
+                Keybinds.Add(Name, NewKey);
+                LogEvent($"Added new keybind, {Name}, {DefaultKey}, {KeybindAction}, {KeybindActivationType}", LogType.Info);
+            }
+            else
+            {
+                LogEvent($"{DefaultKey} already in use", LogType.Warning);
+            }
         }
         else
         {
-            //Valid so its both a unique control and keybind
-            KeyMap NewKey = new KeyMap(Control, DefaultKey, ChangeValue);
-            Keybinds.Add(Control, NewKey);
-            LogEvent($"Added new keybind for {Control} - {NewKey.CurrentKey}", LogType.Info);
-        }
-    }
-    
-    public void RemoveKeybind(string Control) //Removing a keybind from the dictionary
-    {
-        if (Keybinds.ContainsKey(Control)) //Checking if control is in the dictionary
-        {
-            KeyMap ActiveKey =  Keybinds[Control];
-            LogEvent($"Removed Keybind {Control} - {ActiveKey.CurrentKey}", LogType.Info);
-            Keybinds.Remove(Control);
-        }
-        else //If not found in dictionary
-        {
-            LogEvent($"No Keybind found for {Control} to be removed", LogType.Warning);
+            LogEvent($"{Name} already exists", LogType.Warning);
         }
     }
 
-    public bool UpdateKeybind(string Control, Keys NewKey) //Change a keybind to a new key
+    public void ChangeKeybindKey(string Name, Keys NewKey) //Change a keybinds key to a different one
     {
-        if (Keybinds.ContainsKey(Control)) //If the dictionary even has the control
+        if (KeybindExists(Name)) //If the keybind even exists
         {
-            if (!KeyAlreadyUsed(NewKey)) //Checking if the keybind is already used
+            if (!KeyInUse(NewKey)) //If the keybind is not in use
             {
-                KeyMap ActiveKey = Keybinds[Control];
-                LogEvent($"Updating Keybind for {Control}, OldKey - {ActiveKey.CurrentKey}, NewKey - {NewKey}", LogType.Info);
-                ActiveKey.CurrentKey = NewKey;
-                return true;
+                Keybinds[Name].CurrentKey = NewKey;
             }
-            else //If keybind is already used
+            else
             {
-                LogEvent($"Keybind for {Control} already exists", LogType.Warning);
-                return false;
+                LogEvent($"{NewKey} already in use", LogType.Warning);
             }
         }
-        else //If control isn't found
+        else
         {
-            LogEvent($"No Keybind found for {Control}", LogType.Warning);
-            return false;
+            LogEvent($"{Name} keybind doesn't exist", LogType.Warning);
         }
-    }
-    
-    public void ResetAllToDefault() //Resetting all the keybinds to their default value
-    {
-        LogEvent("Currently resetting all keys to default",EventLogger.LogType.Info);
-        foreach (KeyMap Key in Keybinds.Values) //Going through each keybind in the dictionary
-        {
-            Key.CurrentKey = Key.DefaultKey;
-            LogEvent($"Resetting Keybind for {Key.Control} - {Key.CurrentKey}", LogType.Info);
-        }
-        LogEvent("All keys reset to default", LogType.Info);
     }
 
-    public Keys GetKeyFromControl(string Control) //Getting the key of a control
+    public void ResetKeybindsToDefault() //Setting all keybinds to their default key
     {
-        if (Keybinds.ContainsKey(Control)) //Checking if it exists
+        LogEvent($"Starting keybind default reset", LogType.Info);
+        foreach (KeyMap ActiveKey in Keybinds.Values) //Looping through all keybinds
         {
-            return Keybinds[Control].CurrentKey;
+            LogEvent($"Reset keybind for {ActiveKey.Name} - {ActiveKey.CurrentKey} -> {ActiveKey.DefaultKey}", LogType.Info);
+            ActiveKey.CurrentKey = ActiveKey.DefaultKey;
         }
-        LogEvent($"No Keybind found for {Control}", LogType.Warning);
+        LogEvent($"All keys reset to default", LogType.Info);
+    }
+
+    public Keys GetKeyFromName(string Name) //Getting the key of a keybind
+    {
+        if (KeybindExists(Name)) //If the keybind exists
+        {
+            return Keybinds[Name].CurrentKey;
+        }
+        LogEvent($"No keybind found for {Name}", LogType.Warning);
         return Keys.None;
     }
-    
-    public object GetValueChangeFromControl(string Control) //Getting the value change of a control
+
+    public void PressKeybind(string Name) //Starting the action of a keybind
     {
-        if (Keybinds.ContainsKey(Control)) //Checking if it exists
+        if (KeybindExists(Name)) //If the keybind exists
         {
-            return Keybinds[Control].ValueChange;
+            Keybinds[Name].KeybindAction.Invoke();
         }
-        LogEvent($"No Keybind found for {Control}", LogType.Warning);
-        return null;
+        else
+        {
+            LogEvent($"No keybind found for {Name}", LogType.Warning);
+        }
     }
 
-    private bool KeyAlreadyUsed(Keys KeyChange) //A method to check if a key is being used by any other control
+    private bool KeybindExists(string Name) //Checking if the keybind already exists
     {
-        foreach (KeyMap ActiveKey in Keybinds.Values) //Looping through all the key values
+        if (Keybinds.ContainsKey(Name))
         {
-            if (ActiveKey.CurrentKey == KeyChange)
+            return true;
+        }
+        
+        return false;
+    }
+
+    private bool KeyInUse(Keys Key) //Checking if a key is already in use
+    {
+        foreach (KeyMap ActiveKey in Keybinds.Values) //Looping through all the keybinds and their values
+        {
+            if (ActiveKey.CurrentKey == Key) //If they are equal to each other it means its being used
             {
                 return true;
             }
         }
         return false;
     }
-    
-    public void InitializeDefaultKeybinds() //Method to initialise all the default keybinds
-    {
-        AddNewKeybind("MoveUp", Keys.W, new Vector2(0,-1));
-        AddNewKeybind("MoveDown", Keys.S, new Vector2(0,1));
-        AddNewKeybind("MoveLeft", Keys.A, new Vector2(-1, 0));
-        AddNewKeybind("MoveRight", Keys.D, new Vector2(1,0));
-        AddNewKeybind("RotateClockwise", Keys.Q, 1);
-        AddNewKeybind("RotateCounterClockwise", Keys.E, -1);
-    }
 }
+

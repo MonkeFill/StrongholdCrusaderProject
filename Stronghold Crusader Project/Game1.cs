@@ -9,7 +9,7 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private StartupManager GameManager = new StartupManager();
     private MapHandler Mapping;
-    public MenuManager Menus;
+    private MenuManager Menus;
 
     public Game1()
     {
@@ -35,6 +35,7 @@ public class Game1 : Game
         Camera2D.Initialize(GraphicsDevice.Viewport);
         CreateViewScale(_graphics);
         Menus = new MenuManager(this);
+        InputManagerInitialiser(Menus);
         base.Initialize();
     }
 
@@ -52,7 +53,7 @@ public class Game1 : Game
             double FPS = 1.0 / deltaTime;
             //Console.WriteLine($"FPS - {FPS:F2}");
         }
-        MouseState ActiveMouse = Mouse.GetState();
+        InputManagerUpdate();
         base.Update(gameTime);
         
     }

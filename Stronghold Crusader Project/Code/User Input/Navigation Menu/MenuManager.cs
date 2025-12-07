@@ -20,9 +20,9 @@ public class MenuManager //Manages Menus
         AddMenu(StartingMenu);
     }
 
-    public bool Update(KeyboardState ActiveKeyboardState, MouseState ActiveMouseState) //Updates the menus logic (buttons)
+    public void Update() //Updates the menus logic (buttons)
     {
-        return Menus.ElementAt(0).Update(ActiveKeyboardState, ActiveMouseState);
+         Menus.ElementAt(0).Update();
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws the menus

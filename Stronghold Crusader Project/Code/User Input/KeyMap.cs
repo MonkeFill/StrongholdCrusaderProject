@@ -1,39 +1,21 @@
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
-public class KeyMap //Keybind class so it has both current key, default key, ways to reset it, update it and make sure it all gets logged
+public class KeyMap //Keybind class that will store data about keybinds to be used
 {
     //Class Variables
-    public string Control { get;}
-    public Keys CurrentKey {get; set;}
-    [JsonIgnore] //Won't save the default key
-    public Keys DefaultKey {get;}
-    [JsonIgnore] //Won't save the value change
-    public object ValueChange {get;}
-
-    [JsonConstructor]
-    //Methods
-    public KeyMap(string Control, Keys CurrentKey, object ValueChange)
-    {
-        this.Control = Control;
-        this.CurrentKey = CurrentKey;
-        this.DefaultKey = CurrentKey;
-        this.ValueChange = ValueChange;
-    }
-
-    public void UpdateKeybind(Keys NewKeybind)
-    {
-        try //If keybind isn't valid to catch it
-        {
-            CurrentKey = NewKeybind;
-        }
-        catch
-        {
-            LogEvent($"Failed to update keybind for {Control} to {NewKeybind}", EventLogger.LogType.Error);
-        } 
-    }
-    public void ResetKeybind()
-    {
-        CurrentKey = DefaultKey;
-    }
+    public string Name;
+    public Keys CurrentKey;
+    public Keys DefaultKey;
+    public Action KeybindAction;
+    public KeybindActiveType KeybindActivationType;
     
+    public KeyMap(string Input_Name, Keys Input_CurrentKey, Keys Input_DefaultKey, Action Input_KeybindAction, KeybindActiveType Input_KeybindActivationType)
+    {
+        Name = Input_Name;
+        CurrentKey = Input_CurrentKey;
+        DefaultKey = Input_DefaultKey;
+        KeybindAction = Input_KeybindAction;
+        KeybindActivationType = Input_KeybindActivationType;
+    }
 }
+

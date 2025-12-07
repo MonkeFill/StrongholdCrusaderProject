@@ -5,7 +5,7 @@ public abstract class BaseMenu
     //Class Variables
     public bool IsSubMenu = false;
     protected List<Button> MenuButtons = new List<Button>();
-    protected KeyMap KeybindsManager;
+    protected KeyManager KeybindsManager;
     protected MenuManager Menus;
     
     
@@ -14,14 +14,10 @@ public abstract class BaseMenu
         Menus = Input_Menus;
     }
 
-    public bool Update(KeyboardState ActiveKeyboard, MouseState ActiveMouse) //Updating everything the menu contains
+    public void Update() //Updating the menu
     {
-        UpdateButtons(ActiveMouse);
-        if (UpdateKeyPressed(ActiveKeyboard, ActiveMouse)) //If a keybind is pressed it will return true
-        {
-            return true;
-        }
-        return false;
+        UpdateButtons();
+        CheckIfKeybindsPressed(KeybindsManager.Keybinds);
     }
     
     public virtual void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the UI
@@ -32,12 +28,12 @@ public abstract class BaseMenu
         }
     }
 
-    private void UpdateButtons(MouseState ActiveMouse) //Updating the buttons on the UI
+    private void UpdateButtons() //Updating the buttons on the UI
     {
         Button ButtonClicked = null;
         foreach (Button ActiveButton in MenuButtons) //Looping through all the buttons updating them
         {
-            if (ActiveButton.Update(ActiveMouse)) //If the button is clicked on it will return true
+            if (ActiveButton.Update()) //If the button is clicked on it will return true
             {
                 ButtonClicked = ActiveButton;
             }
@@ -53,11 +49,6 @@ public abstract class BaseMenu
                 }
             }
         }
-    }
-
-    private bool UpdateKeyPressed(KeyboardState ActiveKeyboard, MouseState ActiveMouse) //Checking to see if any of the menus keybinds are pressed
-    {
-        return false;
     }
 }
 

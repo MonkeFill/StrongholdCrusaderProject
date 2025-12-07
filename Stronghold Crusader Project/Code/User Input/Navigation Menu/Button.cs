@@ -21,17 +21,18 @@ public class Button
         OnClick = Input_OnClick;
     }
 
-    public bool Update(MouseState ActiveMouse)
+    public bool Update()
     {
         Hover = false;
-        if (Bounds.Contains(ActiveMouse.Position))
+        if (MouseWithinRectangle(Bounds))
         {
             Hover = true;
-            if (ActiveMouse.LeftButton == ButtonState.Pressed)
+            if (SingleMouseClick(MouseButtonType.Left))
             {
-                Active = true;
-                Hover = false;
-                return true;
+                    OnClick.Invoke();
+                    Active = true;
+                    Hover = false;
+                    return true;
             }
         }
         return false;

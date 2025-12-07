@@ -10,6 +10,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
     {
         Menus = Input_MenuManager;
         ContentManager Content = Menus.Content;
+        KeybindsManager = new KeyManager("HomeScreen");
         
         string Assets = Path.Combine(MenuFolder, "HomeScreen");
         string ButtonAssets = Path.Combine(Assets, "Buttons");

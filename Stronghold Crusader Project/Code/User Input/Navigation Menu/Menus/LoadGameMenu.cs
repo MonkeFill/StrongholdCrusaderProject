@@ -21,6 +21,7 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
         FileNames = Directory.GetFiles(SavesFolder).ToList();
         Menus = Input_MenuManager;
         ContentManager Content = Menus.Content;
+        KeybindsManager = new KeyManager("LoadGameMenu");
         string Assets = Path.Combine(MenuFolder, "LoadingMap");
         Background = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));
         MainRectangle = new Box(new Rectangle(175, 184, 675, 400), Color.FromNonPremultiplied(0, 0, 0, 175), Content, Menus.GraphicDevice);
