@@ -30,7 +30,7 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
         if (FilePath != "null")
         { 
             FileDate = File.GetCreationTime(FilePath).ToShortDateString();
-            FileName = FilePath.Replace(SavesFolder + "/", ""); //Getting file information
+            FileName = Path.GetFileNameWithoutExtension(FilePath); //Getting file information
         }
 
         FileName = FileName.Replace(".json", "");
