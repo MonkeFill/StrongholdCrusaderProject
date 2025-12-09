@@ -32,7 +32,7 @@ public class SelectionDrawer : BaseButtonDrawer //Draws selection buttons for th
         }
         ActiveSpriteBatch.Draw(BackgroundDrawTexture, ActiveButton.Bounds, Color.White);
         Vector2 TextSize = Font.MeasureString(Text) * FontScale;
-        Vector2 TextPosition = new Vector2(ActiveButton.Bounds.X + 35, ActiveButton.Bounds.Y + (TextSize.Y / 2f));
+        Vector2 TextPosition = new Vector2(ActiveButton.Bounds.X + 35, ActiveButton.Bounds.Y + ((ActiveButton.Bounds.Height - TextSize.Y)/2f));
         ActiveSpriteBatch.DrawString(Font, Text, TextPosition, TextColour, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
         if (ActiveButton.Hover == true) //If hovered over show an axe
         {
