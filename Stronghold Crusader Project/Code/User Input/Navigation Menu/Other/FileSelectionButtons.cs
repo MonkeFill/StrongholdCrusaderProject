@@ -6,8 +6,12 @@ public class FileSelectionButtons
     private string ActiveDirectory;
     private string FileExtension;
     private List<string> FileNames;
-    private int CurrentFileSkip = 0;
+    private int CurrentPage = 1;
+    private int ActivePages;
     private int FileHeight = 35;
+    private int NavigationHeight = 25;
+    private int FilesPerPage;
+    private int StartPoint = 0;
     private float FontScale;
     private Rectangle Bounds;
     private SpriteFont Font;
@@ -15,61 +19,105 @@ public class FileSelectionButtons
     private Box SavesBox;
 
     //Class Methods
-    public FileSelectionButtons(string Input_ActiveDirectory, string Input_FileExtension, Rectangle Input_Bounds, ContentManager Content, Texture2D Input_Pixel, GraphicsDevice GraphicDevice)
+    public FileSelectionButtons(string Input_ActiveDirectory, string Input_FileExtension, Rectangle Input_Bounds, BaseMenu Menu, Texture2D Input_Pixel)
     {
+        ContentManager Content = Menu.Menus.Content;
+        GraphicsDevice GraphicDevice = Menu.Menus.GraphicDevice;
+        List<Button> MenuButtons = Menu.MenuButtons;
         ActiveDirectory = Input_ActiveDirectory;
         FileExtension = Input_FileExtension;
         Bounds = Input_Bounds;
         Font = Content.Load<SpriteFont>("DefaultFont");
         FontScale = 22f / Font.LineSpacing;
         Pixel = Input_Pixel;
+        FilesPerPage = (int)Math.Floor(Bounds.Height / (float)FileHeight) - 3;
         SavesBox = new Box(Bounds, Color.FromNonPremultiplied(0, 0, 0, 0), Content, GraphicDevice);
+        MenuButtons.Add(GetGlobalNavigationButton(true, Content, new Vector2(SavesBox.Bounds.X + NavigationHeight, SavesBox.Bounds.Y + SavesBox.Bounds.Height - NavigationHeight), () => ChangePage(-1), "Previous", 0.5f));
+        MenuButtons.Add(GetGlobalNavigationButton(false, Content, new Vector2(SavesBox.Bounds.X + SavesBox.Bounds.Width - NavigationHeight, SavesBox.Bounds.Y + SavesBox.Bounds.Height - NavigationHeight), () => ChangePage(1), "Next", 0.5f)); 
     }
 
-    public void ChangeFileSkip(int Amount)
+    public void ChangePage(int Amount)
     {
-        CurrentFileSkip += Amount;
-        if (CurrentFileSkip > FileNames.Count)
+        CurrentPage += Amount;
+        if (CurrentPage > ActivePages)
         {
-            CurrentFileSkip = FileNames.Count;
+            CurrentPage = ActivePages;
         }
-        else if (CurrentFileSkip < 0)
+        else if (CurrentPage < 1)
         {
-            CurrentFileSkip = 0;
+            CurrentPage = 1;
         }
     }
 
-    public List<Button> Update() //Returns the buttons that can actively be seen
+    public void Draw(SpriteBatch ActiveSpriteBatch)
+    {
+        SavesBox.Draw(ActiveSpriteBatch);
+        string PageText = $"{CurrentPage}/{ActivePages}";
+        Vector2 PageTextPosition = new Vector2(SavesBox.Bounds.X + ((SavesBox.Bounds.Width - Font.MeasureString(PageText).X)/ 2f), SavesBox.Bounds.Y + SavesBox.Bounds.Height - (NavigationHeight * 1.25f));
+        ActiveSpriteBatch.DrawString(Font, PageText, PageTextPosition, Color.White, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
+    }
+    
+    public List<Button> ReplaceButtons(List<Button> MenuButtons)
+    {
+        List<Button> NewButtons = Update();
+        if (StartPoint == 0)
+        {
+            StartPoint = MenuButtons.Count;
+        }
+        for(int Count = 0; Count < NewButtons.Count; Count++)
+        {
+            int ActivePosition = StartPoint + Count;
+            if(MenuButtons.Count <= ActivePosition)
+            {
+                MenuButtons.Add(NewButtons[Count]);
+            }
+            else
+            {
+                if (MenuButtons[ActivePosition].Name != NewButtons[Count].Name) //Only replace the button if they are different
+                {
+                    MenuButtons[ActivePosition] = NewButtons[Count];
+                }
+            }
+        }
+        return MenuButtons;
+    }
+    
+    private List<Button> Update() //Returns the buttons that can actively be seen
     {
         FileNames = Directory.GetFiles(ActiveDirectory, "*" + FileExtension).ToList();
-        ChangeFileSkip(0); //To make sure that the current file skip isn't out of bounds
+        FileNames.Sort();
+        ActivePages = (int)Math.Ceiling((float)FileNames.Count / FilesPerPage);
         List<Button> ButtonsMade = new List<Button>();
         Color ActiveButtonColour = Color.FromNonPremultiplied(150, 150, 120, 200);
         Color ActiveColour;
         List<Color> ButtonColours = new List<Color> { Color.FromNonPremultiplied(110, 25, 0, 150), Color.FromNonPremultiplied(100, 35, 5, 150) };
-        for (int Count = 0; Count < Math.Floor(Bounds.Height / (float)FileHeight) - 2; Count++) //Adding the buttons that can be seen to MenuButtons
+        
+        //Adding title button first
+        ActiveColour = ButtonColours.ElementAt(ButtonsMade.Count % ButtonColours.Count);
+        BaseButtonDrawer ButtonDrawer = new FileSelecterDrawer("title",Font, ActiveColour, ActiveButtonColour, Pixel, FontScale);
+        Rectangle FileBounds = new Rectangle(Bounds.X + BoxSmallSize, Bounds.Y + BoxSmallSize, Bounds.Width - BoxSmallSize, FileHeight);
+        Button ActiveButton = new Button("title","", FileBounds, ButtonDrawer, null);
+        ButtonsMade.Add(ActiveButton);
+        
+        for (int Count = 0; Count < FilesPerPage; Count++) //Adding the buttons that can be seen to MenuButtons
         {
             string ActiveFile;
-            if (Count < FileNames.Count) //If there aren't enough saves to display
+            int ActivePosition = Count + ((CurrentPage - 1) * FilesPerPage);
+            if (ActivePosition < FileNames.Count) //If there aren't enough saves to display
             {
-                ActiveFile = FileNames.ElementAt(Count + CurrentFileSkip);
+                ActiveFile = FileNames.ElementAt(ActivePosition);
             }
             else
             {
                 ActiveFile = "null";
             }
             ActiveColour = ButtonColours.ElementAt(ButtonsMade.Count % ButtonColours.Count);
-            BaseButtonDrawer ButtonDrawer = new FileSelecterDrawer(ActiveFile, Font, ActiveColour, ActiveButtonColour, Pixel, FontScale);
-            Rectangle FileBounds = new Rectangle(Bounds.X + BoxSmallSize, Bounds.Y + BoxSmallSize + (FileHeight * (Count + 1)), Bounds.Width - BoxSmallSize, FileHeight);
-            Button ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, null);
+            ButtonDrawer = new FileSelecterDrawer(ActiveFile, Font, ActiveColour, ActiveButtonColour, Pixel, FontScale);
+            FileBounds = new Rectangle(Bounds.X + BoxSmallSize, Bounds.Y + BoxSmallSize + (FileHeight * (Count + 1)), Bounds.Width - BoxSmallSize, FileHeight);
+            ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, null);
             ButtonsMade.Add(ActiveButton);
         }
         return ButtonsMade;
-    }
-
-    public void Draw(SpriteBatch ActiveSpriteBatch)
-    {
-        SavesBox.Draw(ActiveSpriteBatch);
     }
 }
 

@@ -4,9 +4,9 @@ public abstract class BaseMenu
 {
     //Class Variables
     public bool IsSubMenu = false;
-    protected List<Button> MenuButtons = new List<Button>();
+    public List<Button> MenuButtons = new List<Button>();
     protected KeyManager KeybindsManager;
-    protected MenuManager Menus;
+    public MenuManager Menus;
     
     
     public BaseMenu(MenuManager Input_Menus)

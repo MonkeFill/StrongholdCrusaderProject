@@ -34,12 +34,12 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
         TitleBox = new Box(new Rectangle(200, 210, 270, 65), Color.FromNonPremultiplied(150, 15, 15, 200), Content, Menus.GraphicDevice);
         Vector2 TextPosition = TitleFont.MeasureString(Title) * TitleFontScale;
         TitlePosition = new Vector2(TitleBox.Bounds.X + ((TitleBox.Bounds.Width - TextPosition.X) / 2f), TitleBox.Bounds.Y + ((TitleBox.Bounds.Height - TextPosition.Y) / 2f));
-        FileButtonsManager = new FileSelectionButtons(SavesFolder, "", new Rectangle(500, 210, 310, 350), Content, Pixel, Menus.GraphicDevice);
+        FileButtonsManager = new FileSelectionButtons(SavesFolder, "", new Rectangle(500, 210, 310, 350), this, Pixel);
     }
 
     public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the menu
     {
-        ReplaceButtons();
+        FileButtonsManager.ReplaceButtons(MenuButtons);
         if (IsSubMenu != true) //If the loadgame menu hasn't been set as a sub menu
         {
             ActiveSpriteBatch.Draw(BackgroundTexture, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
@@ -49,22 +49,5 @@ public class LoadGameMenu : BaseMenu //Menu for loading maps
         ActiveSpriteBatch.DrawString(TitleFont, Title, TitlePosition, Color.White, 0f, Vector2.Zero, TitleFontScale, SpriteEffects.None, 0f);
         base.Draw(ActiveSpriteBatch);
         FileButtonsManager.Draw(ActiveSpriteBatch);
-    }
-
-    private void ReplaceButtons()
-    {
-        List<Button> NewButtons = FileButtonsManager.Update();
-        for(int Count = 0; Count < NewButtons.Count; Count++)
-        {
-            int ActivePosition = MenuButtons.Count + Count;
-            if(MenuButtons.Count <= ActivePosition)
-            {
-                MenuButtons.Add(NewButtons[Count]);
-            }
-            else
-            {
-                MenuButtons[ActivePosition] = NewButtons[Count];
-            }
-        }
     }
 }

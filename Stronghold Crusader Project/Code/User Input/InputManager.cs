@@ -35,7 +35,6 @@ public static class InputManager
         PreviousMouseState = ActiveMouseState;
         ActiveKeyboardState = Keyboard.GetState();
         ActiveMouseState = Mouse.GetState();
-        GameMenuManager.Update();
     }
 
     public static void CheckIfKeybindsPressed(Dictionary<string, KeyMap> LocalKeybinds) //Checks if any of the keybinds have been pressed

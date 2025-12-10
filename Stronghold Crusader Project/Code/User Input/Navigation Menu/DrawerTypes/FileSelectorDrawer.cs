@@ -9,6 +9,8 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
     private Color ActiveButtonColour;
     private Texture2D Pixel;
     private float FontScale;
+    private float ScaleForFileName = 0.6f;
+    private int TextOffSetX = 10;
     
     //Class Methods
     public FileSelecterDrawer(string Input_FilePath, SpriteFont Input_TextFont, Color Input_ButtonColour, Color Input_ActiveButtonColour, Texture2D Input_Pixel, float Input_FontScale)
@@ -24,17 +26,20 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
 
     public void Draw(SpriteBatch ActiveSpriteBatch, Button ActiveButton) //Drawing the button
     {
-        float ScaleForFileName = 0.6f;
         string FileDate = "";
         string FileName = "";
-        if (FilePath != "null")
+        if (FilePath != "null" && FilePath != "title")
         { 
             FileDate = File.GetCreationTime(FilePath).ToShortDateString();
             FileName = Path.GetFileNameWithoutExtension(FilePath); //Getting file information
         }
+        else if (FilePath == "title")
+        {
+            FileName = "File Name";
+            FileDate = "Date";
+        }
 
         FileName = FileName.Replace(".json", "");
-        int TextOffSetX = 10;
         double Length = ActiveButton.Bounds.Width * ScaleForFileName;
         while (TextFont.MeasureString(FileName).X * FontScale >= Length - Length * 0.1) //Shortening the file name if its too long to fit
         {
@@ -43,21 +48,24 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
         Color ActiveColour = ButtonColour;
         if (ActiveButton.Hover == true) //If button is hovered over
         {
-            ActiveColour = ActiveButtonColour;
+            if (FileName != "" && FilePath != "title")
+            {
+                ActiveColour = ActiveButtonColour;
+            }
         }
         float TextYOffset = (TextFont.MeasureString(FileDate).Y * FontScale) / 2f;
         ActiveSpriteBatch.Draw(Pixel, ActiveButton.Bounds, ActiveColour);
-        DrawOutline(ActiveButton.Bounds, 1, ActiveSpriteBatch, Color.White);
+        DrawOutline(ActiveButton.Bounds, 1, ActiveSpriteBatch, Color.FromNonPremultiplied(245, 245, 245, 150));
         ActiveSpriteBatch.DrawString(TextFont, FileName, new Vector2(ActiveButton.Bounds.X + TextOffSetX, ActiveButton.Bounds.Y + (ActiveButton.Bounds.Height / 2f) - TextYOffset), Color.White, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
         ActiveSpriteBatch.DrawString(TextFont, FileDate, new Vector2(ActiveButton.Bounds.X + (float)Length, ActiveButton.Bounds.Y + (ActiveButton.Bounds.Height / 2f) - TextYOffset), Color.White, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
     }
 
     private void DrawOutline(Rectangle Bounds, int Stroke, SpriteBatch ActiveSpriteBatch, Color Colour) //Draws 4 boxes to create an outline for something
     {
-        ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, Stroke), Colour); //Drawing the top stroke
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X, Bounds.Y, Stroke, Bounds.Height), Colour); //Drawing the Left stroke
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X, Bounds.Y + Bounds.Height - Stroke, Bounds.Width, Stroke), Colour); //Drawing the Bottom stroke
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X + Bounds.Width - Stroke, Bounds.Y, Stroke, Bounds.Height), Colour); //Drawing the Right stroke
+        ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X + (int)(Bounds.Width * ScaleForFileName) - (int)(TextOffSetX * 0.5)- Stroke, Bounds.Y, Stroke, Bounds.Height), Colour); //Drawing the Right stroke
     }
 }
 

@@ -45,17 +45,20 @@ public class Game1 : Game
     }
 
     protected override void Update(GameTime gameTime)
-    { 
-        double deltaTime = gameTime.ElapsedGameTime.TotalSeconds;
-
-        if (deltaTime > 0)
+    {
+        if (IsActive) //If the game window is the top window (not tab out)
         {
-            double FPS = 1.0 / deltaTime;
-            //Console.WriteLine($"FPS - {FPS:F2}");
+            double deltaTime = gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (deltaTime > 0)
+            {
+                double FPS = 1.0 / deltaTime;
+                //Console.WriteLine($"FPS - {FPS:F2}");
+            }
+            InputManagerUpdate();
+            Menus.Update();
+            base.Update(gameTime);
         }
-        InputManagerUpdate();
-        base.Update(gameTime);
-        
     }
 
     protected override void Draw(GameTime gameTime)
@@ -81,8 +84,12 @@ public class Game1 : Game
         //Getting the scale against the monitor sides
         float ScaleY = (float)Graphics.PreferredBackBufferHeight / VirtualHeight;
         float ScaleX = (float)Graphics.PreferredBackBufferWidth / VirtualWidth;
-
         float Scale = Math.Min(ScaleX, ScaleY); //Getting whatever is the smaller scale
-        MatrixScale = Matrix.CreateScale(Scale, Scale, 1f); //Creating the scale
+
+        //Getting the Offset to position it in the centre
+        float OffSetX = (Graphics.PreferredBackBufferWidth - (VirtualWidth * Scale)) / 2f;
+        float OffSetY = (Graphics.PreferredBackBufferHeight - (VirtualHeight * Scale)) / 2f;
+        
+        MatrixScale = Matrix.CreateScale(Scale, Scale, 1f) * Matrix.CreateTranslation(OffSetX, OffSetY, 0f); //Creating the scale
     }
 }
