@@ -17,6 +17,7 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static string MenuFolder = Path.Combine(UIElementFolder, "Menus");
     public static string GlobalMenuFolder = Path.Combine(MenuFolder, "Global");
     public static string BoxMenuFolder = Path.Combine(GlobalMenuFolder, "Box");
+    public static string GlobalButtonsFolder = Path.Combine(GlobalMenuFolder, "Buttons");
     
     //Map Variables
     public static int MapWidth = 100;

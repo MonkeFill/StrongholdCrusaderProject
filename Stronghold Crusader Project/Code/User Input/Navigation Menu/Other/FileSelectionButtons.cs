@@ -16,11 +16,13 @@ public class FileSelectionButtons
     private Rectangle Bounds;
     private SpriteFont Font;
     private Texture2D Pixel;
-    private Box SavesBox;
+    public Box SavesBox;
+    private BaseFileMenu Menu;
 
     //Class Methods
-    public FileSelectionButtons(string Input_ActiveDirectory, string Input_FileExtension, Rectangle Input_Bounds, BaseMenu Menu, Texture2D Input_Pixel)
+    public FileSelectionButtons(string Input_ActiveDirectory, string Input_FileExtension, Rectangle Input_Bounds, BaseFileMenu Input_Menu, Texture2D Input_Pixel)
     {
+        Menu = Input_Menu;
         ContentManager Content = Menu.Menus.Content;
         GraphicsDevice GraphicDevice = Menu.Menus.GraphicDevice;
         List<Button> MenuButtons = Menu.MenuButtons;
@@ -53,7 +55,7 @@ public class FileSelectionButtons
     {
         SavesBox.Draw(ActiveSpriteBatch);
         string PageText = $"{CurrentPage}/{ActivePages}";
-        Vector2 PageTextPosition = new Vector2(SavesBox.Bounds.X + ((SavesBox.Bounds.Width - Font.MeasureString(PageText).X)/ 2f), SavesBox.Bounds.Y + SavesBox.Bounds.Height - (NavigationHeight * 1.25f));
+        Vector2 PageTextPosition = new Vector2(SavesBox.Bounds.X + ((SavesBox.Bounds.Width - (Font.MeasureString(PageText).X) * FontScale)/ 2f), SavesBox.Bounds.Y + SavesBox.Bounds.Height - (NavigationHeight * 1.75f));
         ActiveSpriteBatch.DrawString(Font, PageText, PageTextPosition, Color.White, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
     }
     
@@ -87,6 +89,10 @@ public class FileSelectionButtons
         FileNames = Directory.GetFiles(ActiveDirectory, "*" + FileExtension).ToList();
         FileNames.Sort();
         ActivePages = (int)Math.Ceiling((float)FileNames.Count / FilesPerPage);
+        if(ActivePages < 1) //Can't be zero but will be when no files are found
+        {
+            ActivePages = 1;
+        }
         List<Button> ButtonsMade = new List<Button>();
         Color ActiveButtonColour = Color.FromNonPremultiplied(150, 150, 120, 200);
         Color ActiveColour;
@@ -102,19 +108,22 @@ public class FileSelectionButtons
         for (int Count = 0; Count < FilesPerPage; Count++) //Adding the buttons that can be seen to MenuButtons
         {
             string ActiveFile;
+            Action FileAction;
             int ActivePosition = Count + ((CurrentPage - 1) * FilesPerPage);
             if (ActivePosition < FileNames.Count) //If there aren't enough saves to display
             {
                 ActiveFile = FileNames.ElementAt(ActivePosition);
+                FileAction = () => Menu.ActiveFile = ActiveFile;
             }
             else
             {
                 ActiveFile = "null";
+                FileAction = () => { };
             }
             ActiveColour = ButtonColours.ElementAt(ButtonsMade.Count % ButtonColours.Count);
             ButtonDrawer = new FileSelecterDrawer(ActiveFile, Font, ActiveColour, ActiveButtonColour, Pixel, FontScale);
             FileBounds = new Rectangle(Bounds.X + BoxSmallSize, Bounds.Y + BoxSmallSize + (FileHeight * (Count + 1)), Bounds.Width - BoxSmallSize, FileHeight);
-            ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, null);
+            ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, FileAction);
             ButtonsMade.Add(ActiveButton);
         }
         return ButtonsMade;

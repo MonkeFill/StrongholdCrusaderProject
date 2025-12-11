@@ -34,6 +34,9 @@ global using static Stronghold_Crusader_Project.Code.Global.GlobalConfig;
 global using static Stronghold_Crusader_Project.Code.Global.Other.EventLogger;
 global using static Stronghold_Crusader_Project.Code.Global.Other.Camera2D;
 global using static Stronghold_Crusader_Project.Code.User_Input.InputManager;
+
+//Any buttons that are global
 global using static Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other.GlobalNavigationButton;
+global using static Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other.GlobalBasicTextButton;
 
 
