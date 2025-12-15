@@ -19,25 +19,28 @@ public class MapFileManager //Class that will handle any map file operations
     {
         if (File.Exists(MapPath)) //Check if the map exists 
         {
-            string Json = File.ReadAllText(MapPath);
-            string[,] LoadedMap;
-            LogEvent($"{MapPath} found and is being loaded", LogType.Info);
-            try
+            if (Path.GetExtension(MapPath) == ".json") //Makes sure that the path is a json file
             {
-                LoadedMap = JsonConvert.DeserializeObject<string[,]>(Json);
-                if (ValidMap(LoadedMap)) //If none of the map is null
+                string Json = File.ReadAllText(MapPath);
+                string[,] LoadedMap;
+                LogEvent($"{MapPath} found and is being loaded", LogType.Info);
+                try
                 {
-                    LogEvent($"Map {MapName} has been imported", LogType.Info);
-                    return LoadedMap;
+                    LoadedMap = JsonConvert.DeserializeObject<string[,]>(Json);
+                    if (ValidMap(LoadedMap)) //If none of the map is null
+                    {
+                        LogEvent($"Map {MapName} has been imported", LogType.Info);
+                        return LoadedMap;
+                    }
                 }
-            }
-            catch (JsonSerializationException) //If it cannot deserialize it because it is not in the correct format
-            {
-                LogEvent($"Map {MapName} is not in the correct format and hasn't been loaded", LogType.Error);
-            }
-            catch (Exception Error) //Any other error that may happen
-            {
-                LogEvent($"Map {MapName} could not be loaded, {Error.Message}", LogType.Error);
+                catch (JsonSerializationException) //If it cannot deserialize it because it is not in the correct format
+                {
+                    LogEvent($"Map {MapName} is not in the correct format and hasn't been loaded", LogType.Error);
+                }
+                catch (Exception Error) //Any other error that may happen
+                {
+                    LogEvent($"Map {MapName} could not be loaded, {Error.Message}", LogType.Error);
+                }
             }
         }
         else //Map doesn't exist

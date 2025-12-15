@@ -6,6 +6,7 @@ public class MapHandler //Class to handle any map functions
     //Class Variables
     public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
     public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
+    public Dictionary<string, Color> BasicTextureMap = new Dictionary<string, Color>();
     public string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
     Borders BorderHandler;
     
@@ -28,14 +29,16 @@ public class MapHandler //Class to handle any map functions
         FileManager.ExportMap(SavedMap);
     }
 
-    public void MapImportHandler(string MapName) //Handler for importing maps
+    public bool MapImportHandler(string MapName) //Handler for importing maps
     {
         ActiveMapName = MapName;
         string[,] ImportedMap = FileManager.ImportMap();
-        if (ImportedMap != null)
+        if (ImportedMap == null) //If the imported map has not been loaded correctly
         {
-            FileManager.LoadMap(ImportedMap);
+            return false;
         }
+        FileManager.LoadMap(ImportedMap);
+        return true;
     }
     private void LoadTextureMap() //Method to load all textures from the textures folder
     {
@@ -74,6 +77,16 @@ public class MapHandler //Class to handle any map functions
                 }
                 string ActiveTileFromContent = Path.Combine(TilesFolderPathFromContent, FolderName, FileName); //Rebuilding the file path from content to load it in
                 TextureMap.Add(TextureKey, Content.Load<Texture2D>(ActiveTileFromContent)); //Adding the texture and key
+                
+                //Now adding the basic map texture
+                if (!BasicTextureMap.ContainsKey(FolderName)) //If the BasicTextureMap doesn't already contain the basic texture for that specific tile set
+                {
+                    Texture2D ActiveTexture = TextureMap[TextureKey];
+                    Rectangle TexturePixel = new Rectangle(ActiveTexture.Width / 2, ActiveTexture.Height / 2, 1, 1);
+                    Color[] TextureColour = new Color[1];
+                    ActiveTexture.GetData(0, TexturePixel, TextureColour, 0, 1);
+                    BasicTextureMap.Add(FolderName, TextureColour[0]);
+                }
             }
             if (TempCount == 0) //Check if there are any .xnb files
             {
@@ -123,6 +136,11 @@ public class MapHandler //Class to handle any map functions
             }
         }
         FileManager.LoadMap(BlankMap);
+    }
+
+    public void DrawMiniMap(SpriteBatch ActiveSprite, int MapSize) //Draws a small version of the map in a compact and basic form
+    {
+        
     }
 }
 

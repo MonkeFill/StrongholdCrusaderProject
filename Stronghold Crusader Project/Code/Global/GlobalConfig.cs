@@ -20,7 +20,7 @@ public static class GlobalConfig //Method to store global variables and paths th
     public static string GlobalButtonsFolder = Path.Combine(GlobalMenuFolder, "Buttons");
     
     //Map Variables
-    public static int MapWidth = 100;
+    public static int MapWidth = 50;
     public static int MapHeight = 100;
     public static int TileHeight = 16;
     public static int TileWidth = 32;
