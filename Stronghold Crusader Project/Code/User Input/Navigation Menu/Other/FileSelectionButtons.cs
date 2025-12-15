@@ -94,13 +94,14 @@ public class FileSelectionButtons
             ActivePages = 1;
         }
         List<Button> ButtonsMade = new List<Button>();
-        Color ActiveButtonColour = Color.FromNonPremultiplied(150, 150, 120, 200);
+        Color ActiveButtonColour = Color.FromNonPremultiplied(180, 150, 120, 200);
+        Color HoverButtonColour = Color.FromNonPremultiplied(150, 150, 120, 200);
         Color ActiveColour;
         List<Color> ButtonColours = new List<Color> { Color.FromNonPremultiplied(110, 25, 0, 150), Color.FromNonPremultiplied(100, 35, 5, 150) };
         
         //Adding title button first
         ActiveColour = ButtonColours.ElementAt(ButtonsMade.Count % ButtonColours.Count);
-        BaseButtonDrawer ButtonDrawer = new FileSelecterDrawer("title",Font, ActiveColour, ActiveButtonColour, Pixel, FontScale);
+        BaseButtonDrawer ButtonDrawer = new FileSelecterDrawer("title",Font, ActiveColour, HoverButtonColour, ActiveButtonColour, Pixel, FontScale);
         Rectangle FileBounds = new Rectangle(Bounds.X + BoxSmallSize, Bounds.Y + BoxSmallSize, Bounds.Width - BoxSmallSize, FileHeight);
         Button ActiveButton = new Button("title","", FileBounds, ButtonDrawer, null);
         ButtonsMade.Add(ActiveButton);
@@ -121,7 +122,7 @@ public class FileSelectionButtons
                 FileAction = () => { };
             }
             ActiveColour = ButtonColours.ElementAt(ButtonsMade.Count % ButtonColours.Count);
-            ButtonDrawer = new FileSelecterDrawer(ActiveFile, Font, ActiveColour, ActiveButtonColour, Pixel, FontScale);
+            ButtonDrawer = new FileSelecterDrawer(ActiveFile, Font, ActiveColour, HoverButtonColour, ActiveButtonColour, Pixel, FontScale);
             FileBounds = new Rectangle(Bounds.X + BoxSmallSize, Bounds.Y + BoxSmallSize + (FileHeight * (Count + 1)), Bounds.Width - BoxSmallSize, FileHeight);
             ActiveButton = new Button(ActiveFile, "", FileBounds, ButtonDrawer, FileAction);
             ButtonsMade.Add(ActiveButton);

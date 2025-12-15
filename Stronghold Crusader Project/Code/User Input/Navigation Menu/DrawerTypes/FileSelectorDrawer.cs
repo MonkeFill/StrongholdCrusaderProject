@@ -6,6 +6,7 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
     private string FilePath;
     private SpriteFont TextFont;
     private Color ButtonColour;
+    private Color HoverButtonColour;
     private Color ActiveButtonColour;
     private Texture2D Pixel;
     private float FontScale;
@@ -13,11 +14,12 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
     private int TextOffSetX = 10;
     
     //Class Methods
-    public FileSelecterDrawer(string Input_FilePath, SpriteFont Input_TextFont, Color Input_ButtonColour, Color Input_ActiveButtonColour, Texture2D Input_Pixel, float Input_FontScale)
+    public FileSelecterDrawer(string Input_FilePath, SpriteFont Input_TextFont, Color Input_ButtonColour, Color Input_HoverButtonColour, Color Input_ActiveButtonColour, Texture2D Input_Pixel, float Input_FontScale)
     {
         FilePath = Input_FilePath;
         TextFont = Input_TextFont;
         ButtonColour = Input_ButtonColour;
+        HoverButtonColour = Input_HoverButtonColour;
         ActiveButtonColour = Input_ActiveButtonColour;
         Pixel = Input_Pixel;
         Pixel.SetData(new[] { Color.White });
@@ -46,13 +48,22 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
             FileName = FileName.Substring(0, FileName.Length - 1);
         }
         Color ActiveColour = ButtonColour;
-        if (ActiveButton.Hover == true) //If button is hovered over
+
+        if (ActiveButton.Active) //if button is active
         {
-            if (FileName != "" && FilePath != "title")
+            if (CheckIfNormalButton(FileName, FilePath))
             {
                 ActiveColour = ActiveButtonColour;
             }
         }
+        else if (ActiveButton.Hover) //If button is hovered over
+        {
+            if (CheckIfNormalButton(FileName, FilePath))
+            {
+                ActiveColour = HoverButtonColour;
+            }
+        }
+
         float TextYOffset = (TextFont.MeasureString(FileDate).Y * FontScale) / 2f;
         ActiveSpriteBatch.Draw(Pixel, ActiveButton.Bounds, ActiveColour);
         DrawOutline(ActiveButton.Bounds, 1, ActiveSpriteBatch, Color.FromNonPremultiplied(245, 245, 245, 150));
@@ -66,6 +77,15 @@ public class FileSelecterDrawer : BaseButtonDrawer //A drawer that will show fil
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X, Bounds.Y + Bounds.Height - Stroke, Bounds.Width, Stroke), Colour); //Drawing the Bottom stroke
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X + Bounds.Width - Stroke, Bounds.Y, Stroke, Bounds.Height), Colour); //Drawing the Right stroke
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(Bounds.X + (int)(Bounds.Width * ScaleForFileName) - (int)(TextOffSetX * 0.5)- Stroke, Bounds.Y, Stroke, Bounds.Height), Colour); //Drawing the Right stroke
+    }
+
+    private bool CheckIfNormalButton(string FileName, string FilePath) //Makes sure it is not a title button
+    {
+        if (FileName != "" && FilePath != "title")
+        {
+            return true;
+        }
+        return false;
     }
 }
 

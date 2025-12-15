@@ -70,10 +70,16 @@ public class MapFileManager //Class that will handle any map file operations
     
     public void LoadMap(String[,] LoadedMap) //Load Map will turn the basic grid of tile keys into actual tiles 
     {
+        Texture2D ActiveTexture = null;
         MapHandler.LoopThroughTiles((PositionX, PositionY) =>
         {
             string ActiveTileKey = LoadedMap[PositionY, PositionX];
-            Texture2D ActiveTexture = GetTileTexture(ActiveTileKey);
+            ActiveTexture = GetTileTexture(ActiveTileKey);
+            if (ActiveTexture == null) //if the texture is invalid
+            {
+                ActiveTexture = TextureMap.First().Value;
+                ActiveTileKey = TextureMap.First().Key;
+            }
             Vector2 ActivePosition = new Vector2(PositionX, PositionY);
             Map[PositionY, PositionX] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
         });
@@ -121,7 +127,7 @@ public class MapFileManager //Class that will handle any map file operations
             return TextureMap[TileKey];
         }
         LogEvent($"Tile Key {TileKey} could not be found in texture map" , LogType.Error);
-        return TextureMap.First().Value;
+        return null;
     }
 }
 

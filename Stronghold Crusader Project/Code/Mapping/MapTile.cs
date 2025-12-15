@@ -20,7 +20,7 @@ public class MapTile //Class for each individual tile on the map
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draw method for a tile
     {
         Vector2 IsometricPosition = GridToStaggeredDraw();
-        ActiveSpriteBatch.Draw(Texture, IsometricPosition,null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+        ActiveSpriteBatch.Draw(Texture, IsometricPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
     }
 
     public void UpdateWalkable(bool NewWalkable) //Update the walkable status of the tile
