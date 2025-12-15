@@ -64,6 +64,7 @@ public abstract class BaseFileMenu : BaseMenu
         base.Draw(ActiveSpriteBatch);
         FileButtonsManager.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.Draw(Pixel, MiniMap, Color.White);
+        DrawMiniMap(ActiveSpriteBatch, MiniMap.Height);
     }
 }
 

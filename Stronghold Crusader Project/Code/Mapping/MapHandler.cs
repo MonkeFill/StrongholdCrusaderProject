@@ -1,35 +1,35 @@
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
-public class MapHandler //Class to handle any map functions
+public static class MapHandler //Class to handle any map functions
 {
 
     //Class Variables
-    public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
-    public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
-    public Dictionary<string, Color> BasicTextureMap = new Dictionary<string, Color>();
-    public string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
-    Borders BorderHandler;
-    
-    public string ActiveMapName;
-    private ContentManager Content;
-    private MapFileManager FileManager;
-    
+    static public MapTile[,] Map = new MapTile[MapHeight, MapWidth];
+    static public Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
+    static public Dictionary<string, Color> BasicTextureMap = new Dictionary<string, Color>();
+    static public string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
+    static Borders BorderHandler;
+
+    static public string ActiveMapName;
+    static private ContentManager Content;
+    static private MapFileManager FileManager;
+
     //Methods
-    public MapHandler(ContentManager InputContent)  //Initializer
+    public static void MapHandlerInitializer(ContentManager InputContent)  //Initializer
     {
-        FileManager = new MapFileManager(this);
+        FileManager = new MapFileManager();
         Content = InputContent;
         LoadTextureMap();
         BorderHandler = new Borders(InputContent);
     }
 
-    public void MapExportHandler() //Handler for exporting maps
+    public static void MapExportHandler() //Handler for exporting maps
     {
         string[,] SavedMap = FileManager.SaveMap();
         FileManager.ExportMap(SavedMap);
     }
 
-    public bool MapImportHandler(string MapName) //Handler for importing maps
+    public static bool MapImportHandler(string MapName) //Handler for importing maps
     {
         ActiveMapName = MapName;
         string[,] ImportedMap = FileManager.ImportMap();
@@ -40,7 +40,7 @@ public class MapHandler //Class to handle any map functions
         FileManager.LoadMap(ImportedMap);
         return true;
     }
-    private void LoadTextureMap() //Method to load all textures from the textures folder
+    private static void LoadTextureMap() //Method to load all textures from the textures folder
     {
         LogEvent("Loading texture map started", LogType.Info);
         string[] TileFolders =  Directory.GetDirectories(TilesFolderFullPath); //Getting any of the tile folders
@@ -67,21 +67,18 @@ public class MapHandler //Class to handle any map functions
                 }
                 TempCount++;
                 string FileName = Path.GetFileNameWithoutExtension(ActiveTileVariant); //getting the name of the file without its extension
-                string TextureKeyNumber = FileName.Replace(FolderName, ""); //Getting just the numbers of the file
-                string TextureKeyName = FolderName.Substring(0,TileReferencePrefixLength); //Using the folder name
-                string TextureKey = TextureKeyName + TextureKeyNumber; //Combining to create a key
                 LogEvent($"Accessing {ActiveTileVariant} tile",  LogType.Info);
-                if (TextureMap.ContainsKey(TextureKey)) //if the dictionary already has it
+                if (TextureMap.ContainsKey(FileName)) //if the dictionary already has it
                 {
                     continue;
                 }
                 string ActiveTileFromContent = Path.Combine(TilesFolderPathFromContent, FolderName, FileName); //Rebuilding the file path from content to load it in
-                TextureMap.Add(TextureKey, Content.Load<Texture2D>(ActiveTileFromContent)); //Adding the texture and key
+                TextureMap.Add(FileName, Content.Load<Texture2D>(ActiveTileFromContent)); //Adding the texture and key
                 
                 //Now adding the basic map texture
                 if (!BasicTextureMap.ContainsKey(FolderName)) //If the BasicTextureMap doesn't already contain the basic texture for that specific tile set
                 {
-                    Texture2D ActiveTexture = TextureMap[TextureKey];
+                    Texture2D ActiveTexture = TextureMap[FileName];
                     Rectangle TexturePixel = new Rectangle(ActiveTexture.Width / 2, ActiveTexture.Height / 2, 1, 1);
                     Color[] TextureColour = new Color[1];
                     ActiveTexture.GetData(0, TexturePixel, TextureColour, 0, 1);
@@ -97,7 +94,7 @@ public class MapHandler //Class to handle any map functions
         LogEvent("Loaded texture map finished" , LogType.Info);
     }
 
-    public void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
+    public static void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
     {
         for (int PositionY = 0; PositionY < MapHeight; PositionY++)
         {
@@ -116,7 +113,7 @@ public class MapHandler //Class to handle any map functions
     });
     end*/
 
-    public void DrawMap(SpriteBatch ActiveSpriteBatch) //Method to draw all the tiles for the map
+    public static void DrawMap(SpriteBatch ActiveSpriteBatch) //Method to draw all the tiles for the map
     {
         LoopThroughTiles((PositionX, PositionY) =>
         {
@@ -124,7 +121,7 @@ public class MapHandler //Class to handle any map functions
         });
         BorderHandler.Draw(ActiveSpriteBatch);
     }
-    public void SetupNewMap() //Method to create a new blank map
+    public static void SetupNewMap() //Method to create a new blank map
     {
         Random RanInt = new Random();
         String[,] BlankMap = new string[MapHeight, MapWidth];
@@ -138,9 +135,17 @@ public class MapHandler //Class to handle any map functions
         FileManager.LoadMap(BlankMap);
     }
 
-    public void DrawMiniMap(SpriteBatch ActiveSprite, int MapSize) //Draws a small version of the map in a compact and basic form
+    public static void DrawMiniMap(SpriteBatch ActiveSprite, int MapSize) //Draws a small version of the map in a compact and basic form
     {
-        
+        int TileWidth = MapSize / MapWidth;
+        int TileHeight = MapSize / MapWidth;
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+            {
+                //String ActiveTile = 
+            }
+        }
     }
 }
 

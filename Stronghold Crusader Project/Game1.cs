@@ -1,14 +1,10 @@
-﻿using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
-using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
-
-namespace Stronghold_Crusader_Project;
+﻿namespace Stronghold_Crusader_Project;
 
 public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private StartupManager GameManager = new StartupManager();
-    private MapHandler Mapping;
     private MenuManager Menus;
 
     public Game1()
@@ -30,8 +26,8 @@ public class Game1 : Game
         
         //Starting the game and initialising everything
         GameManager.StartGame(Content);
-        Mapping = new MapHandler(Content);
-        Mapping.SetupNewMap();
+        MapHandlerInitializer(Content);
+        MapImportHandler("ValidMap");
         Camera2D.Initialize(GraphicsDevice.Viewport);
         CreateViewScale(_graphics);
         Menus = new MenuManager(this);
@@ -67,7 +63,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         //Drawing anything that requires the camera like the map
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.AnisotropicClamp); 
-        Mapping.DrawMap(_spriteBatch);
+        DrawMap(_spriteBatch);
         _spriteBatch.End();
         
         //Anything else that will be drawn using the Matrix Scale depending on the monitor

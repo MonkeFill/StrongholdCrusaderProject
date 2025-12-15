@@ -3,17 +3,13 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 public class MapFileManager //Class that will handle any map file operations
 {
     //Class Variables
-    private MapHandler MapHandling;
-    private string MapPath => MapHandling.MapPath;
-    private MapTile[,] Map => MapHandling.Map;
-    private Dictionary<string, Texture2D> TextureMap => MapHandling.TextureMap;
-    private string MapName => MapHandling.ActiveMapName;
+    private string MapPath => MapHandler.MapPath;
+    private MapTile[,] Map => MapHandler.Map;
+    private Dictionary<string, Texture2D> TextureMap => MapHandler.TextureMap;
+    private string MapName => MapHandler.ActiveMapName;
     
     //Methods
-    public MapFileManager(MapHandler Handler) //Initializer
-    {
-        MapHandling = Handler;
-    }
+    public MapFileManager(){ }
     
     public string[,] ImportMap() //Will import a map 
     {
@@ -65,7 +61,7 @@ public class MapFileManager //Class that will handle any map file operations
     {
         
         string[,] BasicMap = new string[MapHeight, MapWidth];
-        MapHandling.LoopThroughTiles((PositionX, PositionY) =>
+        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
         {
             BasicMap[PositionY, PositionX] = Map[PositionY, PositionX].TileKey;
         });
@@ -74,7 +70,7 @@ public class MapFileManager //Class that will handle any map file operations
     
     public void LoadMap(String[,] LoadedMap) //Load Map will turn the basic grid of tile keys into actual tiles 
     {
-        MapHandling.LoopThroughTiles((PositionX, PositionY) =>
+        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
         {
             string ActiveTileKey = LoadedMap[PositionY, PositionX];
             Texture2D ActiveTexture = GetTileTexture(ActiveTileKey);
@@ -87,7 +83,7 @@ public class MapFileManager //Class that will handle any map file operations
     private bool ValidMap(string[,] LoadedMap) //Checking through all the tiles to make sure they aren't null
     {
         bool Valid = true;
-        MapHandling.LoopThroughTiles((PositionX, PositionY) =>
+        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
         {
             if (string.IsNullOrWhiteSpace(LoadedMap[PositionY, PositionX]) )
             {
@@ -102,7 +98,7 @@ public class MapFileManager //Class that will handle any map file operations
     private string MapAsText(string[,] Map) //Convert to a string so you are able to read the map easily and for debugging
     {
         StringBuilder MapText = new StringBuilder();
-        MapHandling.LoopThroughTiles((PositionX, PositionY) =>
+        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
         {
             MapText.Append(Map[PositionY, PositionX]);
             if (PositionX == MapWidth-1)

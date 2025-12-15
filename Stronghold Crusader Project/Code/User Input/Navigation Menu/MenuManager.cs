@@ -3,7 +3,7 @@ public class MenuManager //Manages Menus
 {
     //Class Variables
     private Stack<BaseMenu> Menus = new Stack<BaseMenu>();
-    private Game ActiveGame;
+    public Game ActiveGame;
     public ContentManager Content;
     public GraphicsDevice GraphicDevice;
     private BaseMenu TopMenu;
@@ -88,6 +88,5 @@ public class MenuManager //Manages Menus
             LogEvent($"No menus inside of stack", LogType.Error);
         }
     }
-
 }
 
