@@ -27,7 +27,7 @@ public class Game1 : Game
         //Starting the game and initialising everything
         GameManager.StartGame(Content);
         MapHandlerInitializer(Content);
-        MapImportHandler("ValidMap");
+        //MapImportHandler("ValidMap", false);
         Camera2D.Initialize(GraphicsDevice.Viewport);
         CreateViewScale(_graphics);
         Menus = new MenuManager(this);
@@ -63,7 +63,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         //Drawing anything that requires the camera like the map
         _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.AnisotropicClamp); 
-        DrawMap(_spriteBatch);
+        //DrawMap(_spriteBatch);
         _spriteBatch.End();
         
         //Anything else that will be drawn using the Matrix Scale depending on the monitor

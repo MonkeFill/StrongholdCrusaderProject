@@ -2,11 +2,6 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public class MapFileManager //Class that will handle any map file operations
 {
-    //Class Variables
-    private string MapPath => MapHandler.MapPath;
-    private MapTile[,] Map => MapHandler.Map;
-    private Dictionary<string, Texture2D> TextureMap => MapHandler.TextureMap;
-    private string MapName => MapHandler.ActiveMapName;
     
     //Methods
     public MapFileManager(){ }
@@ -25,23 +20,23 @@ public class MapFileManager //Class that will handle any map file operations
                     LoadedMap = JsonConvert.DeserializeObject<string[,]>(Json);
                     if (ValidMap(LoadedMap)) //If none of the map is null
                     {
-                        LogEvent($"Map {MapName} has been imported", LogType.Info);
+                        LogEvent($"Map {ActiveMapName} has been imported", LogType.Info);
                         return LoadedMap;
                     }
                 }
                 catch (JsonSerializationException) //If it cannot deserialize it because it is not in the correct format
                 {
-                    LogEvent($"Map {MapName} is not in the correct format and hasn't been loaded", LogType.Error);
+                    LogEvent($"Map {ActiveMapName} is not in the correct format and hasn't been loaded", LogType.Error);
                 }
                 catch (Exception Error) //Any other error that may happen
                 {
-                    LogEvent($"Map {MapName} could not be loaded, {Error.Message}", LogType.Error);
+                    LogEvent($"Map {ActiveMapName} could not be loaded, {Error.Message}", LogType.Error);
                 }
             }
         }
         else //Map doesn't exist
         {
-            LogEvent($"Map {MapName} not found", LogType.Error);
+            LogEvent($"Map {ActiveMapName} not found", LogType.Error);
         }
         return null;
     }
@@ -54,14 +49,14 @@ public class MapFileManager //Class that will handle any map file operations
         }
         string Json = JsonConvert.SerializeObject(ExportMap, Formatting.Indented);
         File.WriteAllText(MapPath, Json);
-        LogEvent($"Map {MapName} saved to {MapPath}", LogType.Info);
+        LogEvent($"Map {ActiveMapName} saved to {MapPath}", LogType.Info);
     }
     
     public string[,] SaveMap() //Save the map meaning it will turn the Map tiles into a basic grid of tile keys
     {
         
         string[,] BasicMap = new string[MapHeight, MapWidth];
-        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
+        LoopThroughTiles((PositionX, PositionY) =>
         {
             BasicMap[PositionY, PositionX] = Map[PositionY, PositionX].TileKey;
         });
@@ -71,7 +66,7 @@ public class MapFileManager //Class that will handle any map file operations
     public void LoadMap(String[,] LoadedMap) //Load Map will turn the basic grid of tile keys into actual tiles 
     {
         Texture2D ActiveTexture = null;
-        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
+        LoopThroughTiles((PositionX, PositionY) =>
         {
             string ActiveTileKey = LoadedMap[PositionY, PositionX];
             ActiveTexture = GetTileTexture(ActiveTileKey);
@@ -83,13 +78,13 @@ public class MapFileManager //Class that will handle any map file operations
             Vector2 ActivePosition = new Vector2(PositionX, PositionY);
             Map[PositionY, PositionX] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
         });
-        LogEvent($"Map {MapName} has been loaded, here is the map \n {MapAsText(LoadedMap)}", LogType.Info);
+        LogEvent($"Map {ActiveMapName} has been loaded, here is the map \n {MapAsText(LoadedMap)}", LogType.Info);
     }
     
     private bool ValidMap(string[,] LoadedMap) //Checking through all the tiles to make sure they aren't null
     {
         bool Valid = true;
-        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
+        LoopThroughTiles((PositionX, PositionY) =>
         {
             if (string.IsNullOrWhiteSpace(LoadedMap[PositionY, PositionX]) )
             {
@@ -97,14 +92,14 @@ public class MapFileManager //Class that will handle any map file operations
                 Valid = false;
             }
         });
-        EventLogger.LogEvent($"{MapName} is a valid map", LogType.Info);
+        LogEvent($"{ActiveMapName} is a valid map", LogType.Info);
         return Valid;
     }
     
     private string MapAsText(string[,] Map) //Convert to a string so you are able to read the map easily and for debugging
     {
         StringBuilder MapText = new StringBuilder();
-        MapHandler.LoopThroughTiles((PositionX, PositionY) =>
+        LoopThroughTiles((PositionX, PositionY) =>
         {
             MapText.Append(Map[PositionY, PositionX]);
             if (PositionX == MapWidth-1)

@@ -111,10 +111,13 @@ public class FileSelectionButtons
             string ActiveFile;
             Action FileAction;
             int ActivePosition = Count + ((CurrentPage - 1) * FilesPerPage);
-            if (ActivePosition < FileNames.Count) //If there aren't enough saves to display
+            if (ActivePosition < FileNames.Count) //If there aren't enough saves `to display
             {
-                ActiveFile = FileNames.ElementAt(ActivePosition);
-                FileAction = () => Menu.ActiveFile = ActiveFile;
+                ActiveFile = Path.GetFileName(FileNames.ElementAt(ActivePosition));
+                FileAction = () => {
+                    MapImportHandler(ActiveFile);
+                    Menu.ActiveFileName = ActiveFile;
+                };
             }
             else
             {

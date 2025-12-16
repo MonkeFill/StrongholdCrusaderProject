@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
 public static class MapHandler //Class to handle any map functions
@@ -9,7 +7,7 @@ public static class MapHandler //Class to handle any map functions
     public static MapTile[,] Map = new MapTile[MapHeight, MapWidth];
     public static Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
     public static Dictionary<string, Color> BasicTextureMap = new Dictionary<string, Color>();
-    public static string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
+    public static string MapPath => Path.Combine(MapsFolder, ActiveMapName);
     private static Borders BorderHandler;
     public static string ActiveMapName;
     private static ContentManager Content;
@@ -35,19 +33,15 @@ public static class MapHandler //Class to handle any map functions
     {
         ActiveMapName = MapName;
         string[,] ImportedMap = FileManager.ImportMap();
-        if (ImportedMap != null) //If the imported map has not been loaded correctly
+        if (ImportedMap != null) //If the imported map has been loaded correctly
         {
             MapLoaded = true;
             FileManager.LoadMap(ImportedMap);
         }
-    }
-
-    public static bool CheckIfMapValid(string MapName)
-    {
-        MapImportHandler(MapName);
-        if (MapLoaded)
+        else
         {
-
+            Map = new MapTile[MapHeight, MapWidth];
+            LogEvent($"{MapName} is not valid", LogType.Warning);
         }
     }
 
@@ -97,31 +91,6 @@ public static class MapHandler //Class to handle any map functions
             }
         }
         FileManager.LoadMap(BlankMap);
-    }
-
-    public static void DrawMiniMap(SpriteBatch ActiveSpriteBatch, int MapSize, Texture2D Pixel, Vector2 StartPosition) //Draws a small version of the map in a compact and basic form
-    {
-        if (MapLoaded)
-        {
-            int TileWidth = MapSize / MapWidth;
-            int TileHeight = MapSize / MapHeight;
-            for (int PositionY = 0; PositionY < MapHeight; PositionY++)
-            {
-                for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
-                {
-                    string Temp = Map[PositionY, PositionX].TileKey;
-                    string ActiveTile = Map[PositionY, PositionX].TileKey;
-                    while (!BasicTextureMap.ContainsKey(ActiveTile))
-                    {
-                        Temp = Temp;
-                        ActiveTile = ActiveTile.Substring(0, ActiveTile.Length - 1);
-                    }
-                    Color ActiveColour = BasicTextureMap[ActiveTile];
-                    Rectangle Position = new Rectangle((int)((TileWidth * PositionX) + StartPosition.X), (int)((TileHeight * PositionY) + StartPosition.Y), TileWidth, TileHeight);
-                    ActiveSpriteBatch.Draw(Pixel, Position, ActiveColour);
-                }
-            }
-        }
     }
 
     private static void LoadTextureMap() //Method to load all textures from the textures folder
