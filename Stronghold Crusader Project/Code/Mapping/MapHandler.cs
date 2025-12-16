@@ -10,7 +10,7 @@ public static class MapHandler //Class to handle any map functions
     public static Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
     public static Dictionary<string, Color> BasicTextureMap = new Dictionary<string, Color>();
     public static string MapPath => Path.Combine(MapsFolder, (ActiveMapName + ".json"));
-    private static Borders  BorderHandler;
+    private static Borders BorderHandler;
     public static string ActiveMapName;
     private static ContentManager Content;
     private static MapFileManager FileManager;
@@ -39,6 +39,15 @@ public static class MapHandler //Class to handle any map functions
         {
             MapLoaded = true;
             FileManager.LoadMap(ImportedMap);
+        }
+    }
+
+    public static bool CheckIfMapValid(string MapName)
+    {
+        MapImportHandler(MapName);
+        if (MapLoaded)
+        {
+
         }
     }
 
