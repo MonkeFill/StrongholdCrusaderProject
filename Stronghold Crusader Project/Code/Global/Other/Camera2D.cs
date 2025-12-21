@@ -15,15 +15,15 @@ public static class Camera2D //Class that controls the camera for the game
     }
     
     //Class Variables
-    private static Vector2 Position = Vector2.Zero; //Position of camera
+    public static Vector2 CameraPosition = Vector2.Zero; //Position of camera
     private static Vector2 TargetPosition = Vector2.Zero;
-    private static float Zoom; //Camera zoom
+    private static Vector2 ScreenCentre; //Centre of the screen
     private static Viewport WindowFrame;  //Frame of the window 
     private static int MouseScrollWheelValue; //The value of the scroll wheel
     private static float MinZoom; //Minium zoom the camera can do
     private static float ScreenHeight; //Height of monitor
     private static float ScreenWidth; //Width of monitor
-    private static Vector2 ScreenCentre; //Centre of the screen
+    private static float Zoom; //Camera zoom
     public static float CameraRotation; //Rotation of camera
 
     //Methods
@@ -39,13 +39,13 @@ public static class Camera2D //Class that controls the camera for the game
         ScreenCentre = new Vector2(ScreenWidth / 2f, ScreenHeight / 2f);
         CameraRotation = 0f;
         MouseScrollWheelValue = Mouse.GetState().ScrollWheelValue; //Getting the current scroll wheel value to save it
-        Position = new Vector2(MapWidthSize / 2f, MapHeightSize / 2f);
-        TargetPosition = Position;
+        CameraPosition = new Vector2(MapWidthSize / 2f, MapHeightSize / 2f);
+        TargetPosition = CameraPosition;
     }
 
     public static Matrix GetViewMatrix() //Get how the camera should look and be transformed onto the game
     {
-        Matrix NewTranslation = Matrix.CreateTranslation(-Position.X, -Position.Y, 0f);
+        Matrix NewTranslation = Matrix.CreateTranslation(-CameraPosition.X, -CameraPosition.Y, 0f);
         Matrix NewRotation = Matrix.CreateRotationZ(CameraRotation);
         Matrix NewScale = Matrix.CreateScale(Zoom, Zoom, 1f);
         Matrix ScreenCentreMatrix = Matrix.CreateTranslation(ScreenCentre.X, ScreenCentre.Y, 0f);
@@ -86,9 +86,9 @@ public static class Camera2D //Class that controls the camera for the game
             }
             Vector2 WorldAfterChange = CameraScreenToWorld(MouseCentre);
             Vector2 WorldOffSet = WorldBeforeChange - WorldAfterChange;
-            Position += WorldOffSet;
+            CameraPosition += WorldOffSet;
         }
-        Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
+        CameraPosition = Vector2.Lerp(CameraPosition, TargetPosition, MovementSpeed * DeltaTime); //Move from position to target position slowly
         ClampCamera();
        }
     private static Vector2 CameraScreenToWorld(Vector2 ScreenPosition) //Converting screen position to actual world position
@@ -126,8 +126,8 @@ public static class Camera2D //Class that controls the camera for the game
         }
         
         //Clamping all the positions
-        Position.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
-        Position.Y = MathHelper.Clamp(Position.Y, MinPositionY, MaxPositionY);
+        CameraPosition.X = MathHelper.Clamp(CameraPosition.X, MinPositionX, MaxPositionX);
+        CameraPosition.Y = MathHelper.Clamp(CameraPosition.Y, MinPositionY, MaxPositionY);
         TargetPosition.X = MathHelper.Clamp(TargetPosition.X, MinPositionX, MaxPositionX);
         TargetPosition.Y = MathHelper.Clamp(TargetPosition.Y, MinPositionY, MaxPositionY);
     }

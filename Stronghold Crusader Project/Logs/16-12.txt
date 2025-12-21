@@ -5929,4 +5929,1544 @@ Water8,Water6,Water6,Water2,Water3,Water1,Water10,Water7,Water8,Water10,Water1,W
 
 Water6,Water4,Water9,Water5,Water3,Water2,Water2,Water2,Water4,Water4,Water2,Water4,Water3,Water9,Water10,Water1,Water4,Water8,Water7,Water9,Water1,Water3,Water5,Water2,Water6,Water1,Water3,Water10,Water10,Water6,Water8,Water1,Water3,Water5,Water3,Water8,Water5,Water5,Water6,Water4,Water3,Water3,Water10,Water9,Water8,Water9,Water4,Water10,Water6,Water10
 
-Water1,Water10,Water3,Water2,Water5,Water2,Water3,Water8,Water6,Water3,Water5,Water7,Water2,Water5,Water6,Water4,Water3,Water1,Water9,Water4
+Water1,Water10,Water3,Water2,Water5,Water2,Water3,Water8,Water6,Water3,Water5,Water7,Water2,Water5,Water6,Water4,Water3,Water1,Water9,Water4[16/12/2025 18:37:54] STATUS:  Event Log Started 
+ 
+
+[16/12/2025 18:37:54] INFO: Found Logs folder at /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Logs
+[16/12/2025 18:37:54] INFO: Found GameData folder
+[16/12/2025 18:37:54] INFO: Found Maps folder
+[16/12/2025 18:37:54] INFO: Found Saves folder
+[16/12/2025 18:37:54] INFO: Loading texture map started
+[16/12/2025 18:37:54] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Land/Land1.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Land/Land2.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Land/Land3.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Land/Land6.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Land/Land4.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Land/Land5.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water6.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water7.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water5.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water4.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water1.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water3.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water2.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water9.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water8.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Water/Water10.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Grass/Grass5.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Grass/Grass4.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Grass/Grass6.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Grass/Grass3.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Grass/Grass2.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Grass/Grass1.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Rock/Rock1.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Rock/Rock3.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Rock/Rock2.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Rock/Rock6.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Rock/Rock5.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Rock/Rock4.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Iron/Iron4.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Iron/Iron1.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Iron/Iron2.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Iron/Iron3.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Stone/Stone2.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Stone/Stone3.xnb tile
+[16/12/2025 18:37:55] INFO: Accessing /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/Content/bin/DesktopGL/Content/Assets/Mapping/Tiles/Stone/Stone1.xnb tile
+[16/12/2025 18:37:55] INFO: Loaded texture map finished
+[16/12/2025 18:37:55] INFO: Loading border textures
+[16/12/2025 18:37:55] INFO: Added new menu Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus.HomeScreen
+[16/12/2025 18:37:55] INFO: Added new keybind, PreviousMenu, Escape, System.Action, PressedOnce
+[16/12/2025 18:37:56] INFO: Added new menu Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus.LoadGameMenu
+[16/12/2025 18:38:01] INFO: /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/GameData/Maps/ValidMap.json found and is being loaded
+[16/12/2025 18:38:02] INFO: ValidMap.json is a valid map
+[16/12/2025 18:38:02] INFO: Map ValidMap.json has been imported
+[16/12/2025 18:38:02] ERROR: Tile Key Water could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] INFO: Map ValidMap.json has been loaded, here is the map 
+ Water,Water6,Water8,Water9,Water3,Water4,Water10,Water6,Water5,Water1,Water3,Water2,Water2,Water10,Water7,Water5,Water1,Water7,Water6,Water8,Water2,Water7,Water6,Water7,Water9,Water1,Water8,Water1,Water4,Water9,Water1,Water6,Water5,Water5,Water1,Water4,Water3,Water10,Water10,Water1,Water4,Water9,Water4,Water5,Water2,Water1,Water3,Water2,Water4,Water5
+
+Water2,Water9,Water6,Water5,Water9,Water4,Water5,Water9,Water10,Water10,Water9,Water9,Water8,Water9,Water9,Water8,Water7,Water8,Water3,Water10,Water10,Water6,Water6,Water2,Water8,Water9,Water10,Water7,Water5,Water9,Water4,Water7,Water6,Water9,Water7,Water1,Water8,Water5,Water4,Water2,Water9,Water3,Water1,Water10,Water4,Water4,Water5,Water7,Water9,Water3
+
+Water10,Water6,Water9,Water8,Water10,Water4,Water3,Water9,Water4,Water4,Water7,Water8,Water3,Water3,Water10,Water3,Water6,Water6,Water5,Water3,Water3,Water1,Water2,Water6,Water10,Water7,Water10,Water10,Water6,Water7,Water5,Water3,Water4,Water10,Water2,Water7,Water6,Water7,Water9,Water10,Water9,Water10,Water5,Water5,Water3,Water2,Water8,Water7,Water1,Water6
+
+Water6,Water6,Water10,Water3,Water5,Water3,Water7,Water5,Water5,Water9,Water4,Water8,Water3,Water6,Water2,Water10,Water1,Water4,Water8,Water3,Water2,Water2,Water5,Water3,Water9,Water8,Water4,Water10,Water4,Water9,Water6,Water5,Water10,Water6,Water6,Water2,Water9,Water3,Water1,Water3,Water3,Water5,Water8,Water8,Water5,Water4,Water10,Water4,Water1,Water2
+
+Water3,Water5,Water10,Water4,Water8,Water1,Water5,Water9,Water10,Water8,Water8,Water2,Water3,Water1,Water9,Water6,Water6,Water9,Water6,Water7,Water1,Water8,Water2,Water10,Water8,Water10,Water8,Water7,Water5,Water6,Water2,Water5,Water9,Water1,Water9,Water10,Water4,Water2,Water7,Water6,Water10,Water1,Water3,Water10,Water2,Water6,Water5,Water2,Water8,Water1
+
+Water3,Water3,Water3,Water10,Water1,Water6,Water6,Water3,Water1,Water6,Water1,Water2,Water4,Water10,Water2,Water1,Water4,Water1,Water2,Water9,Water10,Water1,Water6,Water6,Water9,Water10,Water1,Water10,Water8,Water7,Water7,Water2,Water2,Water1,Water6,Water5,Water8,Water3,Water9,Water7,Water5,Water4,Water7,Water10,Water9,Water7,Water5,Water10,Water2,Water3
+
+Water4,Water1,Water5,Water6,Water7,Water10,Water2,Water1,Water2,Water9,Water9,Water5,Water2,Water5,Water3,Water1,Water5,Water3,Water3,Water6,Water4,Water1,Water3,Water4,Water6,Water3,Water6,Water5,Water9,Water9,Water2,Water1,Water2,Water8,Water1,Water4,Water9,Water4,Water10,Water10,Water1,Water4,Water9,Water9,Water4,Water7,Water3,Water3,Water2,Water10
+
+Water5,Water3,Water2,Water8,Water2,Water8,Water8,Water10,Water10,Water5,Water6,Water3,Water5,Water4,Water1,Water5,Water3,Water3,Water4,Water6,Water9,Water7,Water5,Water3,Water2,Water2,Water9,Water9,Water3,Water2,Water3,Water7,Water2,Water5,Water10,Water6,Water5,Water1,Water2,Water7,Water9,Water5,Water8,Water4,Water3,Water1,Water1,Water9,Water2,Water3
+
+Water8,Water5,Water7,Water8,Water7,Water7,Water3,Water2,Water9,Water3,Water6,Water3,Water2,Water5,Water6,Water8,Water7,Water3,Water5,Water10,Water10,Water10,Water4,Water5,Water1,Water4,Water6,Water1,Water2,Water2,Water10,Water10,Water2,Water10,Water9,Water9,Water7,Water1,Water6,Water7,Water1,Water2,Water1,Water9,Water1,Water4,Water5,Water5,Water6,Water7
+
+Water3,Water3,Water1,Water2,Water1,Water2,Water6,Water5,Water4,Water5,Water1,Water10,Water7,Water7,Water2,Water9,Water6,Water1,Water5,Water10,Water4,Water4,Water5,Water6,Water4,Water6,Water9,Water7,Water7,Water1,Water6,Water6,Water8,Water3,Water8,Water4,Water4,Water3,Water2,Water9,Water5,Water5,Water8,Water5,Water3,Water3,Water3,Water7,Water9,Water8
+
+Water9,Water2,Water2,Water5,Water7,Water4,Water10,Water6,Water1,Water1,Water4,Water7,Water10,Water3,Water4,Water8,Water6,Water3,Water6,Water5,Water2,Water5,Water1,Water10,Water8,Water6,Water10,Water1,Water8,Water7,Water10,Water3,Water9,Water1,Water5,Water8,Water9,Water3,Water4,Water9,Water2,Water8,Water4,Water3,Water5,Water10,Water4,Water2,Water4,Water4
+
+Water10,Water3,Water1,Water3,Water9,Water6,Water6,Water2,Water2,Water1,Water5,Water4,Water4,Water3,Water7,Water6,Water8,Water1,Water8,Water2,Water6,Water8,Water2,Water8,Water3,Water10,Water7,Water6,Water9,Water8,Water9,Water7,Water7,Water6,Water5,Water7,Water5,Water10,Water8,Water3,Water5,Water2,Water2,Water1,Water4,Water10,Water5,Water8,Water4,Water9
+
+Water2,Water9,Water4,Water3,Water9,Water2,Water10,Water2,Water8,Water1,Water1,Water3,Water4,Water2,Water1,Water10,Water8,Water8,Water8,Water6,Water1,Water10,Water2,Water3,Water4,Water10,Water9,Water6,Water6,Water7,Water3,Water6,Water8,Water10,Water4,Water6,Water7,Water10,Water4,Water10,Water6,Water7,Water10,Water10,Water2,Water10,Water4,Water5,Water4,Water5
+
+Water10,Water3,Water3,Water1,Water2,Water2,Water6,Water10,Water3,Water7,Water8,Water8,Water4,Water5,Water10,Water3,Water3,Water2,Water3,Water2,Water8,Water9,Water9,Water7,Water4,Water2,Water3,Water9,Water2,Water10,Water4,Water5,Water10,Water1,Water6,Water8,Water2,Water10,Water4,Water6,Water2,Water8,Water7,Water10,Water6,Water2,Water9,Water8,Water7,Water6
+
+Water9,Water6,Water8,Water8,Water6,Water1,Water5,Water1,Water10,Water7,Water5,Water4,Water9,Water8,Water4,Water2,Water1,Water9,Water1,Water2,Water5,Water9,Water5,Water10,Water3,Water8,Water2,Water7,Water1,Water8,Water4,Water10,Water1,Water10,Water5,Water5,Water1,Water10,Water2,Water3,Water4,Water6,Water10,Water3,Water8,Water5,Water7,Water1,Water6,Water7
+
+Grass1,Land2,Land3,Grass4,Land6,Grass2,Stone2,Land1,Stone3,Stone3,Land1,Grass4,Land2,Stone3,Stone2,Land2,Stone1,Grass1,Grass6,Stone1,Land6,Grass5,Stone3,Land5,Grass2,Stone2,Grass4,Land5,Grass1,Land5,Land3,Land6,Land3,Land4,Grass5,Grass4,Grass6,Grass2,Grass6,Grass5,Land2,Stone3,Grass4,Stone2,Grass2,Grass2,Stone3,Grass3,Stone3,Grass6
+
+Grass4,Stone3,Stone3,Stone1,Grass5,Grass5,Stone2,Stone1,Grass4,Land2,Stone3,Grass5,Land2,Grass3,Grass1,Land3,Grass1,Land2,Grass1,Land3,Land3,Grass2,Stone1,Land4,Land4,Land6,Stone1,Grass2,Grass3,Land5,Grass2,Stone3,Grass1,Land5,Land5,Grass1,Grass5,Grass4,Land5,Grass1,Grass5,Grass4,Grass2,Land1,Grass3,Grass2,Land5,Stone3,Land5,Grass3
+
+Grass3,Land6,Grass6,Grass5,Stone1,Grass2,Grass1,Grass1,Grass1,Grass1,Stone1,Grass6,Grass6,Stone1,Grass5,Grass3,Land3,Grass1,Grass2,Stone1,Grass5,Land4,Grass6,Stone1,Grass5,Land2,Land6,Stone1,Grass1,Land2,Grass6,Grass4,Grass5,Stone1,Stone3,Stone2,Land1,Stone2,Grass5,Land5,Grass6,Grass6,Land5,Grass6,Stone2,Land4,Grass3,Land2,Stone1,Land3
+
+Grass4,Stone3,Grass1,Grass2,Land5,Grass3,Stone2,Grass4,Land2,Land1,Stone1,Grass4,Grass3,Stone3,Grass6,Land1,Stone3,Grass5,Grass2,Land5,Land2,Land1,Land4,Land4,Land4,Land3,Grass6,Grass4,Grass4,Grass4,Stone1,Grass4,Grass4,Land1,Land6,Stone1,Grass3,Land6,Grass6,Grass5,Grass4,Land6,Grass2,Stone1,Land6,Grass1,Grass5,Grass1,Grass2,Grass4
+
+Stone1,Grass5,Stone1,Grass1,Grass5,Stone1,Grass2,Grass4,Land1,Stone3,Grass6,Grass1,Grass5,Grass5,Grass6,Grass3,Grass3,Land4,Grass6,Land4,Grass1,Grass1,Grass2,Grass4,Stone3,Land6,Grass2,Grass1,Stone3,Land3,Land4,Land5,Stone1,Land3,Grass5,Land2,Grass5,Grass4,Grass6,Grass5,Grass4,Stone3,Grass3,Land1,Land4,Land1,Land2,Grass4,Stone3,Stone1
+
+Stone3,Land1,Stone3,Stone3,Stone2,Grass2,Grass5,Land6,Stone1,Land5,Grass5,Grass2,Land6,Grass6,Grass4,Grass2,Grass3,Grass1,Land3,Land6,Grass2,Grass2,Grass6,Land1,Stone1,Grass4,Stone1,Grass6,Land3,Stone3,Land2,Stone1,Grass6,Stone1,Grass5,Stone3,Grass6,Land3,Land5,Grass5,Land3,Grass6,Land4,Grass3,Land2,Land4,Stone2,Grass2,Grass1,Land4
+
+Stone1,Grass4,Land4,Land6,Stone2,Grass5,Stone2,Stone2,Stone2,Grass3,Stone2,Grass3,Land4,Grass2,Grass4,Grass6,Stone3,Land4,Grass4,Land6,Stone1,Land4,Grass6,Land3,Grass3,Stone2,Grass5,Land2,Land4,Grass4,Grass6,Grass6,Grass5,Stone2,Land4,Land6,Stone1,Grass2,Grass3,Stone3,Grass3,Stone2,Grass6,Grass1,Grass6,Grass5,Grass6,Land4,Stone1,Land4
+
+Stone2,Grass2,Land3,Grass5,Grass1,Grass5,Grass4,Grass1,Stone3,Grass2,Land4,Stone1,Grass3,Stone1,Grass3,Grass1,Grass6,Land5,Stone3,Grass1,Stone3,Stone3,Grass3,Grass1,Stone3,Grass1,Grass5,Stone3,Land1,Stone3,Grass4,Grass5,Grass3,Grass3,Grass2,Grass1,Grass1,Grass2,Grass6,Grass2,Grass5,Grass3,Grass6,Land6,Grass1,Grass4,Stone3,Land1,Land6,Stone2
+
+Land1,Stone2,Grass5,Land2,Grass1,Grass6,Stone1,Stone2,Grass6,Land2,Land5,Stone2,Grass3,Land1,Grass2,Stone2,Grass2,Stone1,Stone3,Stone1,Grass4,Grass3,Land3,Grass2,Stone2,Grass5,Land3,Grass1,Land5,Stone1,Land1,Grass6,Grass6,Grass1,Grass6,Stone2,Land4,Grass4,Grass3,Land1,Land6,Stone1,Stone2,Stone1,Land6,Land6,Stone3,Grass5,Land3,Stone3
+
+Grass6,Grass6,Grass1,Stone1,Grass1,Land5,Stone1,Grass3,Land3,Land4,Land6,Stone2,Land2,Grass3,Land4,Land3,Grass6,Grass4,Grass5,Grass3,Grass6,Land4,Stone2,Land3,Land5,Land1,Land3,Grass5,Grass5,Stone1,Stone1,Land5,Land6,Land6,Grass4,Land6,Land6,Grass6,Grass5,Grass4,Land1,Grass5,Land4,Grass5,Grass1,Land4,Land2,Stone2,Stone3,Land4
+
+Stone3,Grass2,Grass2,Grass5,Grass1,Stone1,Stone3,Grass2,Land6,Land2,Grass5,Grass2,Land2,Stone2,Grass2,Stone1,Grass6,Land2,Grass2,Land5,Land3,Grass6,Grass2,Grass1,Grass4,Land2,Stone2,Stone1,Stone1,Grass5,Land1,Grass5,Stone3,Grass6,Grass6,Stone2,Grass5,Grass4,Land1,Land1,Grass4,Grass4,Grass1,Land5,Grass5,Land5,Grass1,Stone3,Stone2,Stone2
+
+Stone3,Grass3,Grass5,Grass3,Grass6,Grass2,Grass3,Land3,Grass5,Land6,Stone3,Grass3,Grass3,Grass4,Stone3,Land4,Grass1,Grass5,Stone3,Stone1,Grass6,Land6,Grass4,Stone3,Stone1,Grass1,Land3,Grass1,Stone2,Stone1,Grass2,Grass3,Land4,Land5,Grass4,Stone1,Grass1,Grass3,Grass1,Stone2,Grass4,Grass6,Grass1,Grass5,Grass5,Land1,Stone2,Land3,Stone3,Land6
+
+Grass6,Grass4,Grass2,Grass1,Grass2,Land2,Stone1,Grass6,Grass4,Grass1,Land1,Grass1,Land6,Stone3,Grass4,Stone3,Land5,Grass6,Stone3,Land2,Land6,Stone3,Land4,Land4,Grass2,Land3,Land2,Grass5,Stone2,Stone2,Land5,Grass2,Grass4,Grass2,Stone3,Grass5,Grass3,Stone1,Land2,Land1,Land5,Stone3,Grass5,Land3,Land2,Stone1,Grass2,Grass3,Grass1,Grass2
+
+Land2,Land3,Land3,Grass5,Grass4,Grass3,Grass6,Land5,Land6,Land3,Land3,Stone1,Stone2,Stone3,Grass6,Stone2,Land2,Land4,Land5,Stone3,Land2,Grass4,Stone1,Stone1,Grass2,Grass3,Grass1,Land4,Grass5,Grass1,Grass2,Land1,Grass2,Grass4,Grass5,Stone1,Grass3,Land2,Land1,Land1,Grass6,Stone3,Grass4,Stone3,Grass4,Grass1,Grass4,Grass6,Grass5,Grass5
+
+Land1,Land1,Stone2,Land1,Grass2,Stone1,Grass6,Land5,Land5,Land4,Land3,Grass2,Grass3,Grass6,Grass6,Grass4,Grass2,Grass6,Grass5,Land4,Grass4,Land1,Land6,Land4,Grass3,Grass5,Stone2,Grass2,Stone1,Land5,Stone2,Grass5,Grass2,Stone2,Grass1,Grass3,Grass6,Grass4,Land3,Grass4,Grass2,Grass6,Land4,Grass4,Grass1,Stone2,Stone2,Grass5,Land6,Grass3
+
+Grass4,Land3,Land4,Land5,Land2,Land3,Stone3,Grass4,Land3,Land4,Land1,Grass3,Land2,Grass2,Grass3,Grass2,Grass3,Grass5,Land2,Grass3,Land5,Grass1,Grass5,Land2,Stone2,Land3,Land6,Land3,Grass6,Grass4,Stone1,Grass4,Land2,Grass3,Grass5,Grass1,Stone2,Land5,Stone2,Land4,Land1,Grass2,Grass5,Land5,Land6,Land2,Stone3,Grass5,Land2,Grass2
+
+Grass3,Stone1,Grass6,Grass4,Grass4,Land1,Land6,Grass5,Grass6,Grass5,Stone1,Land3,Land2,Land6,Grass3,Stone1,Stone3,Grass5,Grass1,Grass1,Grass2,Grass6,Land3,Land6,Grass4,Land4,Grass5,Land2,Grass6,Grass2,Grass1,Land1,Land1,Land5,Grass4,Grass6,Grass5,Grass5,Grass2,Grass6,Grass1,Grass2,Stone3,Grass3,Grass5,Grass2,Land2,Grass2,Stone1,Grass4
+
+Stone2,Land2,Stone1,Land2,Land1,Stone2,Grass2,Land4,Land1,Land6,Grass3,Grass3,Grass1,Land5,Land1,Stone3,Grass3,Grass4,Grass2,Land6,Grass1,Land6,Land5,Grass2,Land2,Land4,Grass2,Grass6,Stone1,Land2,Stone3,Stone2,Grass3,Grass4,Grass5,Grass2,Stone3,Stone1,Grass4,Land4,Land6,Grass3,Land1,Grass2,Grass4,Stone2,Land5,Grass2,Stone3,Land6
+
+Grass1,Stone2,Grass3,Stone3,Land3,Land3,Grass2,Grass3,Land2,Land2,Grass2,Land1,Grass2,Stone3,Grass6,Grass5,Grass4,Grass3,Stone1,Land3,Land3,Land4,Grass5,Land6,Grass3,Grass2,Grass6,Grass4,Stone3,Grass5,Grass5,Grass5,Grass3,Stone1,Grass6,Land1,Grass5,Land2,Land1,Land3,Land6,Grass6,Land6,Land1,Grass4,Land4,Stone2,Grass1,Stone2,Stone2
+
+Stone2,Grass2,Grass1,Stone3,Grass4,Grass5,Grass1,Land1,Land6,Grass3,Land3,Stone2,Land3,Land2,Grass2,Land5,Land2,Grass6,Grass1,Grass6,Stone1,Grass6,Land5,Stone3,Stone2,Grass5,Land2,Stone3,Land4,Grass3,Land3,Grass5,Stone1,Grass3,Grass1,Stone3,Grass2,Land1,Land2,Grass2,Land5,Grass3,Stone3,Land5,Grass4,Stone2,Grass6,Grass6,Land3,Grass1
+
+Grass1,Stone2,Land3,Stone3,Stone1,Stone3,Land5,Stone1,Stone2,Land3,Grass5,Grass1,Grass5,Grass5,Land3,Grass6,Land2,Grass3,Land1,Grass1,Land5,Grass6,Land2,Grass1,Grass1,Stone3,Stone3,Grass4,Stone1,Grass6,Stone1,Grass5,Stone2,Grass4,Land1,Land5,Grass1,Grass2,Grass6,Grass5,Grass1,Grass1,Grass3,Land4,Grass5,Grass1,Land6,Grass3,Stone1,Grass6
+
+Grass6,Grass6,Land5,Stone2,Grass5,Stone2,Stone1,Grass2,Stone2,Grass3,Grass5,Grass5,Stone2,Grass3,Grass4,Land5,Grass3,Land5,Grass6,Land4,Stone3,Grass3,Land1,Grass4,Land2,Grass2,Grass6,Land4,Grass5,Stone2,Land1,Grass3,Stone2,Land4,Grass1,Stone1,Grass6,Grass5,Grass5,Grass5,Land3,Land4,Land6,Land6,Land4,Stone1,Land4,Grass3,Land6,Grass2
+
+Grass2,Stone1,Land4,Land2,Land1,Grass5,Stone2,Grass1,Grass4,Land2,Land2,Grass3,Grass2,Grass2,Stone2,Land4,Grass4,Stone1,Grass2,Grass2,Grass2,Land1,Stone1,Grass2,Stone2,Grass4,Land5,Grass2,Land6,Grass6,Grass1,Grass5,Grass5,Grass1,Stone3,Land2,Grass5,Stone3,Grass2,Grass2,Grass4,Stone1,Stone1,Grass3,Stone3,Land4,Grass6,Grass1,Grass4,Stone3
+
+Land5,Grass3,Stone2,Land1,Land1,Grass1,Grass2,Grass1,Grass3,Land3,Stone3,Stone2,Grass4,Grass4,Grass4,Stone3,Land2,Land4,Stone2,Stone2,Grass2,Stone1,Land6,Stone1,Grass1,Grass2,Grass6,Land1,Grass5,Grass5,Grass1,Grass1,Grass1,Stone1,Grass2,Grass3,Grass5,Grass5,Grass6,Grass4,Grass4,Land3,Grass2,Grass5,Grass3,Land3,Grass5,Land4,Grass3,Grass6
+
+Grass4,Grass4,Land5,Grass4,Grass2,Grass3,Grass4,Land4,Grass3,Grass2,Grass1,Land3,Grass1,Stone3,Land2,Grass4,Grass6,Grass1,Grass2,Grass5,Grass1,Grass3,Land1,Land2,Land4,Land2,Land2,Land1,Land3,Grass5,Land6,Grass4,Grass2,Grass2,Grass4,Land1,Grass4,Land1,Land1,Land3,Land1,Stone2,Land4,Land6,Grass3,Grass5,Grass1,Land5,Land6,Stone1
+
+Land6,Grass4,Grass5,Stone2,Grass4,Land2,Land5,Stone1,Grass2,Grass6,Grass1,Grass6,Land5,Grass4,Grass6,Stone2,Grass1,Land3,Grass2,Stone3,Grass5,Grass5,Land6,Grass2,Grass1,Grass6,Grass1,Grass2,Grass3,Grass3,Grass3,Land5,Land2,Grass1,Grass6,Grass3,Stone1,Land3,Grass4,Stone3,Rock4,Stone2,Iron2,Rock4,Iron1,Stone3,Iron3,Rock4,Rock5,Stone2
+
+Land3,Grass4,Land5,Grass2,Stone1,Grass1,Grass2,Land4,Grass3,Grass5,Stone2,Land3,Grass3,Stone3,Land2,Land6,Stone3,Stone2,Grass5,Land2,Land3,Land1,Stone2,Land4,Grass5,Grass1,Grass4,Grass2,Stone1,Land5,Stone2,Land4,Grass2,Grass3,Grass5,Stone1,Grass4,Land1,Stone2,Land2,Stone2,Stone3,Stone1,Rock2,Iron2,Stone1,Iron1,Stone2,Iron3,Iron4
+
+Grass4,Grass6,Land2,Land2,Stone3,Land4,Land5,Grass6,Stone3,Land5,Land3,Grass4,Grass3,Stone2,Grass6,Stone2,Grass4,Stone3,Grass6,Stone2,Grass5,Grass4,Grass3,Stone2,Land2,Grass3,Grass5,Grass1,Grass4,Land2,Stone1,Grass4,Land2,Grass6,Stone1,Grass3,Stone1,Grass6,Grass4,Land2,Rock5,Stone3,Iron4,Stone1,Iron4,Iron2,Iron2,Stone3,Rock1,Stone1
+
+Grass5,Land4,Grass5,Land4,Land6,Grass5,Grass1,Stone3,Land6,Land5,Stone1,Land1,Grass5,Grass5,Stone2,Stone3,Land5,Stone3,Land5,Grass4,Stone1,Grass2,Grass6,Grass6,Stone1,Grass6,Stone3,Land3,Land4,Grass4,Grass1,Grass2,Land3,Grass2,Grass2,Grass6,Grass2,Stone2,Grass4,Stone3,Rock2,Iron3,Rock6,Iron2,Stone3,Stone1,Stone3,Stone1,Stone3,Stone3
+
+Grass6,Grass1,Land5,Land2,Grass2,Grass3,Land6,Grass6,Grass2,Land1,Grass1,Grass1,Grass1,Grass2,Grass2,Grass2,Stone3,Land3,Grass5,Grass1,Stone1,Grass5,Grass5,Stone2,Grass5,Land1,Grass2,Grass6,Grass4,Grass5,Grass1,Grass4,Land2,Grass3,Stone2,Land1,Land5,Grass5,Grass2,Land5,Stone1,Rock6,Rock6,Iron3,Stone3,Stone1,Rock5,Rock4,Rock4,Stone3
+
+Land6,Grass5,Land2,Grass5,Grass3,Stone3,Land1,Grass6,Land5,Stone2,Grass1,Land3,Land1,Stone3,Grass3,Grass5,Grass3,Grass6,Stone2,Stone1,Land6,Land3,Grass6,Grass2,Land4,Grass3,Stone2,Stone3,Stone3,Grass6,Stone3,Stone2,Grass2,Grass2,Grass2,Land2,Land6,Grass1,Grass5,Grass5,Rock4,Stone2,Rock4,Rock1,Stone3,Iron1,Rock4,Stone1,Rock1,Rock2
+
+Grass6,Grass5,Grass5,Grass2,Land2,Grass6,Land6,Grass5,Land6,Grass1,Grass6,Land6,Land5,Grass1,Grass4,Stone1,Land4,Grass2,Land3,Stone1,Land4,Grass3,Land1,Stone2,Stone3,Grass1,Land6,Stone1,Grass1,Land5,Stone1,Stone1,Grass3,Land2,Grass2,Grass1,Stone3,Stone3,Stone2,Grass3,Rock4,Stone2,Rock5,Iron4,Iron1,Stone3,Iron1,Stone3,Stone2,Stone2
+
+Stone2,Land3,Land1,Stone2,Grass1,Stone2,Grass1,Stone2,Grass6,Stone1,Stone2,Grass5,Land5,Stone2,Land5,Grass2,Grass5,Grass2,Grass3,Stone2,Grass1,Land4,Grass3,Grass2,Grass2,Land1,Stone3,Grass4,Grass6,Stone3,Grass5,Stone3,Land3,Grass3,Grass1,Land5,Grass6,Stone3,Land4,Land4,Stone3,Stone2,Stone3,Stone3,Iron1,Stone1,Rock2,Iron3,Iron1,Rock4
+
+Grass5,Grass4,Grass1,Grass2,Stone2,Grass5,Land6,Grass6,Stone2,Stone3,Grass5,Land2,Grass2,Land5,Land3,Stone2,Stone2,Grass5,Land4,Grass4,Land6,Grass2,Grass4,Grass1,Stone1,Land4,Grass4,Grass2,Land2,Grass1,Land5,Grass1,Stone1,Stone2,Land6,Land6,Stone3,Grass3,Stone1,Grass2,Stone3,Stone2,Rock3,Rock4,Rock5,Rock1,Rock2,Rock5,Iron4,Iron1
+
+Land6,Land4,Grass6,Grass4,Land6,Grass3,Land5,Grass5,Grass6,Land4,Stone2,Grass4,Land3,Grass2,Stone2,Land2,Grass5,Grass1,Grass3,Grass5,Stone1,Land4,Grass6,Land5,Grass3,Land3,Grass6,Stone3,Land1,Land5,Grass4,Stone2,Grass3,Land1,Grass2,Grass4,Stone3,Land6,Grass5,Grass5,Rock1,Rock3,Rock6,Stone2,Iron3,Iron4,Rock5,Rock1,Rock3,Stone1
+
+Grass3,Stone2,Land3,Grass4,Land3,Stone1,Land4,Stone2,Land4,Grass6,Grass6,Grass2,Grass5,Grass4,Land6,Grass2,Stone2,Grass5,Grass2,Grass1,Stone1,Grass2,Grass6,Grass5,Stone2,Grass6,Land6,Land2,Land2,Grass1,Grass3,Grass5,Stone2,Grass6,Grass6,Land4,Grass6,Land6,Land3,Grass3,Stone1,Stone3,Stone2,Stone1,Stone2,Stone1,Rock4,Rock1,Iron2,Iron2
+
+Grass2,Grass1,Grass1,Stone1,Land4,Land3,Grass2,Grass5,Grass3,Grass1,Stone2,Grass3,Grass4,Grass1,Land6,Grass1,Grass2,Grass3,Grass1,Grass5,Grass3,Grass5,Grass2,Stone3,Grass4,Grass3,Grass6,Grass1,Grass4,Grass3,Grass3,Grass1,Grass6,Land6,Grass3,Grass4,Grass1,Grass5,Stone2,Land2,Iron2,Rock6,Iron1,Iron3,Rock1,Stone1,Iron1,Rock3,Iron2,Rock5
+
+Grass1,Land2,Stone2,Stone2,Grass1,Grass5,Stone3,Grass3,Land4,Stone1,Grass2,Stone2,Grass3,Grass3,Land5,Land1,Grass3,Stone1,Stone3,Grass1,Grass3,Land1,Grass6,Grass1,Land1,Grass4,Stone3,Grass5,Land3,Grass1,Grass1,Land6,Stone3,Grass4,Stone2,Land2,Land3,Grass6,Stone2,Grass6,Iron1,Iron1,Rock4,Iron3,Iron4,Rock3,Stone1,Stone2,Iron3,Stone1
+
+Land4,Grass6,Grass4,Land2,Land6,Grass1,Stone2,Grass2,Stone2,Land2,Land2,Grass2,Grass6,Grass1,Land2,Land2,Stone2,Grass4,Land5,Land4,Land5,Land3,Land5,Stone2,Land2,Land3,Grass5,Grass1,Grass3,Land4,Grass5,Stone2,Stone1,Grass2,Grass4,Stone2,Grass3,Grass4,Land4,Land4,Rock2,Rock5,Stone3,Rock3,Stone1,Iron3,Rock3,Iron2,Rock4,Iron3
+
+Grass3,Grass5,Grass1,Land5,Stone2,Stone3,Grass3,Land2,Land4,Stone2,Grass1,Stone1,Land6,Land5,Grass4,Stone2,Grass6,Grass2,Grass5,Stone3,Stone2,Stone2,Grass4,Grass1,Grass4,Land6,Stone1,Grass1,Grass6,Stone2,Grass3,Grass1,Grass3,Grass5,Grass2,Stone1,Grass2,Stone1,Grass3,Grass1,Stone1,Iron1,Stone3,Stone2,Stone2,Stone3,Rock1,Rock3,Rock2,Rock2
+
+Grass1,Land2,Land3,Land4,Land1,Land3,Stone3,Land1,Stone2,Land1,Stone2,Grass2,Stone2,Grass4,Land6,Grass1,Grass1,Grass1,Grass4,Land4,Stone2,Grass4,Grass4,Grass4,Stone1,Grass6,Land3,Grass5,Grass3,Land2,Grass5,Land1,Land5,Grass2,Stone1,Grass2,Stone1,Grass4,Grass5,Grass4,Rock1,Iron1,Stone1,Rock1,Stone3,Iron1,Stone1,Iron4,Iron4,Stone2
+
+Stone1,Grass1,Land5,Grass6,Grass5,Grass2,Grass5,Stone2,Grass2,Grass2,Grass5,Grass2,Land4,Stone3,Stone1,Stone1,Grass5,Land2,Grass5,Land5,Land4,Grass5,Stone1,Land5,Grass2,Land1,Land1,Grass3,Grass2,Land4,Land1,Land6,Grass4,Grass6,Grass1,Land1,Stone2,Stone3,Grass1,Stone1,Rock2,Rock3,Iron3,Iron2,Iron2,Rock1,Iron4,Stone2,Iron3,Stone3
+
+Grass2,Grass3,Grass2,Grass5,Stone1,Stone2,Land3,Grass2,Grass2,Stone1,Land2,Grass4,Grass3,Grass6,Land3,Grass4,Land5,Grass2,Grass3,Stone2,Grass4,Stone3,Stone3,Land3,Grass5,Grass1,Stone3,Grass3,Land2,Grass4,Land2,Grass2,Stone1,Land4,Grass5,Stone1,Grass2,Land6,Grass3,Stone1,Rock3,Stone1,Stone1,Rock1,Iron2,Rock2,Stone2,Iron1,Rock5,Iron1
+
+Land1,Grass4,Stone2,Stone1,Stone2,Land3,Grass4,Stone2,Grass2,Stone3,Grass2,Grass1,Land5,Stone2,Stone3,Grass6,Stone3,Land1,Grass1,Land4,Grass5,Stone2,Land3,Land1,Stone2,Land5,Land1,Grass6,Land6,Stone2,Grass6,Land1,Grass5,Land2,Stone3,Land4,Grass6,Grass2,Grass3,Stone1,Rock6,Rock1,Iron4,Stone3,Stone2,Stone1,Stone3,Iron2,Rock2,Stone2
+
+Grass2,Land3,Grass5,Stone2,Stone1,Stone2,Land6,Grass1,Land6,Stone2,Stone2,Grass3,Stone3,Stone3,Land3,Grass1,Grass5,Grass2,Grass6,Land6,Grass5,Land1,Land4,Land6,Grass4,Stone1,Land1,Land1,Grass3,Grass6,Land5,Grass6,Stone2,Grass1,Grass2,Stone3,Land5,Stone1,Stone1,Grass3,Iron1,Stone2,Iron3,Iron4,Iron1,Iron1,Iron1,Rock6,Rock6,Iron4
+
+Land4,Stone3,Grass6,Stone2,Stone2,Land5,Grass6,Stone1,Land4,Grass6,Stone1,Stone2,Grass5,Grass1,Land2,Land2,Land3,Land6,Grass6,Grass2,Stone1,Stone2,Stone1,Grass3,Grass6,Grass2,Grass2,Grass5,Stone1,Grass2,Grass2,Grass6,Stone3,Grass6,Grass3,Land4,Stone3,Stone2,Grass1,Land3,Stone1,Grass1,Grass6,Grass3,Grass4,Stone3,Land5,Grass2,Stone3,Grass3
+
+Grass6,Grass3,Land1,Grass2,Grass5,Land5,Land6,Stone2,Grass5,Grass5,Grass3,Grass5,Grass2,Grass1,Grass2,Grass5,Grass5,Land1,Grass2,Grass6,Grass2,Grass1,Land2,Land3,Grass1,Grass3,Stone3,Land5,Stone1,Land6,Stone1,Grass3,Grass5,Grass3,Grass1,Land1,Stone2,Grass5,Land4,Land6,Stone1,Land3,Grass2,Land2,Stone3,Land6,Land6,Grass2,Stone3,Land3
+
+Grass2,Land2,Grass6,Grass6,Grass6,Stone1,Grass5,Stone3,Grass4,Grass5,Land4,Land4,Grass1,Grass1,Grass4,Grass1,Land1,Grass5,Land6,Grass6,Stone3,Grass6,Stone1,Grass2,Stone3,Stone1,Stone3,Land5,Land1,Stone3,Grass1,Grass6,Grass6,Grass5,Grass1,Stone3,Stone1,Grass3,Stone3,Stone3,Grass1,Land3,Grass1,Land6,Grass1,Grass4,Stone1,Grass1,Grass6,Land5
+
+Grass3,Land3,Grass3,Stone2,Stone1,Land3,Grass6,Stone2,Grass3,Land4,Land6,Land4,Grass6,Land2,Grass4,Stone2,Stone3,Grass4,Stone1,Grass6,Grass6,Grass1,Grass5,Grass6,Grass2,Grass4,Land5,Stone3,Stone3,Grass1,Grass2,Grass4,Stone3,Stone2,Grass5,Grass2,Grass4,Land5,Land1,Grass2,Land4,Land6,Land6,Grass4,Grass1,Land3,Grass4,Stone3,Land5,Grass6
+
+Land2,Grass6,Grass5,Grass2,Grass6,Grass1,Land3,Grass1,Grass5,Stone2,Land3,Grass2,Grass2,Land1,Grass4,Stone1,Stone1,Grass2,Land3,Grass4,Land6,Grass2,Stone3,Stone3,Land3,Land6,Land1,Stone2,Stone1,Grass6,Grass2,Land3,Land4,Grass4,Land6,Stone2,Land1,Land4,Grass3,Grass1,Grass3,Stone2,Grass5,Land2,Grass2,Land5,Stone2,Stone3,Land1,Grass5
+
+Grass2,Grass4,Grass6,Grass2,Grass3,Grass1,Grass1,Grass5,Stone2,Grass5,Land3,Land5,Stone1,Grass5,Grass4,Grass6,Land5,Grass4,Land6,Stone2,Grass3,Grass4,Grass4,Grass6,Grass6,Land2,Stone1,Stone1,Grass6,Grass4,Land2,Land2,Grass5,Grass4,Grass4,Grass4,Land1,Land3,Grass6,Grass3,Land4,Land5,Stone1,Grass4,Land4,Stone1,Grass3,Land3,Land4,Land4
+
+Grass5,Stone3,Stone2,Grass4,Grass6,Grass4,Grass3,Land1,Grass5,Land2,Land4,Grass3,Stone3,Grass2,Stone1,Land3,Grass1,Stone2,Stone2,Grass5,Grass2,Land3,Grass2,Grass4,Grass5,Stone1,Land6,Land3,Grass2,Grass4,Grass2,Grass4,Grass5,Stone2,Land4,Land2,Grass6,Land1,Stone3,Grass4,Grass5,Stone3,Grass2,Land3,Land5,Grass3,Grass3,Stone1,Land1,Land4
+
+Grass5,Grass4,Land6,Grass4,Grass2,Stone3,Land3,Land3,Stone1,Land1,Grass5,Land4,Grass3,Land5,Grass6,Grass4,Grass3,Stone2,Land4,Grass5,Grass5,Stone3,Grass4,Land2,Grass1,Land5,Grass3,Stone3,Grass1,Stone1,Land2,Stone3,Land1,Grass2,Stone1,Grass5,Stone2,Land3,Grass2,Land6,Grass6,Grass1,Land1,Grass2,Land3,Stone2,Grass4,Land1,Grass2,Grass5
+
+Land4,Grass2,Grass1,Stone2,Grass5,Grass6,Land4,Land4,Land1,Land1,Grass2,Grass3,Stone2,Grass4,Land4,Grass4,Grass4,Stone1,Grass3,Grass2,Land4,Grass1,Grass3,Grass6,Grass5,Land3,Land2,Stone1,Stone3,Land3,Grass6,Grass3,Grass3,Land5,Stone3,Grass2,Land3,Land5,Grass6,Grass2,Grass5,Stone2,Land6,Stone1,Grass4,Land3,Land6,Land5,Land6,Land5
+
+Grass5,Land5,Grass2,Grass2,Grass6,Land4,Grass4,Land1,Grass4,Land5,Grass4,Grass5,Grass2,Land6,Grass1,Stone1,Stone1,Land5,Grass1,Grass1,Land5,Grass4,Grass1,Grass3,Stone2,Land3,Grass2,Land2,Grass5,Land1,Land1,Land3,Grass2,Land1,Stone3,Grass2,Grass5,Grass2,Grass3,Land5,Grass3,Stone1,Land1,Grass6,Grass4,Land2,Grass6,Grass3,Land3,Grass6
+
+Grass5,Land6,Stone2,Land4,Land1,Land3,Grass4,Land4,Land2,Land2,Stone3,Land6,Grass5,Stone2,Land4,Land6,Land4,Land6,Grass3,Land1,Grass4,Grass4,Grass1,Grass5,Land1,Land6,Grass2,Grass6,Stone1,Grass1,Grass2,Stone1,Stone3,Grass4,Grass2,Grass1,Land3,Land1,Land2,Grass4,Grass5,Grass3,Land4,Grass1,Grass4,Grass4,Land2,Grass5,Grass2,Grass2
+
+Grass3,Land2,Stone2,Grass6,Land6,Grass2,Stone2,Stone2,Land2,Grass4,Stone1,Land3,Grass2,Grass6,Grass3,Grass3,Grass5,Land4,Stone2,Land3,Grass4,Grass4,Grass1,Land1,Grass3,Stone3,Grass4,Grass4,Land4,Land2,Grass6,Grass6,Grass1,Grass3,Land5,Grass3,Land6,Stone2,Grass2,Land6,Grass1,Stone3,Stone2,Land5,Stone3,Grass1,Land6,Grass3,Grass5,Grass3
+
+Grass3,Grass5,Stone3,Stone1,Grass6,Land1,Land5,Grass4,Land5,Land4,Grass2,Land5,Land6,Grass6,Grass4,Grass4,Grass4,Grass5,Stone3,Grass1,Land1,Grass4,Grass4,Grass4,Grass3,Grass5,Grass6,Grass2,Land6,Land5,Stone2,Grass4,Grass3,Grass3,Land5,Stone2,Land5,Grass1,Land4,Grass6,Grass5,Grass6,Stone1,Stone1,Stone2,Grass1,Stone1,Grass3,Grass5,Grass4
+
+Land3,Grass6,Grass2,Grass2,Grass4,Stone3,Grass4,Stone1,Land6,Land5,Land2,Grass5,Stone2,Land4,Grass6,Land4,Land1,Land4,Stone3,Grass3,Grass4,Stone2,Land4,Land1,Grass5,Grass2,Grass3,Grass6,Grass1,Grass4,Grass4,Land5,Land2,Stone2,Land5,Stone1,Land6,Grass2,Grass2,Land4,Grass6,Land4,Land4,Stone2,Grass2,Land6,Grass6,Land3,Stone3,Land6
+
+Land4,Land4,Grass2,Grass4,Grass3,Land3,Grass1,Grass2,Stone3,Grass1,Grass1,Land4,Grass3,Grass3,Grass2,Grass6,Stone2,Stone2,Land6,Land5,Grass1,Land3,Land6,Grass6,Land3,Land6,Stone3,Land4,Stone1,Stone3,Grass4,Grass4,Stone2,Grass4,Stone1,Grass1,Land2,Land2,Land1,Land5,Land2,Grass4,Stone1,Grass6,Grass6,Land4,Grass1,Grass3,Land3,Grass5
+
+Grass5,Land5,Grass6,Stone2,Land5,Grass2,Grass4,Stone3,Stone1,Land3,Land1,Grass3,Grass3,Grass1,Stone1,Land6,Grass3,Land6,Stone2,Stone2,Grass1,Grass6,Grass1,Grass2,Grass1,Land1,Land4,Grass1,Grass5,Grass2,Land3,Stone3,Land3,Stone3,Stone2,Grass2,Grass3,Grass3,Stone3,Grass6,Grass1,Grass4,Grass1,Stone2,Grass5,Grass4,Grass3,Grass3,Grass4,Grass1
+
+Grass6,Grass5,Grass5,L3,L5,G6,G3,S3,S1,G2,G6,L4,L4,L3,G2,G5,S3,L3,G1,L4,S1,L6,G3,G4,G5,L5,L6,L3,G1,G6,S2,G1,L4,G4,S1,S1,L4,G4,G1,L2,G1,L1,G2,S3,L1,G5,L1,G2,L2,S2
+
+G1,G1,G4,G3,G1,L3,G6,G6,G6,L5,G5,G4,G6,L1,S2,L3,L2,L3,S3,G1,G2,G6,G5,S1,G5,L4,G6,G6,L2,L3,S3,L4,L5,S2,G4,G1,G4,G4,S3,G1,L4,G6,G6,G2,G2,L5,S3,S1,G2,S2
+
+S1,G4,S2,G4,L2,G5,G2,G2,G5,G6,G3,L3,G3,G6,G2,S1,S2,G1,S1,L1,S1,L4,G1,G1,G5,S2,G4,L3,G5,G5,G5,G5,G1,S1,S1,G5,L6,G5,L4,G4,L5,G4,L1,S2,L1,G3,G3,L1,L1,G2
+
+G6,G4,G3,G6,G5,G3,S2,G1,L2,L3,L2,G4,G2,S2,S1,G5,G4,S3,G1,G6,G3,S1,G2,S1,G2,G2,G1,L2,L6,G2,G1,G2,G1,S1,S3,G6,G4,L6,G1,G3,G2,S3,G4,L6,L2,G6,G5,L5,S2,L5
+
+L3,G6,L5,G3,S2,G1,L6,G6,G2,G3,G4,G6,G6,G4,G4,G6,L1,G6,L3,G2,L2,L5,L1,G2,G6,S3,S3,L3,G5,S3,G5,G2,G3,S1,S2,L3,L6,L4,L2,L1,G1,G2,G1,S2,L5,S2,S1,G3,L6,S1
+
+L6,L5,G6,S2,S1,L6,G2,G4,L6,G4,S1,G3,S2,L1,G2,L5,G5,L6,S1,L3,L6,L2,G2,L2,L5,S1,S3,S3,L6,S2,L3,L2,S3,G5,G3,L2,S3,L2,S1,L4,L5,G2,G2,G6,S1,S3,G5,G1,S1,G2
+
+Stone3,Land3,Grass1,Grass1,Stone1,Grass2,Grass6,Land4,Grass2,Land1,Grass6,Grass2,Grass6,Grass4,Land3,Grass6,Grass3,Land4,Grass6,Grass5,Grass2,Grass4,Grass4,Grass4,Grass4,Land4,Grass1,Grass3,Grass2,Grass1,Grass3,Grass3,Grass2,Grass1,Grass2,Land6,Stone3,Grass3,Land4,Grass5,Grass5,Grass2,Land3,Stone1,Grass4,Stone2,Land2,Grass6,Land6,Land1
+
+Grass6,Land3,Grass5,Grass5,Grass4,Grass3,Grass6,Land6,Grass2,Grass2,Stone2,Land2,Land5,Land3,Grass3,Grass2,Land3,Stone2,Grass5,Grass6,Land4,Grass2,Stone1,Grass2,Stone1,Grass2,Grass1,Grass5,Grass1,Grass2,Land5,Grass3,Grass2,Land1,Stone2,Land1,Land4,Stone3,Grass2,Land2,Grass3,Grass2,Grass2,Grass2,Stone3,Grass3,Grass5,Land6,Grass2,Grass6
+
+Grass2,Land6,Stone3,Grass4,Stone3,Stone1,Land3,Grass3,Grass3,Land6,Grass5,Land5,Grass5,Land5,Land5,Grass5,Grass4,Land3,Grass1,Stone2,Grass5,Grass1,Grass3,Grass5,Stone2,Land6,Grass6,Land3,Grass4,Grass6,Land1,Land5,Grass1,Grass3,Grass1,Grass4,Land5,Land5,Grass5,Grass3,Grass6,Grass1,Stone1,Land5,Stone1,Grass6,Land5,Grass4,Grass1,Grass2
+
+Water10,Water3,Water3,Water10,Water6,Water1,Water4,Water9,Water10,Water8,Water8,Water10,Water8,Water8,Water7,Water10,Water6,Water1,Water2,Water6,Water9,Water10,Water9,Water1,Water4,Water2,Water9,Water6,Water8,Water5,Water10,Water7,Water6,Water10,Water10,Water3,Water4,Water7,Water2,Water6,Water5,Water6,Water6,Water1,Water8,Water8,Water6,Water2,Water1,Water7
+
+Water1,Water7,Water6,Water2,Water2,Water10,Water3,Water2,Water9,Water9,Water4,Water4,Water1,Water9,Water10,Water9,Water7,Water3,Water3,Water10,Water8,Water3,Water10,Water6,Water2,Water6,Water1,Water6,Water10,Water8,Water1,Water7,Water2,Water5,Water6,Water5,Water1,Water4,Water4,Water7,Water10,Water6,Water8,Water10,Water4,Water1,Water9,Water6,Water2,Water9
+
+Water5,Water8,Water2,Water4,Water8,Water3,Water2,Water1,Water2,Water5,Water10,Water3,Water5,Water7,Water4,Water3,Water6,Water7,Water8,Water7,Water9,Water8,Water3,Water2,Water1,Water2,Water2,Water10,Water4,Water9,Water1,Water8,Water3,Water9,Water4,Water2,Water7,Water3,Water7,Water7,Water8,Water1,Water3,Water2,Water2,Water10,Water4,Water9,Water4,Water6
+
+Water10,Water5,Water9,Water5,Water8,Water9,Water7,Water6,Water1,Water4,Water1,Water4,Water4,Water7,Water8,Water1,Water4,Water10,Water9,Water9,Water7,Water4,Water3,Water8,Water2,Water8,Water6,Water4,Water2,Water7,Water4,Water5,Water1,Water3,Water10,Water1,Water4,Water5,Water3,Water4,Water3,Water9,Water2,Water4,Water6,Water9,Water3,Water9,Water5,Water1
+
+Water2,Water1,Water5,Water10,Water3,Water2,Water3,Water4,Water9,Water6,Water3,Water8,Water9,Water2,Water5,Water7,Water1,Water1,Water5,Water10,Water3,Water4,Water6,Water8,Water6,Water1,Water6,Water2,Water6,Water6,Water2,Water8,Water2,Water4,Water6,Water9,Water1,Water6,Water10,Water5,Water3,Water5,Water3,Water4,Water5,Water5,Water3,Water10,Water3,Water3
+
+Water9,Water2,Water4,Water10,Water6,Water8,Water2,Water6,Water7,Water10,Water10,Water2,Water2,Water6,Water2,Water7,Water2,Water8,Water6,Water5,Water5,Water8,Water7,Water2,Water10,Water2,Water7,Water1,Water8,Water4,Water4,Water4,Water10,Water3,Water1,Water7,Water4,Water4,Water2,Water4,Water4,Water2,Water3,Water7,Water9,Water8,Water7,Water8,Water7,Water10
+
+Water5,Water10,Water1,Water4,Water9,Water2,Water10,Water2,Water5,Water1,Water3,Water2,Water1,Water3,Water10,Water7,Water3,Water5,Water8,Water5,Water6,Water6,Water4,Water10,Water4,Water6,Water5,Water6,Water7,Water6,Water2,Water5,Water3,Water2,Water5,Water6,Water9,Water9,Water4,Water7,Water2,Water3,Water1,Water3,Water6,Water4,Water8,Water4,Water1,Water7
+
+Water8,Water6,Water6,Water2,Water3,Water1,Water10,Water7,Water8,Water10,Water1,Water10,Water7,Water1,Water1,Water4,Water7,Water5,Water5,Water6,Water2,Water9,Water7,Water2,Water10,Water7,Water5,Water5,Water9,Water9,Water5,Water4,Water5,Water2,Water1,Water4,Water1,Water9,Water7,Water2,Water1,Water5,Water8,Water4,Water3,Water5,Water3,Water4,Water1,Water5
+
+Water6,Water4,Water9,Water5,Water3,Water2,Water2,Water2,Water4,Water4,Water2,Water4,Water3,Water9,Water10,Water1,Water4,Water8,Water7,Water9,Water1,Water3,Water5,Water2,Water6,Water1,Water3,Water10,Water10,Water6,Water8,Water1,Water3,Water5,Water3,Water8,Water5,Water5,Water6,Water4,Water3,Water3,Water10,Water9,Water8,Water9,Water4,Water10,Water6,Water10
+
+Water1,Water10,Water3,Water2,Water5,Water2,Water3,Water8,Water6,Water3,Water5,Water7,Water2,Water5,Water6,Water4,Water3,Water1,Water9,Water4,Water6,Water7,Water5,Water5,Water5,Water1,Water9,Water10,Water1,Water9,Water9,Water6,Water4,Water3,Water6,Water2,Water1,Water2,Water5,Water1,Water2,Water10,Water6,Water9,Water3,Water6,Water1,Water4,Water7,Water7
+
+Water10,Water4,Water3,Water10,Water7,Water7,Water2,Water10,Water10,Water8,Water2,Water9,Water6,Water6,Water8,Water6,Water4,Water8,Water1,Water6,Water5,Water7,Water7,Water8,Water4,Water2,Water6,Water7,Water3,Water5,Water10,Water10,Water1,Water10,Water5,Water2,Water7,Water4,Water1,Water3,Water8,Water3,Water3,Water3,Water7,Water9,Water2,Water5,Water6,Water2
+
+Water9,Water6,Water8,Water1,Water9,Water10,Water8,Water4,Water6,Water5,Water1,Water10,Water5,Water1,Water5,Water10,Water6,Water10,Water7,Water9,Water4,Water9,Water7,Water2,Water7,Water8,Water10,Water10,Water1,Water7,Water1,Water7,Water6,Water10,Water10,Water7,Water5,Water9,Water6,Water3,Water3,Water6,Water2,Water8,Water8,Water2,Water8,Water7,Water5,Water2
+
+Water6,Water10,Water2,Water10,Water10,Water1,Water9,Water4,Water7,Water9,Water9,Water8,Water4,Water2,Water7,Water3,Water6,Water5,Water5,Water1,Water3,Water2,Water6,Water3,Water6,Water1,Water1,Water1,Water8,Water1,Water2,Water6,Water7,Water8,Water2,Water9,Water4,Water3,Water5,Water10,Water5,Water5,Water5,Water2,Water5,Water10,Water3,Water6,Water7,Water7
+
+Water4,Water1,Water6,Water8,Water5,Water3,Water10,Water2,Water1,Water8,Water10,Water9,Water9,Water5,Water4,Water4,Water10,Water8,Water3,Water9,Water2,Water8,Water9,Water7,Water4,Water2,Water4,Water6,Water6,Water1,Water10,Water5,Water7,Water6,Water4,Water4,Water3,Water1,Water5,Water4,Water8,Water7,Water8,Water6,Water2,Water5,Water1,Water3,Water9,Water5
+
+Water10,Water3,Water2,Water3,Water4,Water9,Water8,Water2,Water3,Water10,Water4,Water10,Water2,Water4,Water10,Water2,Water2,Water1,Water10,Water8,Water8,Water2,Water1,Water5,Water8,Water2,Water4,Water4,Water10,Water1,Water2,Water3,Water5,Water10,Water7,Water5,Water3,Water10,Water5,Water9,Water2,Water3,Water6,Water2,Water4,Water5,Water1,Water3,Water6,Water3
+
+
+[16/12/2025 18:38:02] INFO: /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/GameData/Maps/ValidMap.json found and is being loaded
+[16/12/2025 18:38:02] INFO: ValidMap.json is a valid map
+[16/12/2025 18:38:02] INFO: Map ValidMap.json has been imported
+[16/12/2025 18:38:02] ERROR: Tile Key Water could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:02] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:02] INFO: Map ValidMap.json has been loaded, here is the map 
+ Water,Water6,Water8,Water9,Water3,Water4,Water10,Water6,Water5,Water1,Water3,Water2,Water2,Water10,Water7,Water5,Water1,Water7,Water6,Water8,Water2,Water7,Water6,Water7,Water9,Water1,Water8,Water1,Water4,Water9,Water1,Water6,Water5,Water5,Water1,Water4,Water3,Water10,Water10,Water1,Water4,Water9,Water4,Water5,Water2,Water1,Water3,Water2,Water4,Water5
+
+Water2,Water9,Water6,Water5,Water9,Water4,Water5,Water9,Water10,Water10,Water9,Water9,Water8,Water9,Water9,Water8,Water7,Water8,Water3,Water10,Water10,Water6,Water6,Water2,Water8,Water9,Water10,Water7,Water5,Water9,Water4,Water7,Water6,Water9,Water7,Water1,Water8,Water5,Water4,Water2,Water9,Water3,Water1,Water10,Water4,Water4,Water5,Water7,Water9,Water3
+
+Water10,Water6,Water9,Water8,Water10,Water4,Water3,Water9,Water4,Water4,Water7,Water8,Water3,Water3,Water10,Water3,Water6,Water6,Water5,Water3,Water3,Water1,Water2,Water6,Water10,Water7,Water10,Water10,Water6,Water7,Water5,Water3,Water4,Water10,Water2,Water7,Water6,Water7,Water9,Water10,Water9,Water10,Water5,Water5,Water3,Water2,Water8,Water7,Water1,Water6
+
+Water6,Water6,Water10,Water3,Water5,Water3,Water7,Water5,Water5,Water9,Water4,Water8,Water3,Water6,Water2,Water10,Water1,Water4,Water8,Water3,Water2,Water2,Water5,Water3,Water9,Water8,Water4,Water10,Water4,Water9,Water6,Water5,Water10,Water6,Water6,Water2,Water9,Water3,Water1,Water3,Water3,Water5,Water8,Water8,Water5,Water4,Water10,Water4,Water1,Water2
+
+Water3,Water5,Water10,Water4,Water8,Water1,Water5,Water9,Water10,Water8,Water8,Water2,Water3,Water1,Water9,Water6,Water6,Water9,Water6,Water7,Water1,Water8,Water2,Water10,Water8,Water10,Water8,Water7,Water5,Water6,Water2,Water5,Water9,Water1,Water9,Water10,Water4,Water2,Water7,Water6,Water10,Water1,Water3,Water10,Water2,Water6,Water5,Water2,Water8,Water1
+
+Water3,Water3,Water3,Water10,Water1,Water6,Water6,Water3,Water1,Water6,Water1,Water2,Water4,Water10,Water2,Water1,Water4,Water1,Water2,Water9,Water10,Water1,Water6,Water6,Water9,Water10,Water1,Water10,Water8,Water7,Water7,Water2,Water2,Water1,Water6,Water5,Water8,Water3,Water9,Water7,Water5,Water4,Water7,Water10,Water9,Water7,Water5,Water10,Water2,Water3
+
+Water4,Water1,Water5,Water6,Water7,Water10,Water2,Water1,Water2,Water9,Water9,Water5,Water2,Water5,Water3,Water1,Water5,Water3,Water3,Water6,Water4,Water1,Water3,Water4,Water6,Water3,Water6,Water5,Water9,Water9,Water2,Water1,Water2,Water8,Water1,Water4,Water9,Water4,Water10,Water10,Water1,Water4,Water9,Water9,Water4,Water7,Water3,Water3,Water2,Water10
+
+Water5,Water3,Water2,Water8,Water2,Water8,Water8,Water10,Water10,Water5,Water6,Water3,Water5,Water4,Water1,Water5,Water3,Water3,Water4,Water6,Water9,Water7,Water5,Water3,Water2,Water2,Water9,Water9,Water3,Water2,Water3,Water7,Water2,Water5,Water10,Water6,Water5,Water1,Water2,Water7,Water9,Water5,Water8,Water4,Water3,Water1,Water1,Water9,Water2,Water3
+
+Water8,Water5,Water7,Water8,Water7,Water7,Water3,Water2,Water9,Water3,Water6,Water3,Water2,Water5,Water6,Water8,Water7,Water3,Water5,Water10,Water10,Water10,Water4,Water5,Water1,Water4,Water6,Water1,Water2,Water2,Water10,Water10,Water2,Water10,Water9,Water9,Water7,Water1,Water6,Water7,Water1,Water2,Water1,Water9,Water1,Water4,Water5,Water5,Water6,Water7
+
+Water3,Water3,Water1,Water2,Water1,Water2,Water6,Water5,Water4,Water5,Water1,Water10,Water7,Water7,Water2,Water9,Water6,Water1,Water5,Water10,Water4,Water4,Water5,Water6,Water4,Water6,Water9,Water7,Water7,Water1,Water6,Water6,Water8,Water3,Water8,Water4,Water4,Water3,Water2,Water9,Water5,Water5,Water8,Water5,Water3,Water3,Water3,Water7,Water9,Water8
+
+Water9,Water2,Water2,Water5,Water7,Water4,Water10,Water6,Water1,Water1,Water4,Water7,Water10,Water3,Water4,Water8,Water6,Water3,Water6,Water5,Water2,Water5,Water1,Water10,Water8,Water6,Water10,Water1,Water8,Water7,Water10,Water3,Water9,Water1,Water5,Water8,Water9,Water3,Water4,Water9,Water2,Water8,Water4,Water3,Water5,Water10,Water4,Water2,Water4,Water4
+
+Water10,Water3,Water1,Water3,Water9,Water6,Water6,Water2,Water2,Water1,Water5,Water4,Water4,Water3,Water7,Water6,Water8,Water1,Water8,Water2,Water6,Water8,Water2,Water8,Water3,Water10,Water7,Water6,Water9,Water8,Water9,Water7,Water7,Water6,Water5,Water7,Water5,Water10,Water8,Water3,Water5,Water2,Water2,Water1,Water4,Water10,Water5,Water8,Water4,Water9
+
+Water2,Water9,Water4,Water3,Water9,Water2,Water10,Water2,Water8,Water1,Water1,Water3,Water4,Water2,Water1,Water10,Water8,Water8,Water8,Water6,Water1,Water10,Water2,Water3,Water4,Water10,Water9,Water6,Water6,Water7,Water3,Water6,Water8,Water10,Water4,Water6,Water7,Water10,Water4,Water10,Water6,Water7,Water10,Water10,Water2,Water10,Water4,Water5,Water4,Water5
+
+Water10,Water3,Water3,Water1,Water2,Water2,Water6,Water10,Water3,Water7,Water8,Water8,Water4,Water5,Water10,Water3,Water3,Water2,Water3,Water2,Water8,Water9,Water9,Water7,Water4,Water2,Water3,Water9,Water2,Water10,Water4,Water5,Water10,Water1,Water6,Water8,Water2,Water10,Water4,Water6,Water2,Water8,Water7,Water10,Water6,Water2,Water9,Water8,Water7,Water6
+
+Water9,Water6,Water8,Water8,Water6,Water1,Water5,Water1,Water10,Water7,Water5,Water4,Water9,Water8,Water4,Water2,Water1,Water9,Water1,Water2,Water5,Water9,Water5,Water10,Water3,Water8,Water2,Water7,Water1,Water8,Water4,Water10,Water1,Water10,Water5,Water5,Water1,Water10,Water2,Water3,Water4,Water6,Water10,Water3,Water8,Water5,Water7,Water1,Water6,Water7
+
+Grass1,Land2,Land3,Grass4,Land6,Grass2,Stone2,Land1,Stone3,Stone3,Land1,Grass4,Land2,Stone3,Stone2,Land2,Stone1,Grass1,Grass6,Stone1,Land6,Grass5,Stone3,Land5,Grass2,Stone2,Grass4,Land5,Grass1,Land5,Land3,Land6,Land3,Land4,Grass5,Grass4,Grass6,Grass2,Grass6,Grass5,Land2,Stone3,Grass4,Stone2,Grass2,Grass2,Stone3,Grass3,Stone3,Grass6
+
+Grass4,Stone3,Stone3,Stone1,Grass5,Grass5,Stone2,Stone1,Grass4,Land2,Stone3,Grass5,Land2,Grass3,Grass1,Land3,Grass1,Land2,Grass1,Land3,Land3,Grass2,Stone1,Land4,Land4,Land6,Stone1,Grass2,Grass3,Land5,Grass2,Stone3,Grass1,Land5,Land5,Grass1,Grass5,Grass4,Land5,Grass1,Grass5,Grass4,Grass2,Land1,Grass3,Grass2,Land5,Stone3,Land5,Grass3
+
+Grass3,Land6,Grass6,Grass5,Stone1,Grass2,Grass1,Grass1,Grass1,Grass1,Stone1,Grass6,Grass6,Stone1,Grass5,Grass3,Land3,Grass1,Grass2,Stone1,Grass5,Land4,Grass6,Stone1,Grass5,Land2,Land6,Stone1,Grass1,Land2,Grass6,Grass4,Grass5,Stone1,Stone3,Stone2,Land1,Stone2,Grass5,Land5,Grass6,Grass6,Land5,Grass6,Stone2,Land4,Grass3,Land2,Stone1,Land3
+
+Grass4,Stone3,Grass1,Grass2,Land5,Grass3,Stone2,Grass4,Land2,Land1,Stone1,Grass4,Grass3,Stone3,Grass6,Land1,Stone3,Grass5,Grass2,Land5,Land2,Land1,Land4,Land4,Land4,Land3,Grass6,Grass4,Grass4,Grass4,Stone1,Grass4,Grass4,Land1,Land6,Stone1,Grass3,Land6,Grass6,Grass5,Grass4,Land6,Grass2,Stone1,Land6,Grass1,Grass5,Grass1,Grass2,Grass4
+
+Stone1,Grass5,Stone1,Grass1,Grass5,Stone1,Grass2,Grass4,Land1,Stone3,Grass6,Grass1,Grass5,Grass5,Grass6,Grass3,Grass3,Land4,Grass6,Land4,Grass1,Grass1,Grass2,Grass4,Stone3,Land6,Grass2,Grass1,Stone3,Land3,Land4,Land5,Stone1,Land3,Grass5,Land2,Grass5,Grass4,Grass6,Grass5,Grass4,Stone3,Grass3,Land1,Land4,Land1,Land2,Grass4,Stone3,Stone1
+
+Stone3,Land1,Stone3,Stone3,Stone2,Grass2,Grass5,Land6,Stone1,Land5,Grass5,Grass2,Land6,Grass6,Grass4,Grass2,Grass3,Grass1,Land3,Land6,Grass2,Grass2,Grass6,Land1,Stone1,Grass4,Stone1,Grass6,Land3,Stone3,Land2,Stone1,Grass6,Stone1,Grass5,Stone3,Grass6,Land3,Land5,Grass5,Land3,Grass6,Land4,Grass3,Land2,Land4,Stone2,Grass2,Grass1,Land4
+
+Stone1,Grass4,Land4,Land6,Stone2,Grass5,Stone2,Stone2,Stone2,Grass3,Stone2,Grass3,Land4,Grass2,Grass4,Grass6,Stone3,Land4,Grass4,Land6,Stone1,Land4,Grass6,Land3,Grass3,Stone2,Grass5,Land2,Land4,Grass4,Grass6,Grass6,Grass5,Stone2,Land4,Land6,Stone1,Grass2,Grass3,Stone3,Grass3,Stone2,Grass6,Grass1,Grass6,Grass5,Grass6,Land4,Stone1,Land4
+
+Stone2,Grass2,Land3,Grass5,Grass1,Grass5,Grass4,Grass1,Stone3,Grass2,Land4,Stone1,Grass3,Stone1,Grass3,Grass1,Grass6,Land5,Stone3,Grass1,Stone3,Stone3,Grass3,Grass1,Stone3,Grass1,Grass5,Stone3,Land1,Stone3,Grass4,Grass5,Grass3,Grass3,Grass2,Grass1,Grass1,Grass2,Grass6,Grass2,Grass5,Grass3,Grass6,Land6,Grass1,Grass4,Stone3,Land1,Land6,Stone2
+
+Land1,Stone2,Grass5,Land2,Grass1,Grass6,Stone1,Stone2,Grass6,Land2,Land5,Stone2,Grass3,Land1,Grass2,Stone2,Grass2,Stone1,Stone3,Stone1,Grass4,Grass3,Land3,Grass2,Stone2,Grass5,Land3,Grass1,Land5,Stone1,Land1,Grass6,Grass6,Grass1,Grass6,Stone2,Land4,Grass4,Grass3,Land1,Land6,Stone1,Stone2,Stone1,Land6,Land6,Stone3,Grass5,Land3,Stone3
+
+Grass6,Grass6,Grass1,Stone1,Grass1,Land5,Stone1,Grass3,Land3,Land4,Land6,Stone2,Land2,Grass3,Land4,Land3,Grass6,Grass4,Grass5,Grass3,Grass6,Land4,Stone2,Land3,Land5,Land1,Land3,Grass5,Grass5,Stone1,Stone1,Land5,Land6,Land6,Grass4,Land6,Land6,Grass6,Grass5,Grass4,Land1,Grass5,Land4,Grass5,Grass1,Land4,Land2,Stone2,Stone3,Land4
+
+Stone3,Grass2,Grass2,Grass5,Grass1,Stone1,Stone3,Grass2,Land6,Land2,Grass5,Grass2,Land2,Stone2,Grass2,Stone1,Grass6,Land2,Grass2,Land5,Land3,Grass6,Grass2,Grass1,Grass4,Land2,Stone2,Stone1,Stone1,Grass5,Land1,Grass5,Stone3,Grass6,Grass6,Stone2,Grass5,Grass4,Land1,Land1,Grass4,Grass4,Grass1,Land5,Grass5,Land5,Grass1,Stone3,Stone2,Stone2
+
+Stone3,Grass3,Grass5,Grass3,Grass6,Grass2,Grass3,Land3,Grass5,Land6,Stone3,Grass3,Grass3,Grass4,Stone3,Land4,Grass1,Grass5,Stone3,Stone1,Grass6,Land6,Grass4,Stone3,Stone1,Grass1,Land3,Grass1,Stone2,Stone1,Grass2,Grass3,Land4,Land5,Grass4,Stone1,Grass1,Grass3,Grass1,Stone2,Grass4,Grass6,Grass1,Grass5,Grass5,Land1,Stone2,Land3,Stone3,Land6
+
+Grass6,Grass4,Grass2,Grass1,Grass2,Land2,Stone1,Grass6,Grass4,Grass1,Land1,Grass1,Land6,Stone3,Grass4,Stone3,Land5,Grass6,Stone3,Land2,Land6,Stone3,Land4,Land4,Grass2,Land3,Land2,Grass5,Stone2,Stone2,Land5,Grass2,Grass4,Grass2,Stone3,Grass5,Grass3,Stone1,Land2,Land1,Land5,Stone3,Grass5,Land3,Land2,Stone1,Grass2,Grass3,Grass1,Grass2
+
+Land2,Land3,Land3,Grass5,Grass4,Grass3,Grass6,Land5,Land6,Land3,Land3,Stone1,Stone2,Stone3,Grass6,Stone2,Land2,Land4,Land5,Stone3,Land2,Grass4,Stone1,Stone1,Grass2,Grass3,Grass1,Land4,Grass5,Grass1,Grass2,Land1,Grass2,Grass4,Grass5,Stone1,Grass3,Land2,Land1,Land1,Grass6,Stone3,Grass4,Stone3,Grass4,Grass1,Grass4,Grass6,Grass5,Grass5
+
+Land1,Land1,Stone2,Land1,Grass2,Stone1,Grass6,Land5,Land5,Land4,Land3,Grass2,Grass3,Grass6,Grass6,Grass4,Grass2,Grass6,Grass5,Land4,Grass4,Land1,Land6,Land4,Grass3,Grass5,Stone2,Grass2,Stone1,Land5,Stone2,Grass5,Grass2,Stone2,Grass1,Grass3,Grass6,Grass4,Land3,Grass4,Grass2,Grass6,Land4,Grass4,Grass1,Stone2,Stone2,Grass5,Land6,Grass3
+
+Grass4,Land3,Land4,Land5,Land2,Land3,Stone3,Grass4,Land3,Land4,Land1,Grass3,Land2,Grass2,Grass3,Grass2,Grass3,Grass5,Land2,Grass3,Land5,Grass1,Grass5,Land2,Stone2,Land3,Land6,Land3,Grass6,Grass4,Stone1,Grass4,Land2,Grass3,Grass5,Grass1,Stone2,Land5,Stone2,Land4,Land1,Grass2,Grass5,Land5,Land6,Land2,Stone3,Grass5,Land2,Grass2
+
+Grass3,Stone1,Grass6,Grass4,Grass4,Land1,Land6,Grass5,Grass6,Grass5,Stone1,Land3,Land2,Land6,Grass3,Stone1,Stone3,Grass5,Grass1,Grass1,Grass2,Grass6,Land3,Land6,Grass4,Land4,Grass5,Land2,Grass6,Grass2,Grass1,Land1,Land1,Land5,Grass4,Grass6,Grass5,Grass5,Grass2,Grass6,Grass1,Grass2,Stone3,Grass3,Grass5,Grass2,Land2,Grass2,Stone1,Grass4
+
+Stone2,Land2,Stone1,Land2,Land1,Stone2,Grass2,Land4,Land1,Land6,Grass3,Grass3,Grass1,Land5,Land1,Stone3,Grass3,Grass4,Grass2,Land6,Grass1,Land6,Land5,Grass2,Land2,Land4,Grass2,Grass6,Stone1,Land2,Stone3,Stone2,Grass3,Grass4,Grass5,Grass2,Stone3,Stone1,Grass4,Land4,Land6,Grass3,Land1,Grass2,Grass4,Stone2,Land5,Grass2,Stone3,Land6
+
+Grass1,Stone2,Grass3,Stone3,Land3,Land3,Grass2,Grass3,Land2,Land2,Grass2,Land1,Grass2,Stone3,Grass6,Grass5,Grass4,Grass3,Stone1,Land3,Land3,Land4,Grass5,Land6,Grass3,Grass2,Grass6,Grass4,Stone3,Grass5,Grass5,Grass5,Grass3,Stone1,Grass6,Land1,Grass5,Land2,Land1,Land3,Land6,Grass6,Land6,Land1,Grass4,Land4,Stone2,Grass1,Stone2,Stone2
+
+Stone2,Grass2,Grass1,Stone3,Grass4,Grass5,Grass1,Land1,Land6,Grass3,Land3,Stone2,Land3,Land2,Grass2,Land5,Land2,Grass6,Grass1,Grass6,Stone1,Grass6,Land5,Stone3,Stone2,Grass5,Land2,Stone3,Land4,Grass3,Land3,Grass5,Stone1,Grass3,Grass1,Stone3,Grass2,Land1,Land2,Grass2,Land5,Grass3,Stone3,Land5,Grass4,Stone2,Grass6,Grass6,Land3,Grass1
+
+Grass1,Stone2,Land3,Stone3,Stone1,Stone3,Land5,Stone1,Stone2,Land3,Grass5,Grass1,Grass5,Grass5,Land3,Grass6,Land2,Grass3,Land1,Grass1,Land5,Grass6,Land2,Grass1,Grass1,Stone3,Stone3,Grass4,Stone1,Grass6,Stone1,Grass5,Stone2,Grass4,Land1,Land5,Grass1,Grass2,Grass6,Grass5,Grass1,Grass1,Grass3,Land4,Grass5,Grass1,Land6,Grass3,Stone1,Grass6
+
+Grass6,Grass6,Land5,Stone2,Grass5,Stone2,Stone1,Grass2,Stone2,Grass3,Grass5,Grass5,Stone2,Grass3,Grass4,Land5,Grass3,Land5,Grass6,Land4,Stone3,Grass3,Land1,Grass4,Land2,Grass2,Grass6,Land4,Grass5,Stone2,Land1,Grass3,Stone2,Land4,Grass1,Stone1,Grass6,Grass5,Grass5,Grass5,Land3,Land4,Land6,Land6,Land4,Stone1,Land4,Grass3,Land6,Grass2
+
+Grass2,Stone1,Land4,Land2,Land1,Grass5,Stone2,Grass1,Grass4,Land2,Land2,Grass3,Grass2,Grass2,Stone2,Land4,Grass4,Stone1,Grass2,Grass2,Grass2,Land1,Stone1,Grass2,Stone2,Grass4,Land5,Grass2,Land6,Grass6,Grass1,Grass5,Grass5,Grass1,Stone3,Land2,Grass5,Stone3,Grass2,Grass2,Grass4,Stone1,Stone1,Grass3,Stone3,Land4,Grass6,Grass1,Grass4,Stone3
+
+Land5,Grass3,Stone2,Land1,Land1,Grass1,Grass2,Grass1,Grass3,Land3,Stone3,Stone2,Grass4,Grass4,Grass4,Stone3,Land2,Land4,Stone2,Stone2,Grass2,Stone1,Land6,Stone1,Grass1,Grass2,Grass6,Land1,Grass5,Grass5,Grass1,Grass1,Grass1,Stone1,Grass2,Grass3,Grass5,Grass5,Grass6,Grass4,Grass4,Land3,Grass2,Grass5,Grass3,Land3,Grass5,Land4,Grass3,Grass6
+
+Grass4,Grass4,Land5,Grass4,Grass2,Grass3,Grass4,Land4,Grass3,Grass2,Grass1,Land3,Grass1,Stone3,Land2,Grass4,Grass6,Grass1,Grass2,Grass5,Grass1,Grass3,Land1,Land2,Land4,Land2,Land2,Land1,Land3,Grass5,Land6,Grass4,Grass2,Grass2,Grass4,Land1,Grass4,Land1,Land1,Land3,Land1,Stone2,Land4,Land6,Grass3,Grass5,Grass1,Land5,Land6,Stone1
+
+Land6,Grass4,Grass5,Stone2,Grass4,Land2,Land5,Stone1,Grass2,Grass6,Grass1,Grass6,Land5,Grass4,Grass6,Stone2,Grass1,Land3,Grass2,Stone3,Grass5,Grass5,Land6,Grass2,Grass1,Grass6,Grass1,Grass2,Grass3,Grass3,Grass3,Land5,Land2,Grass1,Grass6,Grass3,Stone1,Land3,Grass4,Stone3,Rock4,Stone2,Iron2,Rock4,Iron1,Stone3,Iron3,Rock4,Rock5,Stone2
+
+Land3,Grass4,Land5,Grass2,Stone1,Grass1,Grass2,Land4,Grass3,Grass5,Stone2,Land3,Grass3,Stone3,Land2,Land6,Stone3,Stone2,Grass5,Land2,Land3,Land1,Stone2,Land4,Grass5,Grass1,Grass4,Grass2,Stone1,Land5,Stone2,Land4,Grass2,Grass3,Grass5,Stone1,Grass4,Land1,Stone2,Land2,Stone2,Stone3,Stone1,Rock2,Iron2,Stone1,Iron1,Stone2,Iron3,Iron4
+
+Grass4,Grass6,Land2,Land2,Stone3,Land4,Land5,Grass6,Stone3,Land5,Land3,Grass4,Grass3,Stone2,Grass6,Stone2,Grass4,Stone3,Grass6,Stone2,Grass5,Grass4,Grass3,Stone2,Land2,Grass3,Grass5,Grass1,Grass4,Land2,Stone1,Grass4,Land2,Grass6,Stone1,Grass3,Stone1,Grass6,Grass4,Land2,Rock5,Stone3,Iron4,Stone1,Iron4,Iron2,Iron2,Stone3,Rock1,Stone1
+
+Grass5,Land4,Grass5,Land4,Land6,Grass5,Grass1,Stone3,Land6,Land5,Stone1,Land1,Grass5,Grass5,Stone2,Stone3,Land5,Stone3,Land5,Grass4,Stone1,Grass2,Grass6,Grass6,Stone1,Grass6,Stone3,Land3,Land4,Grass4,Grass1,Grass2,Land3,Grass2,Grass2,Grass6,Grass2,Stone2,Grass4,Stone3,Rock2,Iron3,Rock6,Iron2,Stone3,Stone1,Stone3,Stone1,Stone3,Stone3
+
+Grass6,Grass1,Land5,Land2,Grass2,Grass3,Land6,Grass6,Grass2,Land1,Grass1,Grass1,Grass1,Grass2,Grass2,Grass2,Stone3,Land3,Grass5,Grass1,Stone1,Grass5,Grass5,Stone2,Grass5,Land1,Grass2,Grass6,Grass4,Grass5,Grass1,Grass4,Land2,Grass3,Stone2,Land1,Land5,Grass5,Grass2,Land5,Stone1,Rock6,Rock6,Iron3,Stone3,Stone1,Rock5,Rock4,Rock4,Stone3
+
+Land6,Grass5,Land2,Grass5,Grass3,Stone3,Land1,Grass6,Land5,Stone2,Grass1,Land3,Land1,Stone3,Grass3,Grass5,Grass3,Grass6,Stone2,Stone1,Land6,Land3,Grass6,Grass2,Land4,Grass3,Stone2,Stone3,Stone3,Grass6,Stone3,Stone2,Grass2,Grass2,Grass2,Land2,Land6,Grass1,Grass5,Grass5,Rock4,Stone2,Rock4,Rock1,Stone3,Iron1,Rock4,Stone1,Rock1,Rock2
+
+Grass6,Grass5,Grass5,Grass2,Land2,Grass6,Land6,Grass5,Land6,Grass1,Grass6,Land6,Land5,Grass1,Grass4,Stone1,Land4,Grass2,Land3,Stone1,Land4,Grass3,Land1,Stone2,Stone3,Grass1,Land6,Stone1,Grass1,Land5,Stone1,Stone1,Grass3,Land2,Grass2,Grass1,Stone3,Stone3,Stone2,Grass3,Rock4,Stone2,Rock5,Iron4,Iron1,Stone3,Iron1,Stone3,Stone2,Stone2
+
+Stone2,Land3,Land1,Stone2,Grass1,Stone2,Grass1,Stone2,Grass6,Stone1,Stone2,Grass5,Land5,Stone2,Land5,Grass2,Grass5,Grass2,Grass3,Stone2,Grass1,Land4,Grass3,Grass2,Grass2,Land1,Stone3,Grass4,Grass6,Stone3,Grass5,Stone3,Land3,Grass3,Grass1,Land5,Grass6,Stone3,Land4,Land4,Stone3,Stone2,Stone3,Stone3,Iron1,Stone1,Rock2,Iron3,Iron1,Rock4
+
+Grass5,Grass4,Grass1,Grass2,Stone2,Grass5,Land6,Grass6,Stone2,Stone3,Grass5,Land2,Grass2,Land5,Land3,Stone2,Stone2,Grass5,Land4,Grass4,Land6,Grass2,Grass4,Grass1,Stone1,Land4,Grass4,Grass2,Land2,Grass1,Land5,Grass1,Stone1,Stone2,Land6,Land6,Stone3,Grass3,Stone1,Grass2,Stone3,Stone2,Rock3,Rock4,Rock5,Rock1,Rock2,Rock5,Iron4,Iron1
+
+Land6,Land4,Grass6,Grass4,Land6,Grass3,Land5,Grass5,Grass6,Land4,Stone2,Grass4,Land3,Grass2,Stone2,Land2,Grass5,Grass1,Grass3,Grass5,Stone1,Land4,Grass6,Land5,Grass3,Land3,Grass6,Stone3,Land1,Land5,Grass4,Stone2,Grass3,Land1,Grass2,Grass4,Stone3,Land6,Grass5,Grass5,Rock1,Rock3,Rock6,Stone2,Iron3,Iron4,Rock5,Rock1,Rock3,Stone1
+
+Grass3,Stone2,Land3,Grass4,Land3,Stone1,Land4,Stone2,Land4,Grass6,Grass6,Grass2,Grass5,Grass4,Land6,Grass2,Stone2,Grass5,Grass2,Grass1,Stone1,Grass2,Grass6,Grass5,Stone2,Grass6,Land6,Land2,Land2,Grass1,Grass3,Grass5,Stone2,Grass6,Grass6,Land4,Grass6,Land6,Land3,Grass3,Stone1,Stone3,Stone2,Stone1,Stone2,Stone1,Rock4,Rock1,Iron2,Iron2
+
+Grass2,Grass1,Grass1,Stone1,Land4,Land3,Grass2,Grass5,Grass3,Grass1,Stone2,Grass3,Grass4,Grass1,Land6,Grass1,Grass2,Grass3,Grass1,Grass5,Grass3,Grass5,Grass2,Stone3,Grass4,Grass3,Grass6,Grass1,Grass4,Grass3,Grass3,Grass1,Grass6,Land6,Grass3,Grass4,Grass1,Grass5,Stone2,Land2,Iron2,Rock6,Iron1,Iron3,Rock1,Stone1,Iron1,Rock3,Iron2,Rock5
+
+Grass1,Land2,Stone2,Stone2,Grass1,Grass5,Stone3,Grass3,Land4,Stone1,Grass2,Stone2,Grass3,Grass3,Land5,Land1,Grass3,Stone1,Stone3,Grass1,Grass3,Land1,Grass6,Grass1,Land1,Grass4,Stone3,Grass5,Land3,Grass1,Grass1,Land6,Stone3,Grass4,Stone2,Land2,Land3,Grass6,Stone2,Grass6,Iron1,Iron1,Rock4,Iron3,Iron4,Rock3,Stone1,Stone2,Iron3,Stone1
+
+Land4,Grass6,Grass4,Land2,Land6,Grass1,Stone2,Grass2,Stone2,Land2,Land2,Grass2,Grass6,Grass1,Land2,Land2,Stone2,Grass4,Land5,Land4,Land5,Land3,Land5,Stone2,Land2,Land3,Grass5,Grass1,Grass3,Land4,Grass5,Stone2,Stone1,Grass2,Grass4,Stone2,Grass3,Grass4,Land4,Land4,Rock2,Rock5,Stone3,Rock3,Stone1,Iron3,Rock3,Iron2,Rock4,Iron3
+
+Grass3,Grass5,Grass1,Land5,Stone2,Stone3,Grass3,Land2,Land4,Stone2,Grass1,Stone1,Land6,Land5,Grass4,Stone2,Grass6,Grass2,Grass5,Stone3,Stone2,Stone2,Grass4,Grass1,Grass4,Land6,Stone1,Grass1,Grass6,Stone2,Grass3,Grass1,Grass3,Grass5,Grass2,Stone1,Grass2,Stone1,Grass3,Grass1,Stone1,Iron1,Stone3,Stone2,Stone2,Stone3,Rock1,Rock3,Rock2,Rock2
+
+Grass1,Land2,Land3,Land4,Land1,Land3,Stone3,Land1,Stone2,Land1,Stone2,Grass2,Stone2,Grass4,Land6,Grass1,Grass1,Grass1,Grass4,Land4,Stone2,Grass4,Grass4,Grass4,Stone1,Grass6,Land3,Grass5,Grass3,Land2,Grass5,Land1,Land5,Grass2,Stone1,Grass2,Stone1,Grass4,Grass5,Grass4,Rock1,Iron1,Stone1,Rock1,Stone3,Iron1,Stone1,Iron4,Iron4,Stone2
+
+Stone1,Grass1,Land5,Grass6,Grass5,Grass2,Grass5,Stone2,Grass2,Grass2,Grass5,Grass2,Land4,Stone3,Stone1,Stone1,Grass5,Land2,Grass5,Land5,Land4,Grass5,Stone1,Land5,Grass2,Land1,Land1,Grass3,Grass2,Land4,Land1,Land6,Grass4,Grass6,Grass1,Land1,Stone2,Stone3,Grass1,Stone1,Rock2,Rock3,Iron3,Iron2,Iron2,Rock1,Iron4,Stone2,Iron3,Stone3
+
+Grass2,Grass3,Grass2,Grass5,Stone1,Stone2,Land3,Grass2,Grass2,Stone1,Land2,Grass4,Grass3,Grass6,Land3,Grass4,Land5,Grass2,Grass3,Stone2,Grass4,Stone3,Stone3,Land3,Grass5,Grass1,Stone3,Grass3,Land2,Grass4,Land2,Grass2,Stone1,Land4,Grass5,Stone1,Grass2,Land6,Grass3,Stone1,Rock3,Stone1,Stone1,Rock1,Iron2,Rock2,Stone2,Iron1,Rock5,Iron1
+
+Land1,Grass4,Stone2,Stone1,Stone2,Land3,Grass4,Stone2,Grass2,Stone3,Grass2,Grass1,Land5,Stone2,Stone3,Grass6,Stone3,Land1,Grass1,Land4,Grass5,Stone2,Land3,Land1,Stone2,Land5,Land1,Grass6,Land6,Stone2,Grass6,Land1,Grass5,Land2,Stone3,Land4,Grass6,Grass2,Grass3,Stone1,Rock6,Rock1,Iron4,Stone3,Stone2,Stone1,Stone3,Iron2,Rock2,Stone2
+
+Grass2,Land3,Grass5,Stone2,Stone1,Stone2,Land6,Grass1,Land6,Stone2,Stone2,Grass3,Stone3,Stone3,Land3,Grass1,Grass5,Grass2,Grass6,Land6,Grass5,Land1,Land4,Land6,Grass4,Stone1,Land1,Land1,Grass3,Grass6,Land5,Grass6,Stone2,Grass1,Grass2,Stone3,Land5,Stone1,Stone1,Grass3,Iron1,Stone2,Iron3,Iron4,Iron1,Iron1,Iron1,Rock6,Rock6,Iron4
+
+Land4,Stone3,Grass6,Stone2,Stone2,Land5,Grass6,Stone1,Land4,Grass6,Stone1,Stone2,Grass5,Grass1,Land2,Land2,Land3,Land6,Grass6,Grass2,Stone1,Stone2,Stone1,Grass3,Grass6,Grass2,Grass2,Grass5,Stone1,Grass2,Grass2,Grass6,Stone3,Grass6,Grass3,Land4,Stone3,Stone2,Grass1,Land3,Stone1,Grass1,Grass6,Grass3,Grass4,Stone3,Land5,Grass2,Stone3,Grass3
+
+Grass6,Grass3,Land1,Grass2,Grass5,Land5,Land6,Stone2,Grass5,Grass5,Grass3,Grass5,Grass2,Grass1,Grass2,Grass5,Grass5,Land1,Grass2,Grass6,Grass2,Grass1,Land2,Land3,Grass1,Grass3,Stone3,Land5,Stone1,Land6,Stone1,Grass3,Grass5,Grass3,Grass1,Land1,Stone2,Grass5,Land4,Land6,Stone1,Land3,Grass2,Land2,Stone3,Land6,Land6,Grass2,Stone3,Land3
+
+Grass2,Land2,Grass6,Grass6,Grass6,Stone1,Grass5,Stone3,Grass4,Grass5,Land4,Land4,Grass1,Grass1,Grass4,Grass1,Land1,Grass5,Land6,Grass6,Stone3,Grass6,Stone1,Grass2,Stone3,Stone1,Stone3,Land5,Land1,Stone3,Grass1,Grass6,Grass6,Grass5,Grass1,Stone3,Stone1,Grass3,Stone3,Stone3,Grass1,Land3,Grass1,Land6,Grass1,Grass4,Stone1,Grass1,Grass6,Land5
+
+Grass3,Land3,Grass3,Stone2,Stone1,Land3,Grass6,Stone2,Grass3,Land4,Land6,Land4,Grass6,Land2,Grass4,Stone2,Stone3,Grass4,Stone1,Grass6,Grass6,Grass1,Grass5,Grass6,Grass2,Grass4,Land5,Stone3,Stone3,Grass1,Grass2,Grass4,Stone3,Stone2,Grass5,Grass2,Grass4,Land5,Land1,Grass2,Land4,Land6,Land6,Grass4,Grass1,Land3,Grass4,Stone3,Land5,Grass6
+
+Land2,Grass6,Grass5,Grass2,Grass6,Grass1,Land3,Grass1,Grass5,Stone2,Land3,Grass2,Grass2,Land1,Grass4,Stone1,Stone1,Grass2,Land3,Grass4,Land6,Grass2,Stone3,Stone3,Land3,Land6,Land1,Stone2,Stone1,Grass6,Grass2,Land3,Land4,Grass4,Land6,Stone2,Land1,Land4,Grass3,Grass1,Grass3,Stone2,Grass5,Land2,Grass2,Land5,Stone2,Stone3,Land1,Grass5
+
+Grass2,Grass4,Grass6,Grass2,Grass3,Grass1,Grass1,Grass5,Stone2,Grass5,Land3,Land5,Stone1,Grass5,Grass4,Grass6,Land5,Grass4,Land6,Stone2,Grass3,Grass4,Grass4,Grass6,Grass6,Land2,Stone1,Stone1,Grass6,Grass4,Land2,Land2,Grass5,Grass4,Grass4,Grass4,Land1,Land3,Grass6,Grass3,Land4,Land5,Stone1,Grass4,Land4,Stone1,Grass3,Land3,Land4,Land4
+
+Grass5,Stone3,Stone2,Grass4,Grass6,Grass4,Grass3,Land1,Grass5,Land2,Land4,Grass3,Stone3,Grass2,Stone1,Land3,Grass1,Stone2,Stone2,Grass5,Grass2,Land3,Grass2,Grass4,Grass5,Stone1,Land6,Land3,Grass2,Grass4,Grass2,Grass4,Grass5,Stone2,Land4,Land2,Grass6,Land1,Stone3,Grass4,Grass5,Stone3,Grass2,Land3,Land5,Grass3,Grass3,Stone1,Land1,Land4
+
+Grass5,Grass4,Land6,Grass4,Grass2,Stone3,Land3,Land3,Stone1,Land1,Grass5,Land4,Grass3,Land5,Grass6,Grass4,Grass3,Stone2,Land4,Grass5,Grass5,Stone3,Grass4,Land2,Grass1,Land5,Grass3,Stone3,Grass1,Stone1,Land2,Stone3,Land1,Grass2,Stone1,Grass5,Stone2,Land3,Grass2,Land6,Grass6,Grass1,Land1,Grass2,Land3,Stone2,Grass4,Land1,Grass2,Grass5
+
+Land4,Grass2,Grass1,Stone2,Grass5,Grass6,Land4,Land4,Land1,Land1,Grass2,Grass3,Stone2,Grass4,Land4,Grass4,Grass4,Stone1,Grass3,Grass2,Land4,Grass1,Grass3,Grass6,Grass5,Land3,Land2,Stone1,Stone3,Land3,Grass6,Grass3,Grass3,Land5,Stone3,Grass2,Land3,Land5,Grass6,Grass2,Grass5,Stone2,Land6,Stone1,Grass4,Land3,Land6,Land5,Land6,Land5
+
+Grass5,Land5,Grass2,Grass2,Grass6,Land4,Grass4,Land1,Grass4,Land5,Grass4,Grass5,Grass2,Land6,Grass1,Stone1,Stone1,Land5,Grass1,Grass1,Land5,Grass4,Grass1,Grass3,Stone2,Land3,Grass2,Land2,Grass5,Land1,Land1,Land3,Grass2,Land1,Stone3,Grass2,Grass5,Grass2,Grass3,Land5,Grass3,Stone1,Land1,Grass6,Grass4,Land2,Grass6,Grass3,Land3,Grass6
+
+Grass5,Land6,Stone2,Land4,Land1,Land3,Grass4,Land4,Land2,Land2,Stone3,Land6,Grass5,Stone2,Land4,Land6,Land4,Land6,Grass3,Land1,Grass4,Grass4,Grass1,Grass5,Land1,Land6,Grass2,Grass6,Stone1,Grass1,Grass2,Stone1,Stone3,Grass4,Grass2,Grass1,Land3,Land1,Land2,Grass4,Grass5,Grass3,Land4,Grass1,Grass4,Grass4,Land2,Grass5,Grass2,Grass2
+
+Grass3,Land2,Stone2,Grass6,Land6,Grass2,Stone2,Stone2,Land2,Grass4,Stone1,Land3,Grass2,Grass6,Grass3,Grass3,Grass5,Land4,Stone2,Land3,Grass4,Grass4,Grass1,Land1,Grass3,Stone3,Grass4,Grass4,Land4,Land2,Grass6,Grass6,Grass1,Grass3,Land5,Grass3,Land6,Stone2,Grass2,Land6,Grass1,Stone3,Stone2,Land5,Stone3,Grass1,Land6,Grass3,Grass5,Grass3
+
+Grass3,Grass5,Stone3,Stone1,Grass6,Land1,Land5,Grass4,Land5,Land4,Grass2,Land5,Land6,Grass6,Grass4,Grass4,Grass4,Grass5,Stone3,Grass1,Land1,Grass4,Grass4,Grass4,Grass3,Grass5,Grass6,Grass2,Land6,Land5,Stone2,Grass4,Grass3,Grass3,Land5,Stone2,Land5,Grass1,Land4,Grass6,Grass5,Grass6,Stone1,Stone1,Stone2,Grass1,Stone1,Grass3,Grass5,Grass4
+
+Land3,Grass6,Grass2,Grass2,Grass4,Stone3,Grass4,Stone1,Land6,Land5,Land2,Grass5,Stone2,Land4,Grass6,Land4,Land1,Land4,Stone3,Grass3,Grass4,Stone2,Land4,Land1,Grass5,Grass2,Grass3,Grass6,Grass1,Grass4,Grass4,Land5,Land2,Stone2,Land5,Stone1,Land6,Grass2,Grass2,Land4,Grass6,Land4,Land4,Stone2,Grass2,Land6,Grass6,Land3,Stone3,Land6
+
+Land4,Land4,Grass2,Grass4,Grass3,Land3,Grass1,Grass2,Stone3,Grass1,Grass1,Land4,Grass3,Grass3,Grass2,Grass6,Stone2,Stone2,Land6,Land5,Grass1,Land3,Land6,Grass6,Land3,Land6,Stone3,Land4,Stone1,Stone3,Grass4,Grass4,Stone2,Grass4,Stone1,Grass1,Land2,Land2,Land1,Land5,Land2,Grass4,Stone1,Grass6,Grass6,Land4,Grass1,Grass3,Land3,Grass5
+
+Grass5,Land5,Grass6,Stone2,Land5,Grass2,Grass4,Stone3,Stone1,Land3,Land1,Grass3,Grass3,Grass1,Stone1,Land6,Grass3,Land6,Stone2,Stone2,Grass1,Grass6,Grass1,Grass2,Grass1,Land1,Land4,Grass1,Grass5,Grass2,Land3,Stone3,Land3,Stone3,Stone2,Grass2,Grass3,Grass3,Stone3,Grass6,Grass1,Grass4,Grass1,Stone2,Grass5,Grass4,Grass3,Grass3,Grass4,Grass1
+
+Grass6,Grass5,Grass5,L3,L5,G6,G3,S3,S1,G2,G6,L4,L4,L3,G2,G5,S3,L3,G1,L4,S1,L6,G3,G4,G5,L5,L6,L3,G1,G6,S2,G1,L4,G4,S1,S1,L4,G4,G1,L2,G1,L1,G2,S3,L1,G5,L1,G2,L2,S2
+
+G1,G1,G4,G3,G1,L3,G6,G6,G6,L5,G5,G4,G6,L1,S2,L3,L2,L3,S3,G1,G2,G6,G5,S1,G5,L4,G6,G6,L2,L3,S3,L4,L5,S2,G4,G1,G4,G4,S3,G1,L4,G6,G6,G2,G2,L5,S3,S1,G2,S2
+
+S1,G4,S2,G4,L2,G5,G2,G2,G5,G6,G3,L3,G3,G6,G2,S1,S2,G1,S1,L1,S1,L4,G1,G1,G5,S2,G4,L3,G5,G5,G5,G5,G1,S1,S1,G5,L6,G5,L4,G4,L5,G4,L1,S2,L1,G3,G3,L1,L1,G2
+
+G6,G4,G3,G6,G5,G3,S2,G1,L2,L3,L2,G4,G2,S2,S1,G5,G4,S3,G1,G6,G3,S1,G2,S1,G2,G2,G1,L2,L6,G2,G1,G2,G1,S1,S3,G6,G4,L6,G1,G3,G2,S3,G4,L6,L2,G6,G5,L5,S2,L5
+
+L3,G6,L5,G3,S2,G1,L6,G6,G2,G3,G4,G6,G6,G4,G4,G6,L1,G6,L3,G2,L2,L5,L1,G2,G6,S3,S3,L3,G5,S3,G5,G2,G3,S1,S2,L3,L6,L4,L2,L1,G1,G2,G1,S2,L5,S2,S1,G3,L6,S1
+
+L6,L5,G6,S2,S1,L6,G2,G4,L6,G4,S1,G3,S2,L1,G2,L5,G5,L6,S1,L3,L6,L2,G2,L2,L5,S1,S3,S3,L6,S2,L3,L2,S3,G5,G3,L2,S3,L2,S1,L4,L5,G2,G2,G6,S1,S3,G5,G1,S1,G2
+
+Stone3,Land3,Grass1,Grass1,Stone1,Grass2,Grass6,Land4,Grass2,Land1,Grass6,Grass2,Grass6,Grass4,Land3,Grass6,Grass3,Land4,Grass6,Grass5,Grass2,Grass4,Grass4,Grass4,Grass4,Land4,Grass1,Grass3,Grass2,Grass1,Grass3,Grass3,Grass2,Grass1,Grass2,Land6,Stone3,Grass3,Land4,Grass5,Grass5,Grass2,Land3,Stone1,Grass4,Stone2,Land2,Grass6,Land6,Land1
+
+Grass6,Land3,Grass5,Grass5,Grass4,Grass3,Grass6,Land6,Grass2,Grass2,Stone2,Land2,Land5,Land3,Grass3,Grass2,Land3,Stone2,Grass5,Grass6,Land4,Grass2,Stone1,Grass2,Stone1,Grass2,Grass1,Grass5,Grass1,Grass2,Land5,Grass3,Grass2,Land1,Stone2,Land1,Land4,Stone3,Grass2,Land2,Grass3,Grass2,Grass2,Grass2,Stone3,Grass3,Grass5,Land6,Grass2,Grass6
+
+Grass2,Land6,Stone3,Grass4,Stone3,Stone1,Land3,Grass3,Grass3,Land6,Grass5,Land5,Grass5,Land5,Land5,Grass5,Grass4,Land3,Grass1,Stone2,Grass5,Grass1,Grass3,Grass5,Stone2,Land6,Grass6,Land3,Grass4,Grass6,Land1,Land5,Grass1,Grass3,Grass1,Grass4,Land5,Land5,Grass5,Grass3,Grass6,Grass1,Stone1,Land5,Stone1,Grass6,Land5,Grass4,Grass1,Grass2
+
+Water10,Water3,Water3,Water10,Water6,Water1,Water4,Water9,Water10,Water8,Water8,Water10,Water8,Water8,Water7,Water10,Water6,Water1,Water2,Water6,Water9,Water10,Water9,Water1,Water4,Water2,Water9,Water6,Water8,Water5,Water10,Water7,Water6,Water10,Water10,Water3,Water4,Water7,Water2,Water6,Water5,Water6,Water6,Water1,Water8,Water8,Water6,Water2,Water1,Water7
+
+Water1,Water7,Water6,Water2,Water2,Water10,Water3,Water2,Water9,Water9,Water4,Water4,Water1,Water9,Water10,Water9,Water7,Water3,Water3,Water10,Water8,Water3,Water10,Water6,Water2,Water6,Water1,Water6,Water10,Water8,Water1,Water7,Water2,Water5,Water6,Water5,Water1,Water4,Water4,Water7,Water10,Water6,Water8,Water10,Water4,Water1,Water9,Water6,Water2,Water9
+
+Water5,Water8,Water2,Water4,Water8,Water3,Water2,Water1,Water2,Water5,Water10,Water3,Water5,Water7,Water4,Water3,Water6,Water7,Water8,Water7,Water9,Water8,Water3,Water2,Water1,Water2,Water2,Water10,Water4,Water9,Water1,Water8,Water3,Water9,Water4,Water2,Water7,Water3,Water7,Water7,Water8,Water1,Water3,Water2,Water2,Water10,Water4,Water9,Water4,Water6
+
+Water10,Water5,Water9,Water5,Water8,Water9,Water7,Water6,Water1,Water4,Water1,Water4,Water4,Water7,Water8,Water1,Water4,Water10,Water9,Water9,Water7,Water4,Water3,Water8,Water2,Water8,Water6,Water4,Water2,Water7,Water4,Water5,Water1,Water3,Water10,Water1,Water4,Water5,Water3,Water4,Water3,Water9,Water2,Water4,Water6,Water9,Water3,Water9,Water5,Water1
+
+Water2,Water1,Water5,Water10,Water3,Water2,Water3,Water4,Water9,Water6,Water3,Water8,Water9,Water2,Water5,Water7,Water1,Water1,Water5,Water10,Water3,Water4,Water6,Water8,Water6,Water1,Water6,Water2,Water6,Water6,Water2,Water8,Water2,Water4,Water6,Water9,Water1,Water6,Water10,Water5,Water3,Water5,Water3,Water4,Water5,Water5,Water3,Water10,Water3,Water3
+
+Water9,Water2,Water4,Water10,Water6,Water8,Water2,Water6,Water7,Water10,Water10,Water2,Water2,Water6,Water2,Water7,Water2,Water8,Water6,Water5,Water5,Water8,Water7,Water2,Water10,Water2,Water7,Water1,Water8,Water4,Water4,Water4,Water10,Water3,Water1,Water7,Water4,Water4,Water2,Water4,Water4,Water2,Water3,Water7,Water9,Water8,Water7,Water8,Water7,Water10
+
+Water5,Water10,Water1,Water4,Water9,Water2,Water10,Water2,Water5,Water1,Water3,Water2,Water1,Water3,Water10,Water7,Water3,Water5,Water8,Water5,Water6,Water6,Water4,Water10,Water4,Water6,Water5,Water6,Water7,Water6,Water2,Water5,Water3,Water2,Water5,Water6,Water9,Water9,Water4,Water7,Water2,Water3,Water1,Water3,Water6,Water4,Water8,Water4,Water1,Water7
+
+Water8,Water6,Water6,Water2,Water3,Water1,Water10,Water7,Water8,Water10,Water1,Water10,Water7,Water1,Water1,Water4,Water7,Water5,Water5,Water6,Water2,Water9,Water7,Water2,Water10,Water7,Water5,Water5,Water9,Water9,Water5,Water4,Water5,Water2,Water1,Water4,Water1,Water9,Water7,Water2,Water1,Water5,Water8,Water4,Water3,Water5,Water3,Water4,Water1,Water5
+
+Water6,Water4,Water9,Water5,Water3,Water2,Water2,Water2,Water4,Water4,Water2,Water4,Water3,Water9,Water10,Water1,Water4,Water8,Water7,Water9,Water1,Water3,Water5,Water2,Water6,Water1,Water3,Water10,Water10,Water6,Water8,Water1,Water3,Water5,Water3,Water8,Water5,Water5,Water6,Water4,Water3,Water3,Water10,Water9,Water8,Water9,Water4,Water10,Water6,Water10
+
+Water1,Water10,Water3,Water2,Water5,Water2,Water3,Water8,Water6,Water3,Water5,Water7,Water2,Water5,Water6,Water4,Water3,Water1,Water9,Water4,Water6,Water7,Water5,Water5,Water5,Water1,Water9,Water10,Water1,Water9,Water9,Water6,Water4,Water3,Water6,Water2,Water1,Water2,Water5,Water1,Water2,Water10,Water6,Water9,Water3,Water6,Water1,Water4,Water7,Water7
+
+Water10,Water4,Water3,Water10,Water7,Water7,Water2,Water10,Water10,Water8,Water2,Water9,Water6,Water6,Water8,Water6,Water4,Water8,Water1,Water6,Water5,Water7,Water7,Water8,Water4,Water2,Water6,Water7,Water3,Water5,Water10,Water10,Water1,Water10,Water5,Water2,Water7,Water4,Water1,Water3,Water8,Water3,Water3,Water3,Water7,Water9,Water2,Water5,Water6,Water2
+
+Water9,Water6,Water8,Water1,Water9,Water10,Water8,Water4,Water6,Water5,Water1,Water10,Water5,Water1,Water5,Water10,Water6,Water10,Water7,Water9,Water4,Water9,Water7,Water2,Water7,Water8,Water10,Water10,Water1,Water7,Water1,Water7,Water6,Water10,Water10,Water7,Water5,Water9,Water6,Water3,Water3,Water6,Water2,Water8,Water8,Water2,Water8,Water7,Water5,Water2
+
+Water6,Water10,Water2,Water10,Water10,Water1,Water9,Water4,Water7,Water9,Water9,Water8,Water4,Water2,Water7,Water3,Water6,Water5,Water5,Water1,Water3,Water2,Water6,Water3,Water6,Water1,Water1,Water1,Water8,Water1,Water2,Water6,Water7,Water8,Water2,Water9,Water4,Water3,Water5,Water10,Water5,Water5,Water5,Water2,Water5,Water10,Water3,Water6,Water7,Water7
+
+Water4,Water1,Water6,Water8,Water5,Water3,Water10,Water2,Water1,Water8,Water10,Water9,Water9,Water5,Water4,Water4,Water10,Water8,Water3,Water9,Water2,Water8,Water9,Water7,Water4,Water2,Water4,Water6,Water6,Water1,Water10,Water5,Water7,Water6,Water4,Water4,Water3,Water1,Water5,Water4,Water8,Water7,Water8,Water6,Water2,Water5,Water1,Water3,Water9,Water5
+
+Water10,Water3,Water2,Water3,Water4,Water9,Water8,Water2,Water3,Water10,Water4,Water10,Water2,Water4,Water10,Water2,Water2,Water1,Water10,Water8,Water8,Water2,Water1,Water5,Water8,Water2,Water4,Water4,Water10,Water1,Water2,Water3,Water5,Water10,Water7,Water5,Water3,Water10,Water5,Water9,Water2,Water3,Water6,Water2,Water4,Water5,Water1,Water3,Water6,Water3
+
+
+[16/12/2025 18:38:03] ERROR: Map Test1.json not found
+[16/12/2025 18:38:03] WARNING: Test1.json is not valid
+[16/12/2025 18:38:03] INFO: /Users/filippos/Desktop/Dev/StrongholdCrusaderProject/Stronghold Crusader Project/GameData/Maps/ValidMap.json found and is being loaded
+[16/12/2025 18:38:03] INFO: ValidMap.json is a valid map
+[16/12/2025 18:38:03] INFO: Map ValidMap.json has been imported
+[16/12/2025 18:38:03] ERROR: Tile Key Water could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L4 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key L5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G6 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S3 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G5 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key S1 could not be found in texture map
+[16/12/2025 18:38:03] ERROR: Tile Key G2 could not be found in texture map
+[16/12/2025 18:38:03] INFO: Map ValidMap.json has been loaded, here is the map 
+ Water,Water6,Water8,Water9,Water3,Water4,Water10,Water6,Water5,Water1,Water3,Water2,Water2,Water10,Water7,Water5,Water1,Water7,Water6,Water8,Water2,Water7,Water6,Water7,Water9,Water1,Water8,Water1,Water4,Water9,Water1,Water6,Water5,Water5,Water1,Water4,Water3,Water10,Water10,Water1,Water4,Water9,Water4,Water5,Water2,Water1,Water3,Water2,Water4,Water5
+
+Water2,Water9,Water6,Water5,Water9,Water4,Water5,Water9,Water10,Water10,Water9,Water9,Water8,Water9,Water9,Water8,Water7,Water8,Water3,Water10,Water10,Water6,Water6,Water2,Water8,Water9,Water10,Water7,Water5,Water9,Water4,Water7,Water6,Water9,Water7,Water1,Water8,Water5,Water4,Water2,Water9,Water3,Water1,Water10,Water4,Water4,Water5,Water7,Water9,Water3
+
+Water10,Water6,Water9,Water8,Water10,Water4,Water3,Water9,Water4,Water4,Water7,Water8,Water3,Water3,Water10,Water3,Water6,Water6,Water5,Water3,Water3,Water1,Water2,Water6,Water10,Water7,Water10,Water10,Water6,Water7,Water5,Water3,Water4,Water10,Water2,Water7,Water6,Water7,Water9,Water10,Water9,Water10,Water5,Water5,Water3,Water2,Water8,Water7,Water1,Water6
+
+Water6,Water6,Water10,Water3,Water5,Water3,Water7,Water5,Water5,Water9,Water4,Water8,Water3,Water6,Water2,Water10,Water1,Water4,Water8,Water3,Water2,Water2,Water5,Water3,Water9,Water8,Water4,Water10,Water4,Water9,Water6,Water5,Water10,Water6,Water6,Water2,Water9,Water3,Water1,Water3,Water3,Water5,Water8,Water8,Water5,Water4,Water10,Water4,Water1,Water2
+
+Water3,Water5,Water10,Water4,Water8,Water1,Water5,Water9,Water10,Water8,Water8,Water2,Water3,Water1,Water9,Water6,Water6,Water9,Water6,Water7,Water1,Water8,Water2,Water10,Water8,Water10,Water8,Water7,Water5,Water6,Water2,Water5,Water9,Water1,Water9,Water10,Water4,Water2,Water7,Water6,Water10,Water1,Water3,Water10,Water2,Water6,Water5,Water2,Water8,Water1
+
+Water3,Water3,Water3,Water10,Water1,Water6,Water6,Water3,Water1,Water6,Water1,Water2,Water4,Water10,Water2,Water1,Water4,Water1,Water2,Water9,Water10,Water1,Water6,Water6,Water9,Water10,Water1,Water10,Water8,Water7,Water7,Water2,Water2,Water1,Water6,Water5,Water8,Water3,Water9,Water7,Water5,Water4,Water7,Water10,Water9,Water7,Water5,Water10,Water2,Water3
+
+Water4,Water1,Water5,Water6,Water7,Water10,Water2,Water1,Water2,Water9,Water9,Water5,Water2,Water5,Water3,Water1,Water5,Water3,Water3,Water6,Water4,Water1,Water3,Water4,Water6,Water3,Water6,Water5,Water9,Water9,Water2,Water1,Water2,Water8,Water1,Water4,Water9,Water4,Water10,Water10,Water1,Water4,Water9,Water9,Water4,Water7,Water3,Water3,Water2,Water10
+
+Water5,Water3,Water2,Water8,Water2,Water8,Water8,Water10,Water10,Water5,Water6,Water3,Water5,Water4,Water1,Water5,Water3,Water3,Water4,Water6,Water9,Water7,Water5,Water3,Water2,Water2,Water9,Water9,Water3,Water2,Water3,Water7,Water2,Water5,Water10,Water6,Water5,Water1,Water2,Water7,Water9,Water5,Water8,Water4,Water3,Water1,Water1,Water9,Water2,Water3
+
+Water8,Water5,Water7,Water8,Water7,Water7,Water3,Water2,Water9,Water3,Water6,Water3,Water2,Water5,Water6,Water8,Water7,Water3,Water5,Water10,Water10,Water10,Water4,Water5,Water1,Water4,Water6,Water1,Water2,Water2,Water10,Water10,Water2,Water10,Water9,Water9,Water7,Water1,Water6,Water7,Water1,Water2,Water1,Water9,Water1,Water4,Water5,Water5,Water6,Water7
+
+Water3,Water3,Water1,Water2,Water1,Water2,Water6,Water5,Water4,Water5,Water1,Water10,Water7,Water7,Water2,Water9,Water6,Water1,Water5,Water10,Water4,Water4,Water5,Water6,Water4,Water6,Water9,Water7,Water7,Water1,Water6,Water6,Water8,Water3,Water8,Water4,Water4,Water3,Water2,Water9,Water5,Water5,Water8,Water5,Water3,Water3,Water3,Water7,Water9,Water8
+
+Water9,Water2,Water2,Water5,Water7,Water4,Water10,Water6,Water1,Water1,Water4,Water7,Water10,Water3,Water4,Water8,Water6,Water3,Water6,Water5,Water2,Water5,Water1,Water10,Water8,Water6,Water10,Water1,Water8,Water7,Water10,Water3,Water9,Water1,Water5,Water8,Water9,Water3,Water4,Water9,Water2,Water8,Water4,Water3,Water5,Water10,Water4,Water2,Water4,Water4
+
+Water10,Water3,Water1,Water3,Water9,Water6,Water6,Water2,Water2,Water1,Water5,Water4,Water4,Water3,Water7,Water6,Water8,Water1,Water8,Water2,Water6,Water8,Water2,Water8,Water3,Water10,Water7,Water6,Water9,Water8,Water9,Water7,Water7,Water6,Water5,Water7,Water5,Water10,Water8,Water3,Water5,Water2,Water2,Water1,Water4,Water10,Water5,Water8,Water4,Water9
+
+Water2,Water9,Water4,Water3,Water9,Water2,Water10,Water2,Water8,Water1,Water1,Water3,Water4,Water2,Water1,Water10,Water8,Water8,Water8,Water6,Water1,Water10,Water2,Water3,Water4,Water10,Water9,Water6,Water6,Water7,Water3,Water6,Water8,Water10,Water4,Water6,Water7,Water10,Water4,Water10,Water6,Water7,Water10,Water10,Water2,Water10,Water4,Water5,Water4,Water5
+
+Water10,Water3,Water3,Water1,Water2,Water2,Water6,Water10,Water3,Water7,Water8,Water8,Water4,Water5,Water10,Water3,Water3,Water2,Water3,Water2,Water8,Water9,Water9,Water7,Water4,Water2,Water3,Water9,Water2,Water10,Water4,Water5,Water10,Water1,Water6,Water8,Water2,Water10,Water4,Water6,Water2,Water8,Water7,Water10,Water6,Water2,Water9,Water8,Water7,Water6
+
+Water9,Water6,Water8,Water8,Water6,Water1,Water5,Water1,Water10,Water7,Water5,Water4,Water9,Water8,Water4,Water2,Water1,Water9,Water1,Water2,Water5,Water9,Water5,Water10,Water3,Water8,Water2,Water7,Water1,Water8,Water4,Water10,Water1,Water10,Water5,Water5,Water1,Water10,Water2,Water3,Water4,Water6,Water10,Water3,Water8,Water5,Water7,Water1,Water6,Water7
+
+Grass1,Land2,Land3,Grass4,Land6,Grass2,Stone2,Land1,Stone3,Stone3,Land1,Grass4,Land2,Stone3,Stone2,Land2,Stone1,Grass1,Grass6,Stone1,Land6,Grass5,Stone3,Land5,Grass2,Stone2,Grass4,Land5,Grass1,Land5,Land3,Land6,Land3,Land4,Grass5,Grass4,Grass6,Grass2,Grass6,Grass5,Land2,Stone3,Grass4,Stone2,Grass2,Grass2,Stone3,Grass3,Stone3,Grass6
+
+Grass4,Stone3,Stone3,Stone1,Grass5,Grass5,Stone2,Stone1,Grass4,Land2,Stone3,Grass5,Land2,Grass3,Grass1,Land3,Grass1,Land2,Grass1,Land3,Land3,Grass2,Stone1,Land4,Land4,Land6,Stone1,Grass2,Grass3,Land5,Grass2,Stone3,Grass1,Land5,Land5,Grass1,Grass5,Grass4,Land5,Grass1,Grass5,Grass4,Grass2,Land1,Grass3,Grass2,Land5,Stone3,Land5,Grass3
+
+Grass3,Land6,Grass6,Grass5,Stone1,Grass2,Grass1,Grass1,Grass1,Grass1,Stone1,Grass6,Grass6,Stone1,Grass5,Grass3,Land3,Grass1,Grass2,Stone1,Grass5,Land4,Grass6,Stone1,Grass5,Land2,Land6,Stone1,Grass1,Land2,Grass6,Grass4,Grass5,Stone1,Stone3,Stone2,Land1,Stone2,Grass5,Land5,Grass6,Grass6,Land5,Grass6,Stone2,Land4,Grass3,Land2,Stone1,Land3
+
+Grass4,Stone3,Grass1,Grass2,Land5,Grass3,Stone2,Grass4,Land2,Land1,Stone1,Grass4,Grass3,Stone3,Grass6,Land1,Stone3,Grass5,Grass2,Land5,Land2,Land1,Land4,Land4,Land4,Land3,Grass6,Grass4,Grass4,Grass4,Stone1,Grass4,Grass4,Land1,Land6,Stone1,Grass3,Land6,Grass6,Grass5,Grass4,Land6,Grass2,Stone1,Land6,Grass1,Grass5,Grass1,Grass2,Grass4
+
+Stone1,Grass5,Stone1,Grass1,Grass5,Stone1,Grass2,Grass4,Land1,Stone3,Grass6,Grass1,Grass5,Grass5,Grass6,Grass3,Grass3,Land4,Grass6,Land4,Grass1,Grass1,Grass2,Grass4,Stone3,Land6,Grass2,Grass1,Stone3,Land3,Land4,Land5,Stone1,Land3,Grass5,Land2,Grass5,Grass4,Grass6,Grass5,Grass4,Stone3,Grass3,Land1,Land4,Land1,Land2,Grass4,Stone3,Stone1
+
+Stone3,Land1,Stone3,Stone3,Stone2,Grass2,Grass5,Land6,Stone1,Land5,Grass5,Grass2,Land6,Grass6,Grass4,Grass2,Grass3,Grass1,Land3,Land6,Grass2,Grass2,Grass6,Land1,Stone1,Grass4,Stone1,Grass6,Land3,Stone3,Land2,Stone1,Grass6,Stone1,Grass5,Stone3,Grass6,Land3,Land5,Grass5,Land3,Grass6,Land4,Grass3,Land2,Land4,Stone2,Grass2,Grass1,Land4
+
+Stone1,Grass4,Land4,Land6,Stone2,Grass5,Stone2,Stone2,Stone2,Grass3,Stone2,Grass3,Land4,Grass2,Grass4,Grass6,Stone3,Land4,Grass4,Land6,Stone1,Land4,Grass6,Land3,Grass3,Stone2,Grass5,Land2,Land4,Grass4,Grass6,Grass6,Grass5,Stone2,Land4,Land6,Stone1,Grass2,Grass3,Stone3,Grass3,Stone2,Grass6,Grass1,Grass6,Grass5,Grass6,Land4,Stone1,Land4
+
+Stone2,Grass2,Land3,Grass5,Grass1,Grass5,Grass4,Grass1,Stone3,Grass2,Land4,Stone1,Grass3,Stone1,Grass3,Grass1,Grass6,Land5,Stone3,Grass1,Stone3,Stone3,Grass3,Grass1,Stone3,Grass1,Grass5,Stone3,Land1,Stone3,Grass4,Grass5,Grass3,Grass3,Grass2,Grass1,Grass1,Grass2,Grass6,Grass2,Grass5,Grass3,Grass6,Land6,Grass1,Grass4,Stone3,Land1,Land6,Stone2
+
+Land1,Stone2,Grass5,Land2,Grass1,Grass6,Stone1,Stone2,Grass6,Land2,Land5,Stone2,Grass3,Land1,Grass2,Stone2,Grass2,Stone1,Stone3,Stone1,Grass4,Grass3,Land3,Grass2,Stone2,Grass5,Land3,Grass1,Land5,Stone1,Land1,Grass6,Grass6,Grass1,Grass6,Stone2,Land4,Grass4,Grass3,Land1,Land6,Stone1,Stone2,Stone1,Land6,Land6,Stone3,Grass5,Land3,Stone3
+
+Grass6,Grass6,Grass1,Stone1,Grass1,Land5,Stone1,Grass3,Land3,Land4,Land6,Stone2,Land2,Grass3,Land4,Land3,Grass6,Grass4,Grass5,Grass3,Grass6,Land4,Stone2,Land3,Land5,Land1,Land3,Grass5,Grass5,Stone1,Stone1,Land5,Land6,Land6,Grass4,Land6,Land6,Grass6,Grass5,Grass4,Land1,Grass5,Land4,Grass5,Grass1,Land4,Land2,Stone2,Stone3,Land4
+
+Stone3,Grass2,Grass2,Grass5,Grass1,Stone1,Stone3,Grass2,Land6,Land2,Grass5,Grass2,Land2,Stone2,Grass2,Stone1,Grass6,Land2,Grass2,Land5,Land3,Grass6,Grass2,Grass1,Grass4,Land2,Stone2,Stone1,Stone1,Grass5,Land1,Grass5,Stone3,Grass6,Grass6,Stone2,Grass5,Grass4,Land1,Land1,Grass4,Grass4,Grass1,Land5,Grass5,Land5,Grass1,Stone3,Stone2,Stone2
+
+Stone3,Grass3,Grass5,Grass3,Grass6,Grass2,Grass3,Land3,Grass5,Land6,Stone3,Grass3,Grass3,Grass4,Stone3,Land4,Grass1,Grass5,Stone3,Stone1,Grass6,Land6,Grass4,Stone3,Stone1,Grass1,Land3,Grass1,Stone2,Stone1,Grass2,Grass3,Land4,Land5,Grass4,Stone1,Grass1,Grass3,Grass1,Stone2,Grass4,Grass6,Grass1,Grass5,Grass5,Land1,Stone2,Land3,Stone3,Land6
+
+Grass6,Grass4,Grass2,Grass1,Grass2,Land2,Stone1,Grass6,Grass4,Grass1,Land1,Grass1,Land6,Stone3,Grass4,Stone3,Land5,Grass6,Stone3,Land2,Land6,Stone3,Land4,Land4,Grass2,Land3,Land2,Grass5,Stone2,Stone2,Land5,Grass2,Grass4,Grass2,Stone3,Grass5,Grass3,Stone1,Land2,Land1,Land5,Stone3,Grass5,Land3,Land2,Stone1,Grass2,Grass3,Grass1,Grass2
+
+Land2,Land3,Land3,Grass5,Grass4,Grass3,Grass6,Land5,Land6,Land3,Land3,Stone1,Stone2,Stone3,Grass6,Stone2,Land2,Land4,Land5,Stone3,Land2,Grass4,Stone1,Stone1,Grass2,Grass3,Grass1,Land4,Grass5,Grass1,Grass2,Land1,Grass2,Grass4,Grass5,Stone1,Grass3,Land2,Land1,Land1,Grass6,Stone3,Grass4,Stone3,Grass4,Grass1,Grass4,Grass6,Grass5,Grass5
+
+Land1,Land1,Stone2,Land1,Grass2,Stone1,Grass6,Land5,Land5,Land4,Land3,Grass2,Grass3,Grass6,Grass6,Grass4,Grass2,Grass6,Grass5,Land4,Grass4,Land1,Land6,Land4,Grass3,Grass5,Stone2,Grass2,Stone1,Land5,Stone2,Grass5,Grass2,Stone2,Grass1,Grass3,Grass6,Grass4,Land3,Grass4,Grass2,Grass6,Land4,Grass4,Grass1,Stone2,Stone2,Grass5,Land6,Grass3
+
+Grass4,Land3,Land4,Land5,Land2,Land3,Stone3,Grass4,Land3,Land4,Land1,Grass3,Land2,Grass2,Grass3,Grass2,Grass3,Grass5,Land2,Grass3,Land5,Grass1,Grass5,Land2,Stone2,Land3,Land6,Land3,Grass6,Grass4,Stone1,Grass4,Land2,Grass3,Grass5,Grass1,Stone2,Land5,Stone2,Land4,Land1,Grass2,Grass5,Land5,Land6,Land2,Stone3,Grass5,Land2,Grass2
+
+Grass3,Stone1,Grass6,Grass4,Grass4,Land1,Land6,Grass5,Grass6,Grass5,Stone1,Land3,Land2,Land6,Grass3,Stone1,Stone3,Grass5,Grass1,Grass1,Grass2,Grass6,Land3,Land6,Grass4,Land4,Grass5,Land2,Grass6,Grass2,Grass1,Land1,Land1,Land5,Grass4,Grass6,Grass5,Grass5,Grass2,Grass6,Grass1,Grass2,Stone3,Grass3,Grass5,Grass2,Land2,Grass2,Stone1,Grass4
+
+Stone2,Land2,Stone1,Land2,Land1,Stone2,Grass2,Land4,Land1,Land6,Grass3,Grass3,Grass1,Land5,Land1,Stone3,Grass3,Grass4,Grass2,Land6,Grass1,Land6,Land5,Grass2,Land2,Land4,Grass2,Grass6,Stone1,Land2,Stone3,Stone2,Grass3,Grass4,Grass5,Grass2,Stone3,Stone1,Grass4,Land4,Land6,Grass3,Land1,Grass2,Grass4,Stone2,Land5,Grass2,Stone3,Land6
+
+Grass1,Stone2,Grass3,Stone3,Land3,Land3,Grass2,Grass3,Land2,Land2,Grass2,Land1,Grass2,Stone3,Grass6,Grass5,Grass4,Grass3,Stone1,Land3,Land3,Land4,Grass5,Land6,Grass3,Grass2,Grass6,Grass4,Stone3,Grass5,Grass5,Grass5,Grass3,Stone1,Grass6,Land1,Grass5,Land2,Land1,Land3,Land6,Grass6,Land6,Land1,Grass4,Land4,Stone2,Grass1,Stone2,Stone2
+
+Stone2,Grass2,Grass1,Stone3,Grass4,Grass5,Grass1,Land1,Land6,Grass3,Land3,Stone2,Land3,Land2,Grass2,Land5,Land2,Grass6,Grass1,Grass6,Stone1,Grass6,Land5,Stone3,Stone2,Grass5,Land2,Stone3,Land4,Grass3,Land3,Grass5,Stone1,Grass3,Grass1,Stone3,Grass2,Land1,Land2,Grass2,Land5,Grass3,Stone3,Land5,Grass4,Stone2,Grass6,Grass6,Land3,Grass1
+
+Grass1,Stone2,Land3,Stone3,Stone1,Stone3,Land5,Stone1,Stone2,Land3,Grass5,Grass1,Grass5,Grass5,Land3,Grass6,Land2,Grass3,Land1,Grass1,Land5,Grass6,Land2,Grass1,Grass1,Stone3,Stone3,Grass4,Stone1,Grass6,Stone1,Grass5,Stone2,Grass4,Land1,Land5,Grass1,Grass2,Grass6,Grass5,Grass1,Grass1,Grass3,Land4,Grass5,Grass1,Land6,Grass3,Stone1,Grass6
+
+Grass6,Grass6,Land5,Stone2,Grass5,Stone2,Stone1,Grass2,Stone2,Grass3,Grass5,Grass5,Stone2,Grass3,Grass4,Land5,Grass3,Land5,Grass6,Land4,Stone3,Grass3,Land1,Grass4,Land2,Grass2,Grass6,Land4,Grass5,Stone2,Land1,Grass3,Stone2,Land4,Grass1,Stone1,Grass6,Grass5,Grass5,Grass5,Land3,Land4,Land6,Land6,Land4,Stone1,Land4,Grass3,Land6,Grass2
+
+Grass2,Stone1,Land4,Land2,Land1,Grass5,Stone2,Grass1,Grass4,Land2,Land2,Grass3,Grass2,Grass2,Stone2,Land4,Grass4,Stone1,Grass2,Grass2,Grass2,Land1,Stone1,Grass2,Stone2,Grass4,Land5,Grass2,Land6,Grass6,Grass1,Grass5,Grass5,Grass1,Stone3,Land2,Grass5,Stone3,Grass2,Grass2,Grass4,Stone1,Stone1,Grass3,Stone3,Land4,Grass6,Grass1,Grass4,Stone3
+
+Land5,Grass3,Stone2,Land1,Land1,Grass1,Grass2,Grass1,Grass3,Land3,Stone3,Stone2,Grass4,Grass4,Grass4,Stone3,Land2,Land4,Stone2,Stone2,Grass2,Stone1,Land6,Stone1,Grass1,Grass2,Grass6,Land1,Grass5,Grass5,Grass1,Grass1,Grass1,Stone1,Grass2,Grass3,Grass5,Grass5,Grass6,Grass4,Grass4,Land3,Grass2,Grass5,Grass3,Land3,Grass5,Land4,Grass3,Grass6
+
+Grass4,Grass4,Land5,Grass4,Grass2,Grass3,Grass4,Land4,Grass3,Grass2,Grass1,Land3,Grass1,Stone3,Land2,Grass4,Grass6,Grass1,Grass2,Grass5,Grass1,Grass3,Land1,Land2,Land4,Land2,Land2,Land1,Land3,Grass5,Land6,Grass4,Grass2,Grass2,Grass4,Land1,Grass4,Land1,Land1,Land3,Land1,Stone2,Land4,Land6,Grass3,Grass5,Grass1,Land5,Land6,Stone1
+
+Land6,Grass4,Grass5,Stone2,Grass4,Land2,Land5,Stone1,Grass2,Grass6,Grass1,Grass6,Land5,Grass4,Grass6,Stone2,Grass1,Land3,Grass2,Stone3,Grass5,Grass5,Land6,Grass2,Grass1,Grass6,Grass1,Grass2,Grass3,Grass3,Grass3,Land5,Land2,Grass1,Grass6,Grass3,Stone1,Land3,Grass4,Stone3,Rock4,Stone2,Iron2,Rock4,Iron1,Stone3,Iron3,Rock4,Rock5,Stone2
+
+Land3,Grass4,Land5,Grass2,Stone1,Grass1,Grass2,Land4,Grass3,Grass5,Stone2,Land3,Grass3,Stone3,Land2,Land6,Stone3,Stone2,Grass5,Land2,Land3,Land1,Stone2,Land4,Grass5,Grass1,Grass4,Grass2,Stone1,Land5,Stone2,Land4,Grass2,Grass3,Grass5,Stone1,Grass4,Land1,Stone2,Land2,Stone2,Stone3,Stone1,Rock2,Iron2,Stone1,Iron1,Stone2,Iron3,Iron4
+
+Grass4,Grass6,Land2,Land2,Stone3,Land4,Land5,Grass6,Stone3,Land5,Land3,Grass4,Grass3,Stone2,Grass6,Stone2,Grass4,Stone3,Grass6,Stone2,Grass5,Grass4,Grass3,Stone2,Land2,Grass3,Grass5,Grass1,Grass4,Land2,Stone1,Grass4,Land2,Grass6,Stone1,Grass3,Stone1,Grass6,Grass4,Land2,Rock5,Stone3,Iron4,Stone1,Iron4,Iron2,Iron2,Stone3,Rock1,Stone1
+
+Grass5,Land4,Grass5,Land4,Land6,Grass5,Grass1,Stone3,Land6,Land5,Stone1,Land1,Grass5,Grass5,Stone2,Stone3,Land5,Stone3,Land5,Grass4,Stone1,Grass2,Grass6,Grass6,Stone1,Grass6,Stone3,Land3,Land4,Grass4,Grass1,Grass2,Land3,Grass2,Grass2,Grass6,Grass2,Stone2,Grass4,Stone3,Rock2,Iron3,Rock6,Iron2,Stone3,Stone1,Stone3,Stone1,Stone3,Stone3
+
+Grass6,Grass1,Land5,Land2,Grass2,Grass3,Land6,Grass6,Grass2,Land1,Grass1,Grass1,Grass1,Grass2,Grass2,Grass2,Stone3,Land3,Grass5,Grass1,Stone1,Grass5,Grass5,Stone2,Grass5,Land1,Grass2,Grass6,Grass4,Grass5,Grass1,Grass4,Land2,Grass3,Stone2,Land1,Land5,Grass5,Grass2,Land5,Stone1,Rock6,Rock6,Iron3,Stone3,Stone1,Rock5,Rock4,Rock4,Stone3
+
+Land6,Grass5,Land2,Grass5,Grass3,Stone3,Land1,Grass6,Land5,Stone2,Grass1,Land3,Land1,Stone3,Grass3,Grass5,Grass3,Grass6,Stone2,Stone1,Land6,Land3,Grass6,Grass2,Land4,Grass3,Stone2,Stone3,Stone3,Grass6,Stone3,Stone2,Grass2,Grass2,Grass2,Land2,Land6,Grass1,Grass5,Grass5,Rock4,Stone2,Rock4,Rock1,Stone3,Iron1,Rock4,Stone1,Rock1,Rock2
+
+Grass6,Grass5,Grass5,Grass2,Land2,Grass6,Land6,Grass5,Land6,Grass1,Grass6,Land6,Land5,Grass1,Grass4,Stone1,Land4,Grass2,Land3,Stone1,Land4,Grass3,Land1,Stone2,Stone3,Grass1,Land6,Stone1,Grass1,Land5,Stone1,Stone1,Grass3,Land2,Grass2,Grass1,Stone3,Stone3,Stone2,Grass3,Rock4,Stone2,Rock5,Iron4,Iron1,Stone3,Iron1,Stone3,Stone2,Stone2
+
+Stone2,Land3,Land1,Stone2,Grass1,Stone2,Grass1,Stone2,Grass6,Stone1,Stone2,Grass5,Land5,Stone2,Land5,Grass2,Grass5,Grass2,Grass3,Stone2,Grass1,Land4,Grass3,Grass2,Grass2,Land1,Stone3,Grass4,Grass6,Stone3,Grass5,Stone3,Land3,Grass3,Grass1,Land5,Grass6,Stone3,Land4,Land4,Stone3,Stone2,Stone3,Stone3,Iron1,Stone1,Rock2,Iron3,Iron1,Rock4
+
+Grass5,Grass4,Grass1,Grass2,Stone2,Grass5,Land6,Grass6,Stone2,Stone3,Grass5,Land2,Grass2,Land5,Land3,Stone2,Stone2,Grass5,Land4,Grass4,Land6,Grass2,Grass4,Grass1,Stone1,Land4,Grass4,Grass2,Land2,Grass1,Land5,Grass1,Stone1,Stone2,Land6,Land6,Stone3,Grass3,Stone1,Grass2,Stone3,Stone2,Rock3,Rock4,Rock5,Rock1,Rock2,Rock5,Iron4,Iron1
+
+Land6,Land4,Grass6,Grass4,Land6,Grass3,Land5,Grass5,Grass6,Land4,Stone2,Grass4,Land3,Grass2,Stone2,Land2,Grass5,Grass1,Grass3,Grass5,Stone1,Land4,Grass6,Land5,Grass3,Land3,Grass6,Stone3,Land1,Land5,Grass4,Stone2,Grass3,Land1,Grass2,Grass4,Stone3,Land6,Grass5,Grass5,Rock1,Rock3,Rock6,Stone2,Iron3,Iron4,Rock5,Rock1,Rock3,Stone1
+
+Grass3,Stone2,Land3,Grass4,Land3,Stone1,Land4,Stone2,Land4,Grass6,Grass6,Grass2,Grass5,Grass4,Land6,Grass2,Stone2,Grass5,Grass2,Grass1,Stone1,Grass2,Grass6,Grass5,Stone2,Grass6,Land6,Land2,Land2,Grass1,Grass3,Grass5,Stone2,Grass6,Grass6,Land4,Grass6,Land6,Land3,Grass3,Stone1,Stone3,Stone2,Stone1,Stone2,Stone1,Rock4,Rock1,Iron2,Iron2
+
+Grass2,Grass1,Grass1,Stone1,Land4,Land3,Grass2,Grass5,Grass3,Grass1,Stone2,Grass3,Grass4,Grass1,Land6,Grass1,Grass2,Grass3,Grass1,Grass5,Grass3,Grass5,Grass2,Stone3,Grass4,Grass3,Grass6,Grass1,Grass4,Grass3,Grass3,Grass1,Grass6,Land6,Grass3,Grass4,Grass1,Grass5,Stone2,Land2,Iron2,Rock6,Iron1,Iron3,Rock1,Stone1,Iron1,Rock3,Iron2,Rock5
+
+Grass1,Land2,Stone2,Stone2,Grass1,Grass5,Stone3,Grass3,Land4,Stone1,Grass2,Stone2,Grass3,Grass3,Land5,Land1,Grass3,Stone1,Stone3,Grass1,Grass3,Land1,Grass6,Grass1,Land1,Grass4,Stone3,Grass5,Land3,Grass1,Grass1,Land6,Stone3,Grass4,Stone2,Land2,Land3,Grass6,Stone2,Grass6,Iron1,Iron1,Rock4,Iron3,Iron4,Rock3,Stone1,Stone2,Iron3,Stone1
+
+Land4,Grass6,Grass4,Land2,Land6,Grass1,Stone2,Grass2,Stone2,Land2,Land2,Grass2,Grass6,Grass1,Land2,Land2,Stone2,Grass4,Land5,Land4,Land5,Land3,Land5,Stone2,Land2,Land3,Grass5,Grass1,Grass3,Land4,Grass5,Stone2,Stone1,Grass2,Grass4,Stone2,Grass3,Grass4,Land4,Land4,Rock2,Rock5,Stone3,Rock3,Stone1,Iron3,Rock3,Iron2,Rock4,Iron3
+
+Grass3,Grass5,Grass1,Land5,Stone2,Stone3,Grass3,Land2,Land4,Stone2,Grass1,Stone1,Land6,Land5,Grass4,Stone2,Grass6,Grass2,Grass5,Stone3,Stone2,Stone2,Grass4,Grass1,Grass4,Land6,Stone1,Grass1,Grass6,Stone2,Grass3,Grass1,Grass3,Grass5,Grass2,Stone1,Grass2,Stone1,Grass3,Grass1,Stone1,Iron1,Stone3,Stone2,Stone2,Stone3,Rock1,Rock3,Rock2,Rock2
+
+Grass1,Land2,Land3,Land4,Land1,Land3,Stone3,Land1,Stone2,Land1,Stone2,Grass2,Stone2,Grass4,Land6,Grass1,Grass1,Grass1,Grass4,Land4,Stone2,Grass4,Grass4,Grass4,Stone1,Grass6,Land3,Grass5,Grass3,Land2,Grass5,Land1,Land5,Grass2,Stone1,Grass2,Stone1,Grass4,Grass5,Grass4,Rock1,Iron1,Stone1,Rock1,Stone3,Iron1,Stone1,Iron4,Iron4,Stone2
+
+Stone1,Grass1,Land5,Grass6,Grass5,Grass2,Grass5,Stone2,Grass2,Grass2,Grass5,Grass2,Land4,Stone3,Stone1,Stone1,Grass5,Land2,Grass5,Land5,Land4,Grass5,Stone1,Land5,Grass2,Land1,Land1,Grass3,Grass2,Land4,Land1,Land6,Grass4,Grass6,Grass1,Land1,Stone2,Stone3,Grass1,Stone1,Rock2,Rock3,Iron3,Iron2,Iron2,Rock1,Iron4,Stone2,Iron3,Stone3
+
+Grass2,Grass3,Grass2,Grass5,Stone1,Stone2,Land3,Grass2,Grass2,Stone1,Land2,Grass4,Grass3,Grass6,Land3,Grass4,Land5,Grass2,Grass3,Stone2,Grass4,Stone3,Stone3,Land3,Grass5,Grass1,Stone3,Grass3,Land2,Grass4,Land2,Grass2,Stone1,Land4,Grass5,Stone1,Grass2,Land6,Grass3,Stone1,Rock3,Stone1,Stone1,Rock1,Iron2,Rock2,Stone2,Iron1,Rock5,Iron1
+
+Land1,Grass4,Stone2,Stone1,Stone2,Land3,Grass4,Stone2,Grass2,Stone3,Grass2,Grass1,Land5,Stone2,Stone3,Grass6,Stone3,Land1,Grass1,Land4,Grass5,Stone2,Land3,Land1,Stone2,Land5,Land1,Grass6,Land6,Stone2,Grass6,Land1,Grass5,Land2,Stone3,Land4,Grass6,Grass2,Grass3,Stone1,Rock6,Rock1,Iron4,Stone3,Stone2,Stone1,Stone3,Iron2,Rock2,Stone2
+
+Grass2,Land3,Grass5,Stone2,Stone1,Stone2,Land6,Grass1,Land6,Stone2,Stone2,Grass3,Stone3,Stone3,Land3,Grass1,Grass5,Grass2,Grass6,Land6,Grass5,Land1,Land4,Land6,Grass4,Stone1,Land1,Land1,Grass3,Grass6,Land5,Grass6,Stone2,Grass1,Grass2,Stone3,Land5,Stone1,Stone1,Grass3,Iron1,Stone2,Iron3,Iron4,Iron1,Iron1,Iron1,Rock6,Rock6,Iron4
+
+Land4,Stone3,Grass6,Stone2,Stone2,Land5,Grass6,Stone1,Land4,Grass6,Stone1,Stone2,Grass5,Grass1,Land2,Land2,Land3,Land6,Grass6,Grass2,Stone1,Stone2,Stone1,Grass3,Grass6,Grass2,Grass2,Grass5,Stone1,Grass2,Grass2,Grass6,Stone3,Grass6,Grass3,Land4,Stone3,Stone2,Grass1,Land3,Stone1,Grass1,Grass6,Grass3,Grass4,Stone3,Land5,Grass2,Stone3,Grass3
+
+Grass6,Grass3,Land1,Grass2,Grass5,Land5,Land6,Stone2,Grass5,Grass5,Grass3,Grass5,Grass2,Grass1,Grass2,Grass5,Grass5,Land1,Grass2,Grass6,Grass2,Grass1,Land2,Land3,Grass1,Grass3,Stone3,Land5,Stone1,Land6,Stone1,Grass3,Grass5,Grass3,Grass1,Land1,Stone2,Grass5,Land4,Land6,Stone1,Land3,Grass2,Land2,Stone3,Land6,Land6,Grass2,Stone3,Land3
+
+Grass2,Land2,Grass6,Grass6,Grass6,Stone1,Grass5,Stone3,Grass4,Grass5,Land4,Land4,Grass1,Grass1,Grass4,Grass1,Land1,Grass5,Land6,Grass6,Stone3,Grass6,Stone1,Grass2,Stone3,Stone1,Stone3,Land5,Land1,Stone3,Grass1,Grass6,Grass6,Grass5,Grass1,Stone3,Stone1,Grass3,Stone3,Stone3,Grass1,Land3,Grass1,Land6,Grass1,Grass4,Stone1,Grass1,Grass6,Land5
+
+Grass3,Land3,Grass3,Stone2,Stone1,Land3,Grass6,Stone2,Grass3,Land4,Land6,Land4,Grass6,Land2,Grass4,Stone2,Stone3,Grass4,Stone1,Grass6,Grass6,Grass1,Grass5,Grass6,Grass2,Grass4,Land5,Stone3,Stone3,Grass1,Grass2,Grass4,Stone3,Stone2,Grass5,Grass2,Grass4,Land5,Land1,Grass2,Land4,Land6,Land6,Grass4,Grass1,Land3,Grass4,Stone3,Land5,Grass6
+
+Land2,Grass6,Grass5,Grass2,Grass6,Grass1,Land3,Grass1,Grass5,Stone2,Land3,Grass2,Grass2,Land1,Grass4,Stone1,Stone1,Grass2,Land3,Grass4,Land6,Grass2,Stone3,Stone3,Land3,Land6,Land1,Stone2,Stone1,Grass6,Grass2,Land3,Land4,Grass4,Land6,Stone2,Land1,Land4,Grass3,Grass1,Grass3,Stone2,Grass5,Land2,Grass2,Land5,Stone2,Stone3,Land1,Grass5
+
+Grass2,Grass4,Grass6,Grass2,Grass3,Grass1,Grass1,Grass5,Stone2,Grass5,Land3,Land5,Stone1,Grass5,Grass4,Grass6,Land5,Grass4,Land6,Stone2,Grass3,Grass4,Grass4,Grass6,Grass6,Land2,Stone1,Stone1,Grass6,Grass4,Land2,Land2,Grass5,Grass4,Grass4,Grass4,Land1,Land3,Grass6,Grass3,Land4,Land5,Stone1,Grass4,Land4,Stone1,Grass3,Land3,Land4,Land4
+
+Grass5,Stone3,Stone2,Grass4,Grass6,Grass4,Grass3,Land1,Grass5,Land2,Land4,Grass3,Stone3,Grass2,Stone1,Land3,Grass1,Stone2,Stone2,Grass5,Grass2,Land3,Grass2,Grass4,Grass5,Stone1,Land6,Land3,Grass2,Grass4,Grass2,Grass4,Grass5,Stone2,Land4,Land2,Grass6,Land1,Stone3,Grass4,Grass5,Stone3,Grass2,Land3,Land5,Grass3,Grass3,Stone1,Land1,Land4
+
+Grass5,Grass4,Land6,Grass4,Grass2,Stone3,Land3,Land3,Stone1,Land1,Grass5,Land4,Grass3,Land5,Grass6,Grass4,Grass3,Stone2,Land4,Grass5,Grass5,Stone3,Grass4,Land2,Grass1,Land5,Grass3,Stone3,Grass1,Stone1,Land2,Stone3,Land1,Grass2,Stone1,Grass5,Stone2,Land3,Grass2,Land6,Grass6,Grass1,Land1,Grass2,Land3,Stone2,Grass4,Land1,Grass2,Grass5
+
+Land4,Grass2,Grass1,Stone2,Grass5,Grass6,Land4,Land4,Land1,Land1,Grass2,Grass3,Stone2,Grass4,Land4,Grass4,Grass4,Stone1,Grass3,Grass2,Land4,Grass1,Grass3,Grass6,Grass5,Land3,Land2,Stone1,Stone3,Land3,Grass6,Grass3,Grass3,Land5,Stone3,Grass2,Land3,Land5,Grass6,Grass2,Grass5,Stone2,Land6,Stone1,Grass4,Land3,Land6,Land5,Land6,Land5
+
+Grass5,Land5,Grass2,Grass2,Grass6,Land4,Grass4,Land1,Grass4,Land5,Grass4,Grass5,Grass2,Land6,Grass1,Stone1,Stone1,Land5,Grass1,Grass1,Land5,Grass4,Grass1,Grass3,Stone2,Land3,Grass2,Land2,Grass5,Land1,Land1,Land3,Grass2,Land1,Stone3,Grass2,Grass5,Grass2,Grass3,Land5,Grass3,Stone1,Land1,Grass6,Grass4,Land2,Grass6,Grass3,Land3,Grass6
+
+Grass5,Land6,Stone2,Land4,Land1,Land3,Grass4,Land4,Land2,Land2,Stone3,Land6,Grass5,Stone2,Land4,Land6,Land4,Land6,Grass3,Land1,Grass4,Grass4,Grass1,Grass5,Land1,Land6,Grass2,Grass6,Stone1,Grass1,Grass2,Stone1,Stone3,Grass4,Grass2,Grass1,Land3,Land1,Land2,Grass4,Grass5,Grass3,Land4,Grass1,Grass4,Grass4,Land2,Grass5,Grass2,Grass2
+
+Grass3,Land2,Stone2,Grass6,Land6,Grass2,Stone2,Stone2,Land2,Grass4,Stone1,Land3,Grass2,Grass6,Grass3,Grass3,Grass5,Land4,Stone2,Land3,Grass4,Grass4,Grass1,Land1,Grass3,Stone3,Grass4,Grass4,Land4,Land2,Grass6,Grass6,Grass1,Grass3,Land5,Grass3,Land6,Stone2,Grass2,Land6,Grass1,Stone3,Stone2,Land5,Stone3,Grass1,Land6,Grass3,Grass5,Grass3
+
+Grass3,Grass5,Stone3,Stone1,Grass6,Land1,Land5,Grass4,Land5,Land4,Grass2,Land5,Land6,Grass6,Grass4,Grass4,Grass4,Grass5,Stone3,Grass1,Land1,Grass4,Grass4,Grass4,Grass3,Grass5,Grass6,Grass2,Land6,Land5,Stone2,Grass4,Grass3,Grass3,Land5,Stone2,Land5,Grass1,Land4,Grass6,Grass5,Grass6,Stone1,Stone1,Stone2,Grass1,Stone1,Grass3,Grass5,Grass4
+
+Land3,Grass6,Grass2,Grass2,Grass4,Stone3,Grass4,Stone1,Land6,Land5,Land2,Grass5,Stone2,Land4,Grass6,Land4,Land1,Land4,Stone3,Grass3,Grass4,Stone2,Land4,Land1,Grass5,Grass2,Grass3,Grass6,Grass1,Grass4,Grass4,Land5,Land2,Stone2,Land5,Stone1,Land6,Grass2,Grass2,Land4,Grass6,Land4,Land4,Stone2,Grass2,Land6,Grass6,Land3,Stone3,Land6
+
+Land4,Land4,Grass2,Grass4,Grass3,Land3,Grass1,Grass2,Stone3,Grass1,Grass1,Land4,Grass3,Grass3,Grass2,Grass6,Stone2,Stone2,Land6,Land5,Grass1,Land3,Land6,Grass6,Land3,Land6,Stone3,Land4,Stone1,Stone3,Grass4,Grass4,Stone2,Grass4,Stone1,Grass1,Land2,Land2,Land1,Land5,Land2,Grass4,Stone1,Grass6,Grass6,Land4,Grass1,Grass3,Land3,Grass5
+
+Grass5,Land5,Grass6,Stone2,Land5,Grass2,Grass4,Stone3,Stone1,Land3,Land1,Grass3,Grass3,Grass1,Stone1,Land6,Grass3,Land6,Stone2,Stone2,Grass1,Grass6,Grass1,Grass2,Grass1,Land1,Land4,Grass1,Grass5,Grass2,Land3,Stone3,Land3,Stone3,Stone2,Grass2,Grass3,Grass3,Stone3,Grass6,Grass1,Grass4,Grass1,Stone2,Grass5,Grass4,Grass3,Grass3,Grass4,Grass1
+
+Grass6,Grass5,Grass5,L3,L5,G6,G3,S3,S1,G2,G6,L4,L4,L3,G2,G5,S3,L3,G1,L4,S1,L6,G3,G4,G5,L5,L6,L3,G1,G6,S2,G1,L4,G4,S1,S1,L4,G4,G1,L2,G1,L1,G2,S3,L1,G5,L1,G2,L2,S2
+
+G1,G1,G4,G3,G1,L3,G6,G6,G6,L5,G5,G4,G6,L1,S2,L3,L2,L3,S3,G1,G2,G6,G5,S1,G5,L4,G6,G6,L2,L3,S3,L4,L5,S2,G4,G1,G4,G4,S3,G1,L4,G6,G6,G2,G2,L5,S3,S1,G2,S2
+
+S1,G4,S2,G4,L2,G5,G2,G2,G5,G6,G3,L3,G3,G6,G2,S1,S2,G1,S1,L1,S1,L4,G1,G1,G5,S2,G4,L3,G5,G5,G5,G5,G1,S1,S1,G5,L6,G5,L4,G4,L5,G4,L1,S2,L1,G3,G3,L1,L1,G2
+
+G6,G4,G3,G6,G5,G3,S2,G1,L2,L3,L2,G4,G2,S2,S1,G5,G4,S3,G1,G6,G3,S1,G2,S1,G2,G2,G1,L2,L6,G2,G1,G2,G1,S1,S3,G6,G4,L6,G1,G3,G2,S3,G4,L6,L2,G6,G5,L5,S2,L5
+
+L3,G6,L5,G3,S2,G1,L6,G6,G2,G3,G4,G6,G6,G4,G4,G6,L1,G6,L3,G2,L2,L5,L1,G2,G6,S3,S3,L3,G5,S3,G5,G2,G3,S1,S2,L3,L6,L4,L2,L1,G1,G2,G1,S2,L5,S2,S1,G3,L6,S1
+
+L6,L5,G6,S2,S1,L6,G2,G4,L6,G4,S1,G3,S2,L1,G2,L5,G5,L6,S1,L3,L6,L2,G2,L2,L5,S1,S3,S3,L6,S2,L3,L2,S3,G5,G3,L2,S3,L2,S1,L4,L5,G2,G2,G6,S1,S3,G5,G1,S1,G2
+
+Stone3,Land3,Grass1,Grass1,Stone1,Grass2,Grass6,Land4,Grass2,Land1,Grass6,Grass2,Grass6,Grass4,Land3,Grass6,Grass3,Land4,Grass6,Grass5,Grass2,Grass4,Grass4,Grass4,Grass4,Land4,Grass1,Grass3,Grass2,Grass1,Grass3,Grass3,Grass2,Grass1,Grass2,Land6,Stone3,Grass3,Land4,Grass5,Grass5,Grass2,Land3,Stone1,Grass4,Stone2,Land2,Grass6,Land6,Land1
+
+Grass6,Land3,Grass5,Grass5,Grass4,Grass3,Grass6,Land6,Grass2,Grass2,Stone2,Land2,Land5,Land3,Grass3,Grass2,Land3,Stone2,Grass5,Grass6,Land4,Grass2,Stone1,Grass2,Stone1,Grass2,Grass1,Grass5,Grass1,Grass2,Land5,Grass3,Grass2,Land1,Stone2,Land1,Land4,Stone3,Grass2,Land2,Grass3,Grass2,Grass2,Grass2,Stone3,Grass3,Grass5,Land6,Grass2,Grass6
+
+Grass2,Land6,Stone3,Grass4,Stone3,Stone1,Land3,Grass3,Grass3,Land6,Grass5,Land5,Grass5,Land5,Land5,Grass5,Grass4,Land3,Grass1,Stone2,Grass5,Grass1,Grass3,Grass5,Stone2,Land6,Grass6,Land3,Grass4,Grass6,Land1,Land5,Grass1,Grass3,Grass1,Grass4,Land5,Land5,Grass5,Grass3,Grass6,Grass1,Stone1,Land5,Stone1,Grass6,Land5,Grass4,Grass1,Grass2
+
+Water10,Water3,Water3,Water10,Water6,Water1,Water4,Water9,Water10,Water8,Water8,Water10,Water8,Water8,Water7,Water10,Water6,Water1,Water2,Water6,Water9,Water10,Water9,Water1,Water4,Water2,Water9,Water6,Water8,Water5,Water10,Water7,Water6,Water10,Water10,Water3,Water4,Water7,Water2,Water6,Water5,Water6,Water6,Water1,Water8,Water8,Water6,Water2,Water1,Water7
+
+Water1,Water7,Water6,Water2,Water2,Water10,Water3,Water2,Water9,Water9,Water4,Water4,Water1,Water9,Water10,Water9,Water7,Water3,Water3,Water10,Water8,Water3,Water10,Water6,Water2,Water6,Water1,Water6,Water10,Water8,Water1,Water7,Water2,Water5,Water6,Water5,Water1,Water4,Water4,Water7,Water10,Water6,Water8,Water10,Water4,Water1,Water9,Water6,Water2,Water9
+
+Water5,Water8,Water2,Water4,Water8,Water3,Water2,Water1,Water2,Water5,Water10,Water3,Water5,Water7,Water4,Water3,Water6,Water7,Water8,Water7,Water9,Water8,Water3,Water2,Water1,Water2,Water2,Water10,Water4,Water9,Water1,Water8,Water3,Water9,Water4,Water2,Water7,Water3,Water7,Water7,Water8,Water1,Water3,Water2,Water2,Water10,Water4,Water9,Water4,Water6
+
+Water10,Water5,Water9,Water5,Water8,Water9,Water7,Water6,Water1,Water4,Water1,Water4,Water4,Water7,Water8,Water1,Water4,Water10,Water9,Water9,Water7,Water4,Water3,Water8,Water2,Water8,Water6,Water4,Water2,Water7,Water4,Water5,Water1,Water3,Water10,Water1,Water4,Water5,Water3,Water4,Water3,Water9,Water2,Water4,Water6,Water9,Water3,Water9,Water5,Water1
+
+Water2,Water1,Water5,Water10,Water3,Water2,Water3,Water4,Water9,Water6,Water3,Water8,Water9,Water2,Water5,Water7,Water1,Water1,Water5,Water10,Water3,Water4,Water6,Water8,Water6,Water1,Water6,Water2,Water6,Water6,Water2,Water8,Water2,Water4,Water6,Water9,Water1,Water6,Water10,Water5,Water3,Water5,Water3,Water4,Water5,Water5,Water3,Water10,Water3,Water3
+
+Water9,Water2,Water4,Water10,Water6,Water8,Water2,Water6,Water7,Water10,Water10,Water2,Water2,Water6,Water2,Water7,Water2,Water8,Water6,Water5,Water5,Water8,Water7,Water2,Water10,Water2,Water7,Water1,Water8,Water4,Water4,Water4,Water10,Water3,Water1,Water7,Water4,Water4,Water2,Water4,Water4,Water2,Water3,Water7,Water9,Water8,Water7,Water8,Water7,Water10
+
+Water5,Water10,Water1,Water4,Water9,Water2,Water10,Water2,Water5,Water1,Water3,Water2,Water1,Water3,Water10,Water7,Water3,Water5,Water8,Water5,Water6,Water6,Water4,Water10,Water4,Water6,Water5,Wa

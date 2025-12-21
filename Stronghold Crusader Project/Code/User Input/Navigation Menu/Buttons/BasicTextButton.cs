@@ -1,9 +1,10 @@
-namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other;
+namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Buttons;
 
-public static class GlobalBasicTextButton
+public class BasicTextButton
 {
     //Class Methods
-    public static Button GetGlobalBasicTextButton(ContentManager Content, Vector2 Position, Action ButtonAction, string Text, float Scale, Color TextColour)
+    public BasicTextButton(){}
+    public Button GetButton(ContentManager Content, Vector2 Position, Action ButtonAction, string Text, float Scale, Color TextColour)
     {
         Texture2D TextBackground = Content.Load<Texture2D>(Path.Combine(GlobalButtonsFolder, "Text_Background"));
         Texture2D TextBackgroundHover = Content.Load<Texture2D>(Path.Combine(GlobalButtonsFolder, "Text_Background_Hover"));

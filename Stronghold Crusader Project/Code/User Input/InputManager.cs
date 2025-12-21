@@ -51,7 +51,13 @@ public static class InputManager
 
     public static bool MouseWithinRectangle(Rectangle Bounds) //if a mouse position is within a rectangle
     {
-        if (Bounds.Contains(ActiveMouseState.Position))
+        Point ActiveMouse = new Point(ActiveMouseState.X, ActiveMouseState.Y);
+        if (ScaleUI) //If the UI is being scaled
+        {
+            ActiveMouse = GetScaledMousePosition();
+        }
+        
+        if (Bounds.Contains(ActiveMouse))
         {
             return true;
         }
@@ -76,6 +82,13 @@ public static class InputManager
                 break; 
         }
         return false;
+    }
+
+    public static Vector2 GetCameraMousePosition()
+    {
+        float MouseX = ActiveMouseState.X + CameraPosition.X;
+        float MouseY = ActiveMouseState.Y + CameraPosition.Y;
+        return new Vector2(MouseX, MouseY);
     }
 
     private static bool KeyHeldDown(Keys KeyToBeChecked) //If a key is pressed on multiple frames

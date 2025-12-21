@@ -1,4 +1,4 @@
-﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other;
+﻿namespace Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Buttons;
 
 public class FileSelectionButtons
 {
@@ -9,10 +9,12 @@ public class FileSelectionButtons
     private int CurrentPage = 1;
     private int ActivePages;
     private int FileHeight = 35;
-    private int NavigationHeight = 25;
     private int FilesPerPage;
     private int StartPoint = 0;
+    private int NavigationXOffset = 35;
+    private int NavigationY;
     private float FontScale;
+    private float NavigationScale = 1f;
     private Rectangle Bounds;
     private SpriteFont Font;
     private Texture2D Pixel;
@@ -34,8 +36,11 @@ public class FileSelectionButtons
         Pixel = Input_Pixel;
         FilesPerPage = (int)Math.Floor(Bounds.Height / (float)FileHeight) - 3;
         SavesBox = new Box(Bounds, Color.FromNonPremultiplied(0, 0, 0, 0), Content, GraphicDevice);
-        MenuButtons.Add(GetGlobalNavigationButton(true, Content, new Vector2(SavesBox.Bounds.X + NavigationHeight, SavesBox.Bounds.Y + SavesBox.Bounds.Height - NavigationHeight), () => ChangePage(-1), "Previous", 0.5f));
-        MenuButtons.Add(GetGlobalNavigationButton(false, Content, new Vector2(SavesBox.Bounds.X + SavesBox.Bounds.Width - NavigationHeight, SavesBox.Bounds.Y + SavesBox.Bounds.Height - NavigationHeight), () => ChangePage(1), "Next", 0.5f)); 
+        NormalNavigationButton HandNavigation = new NormalNavigationButton();
+        int FilesHeight = (FileHeight * (FilesPerPage + 1));
+        NavigationY =  SavesBox.Bounds.Y + (BoxSmallSize * 2)+ FilesHeight + ((SavesBox.Bounds.Height - FilesHeight) / 2);
+        MenuButtons.Add(HandNavigation.GetButton(true, Content, new Vector2(SavesBox.Bounds.X + NavigationXOffset, NavigationY), () => ChangePage(-1), "Previous",NavigationScale));
+        MenuButtons.Add(HandNavigation.GetButton(false, Content, new Vector2(SavesBox.Bounds.X + SavesBox.Bounds.Width - NavigationXOffset, NavigationY), () => ChangePage(1), "Next", NavigationScale)); 
     }
 
     public void ChangePage(int Amount)
@@ -55,7 +60,8 @@ public class FileSelectionButtons
     {
         SavesBox.Draw(ActiveSpriteBatch);
         string PageText = $"{CurrentPage}/{ActivePages}";
-        Vector2 PageTextPosition = new Vector2(SavesBox.Bounds.X + ((SavesBox.Bounds.Width - (Font.MeasureString(PageText).X) * FontScale)/ 2f), SavesBox.Bounds.Y + SavesBox.Bounds.Height - (NavigationHeight * 1.75f));
+        Vector2 TextPosition = Font.MeasureString(PageText) * FontScale;
+        Vector2 PageTextPosition = new Vector2(SavesBox.Bounds.X + ((SavesBox.Bounds.Width - TextPosition.X) / 2f), NavigationY - TextPosition.Y);
         ActiveSpriteBatch.DrawString(Font, PageText, PageTextPosition, Color.White, 0f, Vector2.Zero, FontScale, SpriteEffects.None, 0f);
     }
     

@@ -5,8 +5,7 @@ public static class MapHandler //Class to handle any map functions
 
     //Class Variables
     public static MapTile[,] Map = new MapTile[MapHeight, MapWidth];
-    public static Dictionary<string, Texture2D> TextureMap = new Dictionary<string, Texture2D>();
-    public static Dictionary<string, Color> BasicTextureMap = new Dictionary<string, Color>();
+    public static List<MapTextureTile> TextureMap = new List<MapTextureTile>();
     public static string MapPath => Path.Combine(MapsFolder, ActiveMapName);
     private static Borders BorderHandler;
     public static string ActiveMapName;
@@ -45,6 +44,43 @@ public static class MapHandler //Class to handle any map functions
         }
     }
 
+    public static List<MapTextureTile> GetMapVariantType(string VariantType) //Returns the different variant types
+    {
+        List<MapTextureTile> Variants = new List<MapTextureTile>();
+        foreach (MapTextureTile ActiveTextureTile in TextureMap)
+        {
+            if (ActiveTextureTile.VariantName == VariantType)
+            {
+                Variants.Add(ActiveTextureTile);
+            }
+        }
+        return Variants;
+    }
+    
+    public static MapTextureTile GetMapVariant(string Variant) //returns a specific variant
+    {
+        foreach (MapTextureTile ActiveTextureTile in TextureMap)
+        {
+            if (ActiveTextureTile.VariantKey == Variant)
+            {
+                return (ActiveTextureTile);
+            }
+        }
+        return null;
+    }
+
+    public static bool TextureMapContains(string Variant) //Checks if a variant already exists
+    {
+        foreach (MapTextureTile ActiveTextureTile in TextureMap)
+        {
+            if (ActiveTextureTile.VariantKey == Variant)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
     {
         for (int PositionY = 0; PositionY < MapHeight; PositionY++)
@@ -79,7 +115,49 @@ public static class MapHandler //Class to handle any map functions
             LogEvent("Tried drawing map with no map loaded", LogType.Error);
         }
     }
-    public static void SetupNewMap() //Method to create a new blank map
+    
+    public static void DrawMiniMap(SpriteBatch ActiveSpriteBatch, Rectangle MiniMap, Texture2D Pixel) //Draws a small version of the map in a compact and basic form
+    {
+        if (Map[0,0] != null)
+        {
+            int TileWidth = MiniMap.Width / MapWidth;
+            int TileHeight = MiniMap.Height / MapHeight;
+            int OffSetX = (MiniMap.Width - (TileWidth * MapWidth)) / 2;
+            int OffSetY = (MiniMap.Height - (TileHeight * MapHeight)) / 2;
+            Vector2 StartPosition = new Vector2(MiniMap.X + OffSetX, MiniMap.Y + OffSetY);
+            for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+            {
+                for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+                {
+                    string Temp = Map[PositionY, PositionX].TileKey;
+                    string ActiveTile = Map[PositionY, PositionX].TileKey;
+                    Color ActiveColour = GetMapVariant(ActiveTile).BasicColour;
+                    Rectangle Position = new Rectangle((int)((TileWidth * PositionX) + StartPosition.X), (int)((TileHeight * PositionY) + StartPosition.Y), TileWidth, TileHeight);
+                    ActiveSpriteBatch.Draw(Pixel, Position, ActiveColour);
+                }
+            }
+        }
+    }
+
+    public static Point GetArrayPositionMouse() //Returns the position in the array of the tile the mouse is over
+    {
+        Vector2 MousePosition = GetCameraMousePosition();
+        int TileX = (int)Math.Floor(MousePosition.X / TileWidth);
+        int TileY = (int)Math.Floor(MousePosition.Y / TileHeight);
+        if (TileX < 0 || TileX >= MapWidth || TileY < 0 || TileY >= MapHeight) //if it is out of bounds
+        {
+            return new Point(TileX, TileY);
+        }
+        return new Point(-1, -1);
+    }
+
+    public static Vector2 GetTileMousePosition() //returns the position of the tile the mouse is over
+    {
+        Point ArrayPosition = GetArrayPositionMouse();
+        return new Vector2(ArrayPosition.X * TileWidth, ArrayPosition.Y * TileHeight);
+    }
+    
+    private static void SetupNewMap() //Method to create a new blank map
     {
         Random RanInt = new Random();
         String[,] BlankMap = new string[MapHeight, MapWidth];
@@ -87,7 +165,7 @@ public static class MapHandler //Class to handle any map functions
         {
             for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
             {
-                BlankMap[PositionY, PositionX] = TextureMap.ElementAt(RanInt.Next(TextureMap.Count)).Key; //Set all the tiles to be grass
+                BlankMap[PositionY, PositionX] = TextureMap.ElementAt(RanInt.Next(TextureMap.Count)).VariantKey; //Set all the tiles to be grass
             }
         }
         FileManager.LoadMap(BlankMap);
@@ -121,22 +199,13 @@ public static class MapHandler //Class to handle any map functions
                 TempCount++;
                 string FileName = Path.GetFileNameWithoutExtension(ActiveTileVariant); //getting the name of the file without its extension
                 LogEvent($"Accessing {ActiveTileVariant} tile", LogType.Info);
-                if (TextureMap.ContainsKey(FileName)) //if the dictionary already has it
+                if (TextureMapContains(FileName)) //if the dictionary already has it
                 {
                     continue;
                 }
                 string ActiveTileFromContent = Path.Combine(TilesFolderPathFromContent, FolderName, FileName); //Rebuilding the file path from content to load it in
-                TextureMap.Add(FileName, Content.Load<Texture2D>(ActiveTileFromContent)); //Adding the texture and key
-
-                //Now adding the basic map texture
-                if (!BasicTextureMap.ContainsKey(FolderName)) //If the BasicTextureMap doesn't already contain the basic texture for that specific tile set
-                {
-                    Texture2D ActiveTexture = TextureMap[FileName];
-                    Rectangle TexturePixel = new Rectangle(ActiveTexture.Width / 2, ActiveTexture.Height / 2, 1, 1);
-                    Color[] TextureColour = new Color[1];
-                    ActiveTexture.GetData(0, TexturePixel, TextureColour, 0, 1);
-                    BasicTextureMap.Add(FolderName, TextureColour[0]);
-                }
+                TextureMap.Add(new MapTextureTile(FolderName, FileName, Content.Load<Texture2D>(ActiveTileFromContent))); //Adding the texture
+                
             }
             if (TempCount == 0) //Check if there are any .xnb files
             {

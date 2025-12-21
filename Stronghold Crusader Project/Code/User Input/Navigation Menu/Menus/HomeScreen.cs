@@ -15,6 +15,11 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         KeybindsManager = new KeyManager("HomeScreen");
         string Assets = Path.Combine(MenuFolder, "HomeScreen");
         Background = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));
+        //Adding the exit button
+        Texture2D ExitButton = Content.Load<Texture2D>(Path.Combine(Assets, "ExitButton"));
+        IconDrawer TempDrawer = new IconDrawer(ExitButton, Content.Load<Texture2D>(Path.Combine(Assets, $"ExitButton{HoverAdd}")));
+        MenuButtons.Add(new Button("Exit", "", new Rectangle(145, 590, ExitButton.Width, ExitButton.Height), TempDrawer, Menus.RemoveMenu));
+
         CreateMainButtons(Assets);
     }
 
@@ -44,7 +49,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         {
             null,
             () => Menus.AddMenu(new LoadGameMenu(Menus, false)), //When invoked
-            null,
+            () => Menus.AddMenu(new MapEditorMenu(Menus)),
         };
 
         //Button Creation

@@ -45,7 +45,8 @@ public abstract class BaseFileMenu : BaseMenu
             ButtonText = "Load Game";
             ButtonAction = () => MapImportHandler(ActiveFileName);
         }
-        MenuButtons.Add(GetGlobalBasicTextButton(Content, ExtraButtonPosition, ButtonAction, ButtonText, 1f, Color.White));
+        BasicTextButton NewTextButton = new BasicTextButton();
+        MenuButtons.Add(NewTextButton.GetButton(Content, ExtraButtonPosition, ButtonAction, ButtonText, 1f, Color.White));
     }
 
     public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the menu
@@ -61,34 +62,7 @@ public abstract class BaseFileMenu : BaseMenu
         base.Draw(ActiveSpriteBatch);
         FileButtonsManager.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(MiniMap.X - 1, MiniMap.Y - 1, MiniMap.Width + 2, MiniMap.Height + 2), Color.White);
-        DrawMiniMap(ActiveSpriteBatch);
-    }
-
-    private void DrawMiniMap(SpriteBatch ActiveSpriteBatch) //Draws a small version of the map in a compact and basic form
-    {
-        if (Map[0,0] != null)
-        {
-            int TileWidth = MiniMap.Width / MapWidth;
-            int TileHeight = MiniMap.Height / MapHeight;
-            int OffSetX = (MiniMap.Width - (TileWidth * MapWidthSize)) / 2;
-            int OffSetY = (MiniMap.Height - (TileHeight * MapHeightSize)) / 2;
-            Vector2 StartPosition = new Vector2(MiniMap.X + OffSetX, MiniMap.Y + OffSetY);
-            for (int PositionY = 0; PositionY < MapHeight; PositionY++)
-            {
-                for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
-                {
-                    string Temp = Map[PositionY, PositionX].TileKey;
-                    string ActiveTile = Map[PositionY, PositionX].TileKey;
-                    while (!BasicTextureMap.ContainsKey(ActiveTile))
-                    {
-                        ActiveTile = ActiveTile.Substring(0, ActiveTile.Length - 1);
-                    }
-                    Color ActiveColour = BasicTextureMap[ActiveTile];
-                    Rectangle Position = new Rectangle((int)((TileWidth * PositionX) + StartPosition.X), (int)((TileHeight * PositionY) + StartPosition.Y), TileWidth, TileHeight);
-                    ActiveSpriteBatch.Draw(Pixel, Position, ActiveColour);
-                }
-            }
-        }
+        DrawMiniMap(ActiveSpriteBatch, MiniMap, Pixel);
     }
 }
 

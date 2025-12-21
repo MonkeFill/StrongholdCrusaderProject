@@ -4,7 +4,7 @@ public class MapTile //Class for each individual tile on the map
 {
     //Class Variables
     public string TileKey;
-    private bool Walkable;
+    public bool Walkable;
     private Texture2D Texture;
     private Vector2 Position;
     
@@ -22,34 +22,7 @@ public class MapTile //Class for each individual tile on the map
         Vector2 IsometricPosition = GridToStaggeredDraw();
         ActiveSpriteBatch.Draw(Texture, IsometricPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
     }
-
-    public void UpdateWalkable(bool NewWalkable) //Update the walkable status of the tile
-    {
-        Walkable = NewWalkable;
-    }
-
-    public bool TileContains(Vector2 MousePosition) //Checks to see if the position of the mouse contains a tile 
-    {
-        //Halving to get the centres
-        float TileHalfWidth = TileWidth / 2.0f;
-        float TileHalfHeight = TileHeight / 2.0f;
-        
-        //getting the centre of the tile
-        float TileCentreX = Position.X + TileHalfWidth;
-        float TileCentreY = Position.Y + TileHalfHeight;
-        
-        //Getting how far it is from the centre and then turning it into a percentage based off the tile size
-        float PercentageAwayX = MathF.Abs((MousePosition.X - TileCentreX) / TileHalfWidth);
-        float PercentageAwayY = MathF.Abs((MousePosition.Y - TileCentreY) / TileHalfHeight);
-        
-        //To check bounds for a diamond you have to make sure the percentage away it is from the centre is equal to 1 since you can't give defined bounds like a square
-        if (PercentageAwayX + PercentageAwayY <= 1)
-        {
-            return true;
-        }
-        return false;
-    }
-
+    
     private Vector2 GridToStaggeredDraw() //Method to convert grid position to staggered position for drawing
     {
         float OffSetX = 0;

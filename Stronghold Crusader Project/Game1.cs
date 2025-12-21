@@ -3,7 +3,8 @@
 public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
+    private SpriteBatch MapSpriteBatch;
+    private SpriteBatch UISpriteBatch;
     private StartupManager GameManager = new StartupManager();
     private MenuManager Menus;
 
@@ -27,7 +28,7 @@ public class Game1 : Game
         //Starting the game and initialising everything
         GameManager.StartGame(Content);
         MapHandlerInitializer(Content);
-        //MapImportHandler("ValidMap", false);
+        //MapImportHandler("ValidMap.json");
         Camera2D.Initialize(GraphicsDevice.Viewport);
         CreateViewScale(_graphics);
         Menus = new MenuManager(this);
@@ -37,7 +38,10 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
+        //Load sprite batches
+        MapSpriteBatch = new SpriteBatch(GraphicsDevice);
+        UISpriteBatch = new SpriteBatch(GraphicsDevice);
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -53,6 +57,7 @@ public class Game1 : Game
             }
             InputManagerUpdate();
             Menus.Update();
+            GetTileMousePosition();
             base.Update(gameTime);
         }
     }
@@ -60,17 +65,23 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.Black);
-        // TODO: Add your drawing code here
-        //Drawing anything that requires the camera like the map
-        _spriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.AnisotropicClamp); 
-        //DrawMap(_spriteBatch);
-        _spriteBatch.End();
+        //Starting sprite batches
+        MapSpriteBatch.Begin(transformMatrix: Camera2D.GetViewMatrix(), samplerState: SamplerState.AnisotropicClamp); //Has the camera for the matrix
+        if (ScaleUI)
+        {
+            UISpriteBatch.Begin(transformMatrix: MatrixScale);
+        }
+        else
+        {
+            UISpriteBatch.Begin();
+        }
         
-        //Anything else that will be drawn using the Matrix Scale depending on the monitor
-        //transformMatrix: MatrixScale
-        _spriteBatch.Begin();
-        Menus.Draw(_spriteBatch);
-        _spriteBatch.End();
+        DrawMap(MapSpriteBatch);
+        Menus.Draw(UISpriteBatch);
+        
+        //Ending sprite batches
+        MapSpriteBatch.End();
+        UISpriteBatch.End();
         
         base.Draw(gameTime);
     }

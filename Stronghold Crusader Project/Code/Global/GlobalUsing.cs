@@ -28,7 +28,7 @@ global using Stronghold_Crusader_Project.Code.Global.Other;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
-global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other;
+global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Buttons;
 
 //Methods that need to be accessed globally
 global using static Stronghold_Crusader_Project.Code.Global.GlobalConfig;
@@ -36,9 +36,5 @@ global using static Stronghold_Crusader_Project.Code.Global.Other.EventLogger;
 global using static Stronghold_Crusader_Project.Code.Global.Other.Camera2D;
 global using static Stronghold_Crusader_Project.Code.User_Input.InputManager;
 global using static Stronghold_Crusader_Project.Code.Mapping.MapHandler;
-
-//Any buttons that are global
-global using static Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other.GlobalNavigationButton;
-global using static Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Other.GlobalBasicTextButton;
 
 
