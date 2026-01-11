@@ -16,7 +16,7 @@ public class Box //Drawing a custom rectangle that has multiple colours and work
         BoxBackground = Input_BoxBackground;
         foreach (string ActiveTextureName in TextureNames) //Adding in every texture
         {
-            LineTextures.Add(ActiveTextureName, Content.Load<Texture2D>(Path.Combine(BoxMenuFolder, ActiveTextureName)));
+            LineTextures.Add(ActiveTextureName, Content.Load<Texture2D>(Path.Combine(MenuBoxFolder, ActiveTextureName)));
         }
         TextureNames.Clear();
         Pixel = new Texture2D(Graphics, 1, 1);

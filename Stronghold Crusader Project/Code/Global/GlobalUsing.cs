@@ -1,40 +1,52 @@
-//Global using so that I am not constantly calling using at the start of every file
+/// <summary>
+/// Global using is to prevent having to have "using" at the top of every file
+/// </summary>
 
-//System libraries
+#region System Libraries
+// Libaries that are used through system
+
 global using System;
 global using System.IO;
 global using System.Text;
 global using System.Collections.Generic;
 global using System.Linq;
-global using System.Threading;
 
-//Monogame/XNA frameworks
+#endregion
+
+#region XNA Framework
+//Framework from XNA that Monogame uses
+
 global using Microsoft.Xna.Framework;
 global using Microsoft.Xna.Framework.Input;
 global using Microsoft.Xna.Framework.Graphics;
 global using Microsoft.Xna.Framework.Content;
 
-//JSON Framework
+#endregion
+
+#region Other Frameworks
+//Frameworks that are outside of Xna
+
 global using Newtonsoft.Json;
 
-//Subfolders of each code
-global using Stronghold_Crusader_Project.Code.Buildings;
-global using Stronghold_Crusader_Project.Code.Mapping;
-global using Stronghold_Crusader_Project.Code.Materials;
+#endregion
+
+#region Namespaces
+//Namespaces are the folders that the code is in
+
 global using Stronghold_Crusader_Project.Code.Global;
-global using Stronghold_Crusader_Project.Code.Player;
+global using Stronghold_Crusader_Project.Code.Game;
+global using Stronghold_Crusader_Project.Code.Mapping;
 global using Stronghold_Crusader_Project.Code.User_Input;
-global using Stronghold_Crusader_Project.Code.Global.Other;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu;
+global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Buttons;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.DrawerTypes;
 global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Menus;
-global using Stronghold_Crusader_Project.Code.User_Input.Navigation_Menu.Buttons;
 
-//Methods that need to be accessed globally
+#endregion
+
+#region Stactic Helpers
+//Any class that is stactic and can be accessed throughout all classes
 global using static Stronghold_Crusader_Project.Code.Global.GlobalConfig;
-global using static Stronghold_Crusader_Project.Code.Global.Other.EventLogger;
-global using static Stronghold_Crusader_Project.Code.Global.Other.Camera2D;
-global using static Stronghold_Crusader_Project.Code.User_Input.InputManager;
-global using static Stronghold_Crusader_Project.Code.Mapping.MapHandler;
+global using static Stronghold_Crusader_Project.Code.Global.EventLogger;
 
-
+#endregion

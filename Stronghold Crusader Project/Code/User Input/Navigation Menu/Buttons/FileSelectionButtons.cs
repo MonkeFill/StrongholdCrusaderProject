@@ -4,7 +4,6 @@ public class FileSelectionButtons
 {
     //Class Variables
     private string ActiveDirectory;
-    private string FileExtension;
     private List<string> FileNames;
     private int CurrentPage = 1;
     private int ActivePages;
@@ -18,18 +17,19 @@ public class FileSelectionButtons
     private Rectangle Bounds;
     private SpriteFont Font;
     private Texture2D Pixel;
+    private GameWorld GameWorldHandler;
     public Box SavesBox;
     private BaseFileMenu Menu;
 
     //Class Methods
-    public FileSelectionButtons(string Input_ActiveDirectory, string Input_FileExtension, Rectangle Input_Bounds, BaseFileMenu Input_Menu, Texture2D Input_Pixel)
+    public FileSelectionButtons(string Input_ActiveDirectory, Rectangle Input_Bounds, BaseFileMenu Input_Menu, Texture2D Input_Pixel, GameWorld InputGameWorld)
     {
         Menu = Input_Menu;
         ContentManager Content = Menu.Menus.Content;
         GraphicsDevice GraphicDevice = Menu.Menus.GraphicDevice;
         List<Button> MenuButtons = Menu.MenuButtons;
+        GameWorldHandler = InputGameWorld;
         ActiveDirectory = Input_ActiveDirectory;
-        FileExtension = Input_FileExtension;
         Bounds = Input_Bounds;
         Font = Content.Load<SpriteFont>("DefaultFont");
         FontScale = 22f / Font.LineSpacing;
@@ -92,7 +92,7 @@ public class FileSelectionButtons
     
     private List<Button> Update() //Returns the buttons that can actively be seen
     {
-        FileNames = Directory.GetFiles(ActiveDirectory, "*" + FileExtension).ToList();
+        FileNames = Directory.GetFiles(ActiveDirectory, "*" + GameFileExtension).ToList();
         FileNames.Sort();
         ActivePages = (int)Math.Ceiling((float)FileNames.Count / FilesPerPage);
         if(ActivePages < 1) //Can't be zero but will be when no files are found
@@ -121,7 +121,7 @@ public class FileSelectionButtons
             {
                 ActiveFile = Path.GetFileName(FileNames.ElementAt(ActivePosition));
                 FileAction = () => {
-                    MapImportHandler(ActiveFile);
+                    Menu.ActiveGameWorld.LoadWorld(ActiveFile);
                     Menu.ActiveFileName = ActiveFile;
                 };
             }

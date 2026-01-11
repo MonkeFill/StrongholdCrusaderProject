@@ -5,7 +5,6 @@ public abstract class BaseMenu
     //Class Variables
     public bool IsSubMenu = false;
     public List<Button> MenuButtons = new List<Button>();
-    protected KeyManager KeybindsManager;
     public MenuManager Menus;
     
     
@@ -14,10 +13,13 @@ public abstract class BaseMenu
         Menus = Input_Menus;
     }
 
-    public void Update() //Updating the menu
+    public void Update(InputManager InputHandler) //Updating the menu
     {
-        UpdateButtons();
-        CheckIfKeybindsPressed(KeybindsManager.Keybinds);
+        UpdateButtons(InputHandler);
+        if (InputHandler.IsKeybindPressedOnce(KeyManager.KeyAction.MenuBack))
+        {
+            Menus.RemoveMenu();
+        }
     }
     
     public virtual void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the UI
@@ -28,12 +30,12 @@ public abstract class BaseMenu
         }
     }
 
-    private void UpdateButtons() //Updating the buttons on the UI
+    private void UpdateButtons(InputManager InputHandler) //Updating the buttons on the UI
     {
         Button ButtonClicked = null;
         foreach (Button ActiveButton in MenuButtons) //Looping through all the buttons updating them
         {
-            if (ActiveButton.Update()) //If the button is clicked on it will return true
+            if (ActiveButton.Update(InputHandler)) //If the button is clicked on it will return true
             {
                 ButtonClicked = ActiveButton;
             }

@@ -1,95 +1,89 @@
 namespace Stronghold_Crusader_Project.Code.Global;
 
-public static class GlobalConfig //Method to store global variables and paths that will be used across multiple classes
-{
-    //Folder Paths
-    private static string CurrentDirectory = Environment.CurrentDirectory; //Debug folder 
-    private static string DefaultFolder = Directory.GetParent(CurrentDirectory).Parent.Parent.FullName; //Directory of where the .csproj is 
-    public static string GameDataFolder = Path.Combine(DefaultFolder, "GameData"); 
-    public static string MapsFolder = Path.Combine(GameDataFolder, "Maps");
-    public static string SavesFolder = Path.Combine(GameDataFolder, "Saves");
-    private static string ContentFolder = Path.Combine(DefaultFolder, "Content");
-    private static string MappingFolder = Path.Combine("Assets/Mapping");
-    public static string TilesFolderPathFromContent = Path.Combine(MappingFolder, "Tiles");
-    public static string TilesFolderFullPath = Path.Combine(ContentFolder, "bin","DesktopGL", "Content", TilesFolderPathFromContent);
-    public static string EventLoggerPath = Path.Combine(DefaultFolder, "Logs");
-    private static string UIElementFolder = "Assets/UI";
-    public static string MenuFolder = Path.Combine(UIElementFolder, "Menus");
-    public static string GlobalMenuFolder = Path.Combine(MenuFolder, "Global");
-    public static string BoxMenuFolder = Path.Combine(GlobalMenuFolder, "Box");
-    public static string GlobalButtonsFolder = Path.Combine(GlobalMenuFolder, "Buttons");
+/// <summary>
+/// Global Config is a static class so that it can be accessed by every other class throughout the code
+/// it functions as an easy way to access variables that are used across multiple classes and change them
+/// files are const if they don't change at runtime but if they do they use readonly instead to prevent them being overwritten
+/// </summary>
+
+public static class GlobalConfig{
+    #region System Paths
+    //Any path that is based off where the application is being run in
+    private static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory; //Where the application itself is in (debug folder)
+    private static readonly string GameDataFolder = Path.Combine(BaseDirectory, "GameData"); //Where data like settings, maps, saves etc are saved
+    public static readonly string ContentFolder = Path.Combine(BaseDirectory, "Content"); //Where all the assets sit 
     
-    //Map Variables
-    public static int MapWidth = 50;
-    public static int MapHeight = 100;
-    public static int TileHeight = 16;
-    public static int TileWidth = 32;
-    public static int TileReferencePrefixLength = 1;
-    public static int RealMapHeight = TileHeight + ((MapHeight - 1) * (TileHeight / 2));
-    public static int RealMapWidth = MapWidth * TileWidth + (TileWidth / 2); 
-    public static int MapHeightSize => GetMaxMapHeight();
-    public static int MapWidthSize => GetMaxMapWidth();
-    public static int TotalMapHeight => MapHeightSize + (BorderHeight * 2) - (TileHeight / 2);
-    public static int TotalMapWidth => MapWidthSize + (BorderWidth * 2) - (TileWidth / 2);
+    #endregion
     
-    //Border Variables
-    public static int BorderHeight = 10 * TileHeight;
-    public static int BorderWidth = Convert.ToInt32(TileWidth * 2.5);
-    public static string BorderPath =  Path.Combine(MappingFolder, "Borders");
-    public static string DefaultBorderTexture = "DefaultBorder";
-    public static string TopSmallBorderTexture = "BorderTopSmall";
-    public static string SideSmallBorderTexture = "BorderSideSmall";
-    public static string CornerBorderTexture = "BorderCorner";
+    #region Asset Paths
+    //Any paths that are for loading assets in 
+    private const string AssetsFolder = "Assets";
+    private static readonly string UserInterfaceFolder = Path.Combine(AssetsFolder, "UI");
+    private static readonly string MappingFolder = Path.Combine(AssetsFolder, "Mapping");
+    public static readonly string TilesFolder = Path.Combine(MappingFolder, "Tiles");
+    public static readonly string BorderFolder = Path.Combine(MappingFolder, "Borders");
+    public static readonly string MenusFolder = Path.Combine(UserInterfaceFolder, "Menus");
+    public static readonly string GlobalMenuFolder = Path.Combine(MenusFolder, "Global");
+    public static readonly string MenuBoxFolder = Path.Combine(GlobalMenuFolder, "Box");
+    public static readonly string GlobalButtonFolder = Path.Combine(GlobalMenuFolder, "Buttons");
     
-    //Camera Variables
-    public  static float MaxZoom = 3.5f;
-    public static float ZoomSensitivity = 0.1f;
-    public static float MovementAmount = 200f;
-    public static float MovementSpeed = 75;
-    public static float RotationAmount = MathHelper.PiOver2;
-    public static bool MapVertical => MapIsVertical();
-
-    //File Addons
-    public static string HoverAdd = "_Hover";
-    public static string ActiveAdd = "_Active";
-    public static string LockedAdd = "_Locked";
-    public static string AvailableAdd = "_Available";
-    public static string UnavailableAdd = "_Unavailable";
-
-    //Other Variables
-    public static int VirtualWidth = 1024;
-    public static int VirtualHeight = 768;
-    public static Matrix MatrixScale;
-    public static int FontSize = 12;
-    public static int BoxBigSize = 24;
-    public static int BoxSmallSize = 8;
-    public static bool ScaleUI = false;
-
-    //Methods
-    private static int GetMaxMapHeight()
-    {
-        if (MapVertical)
-        {
-            return RealMapWidth;
-        }
-        return RealMapHeight;
-    }
-    private static int GetMaxMapWidth()
-    {
-        if (MapVertical)
-        {
-            return RealMapHeight;
-        }
-        return RealMapWidth;
-    }
-
-    public static bool MapIsVertical()
-    {
-        int CameraDegrees = GetCameraRotationDegrees();
-        if (CameraDegrees == 90 || CameraDegrees == 270)
-        {
-            return true;
-        }
-        return false;
-    }
+    #endregion
+    
+    #region Game Data Paths
+    //Any paths that only rely on the game data folder
+    public static readonly string MapsFolder = Path.Combine(GameDataFolder, "Maps"); //where maps are stored
+    public static readonly string SavesFolder = Path.Combine(GameDataFolder, "Saves"); //Where game saves are stored
+    public static readonly string LogsFolder = Path.Combine(GameDataFolder, "Logs"); //Where to store logs
+    public static readonly string KeybindsFile = Path.Combine(GameDataFolder, "Keybinds.json");
+    
+    #endregion
+    
+    #region Map Settings
+    //Variables that are required for mapping
+    public const int MapWidth = 50;
+    public const int MapHeight = 100;
+    public const int TileHeight = 16;
+    public const int TileWidth = 32;
+    public static readonly Vector2 MapSize = new Vector2(MapWidth * TileWidth, MapHeight * TileHeight);
+    public const int BorderHeight = 10 * TileHeight;
+    public const int BorderWidth = (int)(TileWidth * 2.5);
+    public const string DefaultBorderName = "DefaultBorder";
+    public const string CornerBorderName = "BorderCorner";
+    public const string ShortBorderName = "BorderTopSmall";
+    public const string NarrowBorderName = "BorderSideSmall";
+    
+    #endregion
+    
+    #region CameraSettings
+    //Variables that are required for the camera
+    public const float ZoomSensitivity = 0.1f; //How fast you can zoom into the map
+    public const float MovementAmount = 200f; //How much the camera moves by
+    public const float MovementSpeed = 75f; //How fast the camera moves
+    public const float RotationAmount = MathHelper.PiOver2;
+    
+    #endregion
+    
+    #region File Addons
+    //Any addon to files like extensions or what they end with
+    public const string HoverAddon = "_Hover";
+    public const string ActiveAddon = "_Active";
+    public const string LockedAddon = "_Locked";
+    public const string AvailableAddon = "_Available";
+    public const string UnavailableAddon = "_Unavailable";
+    public const string MapFileExtension = ".json";
+    public const string GameFileExtension = ".json";
+    public const string TileNotWalkable = "_Block";
+    
+    #endregion
+    
+    #region User Interface
+    //Variables that are required for the user interface
+    public const int VirtualScreenWidth = 1024; //What screen size the UI is made for
+    public const int VirtualScreenHeight = 768;
+    public const int FontSize = 12;
+    public const int BoxBigSize = 24;
+    public const int BoxSmallSize = 8;
+    public const bool ScaleUI = false;
+    
+    #endregion
 }

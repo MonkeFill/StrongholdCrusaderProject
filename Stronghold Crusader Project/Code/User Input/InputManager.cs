@@ -1,142 +1,110 @@
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
-public static class InputManager
+/// <summary>
+/// A class that handles all the input detection like mouse and keyboard
+/// it bridges together all the inputs managing and game actions together
+/// </summary>
+
+public class InputManager
 {
-    //Variables 
-    private static MenuManager GameMenuManager;
-    private static KeyboardState ActiveKeyboardState;
-    private static KeyboardState PreviousKeyboardState;
-    private static MouseState ActiveMouseState;
-    private static MouseState PreviousMouseState;
-    private static KeyManager GlobalKeybindManager;
-
-    public enum MouseButtonType
+    //Class Variables
+    private KeyManager KeybindsManager;
+    private KeyboardState CurrentKeyboardState;
+    private KeyboardState PreviousKeyboardState;
+    private MouseState CurrentMouseState;
+    private MouseState PreviousMouseState;
+    
+    //Class Methods
+    public InputManager(KeyManager KeybindsManagerInput)
     {
-        Left,
-        Right,
+        KeybindsManager = KeybindsManagerInput;
     }
 
-    public enum KeybindActiveType
+    #region Public Facing Methods
+    //Classes that are going to be used outside by other classes
+    public void Update()
     {
-        PressedOnce,
-        PressedMultiple
+        PreviousKeyboardState = CurrentKeyboardState;
+        CurrentKeyboardState = Keyboard.GetState();
+        PreviousMouseState = CurrentMouseState;
+        CurrentMouseState = Mouse.GetState();
     }
     
-    //Methods
-    public static void InputManagerInitialiser(MenuManager Input_GameMenuManager)
-    {
-        GameMenuManager = Input_GameMenuManager;
-        GlobalKeybindManager = new KeyManager("GlobalKeybindManager");
-        GlobalKeybindManager.AddNewKeybind("PreviousMenu", Keys.Escape, () => GameMenuManager.RemoveMenu(), KeybindActiveType.PressedOnce);
-    }
-    public static void InputManagerUpdate()
-    {
-        PreviousKeyboardState = ActiveKeyboardState;
-        PreviousMouseState = ActiveMouseState;
-        ActiveKeyboardState = Keyboard.GetState();
-        ActiveMouseState = Mouse.GetState();
-    }
+    #endregion
 
-    public static void CheckIfKeybindsPressed(Dictionary<string, KeyMap> LocalKeybinds) //Checks if any of the keybinds have been pressed
+    #region Keyboard Methods
+    //Methods for keybinds on the keyboard
+    public bool IsKeybindHeldDown(KeyManager.KeyAction ActiveKeybind) //Checks if a keybind is being held down
     {
-        foreach (KeyMap ActiveKey in LocalKeybinds.Values)
-        {
-            CheckKeybind(ActiveKey);
-        }
-        foreach (KeyMap ActiveKey in GlobalKeybindManager.Keybinds.Values)
-        {
-            CheckKeybind(ActiveKey);
-        }
-    }
-
-    public static bool MouseWithinRectangle(Rectangle Bounds) //if a mouse position is within a rectangle
-    {
-        Point ActiveMouse = new Point(ActiveMouseState.X, ActiveMouseState.Y);
-        if (ScaleUI) //If the UI is being scaled
-        {
-            ActiveMouse = GetScaledMousePosition();
-        }
-        
-        if (Bounds.Contains(ActiveMouse))
+        Keys ActiveKey = KeybindsManager.GetKeyFromKeybind(ActiveKeybind);
+        if (CurrentKeyboardState.IsKeyDown(ActiveKey))
         {
             return true;
         }
         return false;
     }
     
-    public static bool SingleMouseClick(MouseButtonType ButtonToBeChecked)//Check to make sure the mouse clicked only in the current frame
+    public bool IsKeybindPressedOnce(KeyManager.KeyAction ActiveKeybind) //Checks if a keybind has been pressed once
     {
-        switch (ButtonToBeChecked)
-        {
-            case MouseButtonType.Left:
-                if (ActiveMouseState.LeftButton == ButtonState.Pressed && PreviousMouseState.LeftButton != ButtonState.Pressed)
-                {
-                    return true;
-                }
-                break;
-            case MouseButtonType.Right:
-                if (ActiveMouseState.RightButton == ButtonState.Pressed && PreviousMouseState.RightButton != ButtonState.Pressed)
-                {
-                    return true;
-                }
-                break; 
-        }
-        return false;
-    }
-
-    public static Vector2 GetCameraMousePosition()
-    {
-        float MouseX = ActiveMouseState.X + CameraPosition.X;
-        float MouseY = ActiveMouseState.Y + CameraPosition.Y;
-        return new Vector2(MouseX, MouseY);
-    }
-
-    private static bool KeyHeldDown(Keys KeyToBeChecked) //If a key is pressed on multiple frames
-    {
-        if (ActiveKeyboardState.IsKeyDown(KeyToBeChecked) && PreviousKeyboardState.IsKeyDown(KeyToBeChecked)) //If both have the key pressed
-        {
-            return true;
-        }
-        return false;
-    }
-
-    private static bool KeyPressedOnce(Keys KeyToBeChecked)
-    {
-        if (ActiveKeyboardState.IsKeyDown(KeyToBeChecked) && !PreviousKeyboardState.IsKeyDown(KeyToBeChecked)) //If it is pressed on this frame but not on the old frame
+        Keys ActiveKey = KeybindsManager.GetKeyFromKeybind(ActiveKeybind);
+        if (CurrentKeyboardState.IsKeyDown(ActiveKey) && !PreviousKeyboardState.IsKeyDown(ActiveKey))
         {
             return true;
         }
         return false;
     }
     
-    private static Point GetScaledMousePosition() //Convert the original mouse position to whatever resolution we already upscale the UI to
+    #endregion
+    
+    #region Mouse Methods
+    //methods for the mouse
+
+    public bool IsLeftClickedOnce() //if the left button mouse is clicked once
     {
-        Matrix InverseScaleMatrix = Matrix.Invert(MatrixScale); //Inversing the matrix scale since we are going from upscaled to original size
-        Vector2 NewPosition = Vector2.Transform(new Vector2(ActiveMouseState.X, ActiveMouseState.Y), InverseScaleMatrix);
-        return new Point((int)NewPosition.X, (int)NewPosition.Y);
+        if (CurrentMouseState.LeftButton == ButtonState.Pressed && PreviousMouseState.LeftButton != ButtonState.Pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    public bool IsLeftClickHeld() //If the left button mouse is held down
+    {
+        if (CurrentMouseState.LeftButton == ButtonState.Pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    public bool IsRightClickedOnce() //if the right button mouse is clicked once
+    {
+        if (CurrentMouseState.RightButton == ButtonState.Pressed && PreviousMouseState.RightButton != ButtonState.Pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    public bool IsRightClickHeld() //if the right button mouse is held down
+    {
+        if (CurrentMouseState.RightButton == ButtonState.Pressed)
+        {
+            return true;
+        }
+        return false;
     }
 
-    private static void CheckKeybind(KeyMap Keybind) //Checks if a keybind is used
+    public Vector2 GetMousePosition()
     {
-        bool Activated = false;
-        switch (Keybind.KeybindActivationType)
-        {
-            case KeybindActiveType.PressedMultiple:
-                if (KeyHeldDown(Keybind.CurrentKey))
-                {
-                    Activated = true;
-                }
-                break;
-            case KeybindActiveType.PressedOnce:
-                if (KeyPressedOnce(Keybind.CurrentKey))
-                {
-                    Activated = true;
-                }
-                break;
-        }
-        if (Activated)
-        {
-            Keybind.KeybindAction.Invoke();
-        }
+        return new Vector2(CurrentMouseState.X, CurrentMouseState.Y);
     }
+
+    public int GetMouseChangedScrollWheel()
+    {
+        return CurrentMouseState.ScrollWheelValue - PreviousMouseState.ScrollWheelValue;
+    }
+    
+    #endregion
+    
 }

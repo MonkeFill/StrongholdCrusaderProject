@@ -14,13 +14,16 @@ public abstract class BaseFileMenu : BaseMenu
     private float TitleFontScale;
     private Vector2 TitlePosition;
     private Rectangle MiniMap;
+    protected GameWorld GameWorldHandler;
+    public GameWorld ActiveGameWorld;
 
-    public BaseFileMenu(MenuManager Input_MenuManager, bool InputIsSubMenu, string Assets, string Input_Title) : base(Input_MenuManager)
+    public BaseFileMenu(MenuManager Input_MenuManager, bool InputIsSubMenu, string Assets, string Input_Title, GameWorld InputGameWorld) : base(Input_MenuManager)
     {
         IsSubMenu = InputIsSubMenu;
         Menus = Input_MenuManager;
         ContentManager Content = Menus.Content;
-        KeybindsManager = new KeyManager(Input_Title);
+        GameWorldHandler = InputGameWorld;
+        ActiveGameWorld = InputGameWorld;
 
         Title = Input_Title;
         BackgroundTexture = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));
@@ -32,7 +35,7 @@ public abstract class BaseFileMenu : BaseMenu
         int TitleBoxMiddleX = TitleBox.Bounds.X + (TitleBox.Bounds.Width / 2);
         Vector2 TextPosition = TitleFont.MeasureString(Title) * TitleFontScale;
         TitlePosition = new Vector2(TitleBoxMiddleX - (TextPosition.X / 2f), TitleBox.Bounds.Y + ((TitleBox.Bounds.Height - TextPosition.Y) / 2f));
-        FileButtonsManager = new FileSelectionButtons(SavesFolder, "", new Rectangle(500, 210, 310, 350), this, Pixel);
+        FileButtonsManager = new FileSelectionButtons(SavesFolder, new Rectangle(500, 210, 310, 350), this, Pixel, GameWorldHandler);
         int MiniMapSize = (int)(TitleBox.Bounds.Width * 0.75f);
         MiniMap = new Rectangle(TitleBoxMiddleX - (MiniMapSize / 2), TitleBox.Bounds.Y + TitleBox.Bounds.Height + 20, MiniMapSize, MiniMapSize);
         //Adding the load/save game button
@@ -43,7 +46,7 @@ public abstract class BaseFileMenu : BaseMenu
         if (Title.Contains("Load"))
         {
             ButtonText = "Load Game";
-            ButtonAction = () => MapImportHandler(ActiveFileName);
+            ButtonAction = () => GameWorldHandler.LoadWorld(ActiveFileName);
         }
         BasicTextButton NewTextButton = new BasicTextButton();
         MenuButtons.Add(NewTextButton.GetButton(Content, ExtraButtonPosition, ButtonAction, ButtonText, 1f, Color.White));
@@ -54,7 +57,7 @@ public abstract class BaseFileMenu : BaseMenu
         FileButtonsManager.ReplaceButtons(MenuButtons);
         if (IsSubMenu != true) //If the loadgame menu hasn't been set as a sub menu
         {
-            ActiveSpriteBatch.Draw(BackgroundTexture, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
+            ActiveSpriteBatch.Draw(BackgroundTexture, new Rectangle(0, 0, VirtualScreenWidth, VirtualScreenHeight), Color.White);
         }
         MainRectangle.Draw(ActiveSpriteBatch);
         TitleBox.Draw(ActiveSpriteBatch);
@@ -62,7 +65,7 @@ public abstract class BaseFileMenu : BaseMenu
         base.Draw(ActiveSpriteBatch);
         FileButtonsManager.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.Draw(Pixel, new Rectangle(MiniMap.X - 1, MiniMap.Y - 1, MiniMap.Width + 2, MiniMap.Height + 2), Color.White);
-        DrawMiniMap(ActiveSpriteBatch, MiniMap, Pixel);
+        ActiveGameWorld.DrawMinimap(ActiveSpriteBatch, MiniMap, Pixel);
     }
 }
 

@@ -21,13 +21,13 @@ public class Button
         OnClick = Input_OnClick;
     }
 
-    public bool Update()
+    public bool Update(InputManager InputHandler)
     {
         Hover = false;
-        if (MouseWithinRectangle(Bounds))
+        if (Bounds.Contains(InputHandler.GetMousePosition()))
         {
             Hover = true;
-            if (SingleMouseClick(MouseButtonType.Left))
+            if (InputHandler.IsLeftClickedOnce())
             {
                     OnClick.Invoke();
                     Active = true;

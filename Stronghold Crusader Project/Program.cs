@@ -14,7 +14,7 @@
                 }
                 catch (Exception ExceptionError)
                 {
-                    EventLogger.LogEvent($"{ExceptionError.StackTrace} - {ExceptionError.Message}", EventLogger.LogType.Error); //Logging the error it has had and where
+                    LogEvent($"{ExceptionError.StackTrace} - {ExceptionError.Message}", LogType.Error); //Logging the error it has had and where
                     LatestException = ExceptionError; //Storing the exception
                 }
             }

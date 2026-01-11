@@ -1,128 +1,106 @@
 namespace Stronghold_Crusader_Project.Code.Mapping;
 
-public class MapFileManager //Class that will handle any map file operations
+/// <summary>
+/// 
+/// </summary>
+
+public class MapFileManager
 {
-    
-    //Methods
-    public MapFileManager(){ }
-    
-    public string[,] ImportMap() //Will import a map 
-    {
-        if (File.Exists(MapPath)) //Check if the map exists 
-        {
-            if (Path.GetExtension(MapPath) == ".json") //Makes sure that the path is a json file
-            {
-                string Json = File.ReadAllText(MapPath);
-                string[,] LoadedMap;
-                LogEvent($"{MapPath} found and is being loaded", LogType.Info);
-                try
-                {
-                    LoadedMap = JsonConvert.DeserializeObject<string[,]>(Json);
-                    if (ValidMap(LoadedMap)) //If none of the map is null
-                    {
-                        LogEvent($"Map {ActiveMapName} has been imported", LogType.Info);
-                        return LoadedMap;
-                    }
-                }
-                catch (JsonSerializationException) //If it cannot deserialize it because it is not in the correct format
-                {
-                    LogEvent($"Map {ActiveMapName} is not in the correct format and hasn't been loaded", LogType.Error);
-                }
-                catch (Exception Error) //Any other error that may happen
-                {
-                    LogEvent($"Map {ActiveMapName} could not be loaded, {Error.Message}", LogType.Error);
-                }
-            }
-        }
-        else //Map doesn't exist
-        {
-            LogEvent($"Map {ActiveMapName} not found", LogType.Error);
-        }
-        return null;
-    }
-    
-    public void ExportMap(string[,] ExportMap) //Export the basic key tile grid to a file
-    {
-        if (File.Exists(MapPath))
-        {
-            LogEvent($"{MapPath} already exists!", LogType.Warning);
-        }
-        string Json = JsonConvert.SerializeObject(ExportMap, Formatting.Indented);
-        File.WriteAllText(MapPath, Json);
-        LogEvent($"Map {ActiveMapName} saved to {MapPath}", LogType.Info);
-    }
-    
-    public string[,] SaveMap() //Save the map meaning it will turn the Map tiles into a basic grid of tile keys
+    //Class Methods
+    public MapFileManager()
     {
         
-        string[,] BasicMap = new string[MapHeight, MapWidth];
-        LoopThroughTiles((PositionX, PositionY) =>
-        {
-            BasicMap[PositionY, PositionX] = Map[PositionY, PositionX].TileKey;
-        });
-        return BasicMap;
     }
     
-    public void LoadMap(String[,] LoadedMap) //Load Map will turn the basic grid of tile keys into actual tiles 
+    #region File Handling
+    //Classes that are handling saving and loading files directly
+
+    public void SaveMap(Tile[,] Tiles, string MapName) //A method to save the map to a file
     {
-        Texture2D ActiveTexture = null;
+        String[,] TileNames = new string[MapWidth, MapHeight];
         LoopThroughTiles((PositionX, PositionY) =>
         {
-            string ActiveTileKey = LoadedMap[PositionY, PositionX];
-            ActiveTexture = GetTileTexture(ActiveTileKey);
-            if (ActiveTexture == null) //if the texture is invalid
-            {
-                ActiveTexture = TextureMap.First().Texture;
-                ActiveTileKey = TextureMap.First().VariantKey;
-            }
-            Vector2 ActivePosition = new Vector2(PositionX, PositionY);
-            Map[PositionY, PositionX] = new MapTile(ActiveTileKey, ActiveTexture, ActivePosition);
+            TileNames[PositionX, PositionY] = Tiles[PositionX, PositionY].Type.Name; //Retrieving all the tile names
         });
-        LogEvent($"Map {ActiveMapName} has been loaded, here is the map \n {MapAsText(LoadedMap)}", LogType.Info);
+        
+        string Json = JsonConvert.SerializeObject(TileNames, Formatting.Indented);
+        File.WriteAllText(Path.Combine(MapsFolder, MapName + MapFileExtension), Json);
     }
-    
-    private bool ValidMap(string[,] LoadedMap) //Checking through all the tiles to make sure they aren't null
+
+    public Tile[,] LoadMap(TileLibary TileManager, string MapName) //A method to load the map from a file
     {
-        bool Valid = true;
-        LoopThroughTiles((PositionX, PositionY) =>
+        string FullMapPath = Path.Combine(SavesFolder, MapName);
+        if (!File.Exists(FullMapPath)) //Checking if the map exists
         {
-            if (string.IsNullOrWhiteSpace(LoadedMap[PositionY, PositionX]) )
-            {
-                EventLogger.LogEvent($"tile at ({PositionX},{PositionY}) is invalid", LogType.Error);
-                Valid = false;
-            }
-        });
-        LogEvent($"{ActiveMapName} is a valid map", LogType.Info);
-        return Valid;
-    }
-    
-    private string MapAsText(string[,] Map) //Convert to a string so you are able to read the map easily and for debugging
-    {
-        StringBuilder MapText = new StringBuilder();
-        LoopThroughTiles((PositionX, PositionY) =>
-        {
-            MapText.Append(Map[PositionY, PositionX]);
-            if (PositionX == MapWidth-1)
-            {
-                MapText.AppendLine();
-                MapText.AppendLine();
-            }
-            else
-            {
-                MapText.Append(",");
-            }
-        });
-        return MapText.ToString();
-    }
-    
-    private Texture2D GetTileTexture(string TileKey) //Method to get the texture of a tile based on its key
-    {
-        if (TextureMapContains(TileKey)) //If the dictionary has the tile
-        {
-            return GetMapVariant(TileKey).Texture;
+            LogEvent($"{FullMapPath} map not found", LogType.Warning);
+            return null;
         }
-        LogEvent($"Tile Key {TileKey} could not be found in texture map" , LogType.Error);
+        try
+        {
+            string Json = File.ReadAllText(FullMapPath);
+            string[,] TileNames = JsonConvert.DeserializeObject<string[,]>(Json);
+
+            if (TileNames == null) //if the file is empty
+            {
+                LogEvent($"{FullMapPath} map is empty", LogType.Warning);
+                return null;
+            }
+
+            if (TileNames.GetLength(0) != MapWidth || TileNames.GetLength(1) != MapHeight) //If the map is not the same size as it should be
+            {
+                LogEvent($"{FullMapPath} is the wrong legth, size is {TileNames.GetLength(0)}x{TileNames.GetLength(1)}", LogType.Warning);
+                return null;
+            }
+            
+            //Now that we have loaded the map in through strings we have to convert them to the tile class
+            Tile[,] LoadedMap = new Tile[MapWidth, MapHeight];
+            TileType FallbackTile = TileManager.GetRandomTileType();
+            LoopThroughTiles((PositionX, PositionY) =>
+            {
+                string ActiveTile = TileNames[PositionX, PositionY];
+                TileType ActiveTileType = TileManager.GetTileType(ActiveTile);
+                if (ActiveTileType == null) //If the tile type isn't found
+                {
+                    LogEvent($"{ActiveTile} Not found in tiles libary", LogType.Warning);
+                    ActiveTileType = FallbackTile;
+                }
+                
+                LoadedMap[PositionX, PositionY] = new Tile(new Point(PositionX, PositionY), ActiveTileType);
+            });
+
+            return LoadedMap;
+        }
+        catch (Exception Error)
+        {
+            LogEvent($"{MapName} has had an error, {Error.Message}", LogType.Warning);
+        }
         return null;
     }
+    
+    #endregion
+    
+    #region Helper Methods
+    //Functions to help the class
+    
+    private static void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
+    {
+        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        {
+            for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+            {
+                ActionToDo(PositionX, PositionY); //Execute the action for that specific tile
+            }
+        }
+    }
+    
+    /*Template Lambda expression to use the method, must use lambda line to create a method inside a method but don't want to actually separate it
+    using the lambda it will run pieces of code after it for each x and y
+    LoopThroughTiles((PositionX, PositionY) =>
+    {
+    Any code you want to run here
+    });
+    end*/
+    
+    #endregion
 }
 

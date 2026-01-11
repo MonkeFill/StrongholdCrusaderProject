@@ -6,18 +6,19 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
 {
     //Class Variables
     private Texture2D Background;
+    private GameWorld GameWorldHandler;
 
     //Class Methods
-    public HomeScreen(MenuManager Input_MenuManager) : base(Input_MenuManager)
+    public HomeScreen(MenuManager Input_MenuManager, GameWorld InputGameWorld) : base(Input_MenuManager)
     {
         Menus = Input_MenuManager;
         ContentManager Content = Menus.Content;
-        KeybindsManager = new KeyManager("HomeScreen");
-        string Assets = Path.Combine(MenuFolder, "HomeScreen");
+        GameWorldHandler = InputGameWorld;
+        string Assets = Path.Combine(MenusFolder, "HomeScreen");
         Background = Content.Load<Texture2D>(Path.Combine(Assets, "Background"));
         //Adding the exit button
         Texture2D ExitButton = Content.Load<Texture2D>(Path.Combine(Assets, "ExitButton"));
-        IconDrawer TempDrawer = new IconDrawer(ExitButton, Content.Load<Texture2D>(Path.Combine(Assets, $"ExitButton{HoverAdd}")));
+        IconDrawer TempDrawer = new IconDrawer(ExitButton, Content.Load<Texture2D>(Path.Combine(Assets, $"ExitButton{HoverAddon}")));
         MenuButtons.Add(new Button("Exit", "", new Rectangle(145, 590, ExitButton.Width, ExitButton.Height), TempDrawer, Menus.RemoveMenu));
 
         CreateMainButtons(Assets);
@@ -25,7 +26,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
 
     public override void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the button
     {
-        ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualWidth, VirtualHeight), Color.White);
+        ActiveSpriteBatch.Draw(Background, new Rectangle(0, 0, VirtualScreenWidth, VirtualScreenHeight), Color.White);
         if (Menus.TopSubMenu == null) //if there is a sub menu only show the background
         {
             base.Draw(ActiveSpriteBatch);
@@ -47,9 +48,9 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         List<string> ButtonNames = new List<string> { "New Game", "Load Game", "Map Editor" };
         List<Action> ButtonActions = new List<Action>
         {
-            null,
-            () => Menus.AddMenu(new LoadGameMenu(Menus, false)), //When invoked
-            () => Menus.AddMenu(new MapEditorMenu(Menus)),
+            () => GameWorldHandler.SetupNewMap(),
+            () => Menus.AddMenu(new LoadGameMenu(Menus, false, GameWorldHandler)), //When invoked
+            () => Menus.AddMenu(new MapEditorMenu(Menus, GameWorldHandler)),
         };
 
         //Button Creation
@@ -58,7 +59,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         for (int Count = 0; Count < ButtonActions.Count; Count++) //Looping through all the buttons to add them
         {
             Texture2D ButtonBackground = Content.Load<Texture2D>(Path.Combine(ButtonFolder, $"Button{Count + 1}"));
-            Texture2D ButtonBackgroundHover = Content.Load<Texture2D>(Path.Combine(ButtonFolder, $"Button{Count + 1}{HoverAdd}"));
+            Texture2D ButtonBackgroundHover = Content.Load<Texture2D>(Path.Combine(ButtonFolder, $"Button{Count + 1}{HoverAddon}"));
             BaseButtonDrawer ButtonDrawer = new SelectionDrawer(ButtonBackground, ButtonBackgroundHover, AxeTexture, ButtonFont, TextScale, TextColour, ButtonNames[Count]);
             int ButtonNewY = ButtonOffSetY + (ButtonYDifference * Count);
             Button TempButton = new Button(ButtonNames[Count], "", new Rectangle(ButtonOffSetX, ButtonNewY, ButtonBackground.Width, ButtonBackground.Height), ButtonDrawer, ButtonActions[Count]);

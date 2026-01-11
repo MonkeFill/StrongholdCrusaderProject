@@ -3,26 +3,26 @@ public class MenuManager //Manages Menus
 {
     //Class Variables
     private Stack<BaseMenu> Menus = new Stack<BaseMenu>();
-    public Game ActiveGame;
+    private BaseMenu TopMenu;
+    public Game1 ActiveGame;
     public ContentManager Content;
     public GraphicsDevice GraphicDevice;
-    private BaseMenu TopMenu;
     public BaseMenu TopSubMenu;
     public string ActiveFilePath;
 
     //Class Methods
-    public MenuManager(Game Input_ActiveGame)
+    public MenuManager(Game1 Input_ActiveGame, GameWorld InputGameWorld)
     {
         ActiveGame = Input_ActiveGame;
         Content = ActiveGame.Content;
         GraphicDevice = ActiveGame.GraphicsDevice;
-        BaseMenu StartingMenu = new HomeScreen(this);
+        BaseMenu StartingMenu = new HomeScreen(this, InputGameWorld);
         AddMenu(StartingMenu);
     }
 
-    public void Update() //Updates the menus logic (buttons)
+    public void Update(InputManager InputHandler) //Updates the menus logic (buttons)
     {
-         Menus.ElementAt(0).Update();
+         Menus.ElementAt(0).Update(InputHandler);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws the menus

@@ -1,110 +1,137 @@
 namespace Stronghold_Crusader_Project.Code.User_Input;
 
-public class KeyManager //Managers a set of keybinds
+/// <summary>
+/// The key manager is a class that will hold all information about a set of keybinds
+/// the key manager can then be used to check what should happen if a key is pressed
+/// </summary>
+
+public class KeyManager
 {
     //Class Variables
-    private string ManagerName;
-    public Dictionary<string, KeyMap> Keybinds = new Dictionary<string, KeyMap>();
+    public enum KeyAction
+    {
+        //Camera
+        CameraUp, CameraDown, CameraLeft, CameraRight,
+        CameraRotateLeft, CameraRotateRight,
+        
+        //UI
+        MenuBack
+        //Game
+    }
+
+    private Dictionary<KeyAction, Keys> Keybinds;
     
     //Class Methods
-    public KeyManager(string Input_ManagerName)
+    public KeyManager()
     {
-        ManagerName = Input_ManagerName;
+        Keybinds = new Dictionary<KeyAction, Keys>();
+        InitialiseDefaultKeybinds();
     }
+    
+    #region Public Facing 
+    //Classes that are public facing and to be used by the other clases
 
-    public void AddNewKeybind(string Name, Keys DefaultKey, Action KeybindAction, KeybindActiveType KeybindActivationType) //Method for adding a new keybind to the keybinds list
+    public Keys GetKeyFromKeybind(KeyAction ActiveKeybind) //returns the key of a keybind
     {
-        if (!KeybindExists(Name)) //If the keybind doesn't already exists
+        if (KeybindExists(ActiveKeybind))
         {
-            if (!KeyInUse(DefaultKey)) //If the key isn't already used
-            {
-                KeyMap NewKey = new KeyMap(Name, DefaultKey, DefaultKey, KeybindAction, KeybindActivationType);
-                Keybinds.Add(Name, NewKey);
-                LogEvent($"Added new keybind, {Name}, {DefaultKey}, {KeybindAction}, {KeybindActivationType}", LogType.Info);
-            }
-            else
-            {
-                LogEvent($"{DefaultKey} already in use", LogType.Warning);
-            }
+            return Keybinds[ActiveKeybind];
         }
-        else
-        {
-            LogEvent($"{Name} already exists", LogType.Warning);
-        }
-    }
-
-    public void ChangeKeybindKey(string Name, Keys NewKey) //Change a keybinds key to a different one
-    {
-        if (KeybindExists(Name)) //If the keybind even exists
-        {
-            if (!KeyInUse(NewKey)) //If the keybind is not in use
-            {
-                Keybinds[Name].CurrentKey = NewKey;
-            }
-            else
-            {
-                LogEvent($"{NewKey} already in use", LogType.Warning);
-            }
-        }
-        else
-        {
-            LogEvent($"{Name} keybind doesn't exist", LogType.Warning);
-        }
-    }
-
-    public void ResetKeybindsToDefault() //Setting all keybinds to their default key
-    {
-        LogEvent($"Starting keybind default reset", LogType.Info);
-        foreach (KeyMap ActiveKey in Keybinds.Values) //Looping through all keybinds
-        {
-            LogEvent($"Reset keybind for {ActiveKey.Name} - {ActiveKey.CurrentKey} -> {ActiveKey.DefaultKey}", LogType.Info);
-            ActiveKey.CurrentKey = ActiveKey.DefaultKey;
-        }
-        LogEvent($"All keys reset to default", LogType.Info);
-    }
-
-    public Keys GetKeyFromName(string Name) //Getting the key of a keybind
-    {
-        if (KeybindExists(Name)) //If the keybind exists
-        {
-            return Keybinds[Name].CurrentKey;
-        }
-        LogEvent($"No keybind found for {Name}", LogType.Warning);
         return Keys.None;
     }
 
-    public void PressKeybind(string Name) //Starting the action of a keybind
+    public void KeyRebind(KeyAction ActiveKeybind, Keys NewKey) //a method to add a new key to a keybind
     {
-        if (KeybindExists(Name)) //If the keybind exists
+        if (KeybindExists(ActiveKeybind))
         {
-            Keybinds[Name].KeybindAction.Invoke();
+            if (!KeyInUse(NewKey))
+            {
+                Keybinds[ActiveKeybind] = NewKey;
+            }
+        }
+    }
+    
+    #endregion
+    
+    #region File Managing
+    //Classes that handle importing and exporting the keybinds
+
+    public void SaveBindings()//Exporting the keybinds to the file
+    {
+        string Json = JsonConvert.SerializeObject(Keybinds, Formatting.Indented);
+        File.WriteAllText(KeybindsFile, Json);
+    }
+
+    public void LoadBindings() //Importing the keybinds to the game from the file
+    {
+        if (File.Exists(KeybindsFile))
+        {
+            string Json = File.ReadAllText(KeybindsFile);
+            Dictionary<KeyAction, Keys> NewKeybinds = JsonConvert.DeserializeObject<Dictionary<KeyAction, Keys>>(Json);
+            foreach (KeyValuePair<KeyAction, Keys> ActiveKeybind in NewKeybinds)
+            {
+                if (KeybindExists(ActiveKeybind.Key))
+                {
+                    Keybinds[ActiveKeybind.Key] = ActiveKeybind.Value;
+                }
+            }
         }
         else
         {
-            LogEvent($"No keybind found for {Name}", LogType.Warning);
+            LogEvent($"{KeybindsFile} not found", LogType.Info);
         }
     }
+    
+    #endregion
+    
+    #region Helpers
+    //Classes that are here to help the class
 
-    private bool KeybindExists(string Name) //Checking if the keybind already exists
+    private bool KeybindExists(KeyAction ActiveKeybind) //Checks if the keybind exists
     {
-        if (Keybinds.ContainsKey(Name))
+        if (Keybinds.ContainsKey(ActiveKeybind))
         {
             return true;
         }
-        
+        LogEvent($"{ActiveKeybind} not found", LogType.Warning);
         return false;
     }
 
-    private bool KeyInUse(Keys Key) //Checking if a key is already in use
+    private bool KeyInUse(Keys KeyToCheck) //Checks if a key is already being used
     {
-        foreach (KeyMap ActiveKey in Keybinds.Values) //Looping through all the keybinds and their values
+        foreach (Keys ActiveKey in Keybinds.Values)
         {
-            if (ActiveKey.CurrentKey == Key) //If they are equal to each other it means its being used
+            if (KeyToCheck == ActiveKey)
             {
                 return true;
             }
         }
         return false;
     }
+
+    private void AddKeybind(KeyAction ActiveKeybind, Keys NewKey) //a method to add a new keybind
+    {
+        if (!KeybindExists(ActiveKeybind))
+        {
+            Keybinds.Add(ActiveKeybind, NewKey);
+        }
+        else
+        {
+            LogEvent($"{ActiveKeybind} has already been added", LogType.Warning);
+        }
+    }
+
+    private void InitialiseDefaultKeybinds() //Creates the default keybinds
+    {
+        AddKeybind(KeyAction.CameraUp, Keys.W);
+        AddKeybind(KeyAction.CameraDown, Keys.S);
+        AddKeybind(KeyAction.CameraLeft, Keys.A);
+        AddKeybind(KeyAction.CameraRight, Keys.D);
+        AddKeybind(KeyAction.CameraRotateLeft, Keys.E);
+        AddKeybind(KeyAction.CameraRotateRight, Keys.Q);
+        AddKeybind(KeyAction.MenuBack, Keys.Escape);
+    }
+    
+    #endregion
 }
 

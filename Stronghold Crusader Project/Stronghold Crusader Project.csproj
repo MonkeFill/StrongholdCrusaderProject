@@ -32,7 +32,6 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="Assets\.DS_Store" />
-      <Content Include="Code\Player\.DS_Store" />
       <Content Include="SetupCode\.DS_Store" />
     </ItemGroup>
     <ItemGroup>

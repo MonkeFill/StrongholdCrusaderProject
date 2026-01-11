@@ -1,112 +1,96 @@
-﻿using System.Numerics;
-using Vector2 = Microsoft.Xna.Framework.Vector2;
+﻿namespace Stronghold_Crusader_Project.Code.Mapping;
 
-namespace Stronghold_Crusader_Project.Code.Mapping
+/// <summary>
+/// A class that handles drawing borders around the map
+/// </summary>
+///
+/// 
+public class Borders 
 {
-    public class Borders //Class to handle drawing borders around the map
+    //Class Variables
+    private struct BorderPiece //structure for each individual border
     {
-        //Class Variables
-        Texture2D ActiveTexture;
-        SpriteBatch ActiveSpriteBatch;
-        Dictionary<string, Texture2D> BorderTextures = new  Dictionary<string, Texture2D>();
-    
-        //Methods
-        public Borders(ContentManager Content) //Setting up borders class
-        {
-            LoadBorderTextures(Content); //Loading all the border textures
-        }
-        public void Draw(SpriteBatch ActiveSpriteBatchInput) //Method to draw all borders
-        {
-            ActiveSpriteBatch = ActiveSpriteBatchInput;
-            int OffSetX = 0;
-            int OffSetY = 0;
+        public Vector2 Position;
+        public Texture2D Texture;
 
-            for (int Count = 0; Count < 4; Count++)
-            {
-                switch (Count) //0. Top, 1. Bottom, 2. Left, 3. Right
-                {
-                    case 0: //Top
-                        OffSetX = TileWidth / 2;
-                        OffSetY = -(BorderHeight - (TileHeight / 2));
-                        DrawHorizontal(OffSetX, OffSetY);
-                        break;
-                    case 1: //Bottom
-                        OffSetX = TileWidth / 2;
-                        OffSetY = MapHeightSize - (TileHeight / 2);
-                        DrawHorizontal(OffSetX, OffSetY);
-                        break;
-                    case 2: //Left
-                        OffSetX = -BorderWidth + (TileWidth / 2);
-                        OffSetY = -(BorderHeight - (TileHeight / 2));
-                        DrawVertical(OffSetX, OffSetY);
-                        break;
-                    case 3: //Right
-                        OffSetX = MapWidthSize - (TileWidth / 2);
-                        OffSetY = -(BorderHeight - (TileHeight / 2)); 
-                        DrawVertical(OffSetX, OffSetY);
-                        break;
-                }
-            }
-        }
-
-        private void DrawVertical(int OffSetX, int OffSetY) //Method to draw a vertical row of borders
+        public BorderPiece(Vector2 InputPosition, Texture2D InputTexture)
         {
-            int PositionX = OffSetX;
-            int PositionY = OffSetY;
-            
-            int AmountOfBorders = (RealMapHeight / BorderHeight) + 2;
-            for (int Count = 0; Count < AmountOfBorders; Count++)
-            {
-                if (Count == AmountOfBorders / 2) //Drawing a smaller border in the middle
-                {
-                    ActiveTexture = BorderTextures[TopSmallBorderTexture];
-                    OffSetY = -(TileHeight / 2);
-                }
-                else
-                {
-                    ActiveTexture = BorderTextures[DefaultBorderTexture];
-                    OffSetY = 0;
-                }
-                DrawBorder(PositionX, PositionY);
-                PositionY += BorderHeight + OffSetY;
-            }
-        }
-
-        private void DrawHorizontal(int OffSetX, int OffSetY) //Method to draw a horizontal column of borders
-        {
-            int PositionX = OffSetX;
-            int PositionY = OffSetY;
-            int AmountOfBorders = (RealMapWidth / BorderWidth);
-            
-            for (int Count = 0; Count < AmountOfBorders; Count++)
-            {
-                if (Count == AmountOfBorders / 2) //Drawing a smaller border in the middle
-                {
-                    ActiveTexture = BorderTextures[SideSmallBorderTexture];
-                    OffSetX = -(TileWidth / 2);
-                }
-                else
-                {
-                    ActiveTexture = BorderTextures[DefaultBorderTexture];
-                    OffSetX = 0;
-                }
-                DrawBorder(PositionX, PositionY);
-                PositionX += BorderWidth + OffSetX;
-            }
-        }
-        private void DrawBorder(int PositionX, int PositionY) //Method to draw a single border
-        {
-            Vector2 Position = new Vector2(PositionX, PositionY);
-            Vector2 TileCentre = new Vector2(TileWidth / 2f, TileHeight / 2f);
-            ActiveSpriteBatch.Draw(ActiveTexture, Position,null, Color.White, CameraRotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-        }
-        
-        private void LoadBorderTextures(ContentManager Content) //Adding the 3 possible textures into the texturemap
-        {
-            LogEvent("Loading border textures", LogType.Info);
-            BorderTextures.Add(DefaultBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, DefaultBorderTexture)));
-            BorderTextures.Add(TopSmallBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, TopSmallBorderTexture)));
-            BorderTextures.Add(SideSmallBorderTexture, Content.Load<Texture2D>(Path.Combine(BorderPath, SideSmallBorderTexture)));
+            Position = InputPosition;
+            Texture = InputTexture;
         }
     }
+    private List<BorderPiece> BorderList = new List<BorderPiece>();
+    private Texture2D DefaultTexture;
+    private Texture2D CornerBorderTexture;
+    private Texture2D ShortBorderTexture;
+    private Texture2D NarrowBorderTexture;
+    
+    //Class Methods
+    public Borders(ContentManager Content)
+    {
+        LoadTextures(Content);
+        CreateBorders();
+    }
+
+    public void Draw(SpriteBatch ActiveSpriteBatch) //Draws all the borders
+    {
+        foreach (BorderPiece ActiveBorder in BorderList)
+        {
+            ActiveSpriteBatch.Draw(ActiveBorder.Texture, ActiveBorder.Position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+        }
+    }
+    
+    #region Helper Methods
+    //Functions to help the class
+
+    private void LoadTextures(ContentManager Content) //Function that loads all the border textures 
+    {
+        LogEvent("Loading border textures", LogType.Info);
+        DefaultTexture = Content.Load<Texture2D>(Path.Combine(BorderFolder, DefaultBorderName));
+        ShortBorderTexture = Content.Load<Texture2D>(Path.Combine(BorderFolder, ShortBorderName));
+        NarrowBorderTexture = Content.Load<Texture2D>(Path.Combine(BorderFolder, NarrowBorderName));
+        LogEvent("Loaded border textures successfully", LogType.Info);
+    }
+
+    private void CreateBorders()
+    {
+        CreateHorizontalEdge(-BorderWidth + (TileWidth / 2), -BorderHeight + (TileHeight / 2)); //Top Edge
+        CreateVerticalEdge(-BorderWidth + (TileWidth / 2), TileHeight / 2); //Left Edge
+        CreateHorizontalEdge(-BorderWidth + (TileWidth / 2), (int)MapSize.Y - (TileHeight / 2)); //Bottom Edge
+        CreateVerticalEdge((int)MapSize.X - (TileWidth / 2), TileHeight / 2); //Right Edge
+    }
+
+    private void CreateHorizontalEdge(int StartX, int StartY)
+    {
+        int Amount = (int)MapSize.X / BorderWidth;
+        for (int Count = 0; Count < Amount; Count++)
+        {
+            Texture2D ActiveTexture = DefaultTexture;
+            if (Count == Amount / 2) //Middle piece
+            {
+                ActiveTexture = NarrowBorderTexture;
+            }
+            Vector2 ActivePosition = new Vector2(StartX + ActiveTexture.Width, StartY);
+            BorderList.Add(new BorderPiece(ActivePosition, ActiveTexture));
+            StartX += ActiveTexture.Width;
+        }
+    }
+    
+    private void CreateVerticalEdge(int StartX, int StartY)
+    {
+        int Amount = (int)MapSize.Y / BorderHeight - 2;
+        for (int Count = 0; Count < Amount; Count++)
+        {
+            Texture2D ActiveTexture = DefaultTexture;
+            if (Count == Amount / 2) //Middle piece
+            {
+                ActiveTexture = ShortBorderTexture;
+            }
+            Vector2 ActivePosition = new Vector2(StartX, StartY + ActiveTexture.Height);
+            BorderList.Add(new BorderPiece(ActivePosition, ActiveTexture));
+            StartY += ActiveTexture.Height;
+        }
+    }
+    
+    #endregion
 }

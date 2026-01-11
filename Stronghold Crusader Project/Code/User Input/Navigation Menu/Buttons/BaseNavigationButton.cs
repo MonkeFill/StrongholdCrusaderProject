@@ -15,14 +15,14 @@ public abstract class BaseNavigationButton
         int OffSetX = 1;
         if (Previous)
         {
-            Icon = Content.Load<Texture2D>(Path.Combine(GlobalButtonsFolder, PreviousIconName));
-            Icon_Hover = Content.Load<Texture2D>(Path.Combine(GlobalButtonsFolder, (PreviousIconName + HoverAdd)));
+            Icon = Content.Load<Texture2D>(Path.Combine(GlobalButtonFolder, PreviousIconName));
+            Icon_Hover = Content.Load<Texture2D>(Path.Combine(GlobalButtonFolder, (PreviousIconName + HoverAddon)));
             OffSetX = 0;
         }
         else
         {
-            Icon = Content.Load<Texture2D>(Path.Combine(GlobalButtonsFolder, NextIconName));
-            Icon_Hover = Content.Load<Texture2D>(Path.Combine(GlobalButtonsFolder, (NextIconName + HoverAdd)));
+            Icon = Content.Load<Texture2D>(Path.Combine(GlobalButtonFolder, NextIconName));
+            Icon_Hover = Content.Load<Texture2D>(Path.Combine(GlobalButtonFolder, (NextIconName + HoverAddon)));
         }
         IconDrawer ButtonDrawer = new IconDrawer(Icon, Icon_Hover);
         OffSetX = (int)(Icon.Width * Scale * OffSetX);
