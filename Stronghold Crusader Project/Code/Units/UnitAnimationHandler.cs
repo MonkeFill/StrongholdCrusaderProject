@@ -1,4 +1,4 @@
-﻿namespace Stronghold_Crusader_Project.Code.Troops;
+﻿namespace Stronghold_Crusader_Project.Code.Units;
 
 /// <summary>
 /// This class will handle the animations of a unit

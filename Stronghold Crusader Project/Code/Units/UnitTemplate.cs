@@ -1,4 +1,4 @@
-namespace Stronghold_Crusader_Project.Code.Troops;
+namespace Stronghold_Crusader_Project.Code.Units;
 
 /// <summary>
 /// This class is a template class for all troops in the game

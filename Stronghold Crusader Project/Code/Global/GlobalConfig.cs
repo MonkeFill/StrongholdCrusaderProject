@@ -74,6 +74,7 @@ public static class GlobalConfig{
     public const string MapFileExtension = ".json";
     public const string GameFileExtension = ".json";
     public const string TileNotWalkable = "_Block";
+    public const string MonoGameAddon = ".XNB";
     
     #endregion
     
@@ -85,6 +86,13 @@ public static class GlobalConfig{
     public const int BoxBigSize = 24;
     public const int BoxSmallSize = 8;
     public const bool ScaleUI = false;
-    
+
+    #endregion
+
+    #region Other
+    //Paths that don't fit in other categories
+
+    public const string UnitAnimationName = "Frame";
+
     #endregion
 }
