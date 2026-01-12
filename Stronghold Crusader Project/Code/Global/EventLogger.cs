@@ -11,15 +11,6 @@ public static class EventLogger
     //Class Variables
     private static StreamWriter FileWriter;
     private static Object WriterLock = new object();
-
-    public enum LogType
-    {
-        Error,
-        Warning,
-        Debug,
-        Info,
-        Status,
-    }
     
     //Class Methods
     public static void LogEvent(string Log, LogType TypeOfLog) //Method that logs the event

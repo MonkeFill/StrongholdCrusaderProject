@@ -26,6 +26,7 @@ public static class GlobalConfig{
     public static readonly string GlobalMenuFolder = Path.Combine(MenusFolder, "Global");
     public static readonly string MenuBoxFolder = Path.Combine(GlobalMenuFolder, "Box");
     public static readonly string GlobalButtonFolder = Path.Combine(GlobalMenuFolder, "Buttons");
+    public static readonly string UnitsFolder = Path.Combine(AssetsFolder, "Units");
     
     #endregion
     
