@@ -8,18 +8,20 @@ public abstract class UnitTemplate
 {
     //Class Variables
 
-    public string UnitName;
-    public float Rotation;
-    private string UnitCategory;
+    private string UnitName;
     private float MaxHealth;
     private float MovementSpeed;
     private float AttackPower;
     private float AttackSpeed;
+    private float Rotation = 0f;
+    private UnitState ActiveState;
+    private UnitAnimationHandler AnimationHandler;
+
 
     //Class Methods
-    public UnitTemplate()
+    public UnitTemplate(UnitAnimationLibrary AnimationLibrary)
     {
-
+        AnimationHandler = new UnitAnimationHandler(UnitName, AnimationLibrary);
     }
 
     public UnitDirection GetDirection() //A class to get which direction the unit is pointing

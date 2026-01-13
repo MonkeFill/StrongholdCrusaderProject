@@ -7,8 +7,12 @@
 
 public class UnitAnimationLibrary
 {
+    //Class Variables
+
     Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>> AnimationLibrary = new Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>>(); //Dictionary to hold the animations
     //To access the animation libary you have to go through the troop name, troop state and then troop direction to get the frames for the animation
+
+    //Class Methods
 
     public UnitAnimationLibrary(ContentManager Content)
     {

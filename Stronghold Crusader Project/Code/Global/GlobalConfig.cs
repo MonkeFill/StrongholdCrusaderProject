@@ -93,6 +93,7 @@ public static class GlobalConfig{
     //Paths that don't fit in other categories
 
     public const string UnitAnimationName = "Frame";
+    public const double AnimationFrameSpeed = 0.1;
 
     #endregion
 }
