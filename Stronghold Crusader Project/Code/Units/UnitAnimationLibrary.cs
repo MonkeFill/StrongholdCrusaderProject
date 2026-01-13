@@ -7,16 +7,25 @@
 
 public class UnitAnimationLibrary
 {
-    Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>> AnimationLibary = new Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>>(); //Dictionary to hold the animations
+    Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>> AnimationLibrary = new Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>>(); //Dictionary to hold the animations
     //To access the animation libary you have to go through the troop name, troop state and then troop direction to get the frames for the animation
 
     public UnitAnimationLibrary(ContentManager Content)
     {
-
+        LoadAnimations(Content);
     }
 
     #region Open end
     //Classes that will be used outside of this class
+
+    public Texture2D[] GetAnimationList(string UnitName, UnitState ActiveState, UnitDirection ActiveDirection) //A class that returns the list of animations
+    {
+        if (CheckIfAnimationExists(UnitName, ActiveState, ActiveDirection))
+        {
+            return AnimationLibrary[UnitName][ActiveState][ActiveDirection];
+        }
+        return null;
+    }
 
     #endregion
 
@@ -37,9 +46,9 @@ public class UnitAnimationLibrary
 
 
             //Checks
-            if (!AnimationLibary.ContainsKey(UnitName)) //If it doesn't contain the unit name
+            if (!AnimationLibrary.ContainsKey(UnitName)) //If it doesn't contain the unit name
             {
-                AnimationLibary.Add(UnitName, new Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>());
+                AnimationLibrary.Add(UnitName, new Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>());
             }
 
 
@@ -49,15 +58,15 @@ public class UnitAnimationLibrary
 
 
                 //Checks
-                if (!Enum.TryParse<UnitState>(UnitStateName, out UnitState AcutalUnitState)) //Checking if state is hardcoded
+                if (!Enum.TryParse<UnitState>(UnitStateName, out UnitState ActualUnitState)) //Checking if state is hardcoded
                 {
                     LogEvent($"{UnitStateName} isn't a hardcoded state", LogType.Warning);
                     continue;
                 }
 
-                if (!AnimationLibary[UnitName].ContainsKey(AcutalUnitState)) //If it doesn't contain the unit state
+                if (!AnimationLibrary[UnitName].ContainsKey(ActualUnitState)) //If it doesn't contain the unit state
                 {
-                    AnimationLibary[UnitName].Add(AcutalUnitState, new Dictionary<UnitDirection, Texture2D[]>());
+                    AnimationLibrary[UnitName].Add(ActualUnitState, new Dictionary<UnitDirection, Texture2D[]>());
                 }
 
 
@@ -80,9 +89,9 @@ public class UnitAnimationLibrary
                     int Frames = FrameFiles.Length;
 
 
-                    if (!AnimationLibary[UnitName][AcutalUnitState].ContainsKey(ActualUnitDirection)) //If it doesn't contain the unit direction
+                    if (!AnimationLibrary[UnitName][ActualUnitState].ContainsKey(ActualUnitDirection)) //If it doesn't contain the unit direction
                     {
-                        AnimationLibary[UnitName][AcutalUnitState].Add(ActualUnitDirection, new Texture2D[Frames]);
+                        AnimationLibrary[UnitName][ActualUnitState].Add(ActualUnitDirection, new Texture2D[Frames]);
                     }
                     
 
@@ -95,7 +104,7 @@ public class UnitAnimationLibrary
                             string TexturePath = FrameFiles[Count].Replace(ContentFolder + "/", "").Replace(MonoGameAddon, "");
                             int TextureFrame = int.Parse(Path.GetFileNameWithoutExtension(FrameFiles[Count]).Replace(UnitAnimationName, ""));
                             Texture2D NewTexture = Content.Load<Texture2D>(TexturePath);
-                            AnimationLibary[UnitName][AcutalUnitState][ActualUnitDirection][TextureFrame] = NewTexture;
+                            AnimationLibrary[UnitName][ActualUnitState][ActualUnitDirection][TextureFrame] = NewTexture;
                         }
                         catch(Exception Error)
                         {
@@ -106,6 +115,29 @@ public class UnitAnimationLibrary
                 }
             }
         }
+    }
+
+    public bool CheckIfAnimationExists(string UnitName, UnitState ActiveState, UnitDirection ActiveDirection) //A class that checks an animation set exists
+    {
+        if (!AnimationLibrary.ContainsKey(UnitName)) //Checking if the unit name exists
+        {
+            LogEvent($"{UnitName} doesn't exist", LogType.Warning);
+            return false;
+        }
+        
+        if (!AnimationLibrary[UnitName].ContainsKey(ActiveState)) //Checking if the unit state exists
+        {
+            LogEvent($"{ActiveState} doesn't exist", LogType.Warning);
+            return false;
+        }
+        
+        if (!AnimationLibrary[UnitName][ActiveState].ContainsKey(ActiveDirection)) //Checking if the unit direction exists
+        {
+            LogEvent($"{ActiveDirection} doesn't exist", LogType.Warning);
+            return false;
+        }
+        
+        return true;
     }
 
     #endregion
