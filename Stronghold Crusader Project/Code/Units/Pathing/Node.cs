@@ -9,15 +9,15 @@ public class Node
 {
     //Class Variables
     
-    public Vector2 Position;
+    public Point Position;
     public Node PreviousNode;
-    public float CostFromStart;
-    public float CostFromEnd;
-    public float TotalCost => CostFromStart + CostFromEnd;
+    public int CostFromStart;
+    public int CostFromEnd;
+    public int TotalCost => CostFromStart + CostFromEnd;
 
     //Class Methods
 
-    public Node(Vector2 InputPosition, float InputCostFromStart, float InputCostFromEnd, Node InputPreviousNode)
+    public Node(Point InputPosition, int InputCostFromStart, int InputCostFromEnd, Node InputPreviousNode)
     {
         Position = InputPosition;
         CostFromStart = InputCostFromStart;
@@ -28,10 +28,32 @@ public class Node
     #region Public Facing
     //Classes that can be used outside of this class
 
-    public static float EstimatedDistance(Vector2 Start, Vector2 End) //Estimates the distance between two vectors
+    public static int EstimatedDistance(Point Start, Point End) //Estimates the distance between two vectors
     {
-        
+
+        int DifferenceX = Math.Abs(Start.X - End.X);
+        int DifferenceY = Math.Abs(Start.Y - End.Y);
+
+        int DiagonalSteps = Math.Min(DifferenceX, DifferenceY);
+        int StraightSteps = Math.Max(DifferenceX, DifferenceY) - DiagonalSteps;
+
+        return (PFDiagonalCost * DiagonalSteps) + (PFStraightCost * StraightSteps);
+
     }
-    
+
+    public override bool Equals(object NodeToCheck) //Method to check if two nodes positions are the same
+    {
+        if(NodeToCheck is Node CheckNode) //If the node isn't actually a node
+        {
+            return Position == CheckNode.Position;
+        }
+        return false;
+    }
+
+    public override int GetHashCode() //Override default hash code so it is only using its position
+    {
+        return Position.GetHashCode();
+    }
+
     #endregion
 }
