@@ -13,6 +13,7 @@ public class Node
     public Node PreviousNode;
     public int CostFromStart;
     public int CostFromEnd;
+    public int LastSearchID;
     public int TotalCost => CostFromStart + CostFromEnd;
 
     //Class Methods
