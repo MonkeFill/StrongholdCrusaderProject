@@ -18,7 +18,7 @@ public class Node
 
     //Class Methods
 
-    public Node(Point InputPosition, int InputCostFromStart, int InputCostFromEnd, Node InputPreviousNode)
+    public Node(Point InputPosition, int InputCostFromStart, int InputCostFromEnd, Node InputPreviousNode = null)
     {
         Position = InputPosition;
         CostFromStart = InputCostFromStart;
@@ -29,7 +29,7 @@ public class Node
     #region Public Facing
     //Classes that can be used outside of this class
 
-    public static int EstimatedDistance(Point Start, Point End) //Estimates the distance between two vectors
+    public int EstimatedDistance(Point Start, Point End) //Estimates the distance between two vectors
     {
 
         int DifferenceX = Math.Abs(Start.X - End.X);

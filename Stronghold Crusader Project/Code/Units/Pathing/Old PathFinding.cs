@@ -1,4 +1,4 @@
-namespace Stronghold_Crusader_Project.Code.PathFinding;
+/*namespace Stronghold_Crusader_Project.Code.PathFinding;
 
 public class PathFinding
 {
@@ -106,3 +106,4 @@ public class PathFind
 }
 
 }
+*/
