@@ -93,8 +93,25 @@ public class PathFinding
                 {
                     continue;
                 }
+
+                int MoveCost = ActiveNode.EstimatedDistance(ActiveNode.Position, ActiveNeighbourPosition);
+                int NewMovementCost = ActiveNode.CostFromStart + MoveCost;
+
+                if (NewMovementCost < ActiveNeighbourNode.CostFromStart || ActiveNeighbourNode.LastSearchID != CurrentSearchID) //if node is cheaper and hasn't been visited
+                {
+                    ActiveNeighbourNode.CostFromStart = NewMovementCost;
+                    ActiveNeighbourNode.CostFromEnd = ActiveNeighbourNode.EstimatedDistance(ActiveNeighbourPosition, End);
+                    ActiveNeighbourNode.PreviousNode = ActiveNode;
+                    ActiveNeighbourNode.LastSearchID = CurrentSearchID;
+
+                    if (!OpenList.Contains(ActiveNeighbourNode))
+                    {
+                        OpenList.Add(ActiveNeighbourNode);
+                    }
+                }
             }
         }
+        return null;
     }
     
     #endregion
