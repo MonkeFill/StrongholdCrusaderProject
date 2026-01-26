@@ -8,7 +8,6 @@ namespace Stronghold_Crusader_Project.Code.Game;
 public class GameEnvironment
 {
     //Class Variables
-    private SpriteBatch ActiveSpriteBatch;
     private ContentManager ActiveContent;
     private GraphicsDevice ActiveGraphics;
 
@@ -22,9 +21,8 @@ public class GameEnvironment
     private Camera2D CameraHandler;
     private bool MapActive = false;
     
-    public GameEnvironment(SpriteBatch InputSpriteBatch, ContentManager InputContent, GraphicsDevice InputGraphics)
+    public GameEnvironment(ContentManager InputContent, GraphicsDevice InputGraphics)
     {
-        ActiveSpriteBatch = InputSpriteBatch;
         ActiveContent = InputContent;
         ActiveGraphics = InputGraphics;
     }
@@ -50,7 +48,7 @@ public class GameEnvironment
         HandleCameraInput(TimeOfGame);
     }
 
-    public void Draw() //Draws all the content
+    public void Draw(SpriteBatch ActiveSpriteBatch) //Draws all the content
     {
         if (MapActive)
         {

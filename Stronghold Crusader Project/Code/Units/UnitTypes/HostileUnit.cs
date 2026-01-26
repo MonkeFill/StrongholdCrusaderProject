@@ -13,6 +13,7 @@ public class HostileUnit : UnitTemplate
         float Speed,
         float AttackPower,
         float AttackSpeed,
+        float Range,
         UnitAnimationLibrary AnimationLibrary,
         Vector2 Position
     ) : base(
