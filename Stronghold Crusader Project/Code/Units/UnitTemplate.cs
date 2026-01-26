@@ -8,27 +8,56 @@ public abstract class UnitTemplate
 {
     //Class Variables
 
-    private string UnitName;
-    private float MaxHealth;
-    private float MovementSpeed;
-    private float AttackPower;
-    private float AttackSpeed;
-    private float Rotation = 0f;
-    private UnitState ActiveState;
-    private UnitAnimationHandler AnimationHandler;
+    //Variables that depend on the unit type
+    protected string UnitName;
+    protected float MaxHealth;
+    public float MovementSpeed;
+    protected float AttackPower;
+    protected float AttackSpeed;
+    
+    //Variables that don't depend on the unit type
+    private float CurrentHealth;
+    private UnitAnimationHandler _unitAnimationManager;
+    private UnitMovementHandler _unitMovementManager;
+    public UnitState ActiveState;
+    
 
 
     //Class Methods
-    public UnitTemplate(UnitAnimationLibrary AnimationLibrary)
+    public UnitTemplate(string InputName, float InputMaxHealth, float InputMovementSpeed, float InputAttackPower, float InputAttackSpeed, UnitAnimationLibrary AnimationLibrary, Vector2 InputPosition)
     {
-        AnimationHandler = new UnitAnimationHandler(UnitName, AnimationLibrary);
+        UnitName = InputName;
+        MaxHealth = InputMaxHealth;
+        MovementSpeed = InputMovementSpeed;
+        AttackPower = InputAttackPower;
+        AttackSpeed = InputAttackSpeed;
+        _unitAnimationManager = new UnitAnimationHandler(UnitName, AnimationLibrary);
+        _unitMovementManager = new UnitMovementHandler(InputPosition, this);
+    }
+    
+    #region Public methods
+    //methods that are public
+
+    public void Update(GameTime TimeOfGame, Tile[,] Map) //Update the unit
+    {
+        _unitMovementManager.Update(TimeOfGame, Map);
+        _unitAnimationManager.Update(TimeOfGame, ActiveState, _unitMovementManager.GetDirection());
+    }
+    
+    public void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the unit
+    {
+        _unitAnimationManager.Draw(ActiveSpriteBatch, _unitMovementManager.Position);
     }
 
-    public UnitDirection GetDirection() //A class to get which direction the unit is pointing
+    public Vector2 GetPosition()
     {
-        int DirectionAmount = Enum.GetNames(typeof(UnitDirection)).Length; //Getting how many directions are possible
-        float RotationPer = 360f / DirectionAmount;
-        int Index = (int)((Rotation / RotationPer) % DirectionAmount);
-        return (UnitDirection)Index;
+        return _unitMovementManager.Position;
     }
+
+    public void MoveTo(List<Point> NewPath)
+    {
+        _unitMovementManager.MoveTo(NewPath);
+    }
+    
+    #endregion
 }

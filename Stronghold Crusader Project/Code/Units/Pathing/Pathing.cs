@@ -6,7 +6,7 @@ namespace Stronghold_Crusader_Project.Code.Units.PathFinding;
 /// </summary>
 /// 
 
-public class PathFinding
+public class Pathing
 {
     Node[,] NodeSet;
     int CurrentSearchID = 0;
@@ -29,7 +29,7 @@ public class PathFinding
 
     };
 
-    public PathFinding()
+    public Pathing()
     {
         NodeSet = new Node[MapWidth, MapHeight];
         for (int PositionX = 0; PositionX < MapWidth; PositionX++)
