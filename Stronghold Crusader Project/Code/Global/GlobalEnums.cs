@@ -15,7 +15,7 @@ public enum UnitState
     Sitting,
     Walking,
     Running,
-    Shooting,
+    Attacking,
     Melee,
     Dying
 }

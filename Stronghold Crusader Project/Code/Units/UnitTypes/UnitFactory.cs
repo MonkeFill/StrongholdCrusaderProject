@@ -30,6 +30,8 @@ public class UnitFactory
             Position
         );
     }
+    
+    #endregion
 
     #region Class Helpers
     //Methods to help the class

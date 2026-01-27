@@ -95,12 +95,18 @@ public class InputManager
         return false;
     }
 
-    public Vector2 GetMousePosition()
+    public Vector2 GetMousePosition() //Returns the mouse position
     {
         return new Vector2(CurrentMouseState.X, CurrentMouseState.Y);
     }
 
-    public int GetMouseChangedScrollWheel()
+    public Vector2 GetMouseWorldPosition(Camera2D CameraHandler) //Returns the mouse position relative to the world
+    {
+        Vector2 MousePosition = GetMousePosition();
+        return CameraHandler.ScreenToWorld(MousePosition);
+    }
+
+    public int GetMouseChangedScrollWheel() //Returns the new scroll wheel value
     {
         return CurrentMouseState.ScrollWheelValue - PreviousMouseState.ScrollWheelValue;
     }

@@ -17,8 +17,8 @@ public abstract class UnitTemplate
     
     //Variables that don't depend on the unit type
     private float CurrentHealth;
-    private UnitAnimationHandler _unitAnimationManager;
-    private UnitMovementHandler _unitMovementManager;
+    private UnitAnimationHandler AnimationManager;
+    private UnitMovementHandler MovementManager;
     public UnitState ActiveState;
     
 
@@ -31,8 +31,8 @@ public abstract class UnitTemplate
         MovementSpeed = InputMovementSpeed;
         AttackPower = InputAttackPower;
         AttackSpeed = InputAttackSpeed;
-        _unitAnimationManager = new UnitAnimationHandler(UnitName, AnimationLibrary);
-        _unitMovementManager = new UnitMovementHandler(InputPosition, this);
+        AnimationManager = new UnitAnimationHandler(UnitName, AnimationLibrary);
+        MovementManager = new UnitMovementHandler(InputPosition, this);
     }
     
     #region Public methods
@@ -40,23 +40,27 @@ public abstract class UnitTemplate
 
     public void Update(GameTime TimeOfGame, Tile[,] Map) //Update the unit
     {
-        _unitMovementManager.Update(TimeOfGame, Map);
-        _unitAnimationManager.Update(TimeOfGame, ActiveState, _unitMovementManager.GetDirection());
+        MovementManager.Update(TimeOfGame, Map);
+        AnimationManager.Update(TimeOfGame, ActiveState, MovementManager.GetDirection());
     }
     
     public void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the unit
     {
-        _unitAnimationManager.Draw(ActiveSpriteBatch, _unitMovementManager.Position);
+        AnimationManager.Draw(ActiveSpriteBatch, MovementManager.Position);
     }
 
     public Vector2 GetPosition()
     {
-        return _unitMovementManager.Position;
+        return MovementManager.Position;
     }
 
     public void MoveTo(List<Point> NewPath)
     {
-        _unitMovementManager.MoveTo(NewPath);
+        if (NewPath != null)
+        {
+            ActiveState = UnitState.Walking;
+            MovementManager.MoveTo(NewPath);
+        }
     }
     
     #endregion

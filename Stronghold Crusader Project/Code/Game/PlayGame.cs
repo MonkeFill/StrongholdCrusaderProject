@@ -8,20 +8,18 @@ public class PlayGame
 {
     //Class Variables
     GameEnvironment GameManager;
-    UnitHandler UnitManager;
     bool GameLoaded;
     bool GameActive;
 
     public PlayGame(ContentManager Content, GraphicsDevice Graphics)
     {
         GameManager = new GameEnvironment(Content, Graphics);
-        UnitManager = new UnitHandler(Content);
     }
 
     #region Public Methods
     //Methods that are publicly accessible
 
-    public void Update(GameTime TimeOfGame, Tile[,] Map) //Updates all the game elements
+    public void Update(GameTime TimeOfGame) //Updates all the game elements
     {
         if (!GameActive)
         {
@@ -33,7 +31,6 @@ public class PlayGame
         }
 
         GameManager.Update(TimeOfGame);
-        UnitManager.Update(TimeOfGame, Map);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
@@ -43,7 +40,6 @@ public class PlayGame
             return;
         }
         GameManager.Draw(ActiveSpriteBatch);
-        UnitManager.Draw(ActiveSpriteBatch);
     }
 
     #endregion

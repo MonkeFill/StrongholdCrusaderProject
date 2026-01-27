@@ -7,7 +7,7 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 public class GameWorld
 {
     //Class Variables
-    private Tile[,] Tiles = new Tile[MapWidth, MapHeight];
+    public Tile[,] Tiles = new Tile[MapWidth, MapHeight];
     private Borders BorderHandler;
     private TileLibary TileManager;
     private MapFileManager FileManager;
