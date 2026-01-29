@@ -5,7 +5,7 @@ public class Game1 : Game
     private GraphicsDeviceManager ActiveGraphics;
     private SpriteBatch ActiveSpriteBatch;
 
-    private PlayGame GameHandler;
+    public PlayGame GameHandler;
 
     public Game1()
     {
@@ -32,7 +32,7 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         ActiveSpriteBatch = new SpriteBatch(GraphicsDevice);
-        GameHandler = new PlayGame(Content, GraphicsDevice);
+        GameHandler = new PlayGame(this);
     }
 
     protected override void Update(GameTime gameTime)

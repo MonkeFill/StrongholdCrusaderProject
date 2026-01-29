@@ -34,7 +34,7 @@ public class InputManager
 
     #region Keyboard Methods
     //Methods for keybinds on the keyboard
-    public bool IsKeybindHeldDown(KeyManager.KeyAction ActiveKeybind) //Checks if a keybind is being held down
+    public bool IsKeybindHeldDown(KeyAction ActiveKeybind) //Checks if a keybind is being held down
     {
         Keys ActiveKey = KeybindsManager.GetKeyFromKeybind(ActiveKeybind);
         if (CurrentKeyboardState.IsKeyDown(ActiveKey))
@@ -44,7 +44,7 @@ public class InputManager
         return false;
     }
     
-    public bool IsKeybindPressedOnce(KeyManager.KeyAction ActiveKeybind) //Checks if a keybind has been pressed once
+    public bool IsKeybindPressedOnce(KeyAction ActiveKeybind) //Checks if a keybind has been pressed once
     {
         Keys ActiveKey = KeybindsManager.GetKeyFromKeybind(ActiveKeybind);
         if (CurrentKeyboardState.IsKeyDown(ActiveKey) && !PreviousKeyboardState.IsKeyDown(ActiveKey))

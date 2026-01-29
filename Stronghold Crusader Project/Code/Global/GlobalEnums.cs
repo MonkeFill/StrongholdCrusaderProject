@@ -45,4 +45,15 @@ public enum LogType
     Status,
 }
 
+public enum KeyAction
+{
+    //Camera
+    CameraUp, CameraDown, CameraLeft, CameraRight,
+    CameraRotateLeft, CameraRotateRight,
+        
+    //UI
+    MenuBack
+    //Game
+}
+
 #endregion

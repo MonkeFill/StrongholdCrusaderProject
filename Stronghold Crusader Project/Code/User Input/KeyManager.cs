@@ -8,17 +8,6 @@ namespace Stronghold_Crusader_Project.Code.User_Input;
 public class KeyManager
 {
     //Class Variables
-    public enum KeyAction
-    {
-        //Camera
-        CameraUp, CameraDown, CameraLeft, CameraRight,
-        CameraRotateLeft, CameraRotateRight,
-        
-        //UI
-        MenuBack
-        //Game
-    }
-
     private Dictionary<KeyAction, Keys> Keybinds;
     
     //Class Methods
@@ -26,6 +15,7 @@ public class KeyManager
     {
         Keybinds = new Dictionary<KeyAction, Keys>();
         InitialiseDefaultKeybinds();
+        Console.WriteLine();
     }
     
     #region Public Facing 
@@ -93,7 +83,6 @@ public class KeyManager
         {
             return true;
         }
-        LogEvent($"{ActiveKeybind} not found", LogType.Warning);
         return false;
     }
 

@@ -9,7 +9,7 @@ public class Camera2D
 {
     //Class Variables
     public Vector2 Position;
-    public Vector2 MapSize = new Vector2(MapWidth * TileWidth, MapHeight * TileHeight);
+    public Vector2 MapSize = new Vector2((MapWidth * TileWidth) + (TileWidth / 2f), (MapHeight + 1) * (TileHeight / 2f));
     public float Zoom;
     public float Rotation;
     public Matrix ViewMatrix => GetViewMatrix();
@@ -23,7 +23,7 @@ public class Camera2D
     public Camera2D(Viewport Input_WindowFrame)
     {
         WindowFrame = Input_WindowFrame;
-        Zoom = 1f;
+        Zoom = 1.5f;
         Rotation = 0f;
         Position = new Vector2(MapSize.X / 2f, MapSize.Y / 2f);
         TargetPosition = Position;
@@ -37,7 +37,7 @@ public class Camera2D
         float DeltaTime = (float)Time.ElapsedGameTime.TotalSeconds;
         if (ZoomInput != 0) //if there is a zoom
         {
-            Zoom += (ZoomInput * ZoomSensitivity);
+            Zoom += ((ZoomInput / ZoomDelta) * ZoomSensitivity);
             ClampZoom();
         }
 

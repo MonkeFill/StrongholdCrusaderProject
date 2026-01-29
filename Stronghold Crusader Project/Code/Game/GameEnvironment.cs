@@ -1,3 +1,5 @@
+using Assimp;
+
 namespace Stronghold_Crusader_Project.Code.Game;
 
 /// <summary>
@@ -67,6 +69,14 @@ public class GameEnvironment
         MenuHandler.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.End();
     }
+
+    public void StartTestGame()
+    {
+        GameWorldHandler.LoadWorld("GeneratedMap_100x50.json");
+        MapActive = true;
+        MenuHandler.AddMenu(new BlankMenu(MenuHandler, GameWorldHandler));
+        //UnitHandler.AddUnit(UnitHandler.UnitCreator.GetArcher(new Vector2(20, 20)));
+    }
     
     #endregion
     
@@ -75,7 +85,28 @@ public class GameEnvironment
 
     private void HandleCameraInput(GameTime TimeOfGame) //Handles camera movement
     {
+        Vector2 Movement = Vector2.Zero;
+        float Zoom = InputHandler.GetMouseChangedScrollWheel();
+        float Rotation = 0;
+
+        if (InputHandler.IsKeybindHeldDown(KeyAction.CameraUp))
+        {
+            Movement.Y = -1;
+        }
+        if (InputHandler.IsKeybindHeldDown(KeyAction.CameraDown))
+        {
+            Movement.Y = 1;
+        }
+        if (InputHandler.IsKeybindHeldDown(KeyAction.CameraLeft))
+        {
+            Movement.X = -1;
+        }
+        if (InputHandler.IsKeybindHeldDown(KeyAction.CameraRight))
+        {
+            Movement.X = 1;
+        }
         
+        CameraHandler.Update(TimeOfGame, Movement, Zoom, Rotation);
     }
     
     #endregion

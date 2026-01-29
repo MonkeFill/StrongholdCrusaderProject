@@ -24,7 +24,7 @@ public class HomeScreen : BaseMenu //First screen you get when yu open the game
         ActiveTexture = Content.Load<Texture2D>(Path.Combine(Assets, "SpecialButton"));
         ActiveTextureHover = Content.Load<Texture2D>(Path.Combine(Assets, $"SpecialButton{HoverAddon}"));
         TempDrawer = new IconDrawer(ActiveTexture, ActiveTextureHover);
-        MenuButtons.Add(new Button("Special", "", new Rectangle(175, 500, ActiveTexture.Width, ActiveTexture.Height), TempDrawer, Menus.RemoveMenu));
+        MenuButtons.Add(new Button("Special", "", new Rectangle(175, 500, ActiveTexture.Width, ActiveTexture.Height), TempDrawer, () => Menus.ActiveGame.GameHandler.GameManager.StartTestGame()));
 
         CreateMainButtons(Assets);
     }

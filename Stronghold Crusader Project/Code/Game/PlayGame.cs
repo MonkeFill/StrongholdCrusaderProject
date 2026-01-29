@@ -7,13 +7,12 @@ namespace Stronghold_Crusader_Project.Code.Game;
 public class PlayGame
 {
     //Class Variables
-    GameEnvironment GameManager;
-    bool GameLoaded;
-    bool GameActive;
+    public GameEnvironment GameManager;
 
-    public PlayGame(ContentManager Content, GraphicsDevice Graphics)
+    public PlayGame(Game1 Game)
     {
-        GameManager = new GameEnvironment(Content, Graphics);
+        GameManager = new GameEnvironment(Game.Content, Game.GraphicsDevice);
+        GameManager.LoadContent(Game);
     }
 
     #region Public Methods
@@ -21,24 +20,11 @@ public class PlayGame
 
     public void Update(GameTime TimeOfGame) //Updates all the game elements
     {
-        if (!GameActive)
-        {
-            return;
-        }
-        if(!GameLoaded)
-        {
-            return;
-        }
-
         GameManager.Update(TimeOfGame);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
     {
-        if (!GameLoaded)
-        {
-            return;
-        }
         GameManager.Draw(ActiveSpriteBatch);
     }
 

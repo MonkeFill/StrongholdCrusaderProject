@@ -16,7 +16,7 @@ public class UnitManager
     private List<PassiveUnit> PlayersPassiveUnits;
     private List<HostileUnit> EnemyUnits;
     private Pathing PathManager;
-    private UnitFactory UnitCreator;
+    public UnitFactory UnitCreator;
     private UnitAnimationLibrary AnimationLibrary;
     public List<UnitTemplate> SelectedUnits;
 

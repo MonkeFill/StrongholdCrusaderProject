@@ -45,7 +45,7 @@ public static class GlobalConfig{
     public const int MapHeight = 100;
     public const int TileHeight = 16;
     public const int TileWidth = 32;
-    public static readonly Vector2 MapSize = new Vector2(MapWidth * TileWidth, MapHeight * TileHeight);
+    public static readonly Vector2 MapSize = new Vector2((MapWidth * TileWidth) + (TileWidth / 2f), (MapHeight + 1) * (TileHeight / 2f));
     public const int BorderHeight = 10 * TileHeight;
     public const int BorderWidth = (int)(TileWidth * 2.5);
     public const string DefaultBorderName = "DefaultBorder";
@@ -60,6 +60,7 @@ public static class GlobalConfig{
     public const float ZoomSensitivity = 0.1f; //How fast you can zoom into the map
     public const float MovementAmount = 200f; //How much the camera moves by
     public const float MovementSpeed = 75f; //How fast the camera moves
+    public const float ZoomDelta = 120f;
     public const float RotationAmount = MathHelper.PiOver2;
     
     #endregion

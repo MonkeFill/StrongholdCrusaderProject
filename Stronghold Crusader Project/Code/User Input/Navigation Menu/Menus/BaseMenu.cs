@@ -16,7 +16,7 @@ public abstract class BaseMenu
     public void Update(InputManager InputHandler) //Updating the menu
     {
         UpdateButtons(InputHandler);
-        if (InputHandler.IsKeybindPressedOnce(KeyManager.KeyAction.MenuBack))
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.MenuBack))
         {
             Menus.RemoveMenu();
         }
