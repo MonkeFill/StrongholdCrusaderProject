@@ -57,8 +57,8 @@ public class UnitAnimationHandler
 
     public void Draw(SpriteBatch ActiveSpriteBatch, Vector2 Position) //Draws the characater
     {
-        Rectangle UnitRectangle = new Rectangle((int)Position.X - (ActiveFrameTexture.Width / 2), (int)Position.Y, ActiveFrameTexture.Width, ActiveFrameTexture.Height);
-        ActiveSpriteBatch.Draw(ActiveFrameTexture, UnitRectangle, Color.White);
+        //Rectangle UnitRectangle = new Rectangle((int)Position.X - (ActiveFrameTexture.Width / 2), (int)Position.Y, ActiveFrameTexture.Width, ActiveFrameTexture.Height);
+        //ActiveSpriteBatch.Draw(ActiveFrameTexture, UnitRectangle, Color.White);
     }
 
     #endregion

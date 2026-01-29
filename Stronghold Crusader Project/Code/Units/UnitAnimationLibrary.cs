@@ -38,13 +38,14 @@ public class UnitAnimationLibrary
 
     public void LoadAnimations(ContentManager Content) //A class to load in all the animations
     {
-        if (!Path.Exists(UnitsFolder)) //If it doesn't exist
+        string UnitsAssetFolder = Path.Combine(ContentFolder, UnitsFolder);
+        if (!Path.Exists(UnitsAssetFolder)) //If it doesn't exist
         {
-            LogEvent($"{UnitsFolder} is not found", LogType.Error);
+            LogEvent($"{UnitsAssetFolder} is not found", LogType.Error);
             return;
         }
 
-        foreach (string UnitNamePath in Directory.GetDirectories(UnitsFolder)) //Unit Name
+        foreach (string UnitNamePath in Directory.GetDirectories(UnitsAssetFolder)) //Unit Name
         {
             string UnitName = Path.GetFileNameWithoutExtension(UnitNamePath);
 
@@ -105,20 +106,22 @@ public class UnitAnimationLibrary
                     {
                         try
                         {
-                            string TexturePath = FrameFiles[Count].Replace(ContentFolder + "/", "").Replace(MonoGameAddon, "");
-                            int TextureFrame = int.Parse(Path.GetFileNameWithoutExtension(FrameFiles[Count]).Replace(UnitAnimationName, ""));
+                            string TextureName = Path.GetFileNameWithoutExtension(FrameFiles[Count]);
+                            string TexturePath = Path.Combine(UnitsFolder, UnitName, UnitStateName, UnitDirection, TextureName) + MonoGameAddon;
+                            int TextureFrame = int.Parse(TextureName.Replace(UnitAnimationName, ""));
                             Texture2D NewTexture = Content.Load<Texture2D>(TexturePath);
                             AnimationLibrary[UnitName][ActualUnitState][ActualUnitDirection][TextureFrame] = NewTexture;
                         }
                         catch(Exception Error)
                         {
-                            LogEvent($"{FrameFiles[Count]} count not be loaded, {Error.Message}", LogType.Warning);
+                            LogEvent($"{FrameFiles[Count]} could not be loaded, {Error.Message}", LogType.Warning);
                         }
                     }
 
                 }
             }
         }
+        Console.WriteLine();
     }
 
     public bool CheckIfAnimationExists(string UnitName, UnitState ActiveState, UnitDirection ActiveDirection) //A class that checks an animation set exists

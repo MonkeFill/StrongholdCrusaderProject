@@ -75,7 +75,8 @@ public class GameEnvironment
         GameWorldHandler.LoadWorld("GeneratedMap_100x50.json");
         MapActive = true;
         MenuHandler.AddMenu(new BlankMenu(MenuHandler, GameWorldHandler));
-        //UnitHandler.AddUnit(UnitHandler.UnitCreator.GetArcher(new Vector2(20, 20)));
+        HostileUnit Unit = UnitHandler.UnitCreator.GetArcher(new Vector2(20, 20));
+        Console.WriteLine();
     }
     
     #endregion
