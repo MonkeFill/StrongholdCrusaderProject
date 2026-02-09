@@ -17,7 +17,7 @@ public class MapFileManager
 
     public void SaveMap(Tile[,] Tiles, string MapName) //A method to save the map to a file
     {
-        String[,] TileNames = new string[MapWidth, MapHeight];
+        String[,] TileNames = new string[MapDimensions.X, MapDimensions.Y];
         LoopThroughTiles((PositionX, PositionY) =>
         {
             TileNames[PositionX, PositionY] = Tiles[PositionX, PositionY].Type.Name; //Retrieving all the tile names
@@ -46,14 +46,14 @@ public class MapFileManager
                 return null;
             }
 
-            if (TileNames.GetLength(0) != MapWidth || TileNames.GetLength(1) != MapHeight) //If the map is not the same size as it should be
+            if (TileNames.GetLength(0) != MapDimensions.X || TileNames.GetLength(1) != MapDimensions.Y) //If the map is not the same size as it should be
             {
                 LogEvent($"{FullMapPath} is the wrong legth, size is {TileNames.GetLength(0)}x{TileNames.GetLength(1)}", LogType.Warning);
                 return null;
             }
             
             //Now that we have loaded the map in through strings we have to convert them to the tile class
-            Tile[,] LoadedMap = new Tile[MapWidth, MapHeight];
+            Tile[,] LoadedMap = new Tile[MapDimensions.X, MapDimensions.Y];
             TileType FallbackTile = TileManager.GetRandomTileType();
             LoopThroughTiles((PositionX, PositionY) =>
             {
@@ -84,9 +84,9 @@ public class MapFileManager
     
     private static void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
     {
-        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        for (int PositionY = 0; PositionY < MapDimensions.X; PositionY++)
         {
-            for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+            for (int PositionX = 0; PositionX < MapDimensions.Y; PositionX++) //Loop through all the tiles
             {
                 ActionToDo(PositionX, PositionY); //Execute the action for that specific tile
             }

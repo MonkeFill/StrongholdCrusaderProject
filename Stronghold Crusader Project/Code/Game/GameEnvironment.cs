@@ -40,7 +40,7 @@ public class GameEnvironment
         KeyHandler = new KeyManager();
         InputHandler = new InputManager(KeyHandler);
         GameWorldHandler = new GameWorld(TilesHandler, BorderHandler);
-        UnitHandler = new UnitManager(ActiveContent);
+        UnitHandler = new UnitManager(ActiveContent, ActiveGraphics);
         CameraHandler = new Camera2D(ActiveGraphics.Viewport);
         MenuHandler = new MenuManager(Game, GameWorldHandler);
     }
@@ -63,7 +63,7 @@ public class GameEnvironment
             UnitHandler.Draw(ActiveSpriteBatch);
             ActiveSpriteBatch.End();
         }
-
+        
         ActiveSpriteBatch.Begin();
         //Anything that is drawn without the camera should be here
         MenuHandler.Draw(ActiveSpriteBatch);
@@ -72,10 +72,11 @@ public class GameEnvironment
 
     public void StartTestGame()
     {
-        GameWorldHandler.LoadWorld("GeneratedMap_100x50.json");
+        GameWorldHandler.LoadWorld("GeneratedMap_50x50.json");
         MapActive = true;
         MenuHandler.AddMenu(new BlankMenu(MenuHandler, GameWorldHandler));
-        HostileUnit Unit = UnitHandler.UnitCreator.GetArcher(new Vector2(20, 20));
+        HostileUnit Unit = UnitHandler.UnitCreator.GetArcher(new Vector2(576, 64));
+        UnitHandler.AddUnit(Unit);
         Console.WriteLine();
     }
     

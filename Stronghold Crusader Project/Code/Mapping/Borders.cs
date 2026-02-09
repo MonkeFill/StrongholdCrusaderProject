@@ -54,23 +54,23 @@ public class Borders
 
     private void CreateBorders()
     {
-        CreateHorizontalEdge(-BorderWidth + (TileWidth / 2), -BorderHeight + (TileHeight / 2)); //Top Edge
-        CreateVerticalEdge(-BorderWidth + (TileWidth / 2), TileHeight / 2); //Left Edge
-        CreateHorizontalEdge(-BorderWidth + (TileWidth / 2), (int)MapSize.Y - (TileHeight / 2)); //Bottom Edge
-        CreateVerticalEdge((int)MapSize.X - (TileWidth / 2), TileHeight / 2); //Right Edge
+        CreateHorizontalEdge(-BorderSize.X, -BorderSize.Y); //Top Edge
+        CreateVerticalEdge(-BorderSize.X, 0); //Left Edge
+        CreateHorizontalEdge(-BorderSize.X, MapSize.Y); //Bottom Edge
+        CreateVerticalEdge(MapSize.X , 0); //Right Edge
     }
 
     private void CreateHorizontalEdge(int StartX, int StartY)
     {
-        int Amount = (int)MapSize.X / BorderWidth;
+        int Amount = (MapSize.X / BorderSize.X) + 2;
         for (int Count = 0; Count < Amount; Count++)
         {
             Texture2D ActiveTexture = DefaultTexture;
             if (Count == Amount / 2) //Middle piece
             {
-                ActiveTexture = NarrowBorderTexture;
+                //ActiveTexture = NarrowBorderTexture;
             }
-            Vector2 ActivePosition = new Vector2(StartX + ActiveTexture.Width, StartY);
+            Vector2 ActivePosition = new Vector2(StartX, StartY);
             BorderList.Add(new BorderPiece(ActivePosition, ActiveTexture));
             StartX += ActiveTexture.Width;
         }
@@ -78,15 +78,15 @@ public class Borders
     
     private void CreateVerticalEdge(int StartX, int StartY)
     {
-        int Amount = (int)MapSize.Y / BorderHeight - 2;
+        int Amount = (MapSize.Y / BorderSize.Y);
         for (int Count = 0; Count < Amount; Count++)
         {
             Texture2D ActiveTexture = DefaultTexture;
             if (Count == Amount / 2) //Middle piece
             {
-                ActiveTexture = ShortBorderTexture;
+                //ActiveTexture = ShortBorderTexture;
             }
-            Vector2 ActivePosition = new Vector2(StartX, StartY + ActiveTexture.Height);
+            Vector2 ActivePosition = new Vector2(StartX, StartY);
             BorderList.Add(new BorderPiece(ActivePosition, ActiveTexture));
             StartY += ActiveTexture.Height;
         }

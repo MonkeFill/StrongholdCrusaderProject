@@ -9,7 +9,7 @@ public class UnitAnimationLibrary
 {
     //Class Variables
 
-    Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>> AnimationLibrary = new Dictionary<String, Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>>(); //Dictionary to hold the animations
+    Dictionary<int, Texture2D[]> AnimationLibrary = new Dictionary<int, Texture2D[]>(); //Dictionary to hold the animations
     //To access the animation libary you have to go through the troop name, troop state and then troop direction to get the frames for the animation
 
     //Class Methods
@@ -24,9 +24,10 @@ public class UnitAnimationLibrary
 
     public Texture2D[] GetAnimationList(string UnitName, UnitState ActiveState, UnitDirection ActiveDirection) //A class that returns the list of animations
     {
-        if (CheckIfAnimationExists(UnitName, ActiveState, ActiveDirection))
+        int Key = GetAnimationKey(UnitName, ActiveState, ActiveDirection);
+        if (AnimationLibrary.TryGetValue(Key, out Texture2D[] ActiveFrames))
         {
-            return AnimationLibrary[UnitName][ActiveState][ActiveDirection];
+            return ActiveFrames;
         }
         return null;
     }
@@ -36,7 +37,7 @@ public class UnitAnimationLibrary
     #region Helper Classes
     //Classes that will help this class
 
-    public void LoadAnimations(ContentManager Content) //A class to load in all the animations
+    private void LoadAnimations(ContentManager Content) //A class to load in all the animations
     {
         string UnitsAssetFolder = Path.Combine(ContentFolder, UnitsFolder);
         if (!Path.Exists(UnitsAssetFolder)) //If it doesn't exist
@@ -48,15 +49,7 @@ public class UnitAnimationLibrary
         foreach (string UnitNamePath in Directory.GetDirectories(UnitsAssetFolder)) //Unit Name
         {
             string UnitName = Path.GetFileNameWithoutExtension(UnitNamePath);
-
-
-            //Checks
-            if (!AnimationLibrary.ContainsKey(UnitName)) //If it doesn't contain the unit name
-            {
-                AnimationLibrary.Add(UnitName, new Dictionary<UnitState, Dictionary<UnitDirection, Texture2D[]>>());
-            }
-
-
+            
             foreach (string UnitStatePath in Directory.GetDirectories(UnitNamePath)) //Unit State
             {
                 string UnitStateName = Path.GetFileNameWithoutExtension(UnitStatePath);
@@ -68,13 +61,6 @@ public class UnitAnimationLibrary
                     LogEvent($"{UnitStateName} isn't a hardcoded state", LogType.Warning);
                     continue;
                 }
-
-                if (!AnimationLibrary[UnitName].ContainsKey(ActualUnitState)) //If it doesn't contain the unit state
-                {
-                    AnimationLibrary[UnitName].Add(ActualUnitState, new Dictionary<UnitDirection, Texture2D[]>());
-                }
-
-
 
 
                 foreach (string UnitDirectionPath in Directory.GetDirectories(UnitStatePath))
@@ -89,62 +75,35 @@ public class UnitAnimationLibrary
                         continue;
                     }
 
-
                     string[] FrameFiles = Directory.GetFiles(UnitDirectionPath, $"*{MonoGameAddon}");
-                    int Frames = FrameFiles.Length;
-
-
-                    if (!AnimationLibrary[UnitName][ActualUnitState].ContainsKey(ActualUnitDirection)) //If it doesn't contain the unit direction
+                    FrameFiles = FrameFiles.OrderBy(Frame => int.Parse(Path.GetFileNameWithoutExtension(Frame).Replace(UnitAnimationName, ""))).ToArray();
+                    int FramesLength = FrameFiles.Length;
+                    Texture2D[] TextureArray = new Texture2D[FramesLength];
+                    for (int Count = 0; Count < FramesLength; Count++)
                     {
-                        AnimationLibrary[UnitName][ActualUnitState].Add(ActualUnitDirection, new Texture2D[Frames]);
+                        string LoadPath = Path.GetRelativePath(ContentFolder, FrameFiles[Count]).Replace(MonoGameAddon, "");
+                        TextureArray[Count] = Content.Load<Texture2D>(LoadPath);
                     }
-                    
-
-
-                    //Actual logic
-                    for (int Count = 0; Count < Frames; Count++)
+                    int Key = GetAnimationKey(UnitName, ActualUnitState, ActualUnitDirection);
+                    if (!AnimationLibrary.ContainsKey(Key)) //If key doesn't exist
                     {
-                        try
-                        {
-                            string TextureName = Path.GetFileNameWithoutExtension(FrameFiles[Count]);
-                            string TexturePath = Path.Combine(UnitsFolder, UnitName, UnitStateName, UnitDirection, TextureName) + MonoGameAddon;
-                            int TextureFrame = int.Parse(TextureName.Replace(UnitAnimationName, ""));
-                            Texture2D NewTexture = Content.Load<Texture2D>(TexturePath);
-                            AnimationLibrary[UnitName][ActualUnitState][ActualUnitDirection][TextureFrame] = NewTexture;
-                        }
-                        catch(Exception Error)
-                        {
-                            LogEvent($"{FrameFiles[Count]} could not be loaded, {Error.Message}", LogType.Warning);
-                        }
+                        AnimationLibrary.Add(Key, TextureArray);
                     }
-
                 }
             }
         }
         Console.WriteLine();
     }
 
-    public bool CheckIfAnimationExists(string UnitName, UnitState ActiveState, UnitDirection ActiveDirection) //A class that checks an animation set exists
+    private bool CheckIfAnimationExists(string UnitName, UnitState ActiveState, UnitDirection ActiveDirection) //A class that checks an animation set exists
     {
-        if (!AnimationLibrary.ContainsKey(UnitName)) //Checking if the unit name exists
-        {
-            LogEvent($"{UnitName} doesn't exist", LogType.Warning);
-            return false;
-        }
-        
-        if (!AnimationLibrary[UnitName].ContainsKey(ActiveState)) //Checking if the unit state exists
-        {
-            LogEvent($"{ActiveState} doesn't exist", LogType.Warning);
-            return false;
-        }
-        
-        if (!AnimationLibrary[UnitName][ActiveState].ContainsKey(ActiveDirection)) //Checking if the unit direction exists
-        {
-            LogEvent($"{ActiveDirection} doesn't exist", LogType.Warning);
-            return false;
-        }
-        
-        return true;
+        int Key = GetAnimationKey(UnitName, ActiveState, ActiveDirection);
+        return AnimationLibrary.ContainsKey(Key);
+    }
+
+    private int GetAnimationKey(string UnitName, UnitState State, UnitDirection Direction)
+    {
+        return HashCode.Combine(UnitName, State, Direction);
     }
 
     #endregion

@@ -9,14 +9,19 @@ public class Camera2D
 {
     //Class Variables
     public Vector2 Position;
-    public Vector2 MapSize = new Vector2((MapWidth * TileWidth) + (TileWidth / 2f), (MapHeight + 1) * (TileHeight / 2f));
     public float Zoom;
     public float Rotation;
+    private float MaxZoomIn;
+    private float MinZoomOut;
     public Matrix ViewMatrix => GetViewMatrix();
     private Vector2 TargetPosition;
     private Viewport WindowFrame;
-    private float MinZoom;
-    private float MaxZoom;
+
+    Rectangle MapBounds => new Rectangle(
+        -BorderSize.X, //Starting X
+        -BorderSize.Y, //Starting Y
+        (MapSize.X + (BorderSize.X * 2)), //Width
+        (MapSize.Y + (BorderSize.Y * 2))); //Height
     
     //Class Methods
 
@@ -27,7 +32,7 @@ public class Camera2D
         Rotation = 0f;
         Position = new Vector2(MapSize.X / 2f, MapSize.Y / 2f);
         TargetPosition = Position;
-        CalculateMinZoom();
+        CalculateZoom();
     }
 
     #region Public Facing
@@ -92,10 +97,14 @@ public class Camera2D
         return new Vector2(RotatedWidth, RotatedHeight);
     }
     
-    private void CalculateMinZoom() //Uses the resolution of the monitor to return how much it can zoom in and out at most
+    private void CalculateZoom() //Uses the resolution of the monitor to return how much it can zoom in and out at most
     {
-        MinZoom = 0.5f;
-        MaxZoom = 2f;
+        MaxZoomIn = 5f;
+
+        float ZoomX = (float)WindowFrame.Width / MapBounds.Width;
+        float ZoomY = (float)WindowFrame.Height /MapBounds.Height;
+ 
+        MinZoomOut = Math.Max(ZoomX, ZoomY);
     }
     
     #endregion
@@ -109,21 +118,11 @@ public class Camera2D
         float ViewWorldWidth = WindowFrame.Width / Zoom;
         float ViewWorldHeight = WindowFrame.Height / Zoom;
         
-        float MinPositionX = (ViewWorldWidth / 2f) - BorderWidth + (TileWidth / 2f);
-        float MinPositionY = (ViewWorldHeight / 2f) - BorderHeight + (TileHeight / 2f);
+        float MinPositionX = (ViewWorldWidth / 2f) + MapBounds.X;
+        float MinPositionY = (ViewWorldHeight / 2f) + MapBounds.Y;
         //Creating maximum positions for how far away from origin the camera can go
-        float MaxPositionX = MapSize.X + BorderWidth - (TileWidth / 2f) - (ViewWorldWidth / 2f);
-        float MaxPositionY = MapSize.Y + BorderHeight - (ViewWorldHeight / 2f) - (TileHeight / 2f);
-        
-        //Checking if the map is smaller than the screen size to make sure the camera is locked 
-        if (MapSize.X <= ViewWorldWidth)
-        {
-            MinPositionX = MaxPositionX = MapSize.X / 2f;
-        }
-        if (MapSize.Y <= ViewWorldHeight)
-        {
-            MinPositionY = MaxPositionY = MapSize.Y / 2f;
-        }
+        float MaxPositionX = (MapBounds.X + MapBounds.Width) - (ViewWorldWidth / 2f);
+        float MaxPositionY = (MapBounds.Y + MapBounds.Height) - (ViewWorldHeight / 2f);
         
         //Clamping all the positions
         Position.X = MathHelper.Clamp(Position.X, MinPositionX, MaxPositionX);
@@ -134,7 +133,7 @@ public class Camera2D
 
     private void ClampZoom()
     {
-        Zoom  = MathHelper.Clamp(Zoom, MinZoom, MaxZoom);
+        Zoom  = MathHelper.Clamp(Zoom, MinZoomOut, MaxZoomIn);
     }
 
     private void ClampRotation()

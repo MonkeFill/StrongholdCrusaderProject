@@ -23,7 +23,7 @@ public class UnitFactory
         return CreateHostileUnit(
             "Archer",
             100f,
-            1.5f,
+            15f,
             15f,
             1.0f,
             2f,

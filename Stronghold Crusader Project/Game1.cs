@@ -5,6 +5,11 @@ public class Game1 : Game
     private GraphicsDeviceManager ActiveGraphics;
     private SpriteBatch ActiveSpriteBatch;
 
+    double FpsTimer;
+    int FpsCounter;
+    int Fps;
+    SpriteFont Font;
+
     public PlayGame GameHandler;
 
     public Game1()
@@ -19,7 +24,7 @@ public class Game1 : Game
     protected override void Initialize()
     {
         //Setting the game to full screen borderless
-        Window.IsBorderless = true;
+        Window.IsBorderless = false;
         ActiveGraphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         ActiveGraphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         ActiveGraphics.ApplyChanges();
@@ -33,6 +38,7 @@ public class Game1 : Game
     {
         ActiveSpriteBatch = new SpriteBatch(GraphicsDevice);
         GameHandler = new PlayGame(this);
+        Font = Content.Load<SpriteFont>("DefaultFont");
     }
 
     protected override void Update(GameTime gameTime)
@@ -46,8 +52,20 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.Black);
+        FpsTimer += gameTime.ElapsedGameTime.TotalSeconds;
+        FpsCounter++;
+        if (FpsTimer >= 1)
+        {
+            Fps = FpsCounter;
+            FpsCounter = 0;
+            FpsTimer -= 1.0;
+        }
+        
+        GraphicsDevice.Clear(Color.Red);
         GameHandler.Draw(ActiveSpriteBatch);
+        ActiveSpriteBatch.Begin(); 
+        ActiveSpriteBatch.DrawString(Font, "FPS: " + Fps.ToString(), new Vector2(20, 20), Color.White);
+        ActiveSpriteBatch.End();
         base.Draw(gameTime);
     }
 }

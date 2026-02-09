@@ -12,29 +12,12 @@ public class Pathing
     int CurrentSearchID = 0;
     Tile[,] TileSet;
 
-    readonly Point[] EvenRowOffsets =
-    {
-        new Point(-1, -1), //North West
-        new Point(0, -1), //North East
-        new Point(-1,1), //South West
-        new Point(0,1) //South East
-    };
-
-    readonly Point[] OddRowOffsets =
-    {
-        new Point(0, -1), //North West
-        new Point(1, -1), //North East
-        new Point(0, 1), //South West
-        new Point(1, 1) //South East
-
-    };
-
     public Pathing()
     {
-        NodeSet = new Node[MapWidth, MapHeight];
-        for (int PositionX = 0; PositionX < MapWidth; PositionX++)
+        NodeSet = new Node[MapDimensions.X, MapDimensions.Y];
+        for (int PositionX = 0; PositionX < MapDimensions.X; PositionX++)
         {
-            for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+            for (int PositionY = 0; PositionY < MapDimensions.Y; PositionY++)
             {
                 NodeSet[PositionX, PositionY] = new Node(new Point(PositionX, PositionY), 0, 0);
             }
@@ -137,48 +120,23 @@ public class Pathing
         return Path;
     }
 
-    private List<Point> GetNeighbours(Point Position) //returns all Neighbours to the position that are valid
+    public List<Point> GetNeighbours(Point Position) //returns all Neighbours to the position that are valid
     {
         List<Point> ValidNeighbours = new List<Point>();
-        Point Left = new Point(Position.X - 1, Position.Y); 
-        Point Right = new Point(Position.X + 1, Position.Y); 
-        Point Top = new Point(Position.X, Position.Y - 2); 
-        Point Bottom = new Point(Position.X , Position.Y + 2);
-        
-        bool LeftCheck = CheckIfPointValid(Left);
-        bool RightCheck = CheckIfPointValid(Right);
-        bool TopCheck = CheckIfPointValid(Top);
-        bool BottomCheck = CheckIfPointValid(Bottom);
-        
-        if(LeftCheck) ValidNeighbours.Add(Left);
-        if(RightCheck) ValidNeighbours.Add(Right);
-        if(TopCheck) ValidNeighbours.Add(Top);
-        if(BottomCheck) ValidNeighbours.Add(Bottom);
-
-        Point[] Diagonals = OddRowOffsets;
-        if (Position.Y % 2 == 0) //If it is an even row
+        for (int CountX = -1; CountX <= 1; CountX++)
         {
-            Diagonals = EvenRowOffsets;
-        }
-
-        if (LeftCheck && TopCheck) //North West
-        {
-            AddDiagonalPosition(Diagonals[0], Position, ref ValidNeighbours);
-        }
-        
-        if (RightCheck && TopCheck) //North East
-        {
-            AddDiagonalPosition(Diagonals[1], Position, ref ValidNeighbours);
-        }
-        
-        if (LeftCheck && BottomCheck) //South West
-        {
-            AddDiagonalPosition(Diagonals[2], Position, ref ValidNeighbours);
-        }
-        
-        if (RightCheck && BottomCheck) //South East
-        {
-            AddDiagonalPosition(Diagonals[3], Position, ref ValidNeighbours);
+            for (int CountY = -1; CountY <= 1; CountY++)
+            {
+                if (CountX == 0 && CountY == 0)
+                {
+                    continue;
+                }
+                Point ActivePoint = new Point(Position.X + CountX, Position.Y + CountY);
+                if (CheckIfPointValid(ActivePoint))
+                {
+                    ValidNeighbours.Add(ActivePoint);
+                }
+            }
         }
             
         return ValidNeighbours;
@@ -186,11 +144,11 @@ public class Pathing
 
     private bool CheckIfPointValid(Point Position) //Check if a position is within the grid of tiles
     {
-        if (Position.X < 0 || Position.X >= MapWidth)
+        if (Position.X < 0 || Position.X >= MapDimensions.X)
         {
             return false;
         }
-        if (Position.Y < 0 || Position.Y >= MapHeight)
+        if (Position.Y < 0 || Position.Y >= MapDimensions.Y)
         {
             return false;
         }
@@ -200,15 +158,6 @@ public class Pathing
             return false;
         }
         return true;
-    }
-
-    private void AddDiagonalPosition(Point OffSet, Point Position, ref List<Point> ValidNeighbours) //Adds a diagonal position using its offset and maing sure its valid
-    {
-        Point NewPoint = new Point(Position.X + OffSet.X, Position.Y + OffSet.Y);
-        if (CheckIfPointValid(NewPoint))
-        {
-            ValidNeighbours.Add(NewPoint);
-        }
     }
     
     #endregion

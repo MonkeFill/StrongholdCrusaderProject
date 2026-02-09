@@ -20,7 +20,7 @@ public class Tile //Class for each individual tile on the map
     {
         GridPosition = InputGridPosition;
         Type = InputType;
-        WorldPosition = GridToWorld();
+        WorldPosition = GridToWorld(GridPosition);
         Building = null;
     }
     
@@ -40,16 +40,11 @@ public class Tile //Class for each individual tile on the map
         return true;
     }
 
-    private Vector2 GridToWorld() //Method that converts grid positions to world positions which is a staggered position
+    private Vector2 GridToWorld(Point GridPosition)
     {
-        float OffSetX = 0;
-        if (GridPosition.Y % 2 != 0) //If it is the second row then it will be shifted right by half a tile
-        {
-            OffSetX = TileWidth / 2f;
-        }
-        float NewPositionX = (GridPosition.X * TileWidth) + OffSetX;
-        float NewPositionY = (GridPosition.Y * (TileHeight / 2f));
-        return new Vector2(NewPositionX, NewPositionY);
+        int PositionX = (GridPosition.X * TileSize.X) + (TileSize.X / 2);
+        int PositionY = (GridPosition.Y * TileSize.Y) + (TileSize.Y / 2);
+        return new Vector2(PositionX, PositionY);
     }
     
     #endregion

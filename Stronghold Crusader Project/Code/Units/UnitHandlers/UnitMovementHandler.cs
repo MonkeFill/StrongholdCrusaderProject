@@ -26,10 +26,20 @@ public class UnitMovementHandler
     
     public UnitDirection GetDirection() //A class to get which direction the unit is pointing
     {
-        int DirectionAmount = Enum.GetNames(typeof(UnitDirection)).Length; //Getting how many directions are possible
-        float RotationPer = 360f / DirectionAmount;
-        int Index = (int)((Rotation / RotationPer) % DirectionAmount);
+        float AdjustedRotation = Rotation + 90;
+        if (AdjustedRotation >= 360)
+        {
+            AdjustedRotation -= 360;
+        }
+        int DirectionAmount = 8;
+        float RotationPerAmount = 360f / DirectionAmount;
+        int Index = (int)Math.Round(AdjustedRotation / RotationPerAmount);
+        if (Index >= DirectionAmount)
+        {
+            Index = 0;
+        }
         return (UnitDirection)Index;
+
     }
     
     public void MoveTo(List<Point> NewPath) //Gets the new path for the unit
@@ -63,22 +73,22 @@ public class UnitMovementHandler
         Vector2 TargetPosition = GridToWorld(TargetGridPosition); 
         Vector2 DirectionVector = TargetPosition - Position; //Checks the vector it needs to do to get to the target
         float DistanceToTarget = DirectionVector.Length(); //Getting how far from the target the unit is
+        float MoveAmount = Unit.MovementSpeed * (float)TimeOfGame.ElapsedGameTime.TotalSeconds;
 
-        if (DistanceToTarget > 0) //Making sure the distance is bigger then 0
+        if (DistanceToTarget <= MoveAmount)
         {
-            DirectionVector.Normalize(); //Making sure it always move the same speed
-            Position += DirectionVector * Unit.MovementSpeed * (float)TimeOfGame.ElapsedGameTime.TotalSeconds; //Moving the unit
-            Rotation = MathF.Atan2(DirectionVector.Y, DirectionVector.X) * (180f / (float)Math.PI); //Facing the unit the right direction
-
-            if (Rotation < 0) //Making sure the angle isn't negative
-            {
-                Rotation += 360f;
-            }
-        }
-
-        if (DistanceToTarget < 2.0f) //Checking if we are not close enough to the target
-        {
+            Position = TargetPosition;
             CurrentPathIndex++;
+        }
+        else
+        {
+            DirectionVector.Normalize();
+            Position += DirectionVector * MoveAmount;
+            Rotation = MathF.Atan2(DirectionVector.Y, DirectionVector.X) * (180f / (float)Math.PI);
+            if (Rotation < 0)
+            {
+                Rotation += 360;
+            }
         }
     }
     
@@ -87,19 +97,12 @@ public class UnitMovementHandler
     #region Class Helpers
     //Methods that help the class
 
-    private Vector2 GridToWorld(Point GridPosition) //Class that will convert grid points to world vector2s
+    private Vector2 GridToWorld(Point GridPosition)
     {
-        float OffSetX = 0;
-        if (GridPosition.Y % 2 != 0) //If the tile is an odd row shift to the right
-        {
-            OffSetX = TileWidth / 2f;
-        }
-
-        float PositionX = (GridPosition.X * TileWidth) + OffSetX;
-        float PositionY = (GridPosition.Y * (TileHeight / 2f));
+        int PositionX = (GridPosition.X * TileSize.X) + (TileSize.X / 2);
+        int PositionY = (GridPosition.Y * TileSize.Y) + (TileSize.Y / 2);
         return new Vector2(PositionX, PositionY);
     }
-
     private void UnitFinishedPathing() //A class for when the unit finished its path finding
     {
         CurrentPath = null;

@@ -41,13 +41,10 @@ public static class GlobalConfig{
     
     #region Map Settings
     //Variables that are required for mapping
-    public const int MapWidth = 50;
-    public const int MapHeight = 100;
-    public const int TileHeight = 16;
-    public const int TileWidth = 32;
-    public static readonly Vector2 MapSize = new Vector2((MapWidth * TileWidth) + (TileWidth / 2f), (MapHeight + 1) * (TileHeight / 2f));
-    public const int BorderHeight = 10 * TileHeight;
-    public const int BorderWidth = (int)(TileWidth * 2.5);
+    public static readonly Point MapDimensions = new Point(50, 50);
+    public static readonly Point TileSize = new Point(32, 32);
+    public static readonly Point MapSize = new Point(MapDimensions.X * TileSize.X, MapDimensions.Y * TileSize.Y);
+    public static readonly Point BorderSize = new Point((int)(TileSize.X * 2.5),(int)5 * TileSize.Y);
     public const string DefaultBorderName = "DefaultBorder";
     public const string CornerBorderName = "BorderCorner";
     public const string ShortBorderName = "BorderTopSmall";
@@ -58,8 +55,8 @@ public static class GlobalConfig{
     #region CameraSettings
     //Variables that are required for the camera
     public const float ZoomSensitivity = 0.1f; //How fast you can zoom into the map
-    public const float MovementAmount = 200f; //How much the camera moves by
-    public const float MovementSpeed = 75f; //How fast the camera moves
+    public const float MovementAmount = 250f; //How much the camera moves by
+    public const float MovementSpeed = 100f; //How fast the camera moves
     public const float ZoomDelta = 120f;
     public const float RotationAmount = MathHelper.PiOver2;
     
@@ -75,7 +72,7 @@ public static class GlobalConfig{
     public const string MapFileExtension = ".json";
     public const string GameFileExtension = ".json";
     public const string TileNotWalkable = "_Block";
-    public const string MonoGameAddon = ".XNB";
+    public const string MonoGameAddon = ".xnb";
     
     #endregion
     
@@ -97,6 +94,7 @@ public static class GlobalConfig{
     public const double AnimationFrameSpeed = 0.1;
     public const int PFStraightCost = 10;
     public const int PFDiagonalCost = 14;
+    public const bool DebugPathfinding = false;
 
     #endregion
 }

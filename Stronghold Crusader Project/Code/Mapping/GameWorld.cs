@@ -7,7 +7,7 @@ namespace Stronghold_Crusader_Project.Code.Mapping;
 public class GameWorld
 {
     //Class Variables
-    public Tile[,] Tiles = new Tile[MapWidth, MapHeight];
+    public Tile[,] Tiles = new Tile[(int)MapDimensions.X, (int)MapDimensions.Y];
     private Borders BorderHandler;
     private TileLibary TileManager;
     private MapFileManager FileManager;
@@ -41,7 +41,7 @@ public class GameWorld
             Tile ActiveTile = Tiles[PositionX, PositionY];
             if (ActiveTile != null) //If its not null
             {
-                ActiveSpriteBatch.Draw(ActiveTile.Type.Texture, ActiveTile.WorldPosition, Color.White);
+                ActiveSpriteBatch.Draw(ActiveTile.Type.Texture, ActiveTile.WorldPosition - new Vector2(TileSize.X / 2, TileSize.Y / 2), Color.White);
             }
         });
         BorderHandler.Draw(ActiveSpriteBatch);
@@ -51,10 +51,10 @@ public class GameWorld
     {
         if (Tiles[0, 0] != null)
         {
-            int PixelWidth = Bounds.Width / MapWidth;
-            int PixelHeight = Bounds.Height / MapHeight;
-            int OffsetX = (Bounds.Width - (PixelWidth * MapWidth)) / 2;
-            int OffsetY = (Bounds.Height - (PixelHeight * MapHeight)) / 2;
+            int PixelWidth = Bounds.Width / MapDimensions.X;
+            int PixelHeight = Bounds.Height / MapDimensions.Y;
+            int OffsetX = (Bounds.Width - (PixelWidth * MapDimensions.X)) / 2;
+            int OffsetY = (Bounds.Height - (PixelHeight * MapDimensions.Y)) / 2;
             LoopThroughTiles((PositionX, PositionY) =>
             {
                 Color ActiveColor = Tiles[PositionX, PositionY].Type.MinimapColor;
@@ -91,9 +91,9 @@ public class GameWorld
     
     private void LoopThroughTiles(Action<int, int> ActionToDo) //A method to loop through all the tiles in a map and perform actions on them
     {
-        for (int PositionY = 0; PositionY < MapHeight; PositionY++)
+        for (int PositionY = 0; PositionY < MapDimensions.Y; PositionY++)
         {
-            for (int PositionX = 0; PositionX < MapWidth; PositionX++) //Loop through all the tiles
+            for (int PositionX = 0; PositionX < MapDimensions.X; PositionX++) //Loop through all the tiles
             {
                 ActionToDo(PositionX, PositionY); //Execute the action for that specific tile
             }

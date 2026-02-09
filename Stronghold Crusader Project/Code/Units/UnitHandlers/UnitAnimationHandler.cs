@@ -23,6 +23,7 @@ public class UnitAnimationHandler
     {
         UnitName = InputUnitName;
         AnimationLibrary = InputAnimationLibrary;
+        FramesList = AnimationLibrary.GetAnimationList(UnitName, UnitState.Idle, UnitDirection.North);
     }
 
     #region Public Facing
@@ -57,8 +58,15 @@ public class UnitAnimationHandler
 
     public void Draw(SpriteBatch ActiveSpriteBatch, Vector2 Position) //Draws the characater
     {
-        //Rectangle UnitRectangle = new Rectangle((int)Position.X - (ActiveFrameTexture.Width / 2), (int)Position.Y, ActiveFrameTexture.Width, ActiveFrameTexture.Height);
-        //ActiveSpriteBatch.Draw(ActiveFrameTexture, UnitRectangle, Color.White);
+        if (ActiveFrameTexture == null) //if there is no active texture
+        {
+            return;
+        }
+        Rectangle UnitRectangle = new Rectangle(
+            (int)Position.X - (ActiveFrameTexture.Width / 2) + (TileSize.X / 2), 
+            (int)Position.Y - ActiveFrameTexture.Width + (TileSize.Y / 2) ,  
+                ActiveFrameTexture.Width, ActiveFrameTexture.Height);
+        ActiveSpriteBatch.Draw(ActiveFrameTexture, UnitRectangle, Color.White);
     }
 
     #endregion

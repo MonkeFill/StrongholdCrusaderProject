@@ -17,7 +17,7 @@ public enum UnitState
     Running,
     Attacking,
     Melee,
-    Dying
+    Dead
 }
 
 public enum UnitDirection
