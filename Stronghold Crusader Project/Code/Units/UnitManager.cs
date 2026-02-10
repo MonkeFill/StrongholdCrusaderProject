@@ -26,6 +26,7 @@ public class UnitManager
     private Texture2D Pixel;
     Point DebugMouseGrid;
     Point OldDebugMouseGrid = Point.Zero;
+    Point UnitPosition;
     List<Point> DebugPath;
     List<Point> DebugNeighbours;
     int RectangleSize = TileSize.Y / 2;
@@ -114,6 +115,7 @@ public class UnitManager
                 //Debug stuff
                 if (DebugPathfinding)
                 {
+                    UnitPosition = StartPoint;
                     DebugPath = ActivePath;
                     DebugMouseGrid = WorldToGrid(MousePosition);
                     try
@@ -162,12 +164,12 @@ public class UnitManager
 
     private void DrawDebug(SpriteBatch ActiveSpriteBatch)
     {
-        if (DebugPathfinding)
+        if (!DebugPathfinding)
         {
             return;
         }
         Vector2 MouseWorld = GridToWorld(DebugMouseGrid);
-        ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)MouseWorld.X - RectangleOffset, (int)MouseWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Blue);
+        Vector2 UnitWorld = GridToWorld(UnitPosition);
         if (DebugPath != null)
         {
             foreach (Point ActivePoint in DebugPath)
@@ -185,6 +187,9 @@ public class UnitManager
                 ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)Position.X - RectangleOffset, (int)Position.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Yellow);
             }
         }
+        
+        ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)MouseWorld.X - RectangleOffset, (int)MouseWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Blue);
+        ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)UnitWorld.X - RectangleOffset, (int)UnitWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Orange);
     }
 
     private Vector2 GridToWorld(Point GridPosition)

@@ -17,7 +17,7 @@ public class UnitMovementHandler
     //Class Methods
     public UnitMovementHandler(Vector2 InputPosition, UnitTemplate InputUnit)
     {
-        Position = InputPosition;
+        Position = GridToWorld(WorldToGrid(InputPosition));
         Unit = InputUnit;
     }
     
@@ -108,6 +108,13 @@ public class UnitMovementHandler
         CurrentPath = null;
         CurrentPathIndex = 0;
         Unit.ActiveState = UnitState.Idle;
+    }
+
+    private Point WorldToGrid(Vector2 WorldPosition) //Convert World to grid positions
+    {
+        int PositionX = (int)WorldPosition.X / TileSize.X;
+        int PositionY = (int)WorldPosition.Y / TileSize.Y;
+        return new Point(PositionX, PositionY);
     }
     
     #endregion

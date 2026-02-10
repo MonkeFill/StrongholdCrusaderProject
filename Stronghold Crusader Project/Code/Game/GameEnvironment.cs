@@ -75,7 +75,7 @@ public class GameEnvironment
         GameWorldHandler.LoadWorld("GeneratedMap_50x50.json");
         MapActive = true;
         MenuHandler.AddMenu(new BlankMenu(MenuHandler, GameWorldHandler));
-        HostileUnit Unit = UnitHandler.UnitCreator.GetArcher(new Vector2(576, 64));
+        HostileUnit Unit = UnitHandler.UnitCreator.GetArcher(new Vector2(576, 50));
         UnitHandler.AddUnit(Unit);
         Console.WriteLine();
     }

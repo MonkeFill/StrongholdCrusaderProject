@@ -63,8 +63,8 @@ public class UnitAnimationHandler
             return;
         }
         Rectangle UnitRectangle = new Rectangle(
-            (int)Position.X - (ActiveFrameTexture.Width / 2) + (TileSize.X / 2), 
-            (int)Position.Y - ActiveFrameTexture.Width + (TileSize.Y / 2) ,  
+            (int)Position.X - (ActiveFrameTexture.Width / 2), 
+            (int)Position.Y - (ActiveFrameTexture.Height / 2) - (TileSize.Y / 2),  
                 ActiveFrameTexture.Width, ActiveFrameTexture.Height);
         ActiveSpriteBatch.Draw(ActiveFrameTexture, UnitRectangle, Color.White);
     }
