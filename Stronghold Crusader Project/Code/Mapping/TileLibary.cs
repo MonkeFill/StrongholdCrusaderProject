@@ -73,11 +73,9 @@ public class TileLibary
             {
                 string ActiveTileName = Path.GetFileNameWithoutExtension(ActiveTile);
                 bool Walkable = true;
-                if (ActiveTileName.Contains(TileNotWalkable)) //Checking if it is a tile that shouldn't be walked on
+                if (ActiveTileName.Contains("Water") || ActiveTileName.Contains("Rock"))
                 {
-                    ActiveTileName = ActiveTileName.Replace(TileNotWalkable, "");
                     Walkable = false;
-                    
                 }
                 if (TileTypes.ContainsKey(ActiveTileName)) //Checking if that tile already exists
                 {

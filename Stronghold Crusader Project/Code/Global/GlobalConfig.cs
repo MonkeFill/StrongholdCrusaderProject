@@ -94,7 +94,7 @@ public static class GlobalConfig{
     public const double AnimationFrameSpeed = 0.1;
     public const int PFStraightCost = 10;
     public const int PFDiagonalCost = 14;
-    public const bool DebugPathfinding = false;
+    public const bool DebugPathfinding = true;
 
     #endregion
 }
