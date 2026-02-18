@@ -52,8 +52,15 @@ public enum KeyAction
     CameraRotateLeft, CameraRotateRight,
         
     //UI
-    MenuBack
+    MenuBack,
     //Game
+    UnitSwitch,
+    RemoveUnit,
+    BuildingSwitch,
+    RemoveBuilding,
+    TileSwitch,
+    NextSwitch,
+    PreviousSwitch
 }
 
 #endregion

@@ -20,7 +20,7 @@ public class Tile //Class for each individual tile on the map
     {
         GridPosition = InputGridPosition;
         Type = InputType;
-        WorldPosition = GridToWorld(GridPosition);
+        WorldPosition = GridHelper.GridToWorld(GridPosition);
         Building = null;
     }
     
@@ -38,13 +38,6 @@ public class Tile //Class for each individual tile on the map
             return false;
         }
         return true;
-    }
-
-    private Vector2 GridToWorld(Point GridPosition)
-    {
-        int PositionX = (GridPosition.X * TileSize.X) + (TileSize.X / 2);
-        int PositionY = (GridPosition.Y * TileSize.Y) + (TileSize.Y / 2);
-        return new Vector2(PositionX, PositionY);
     }
     
     #endregion

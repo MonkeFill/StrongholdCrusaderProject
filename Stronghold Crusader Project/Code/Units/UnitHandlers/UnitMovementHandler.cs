@@ -17,7 +17,7 @@ public class UnitMovementHandler
     //Class Methods
     public UnitMovementHandler(Vector2 InputPosition, UnitTemplate InputUnit)
     {
-        Position = GridToWorld(WorldToGrid(InputPosition));
+        Position = GridHelper.GridToWorld(GridHelper.WorldToGrid(InputPosition));
         Unit = InputUnit;
     }
     
@@ -70,7 +70,7 @@ public class UnitMovementHandler
             return;
         }
         
-        Vector2 TargetPosition = GridToWorld(TargetGridPosition); 
+        Vector2 TargetPosition = GridHelper.GridToWorld(TargetGridPosition); 
         Vector2 DirectionVector = TargetPosition - Position; //Checks the vector it needs to do to get to the target
         float DistanceToTarget = DirectionVector.Length(); //Getting how far from the target the unit is
         float MoveAmount = Unit.MovementSpeed * (float)TimeOfGame.ElapsedGameTime.TotalSeconds;
@@ -96,25 +96,12 @@ public class UnitMovementHandler
     
     #region Class Helpers
     //Methods that help the class
-
-    private Vector2 GridToWorld(Point GridPosition)
-    {
-        int PositionX = (GridPosition.X * TileSize.X) + (TileSize.X / 2);
-        int PositionY = (GridPosition.Y * TileSize.Y) + (TileSize.Y / 2);
-        return new Vector2(PositionX, PositionY);
-    }
+    
     private void UnitFinishedPathing() //A class for when the unit finished its path finding
     {
         CurrentPath = null;
         CurrentPathIndex = 0;
         Unit.ActiveState = UnitState.Idle;
-    }
-
-    private Point WorldToGrid(Vector2 WorldPosition) //Convert World to grid positions
-    {
-        int PositionX = (int)WorldPosition.X / TileSize.X;
-        int PositionY = (int)WorldPosition.Y / TileSize.Y;
-        return new Point(PositionX, PositionY);
     }
     
     #endregion

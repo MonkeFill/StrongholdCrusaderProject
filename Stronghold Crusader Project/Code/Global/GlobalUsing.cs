@@ -36,6 +36,8 @@ global using Newtonsoft.Json;
 global using Stronghold_Crusader_Project.Code.Global;
 global using Stronghold_Crusader_Project.Code.Game;
 global using Stronghold_Crusader_Project.Code.Mapping;
+global using Stronghold_Crusader_Project.Code.Buildings;
+global using Stronghold_Crusader_Project.Code.Resources;
 global using Stronghold_Crusader_Project.Code.Units;
 global using Stronghold_Crusader_Project.Code.Units.UnitHandlers;
 global using Stronghold_Crusader_Project.Code.Units.PathFinding;

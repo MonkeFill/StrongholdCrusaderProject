@@ -105,10 +105,10 @@ public class UnitManager
 
         if (InputHandler.IsRightClickedOnce()) //Moving the unit to where the mouse is clicked
         {
-            Point EndPoint = WorldToGrid(MousePosition);
+            Point EndPoint = GridHelper.WorldToGrid(MousePosition);
             foreach (HostileUnit ActiveUnit in SelectedUnits)
             {
-                Point StartPoint = WorldToGrid(ActiveUnit.GetPosition());
+                Point StartPoint = GridHelper.WorldToGrid(ActiveUnit.GetPosition());
                 List<Point> ActivePath = PathManager.FindPath(StartPoint, EndPoint, Map);
                 ActiveUnit.MoveTo(ActivePath);
                 
@@ -117,7 +117,7 @@ public class UnitManager
                 {
                     UnitPosition = StartPoint;
                     DebugPath = ActivePath;
-                    DebugMouseGrid = WorldToGrid(MousePosition);
+                    DebugMouseGrid = GridHelper.WorldToGrid(MousePosition);
                     try
                     {
                         if (OldDebugMouseGrid != DebugMouseGrid)
@@ -154,27 +154,20 @@ public class UnitManager
     
     #region Helper Classes
     //Methods that help the class
-
-    private Point WorldToGrid(Vector2 WorldPosition) //Convert World to grid positions
-    {
-        int PositionX = (int)WorldPosition.X / TileSize.X;
-        int PositionY = (int)WorldPosition.Y / TileSize.Y;
-        return new Point(PositionX, PositionY);
-    }
-
+    
     private void DrawDebug(SpriteBatch ActiveSpriteBatch)
     {
         if (!DebugPathfinding)
         {
             return;
         }
-        Vector2 MouseWorld = GridToWorld(DebugMouseGrid);
-        Vector2 UnitWorld = GridToWorld(UnitPosition);
+        Vector2 MouseWorld = GridHelper.GridToWorld(DebugMouseGrid);
+        Vector2 UnitWorld = GridHelper.GridToWorld(UnitPosition);
         if (DebugPath != null)
         {
             foreach (Point ActivePoint in DebugPath)
             {
-                Vector2 Position = GridToWorld(ActivePoint);
+                Vector2 Position = GridHelper.GridToWorld(ActivePoint);
                 ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)Position.X - RectangleOffset, (int)Position.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Green);
             }
         }
@@ -183,20 +176,13 @@ public class UnitManager
         {
             foreach (Point ActivePoint in DebugNeighbours)
             {
-                Vector2 Position = GridToWorld(ActivePoint);
+                Vector2 Position = GridHelper.GridToWorld(ActivePoint);
                 ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)Position.X - RectangleOffset, (int)Position.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Yellow);
             }
         }
         
         ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)MouseWorld.X - RectangleOffset, (int)MouseWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Blue);
         ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)UnitWorld.X - RectangleOffset, (int)UnitWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Orange);
-    }
-
-    private Vector2 GridToWorld(Point GridPosition)
-    {
-        int PositionX = (GridPosition.X * TileSize.X) + (TileSize.X / 2);
-        int PositionY = (GridPosition.Y * TileSize.Y) + (TileSize.Y / 2);
-        return new Vector2(PositionX, PositionY);
     }
     
     #endregion
