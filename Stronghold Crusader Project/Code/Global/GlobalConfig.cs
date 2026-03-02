@@ -57,6 +57,7 @@ public static class GlobalConfig{
     public const float ZoomSensitivity = 0.1f; //How fast you can zoom into the map
     public const float MovementAmount = 250f; //How much the camera moves by
     public const float MovementSpeed = 100f; //How fast the camera moves
+    public const float MovementStiffness = 10f;
     public const float ZoomDelta = 120f;
     public const float RotationAmount = MathHelper.PiOver2;
     
@@ -83,18 +84,24 @@ public static class GlobalConfig{
     public const int FontSize = 12;
     public const int BoxBigSize = 24;
     public const int BoxSmallSize = 8;
-    public const bool ScaleUI = false;
+    public const bool ScaleUI = true;
 
+    #endregion
+    
+    #region Unit 
+    //Variables that are required for unit
+    public const double AnimationFrameSpeed = 0.1;
+    public const int PFStraightCost = 10;
+    public const int PFDiagonalCost = 14;
+    public const int UnitSelectionRadius = 75;
+    public const bool DebugUnitsPathing = true;
+    public const string UnitAnimationName = "Frame";
+    
     #endregion
 
     #region Other
     //Paths that don't fit in other categories
-
-    public const string UnitAnimationName = "Frame";
-    public const double AnimationFrameSpeed = 0.1;
-    public const int PFStraightCost = 10;
-    public const int PFDiagonalCost = 14;
-    public const bool DebugPathfinding = true;
+    
 
     #endregion
 }

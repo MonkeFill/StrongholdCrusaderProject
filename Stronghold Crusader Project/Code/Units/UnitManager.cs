@@ -1,7 +1,4 @@
-using System.Numerics;
-using Assimp;
-using Stronghold_Crusader_Project.Code.Units.UnitTypes;
-using Vector2 = Microsoft.Xna.Framework.Vector2;
+using Microsoft.Toolkit.HighPerformance.Helpers;
 
 namespace Stronghold_Crusader_Project.Code.Units;
 
@@ -14,92 +11,141 @@ namespace Stronghold_Crusader_Project.Code.Units;
 public class UnitManager
 {
     //Class Variables
-    private List<HostileUnit> PlayerHostileUnits;
-    private List<PassiveUnit> PlayersPassiveUnits;
-    private List<HostileUnit> EnemyUnits;
+    private List<UnitTemplate> Units;
     private Pathing PathManager;
-    public UnitFactory UnitCreator;
     private UnitAnimationLibrary AnimationLibrary;
-    public List<UnitTemplate> SelectedUnits;
-    
-    //Debugging
-    private Texture2D Pixel;
-    Point DebugMouseGrid;
-    Point OldDebugMouseGrid = Point.Zero;
-    Point UnitPosition;
-    List<Point> DebugPath;
-    List<Point> DebugNeighbours;
-    int RectangleSize = TileSize.Y / 2;
-    int RectangleOffset = TileSize.Y / 4;
-    
-
-    public enum AddUnitType
-    {
-        Hostile,
-        Passive,
-        Enemy
-    }
+    private UnitDebugging Debugger;
+    private UnitFactory UnitCreator;
+    private List<UnitTemplate> SelectedUnits;
+    private List<string> AvailableUnitTypes = new List<string>{"Archer", "Maceman"};
+    private int CurrentUnitSelection = 0;
 
     //Class Methods
 
-    public UnitManager(ContentManager Content, GraphicsDevice Graphics)
+    public UnitManager(ContentManager Content, GraphicsDevice Graphics, UnitType TypeOfUnit)
     {
+        Units = new List<UnitTemplate>();
         PathManager = new Pathing();
-        AnimationLibrary = new UnitAnimationLibrary(Content);
+        AnimationLibrary = new UnitAnimationLibrary(Content, TypeOfUnit);
         UnitCreator = new UnitFactory(AnimationLibrary);
-        PlayerHostileUnits = new List<HostileUnit>();
-        PlayersPassiveUnits = new List<PassiveUnit>();
-        EnemyUnits = new List<HostileUnit>();
         SelectedUnits = new List<UnitTemplate>();
-        Pixel = new Texture2D(Graphics, 1, 1);
-        Pixel.SetData(new[] {Color.White});
+        Debugger = new UnitDebugging(Graphics);
     }
 
     #region Public Methods
     //Classes that are publicly accessible
-
-    public void AddUnit(UnitTemplate Unit, bool IsEnemy = false)
+    
+    public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler) //Updates all the units
     {
-        if (Unit is PassiveUnit Passive)
+        foreach (UnitTemplate ActiveUnit in Units) //Update all the units
         {
-            PlayersPassiveUnits.Add(Passive);
-        }
-        else if (IsEnemy)
-        {
-            EnemyUnits.Add(Unit as HostileUnit);
-        }
-        else 
-        {
-            PlayerHostileUnits.Add(Unit as HostileUnit);
+            ActiveUnit.Update(TimeOfGame, Map);
         }
     }
 
-    public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler) //Updates all the units
+    public void Draw(SpriteBatch ActiveSpriteBatch) //A class that draws all the units
     {
-        foreach(HostileUnit ActiveUnit in PlayerHostileUnits)
+        foreach (UnitTemplate ActiveUnit in Units)
         {
-            ActiveUnit.Update(TimeOfGame, Map);
+            ActiveUnit.Draw(ActiveSpriteBatch);
         }
-        foreach(HostileUnit ActiveUnit in EnemyUnits)
-        {
-            ActiveUnit.Update(TimeOfGame, Map);
-        }
-        foreach(PassiveUnit ActiveUnit in PlayersPassiveUnits)
-        {
-            ActiveUnit.Update(TimeOfGame, Map);
-        }
+        Debugger.DrawDebug(ActiveSpriteBatch);
+    }
 
+    public void DrawUnitSelection(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler) //Draws the unit that is currently being selected to place
+    {
+        string UnitName = AvailableUnitTypes[CurrentUnitSelection];
+        Vector2 UnitPosition = GridHelper.GridToWorld(GridHelper.WorldToGrid(InputHandler.GetMouseWorldPosition(CameraHandler))); //Getting the mouse position and converting it to grid and then back to position to lock it to the centre of a tile
+        UnitTemplate NewUnit = GetUnitAvailable(UnitName, UnitPosition);
+        Texture2D UnitTexture = NewUnit.GetIdleTexture();
+        Vector2 ActualUnitPosition = new Vector2(UnitPosition.X - (UnitTexture.Width / 2f), UnitPosition.Y - (UnitTexture.Height / 2f) - (TileSize.Y / 2f));
+        ActiveSpriteBatch.Draw(UnitTexture, ActualUnitPosition, Color.White * 0.75f);
+    }
+    
+
+    public void PathingUnits(InputManager InputHandler, Camera2D CameraHandler, Tile[,] Map) //A class for using units path fidning
+    {
+        HandleUnitPathing(InputHandler, CameraHandler, Map);
+    }
+
+    public void PlacingUnit(InputManager InputHandler, Camera2D CameraHandler) //A class for placing a unit
+    {
+        HandleUnitPlacing(InputHandler, CameraHandler);
+    }
+
+    public void RemovingUnit(InputManager InputHandler, Camera2D CameraHandler) //A class for removing a unit
+    {
+        
+    }
+    
+    #endregion
+    
+    #region Helper Classes
+    //Methods that help the class
+    
+    private void CycleUnit(int Direction) //A class that will go through the units available to place
+    {
+        CurrentUnitSelection += Direction;
+        if (CurrentUnitSelection < 0) //If it has gone minus to loop it
+        {
+            CurrentUnitSelection = AvailableUnitTypes.Count - 1;
+        }
+        else if (CurrentUnitSelection >= AvailableUnitTypes.Count) //if it has gone higher then available amount, loop it
+        {
+            CurrentUnitSelection = 0;
+        }
+        
+        LogEvent($"Selected unit Type: {AvailableUnitTypes[CurrentUnitSelection]}", LogType.Info);
+    }
+
+    private void HandleUnitPlacing(InputManager InputHandler, Camera2D CameraHandler)
+    {
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.NextSelection))
+        {
+            CycleUnit(1);
+        }
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.PreviousSelection))
+        {
+            CycleUnit(-1);
+        }
+        if (InputHandler.IsLeftClickedOnce())
+        {
+            string UnitName = AvailableUnitTypes[CurrentUnitSelection];
+            Vector2 UnitPosition = GridHelper.GridToWorld(GridHelper.WorldToGrid(InputHandler.GetMouseWorldPosition(CameraHandler))); //Getting the mouse position and converting it to grid and then back to position to lock it to the centre of a tile
+            UnitTemplate NewUnit = GetUnitAvailable(UnitName, UnitPosition);
+            if (NewUnit == null)
+            {
+                LogEvent($"{UnitName} not found to place", LogType.Error);
+                return;
+            }
+            Units.Add(NewUnit);
+        }
+        
+    }
+
+    private UnitTemplate GetUnitAtPosition(Vector2 Position) //Returns a unit at a certain position
+    {
+        foreach (UnitTemplate ActiveUnit in Units)
+        {
+            if (Vector2.Distance(ActiveUnit.GetPosition(), Position) < UnitSelectionRadius) //If the click within a certain radius
+            {
+                return ActiveUnit;
+            }
+        }
+        return null;
+    }
+
+    private void HandleUnitPathing(InputManager InputHandler, Camera2D CameraHandler, Tile[,] Map) //Handles unit pathing input
+    {
         Vector2 MousePosition = InputHandler.GetMouseWorldPosition(CameraHandler);
 
         if (InputHandler.IsLeftClickedOnce()) //Adding units to the selected units list
         {
             SelectedUnits.Clear();
-            foreach (HostileUnit ActiveUnit in PlayerHostileUnits)
+            UnitTemplate UnitFound = GetUnitAtPosition(MousePosition);
+            if (UnitFound != null)
             {
-                if (Vector2.Distance(ActiveUnit.GetPosition(), MousePosition) < 75) //If the click within 75 pixels of the unit
-                {
-                    SelectedUnits.Add(ActiveUnit);
-                }
+                SelectedUnits = new List<UnitTemplate>{ UnitFound };
             }
         }
 
@@ -111,78 +157,21 @@ public class UnitManager
                 Point StartPoint = GridHelper.WorldToGrid(ActiveUnit.GetPosition());
                 List<Point> ActivePath = PathManager.FindPath(StartPoint, EndPoint, Map);
                 ActiveUnit.MoveTo(ActivePath);
-                
-                //Debug stuff
-                if (DebugPathfinding)
-                {
-                    UnitPosition = StartPoint;
-                    DebugPath = ActivePath;
-                    DebugMouseGrid = GridHelper.WorldToGrid(MousePosition);
-                    try
-                    {
-                        if (OldDebugMouseGrid != DebugMouseGrid)
-                        {
-                            DebugNeighbours = PathManager.GetNeighbours(DebugMouseGrid);
-                            OldDebugMouseGrid = DebugMouseGrid;
-                        }
-                    }
-                    catch
-                    {
-                    }
-                }
+                Debugger.UpdateDebug(StartPoint, ActivePath, PathManager.GetNeighbours(EndPoint), MousePosition);
             }
         }
     }
 
-    public void Draw(SpriteBatch ActiveSpriteBatch)
+    private UnitTemplate GetUnitAvailable(string UnitName, Vector2 Position) //A class that will return a specific unit
     {
-        foreach(HostileUnit ActiveUnit in PlayerHostileUnits)
+        switch (UnitName)
         {
-            ActiveUnit.Draw(ActiveSpriteBatch);
+            case "Archer":
+                return UnitCreator.GetArcher(Position);
+            case "Maceman":
+                return UnitCreator.GetMaceman(Position);
         }
-        foreach(HostileUnit ActiveUnit in EnemyUnits)
-        {
-            ActiveUnit.Draw(ActiveSpriteBatch);
-        }
-        foreach(PassiveUnit ActiveUnit in PlayersPassiveUnits)
-        {
-            ActiveUnit.Draw(ActiveSpriteBatch);
-        }
-        DrawDebug(ActiveSpriteBatch);
-    }
-    #endregion
-    
-    #region Helper Classes
-    //Methods that help the class
-    
-    private void DrawDebug(SpriteBatch ActiveSpriteBatch)
-    {
-        if (!DebugPathfinding)
-        {
-            return;
-        }
-        Vector2 MouseWorld = GridHelper.GridToWorld(DebugMouseGrid);
-        Vector2 UnitWorld = GridHelper.GridToWorld(UnitPosition);
-        if (DebugPath != null)
-        {
-            foreach (Point ActivePoint in DebugPath)
-            {
-                Vector2 Position = GridHelper.GridToWorld(ActivePoint);
-                ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)Position.X - RectangleOffset, (int)Position.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Green);
-            }
-        }
-
-        if (DebugNeighbours != null)
-        {
-            foreach (Point ActivePoint in DebugNeighbours)
-            {
-                Vector2 Position = GridHelper.GridToWorld(ActivePoint);
-                ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)Position.X - RectangleOffset, (int)Position.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Yellow);
-            }
-        }
-        
-        ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)MouseWorld.X - RectangleOffset, (int)MouseWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Blue);
-        ActiveSpriteBatch.Draw(Pixel, new Rectangle((int)UnitWorld.X - RectangleOffset, (int)UnitWorld.Y - RectangleOffset, RectangleSize, RectangleSize), Color.Orange);
+        return null;
     }
     
     #endregion

@@ -13,7 +13,7 @@ public class UnitAnimationHandler
     private double FrameTimer;
     private UnitDirection PreviousDirection;
     private UnitState PreviousState;
-    private Texture2D[] FramesList;
+    public Texture2D[] FramesList;
     private Texture2D ActiveFrameTexture;
     private UnitAnimationLibrary AnimationLibrary;
 

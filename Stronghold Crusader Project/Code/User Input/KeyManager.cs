@@ -119,6 +119,17 @@ public class KeyManager
         AddKeybind(KeyAction.CameraRotateLeft, Keys.E);
         AddKeybind(KeyAction.CameraRotateRight, Keys.Q);
         AddKeybind(KeyAction.MenuBack, Keys.Escape);
+        
+        //Game Keys
+        AddKeybind(KeyAction.PathingSwitch, Keys.D1);
+        AddKeybind(KeyAction.UnitSwitch, Keys.D2);
+        AddKeybind(KeyAction.BuildingSwitch, Keys.D3);
+        AddKeybind(KeyAction.EnemyUnitSwitch, Keys.D4);
+        AddKeybind(KeyAction.RemoveUnitSwitch, Keys.D5);
+        AddKeybind(KeyAction.RemoveBuildingSwitch, Keys.D6);
+        AddKeybind(KeyAction.RemoveEnemyUnitSwitch, Keys.D7);
+        AddKeybind(KeyAction.NextSelection, Keys.OemCloseBrackets);
+        AddKeybind(KeyAction.PreviousSelection, Keys.OemOpenBrackets);
     }
     
     #endregion

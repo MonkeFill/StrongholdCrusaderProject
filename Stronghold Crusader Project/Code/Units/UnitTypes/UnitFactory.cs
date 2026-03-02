@@ -26,6 +26,19 @@ public class UnitFactory
             15f,
             15f,
             1.0f,
+            20f,
+            Position
+        );
+    }
+    
+    public HostileUnit GetMaceman(Vector2 Position)
+    {
+        return CreateHostileUnit(
+            "Maceman",
+            150,
+            40f,
+            30f,
+            2.0f,
             2f,
             Position
         );

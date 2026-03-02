@@ -2,21 +2,20 @@
 
 /// <summary>
 /// This class will hold all the animations for the units
-/// units animation handler can access the libary if they are looking for an animation to do
+/// units animation handler can access the library if they are looking for an animation to do
 /// </summary>
 
 public class UnitAnimationLibrary
 {
     //Class Variables
 
-    Dictionary<int, Texture2D[]> AnimationLibrary = new Dictionary<int, Texture2D[]>(); //Dictionary to hold the animations
-    //To access the animation libary you have to go through the troop name, troop state and then troop direction to get the frames for the animation
+    private Dictionary<int, Texture2D[]> AnimationLibrary = new Dictionary<int, Texture2D[]>(); //Dictionary to hold the animations using hashing for the int
 
     //Class Methods
 
-    public UnitAnimationLibrary(ContentManager Content)
+    public UnitAnimationLibrary(ContentManager Content, UnitType TypeOfUnit)
     {
-        LoadAnimations(Content);
+        LoadAnimations(Content, TypeOfUnit);
     }
 
     #region Open end
@@ -37,7 +36,7 @@ public class UnitAnimationLibrary
     #region Helper Classes
     //Classes that will help this class
 
-    private void LoadAnimations(ContentManager Content) //A class to load in all the animations
+    private void LoadAnimations(ContentManager Content, UnitType TypeOfUnit) //A class to load in all the animations
     {
         string UnitsAssetFolder = Path.Combine(ContentFolder, UnitsFolder);
         if (!Path.Exists(UnitsAssetFolder)) //If it doesn't exist
@@ -50,7 +49,7 @@ public class UnitAnimationLibrary
         {
             string UnitName = Path.GetFileNameWithoutExtension(UnitNamePath);
             
-            foreach (string UnitStatePath in Directory.GetDirectories(UnitNamePath)) //Unit State
+            foreach (string UnitStatePath in Directory.GetDirectories(Path.Combine(UnitNamePath, TypeOfUnit.ToString()))) //Unit State
             {
                 string UnitStateName = Path.GetFileNameWithoutExtension(UnitStatePath);
 

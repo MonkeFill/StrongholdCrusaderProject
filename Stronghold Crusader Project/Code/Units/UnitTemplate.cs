@@ -49,6 +49,11 @@ public abstract class UnitTemplate
         AnimationManager.Draw(ActiveSpriteBatch, MovementManager.Position);
     }
 
+    public Texture2D GetIdleTexture()
+    {
+        return AnimationManager.FramesList[0];
+    }
+
     public Vector2 GetPosition()
     {
         return MovementManager.Position;

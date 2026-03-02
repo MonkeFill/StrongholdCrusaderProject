@@ -21,7 +21,7 @@ public class GameEnvironment
     private GameWorld GameWorldHandler;
     private MenuManager MenuHandler;
     private Camera2D CameraHandler;
-    private UnitManager UnitHandler;
+    private PlayerManager PlayerHandler;
     private bool MapActive = false;
     
     public GameEnvironment(ContentManager InputContent, GraphicsDevice InputGraphics)
@@ -40,7 +40,7 @@ public class GameEnvironment
         KeyHandler = new KeyManager();
         InputHandler = new InputManager(KeyHandler);
         GameWorldHandler = new GameWorld(TilesHandler, BorderHandler);
-        UnitHandler = new UnitManager(ActiveContent, ActiveGraphics);
+        PlayerHandler = new PlayerManager(ActiveContent, ActiveGraphics, GameWorldHandler.Tiles);
         CameraHandler = new Camera2D(ActiveGraphics.Viewport);
         MenuHandler = new MenuManager(Game, GameWorldHandler);
     }
@@ -49,8 +49,11 @@ public class GameEnvironment
     {
         InputHandler.Update();
         MenuHandler.Update(InputHandler);
-        HandleCameraInput(TimeOfGame);
-        UnitHandler.Update(TimeOfGame, GameWorldHandler.Tiles, InputHandler, CameraHandler);
+        if (MapActive)
+        {
+            HandleCameraInput(TimeOfGame);
+            PlayerHandler.Update(TimeOfGame, GameWorldHandler.Tiles, InputHandler, CameraHandler);
+        }
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws all the content
@@ -60,7 +63,7 @@ public class GameEnvironment
             ActiveSpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, CameraHandler.ViewMatrix);
             //Anything that is drawn with the camera should be here
             GameWorldHandler.Draw(ActiveSpriteBatch);
-            UnitHandler.Draw(ActiveSpriteBatch);
+            PlayerHandler.Draw(ActiveSpriteBatch, InputHandler, CameraHandler);
             ActiveSpriteBatch.End();
         }
         
@@ -75,8 +78,6 @@ public class GameEnvironment
         GameWorldHandler.LoadWorld("GeneratedMap_50x50.json");
         MapActive = true;
         MenuHandler.AddMenu(new BlankMenu(MenuHandler, GameWorldHandler));
-        HostileUnit Unit = UnitHandler.UnitCreator.GetArcher(new Vector2(576, 50));
-        UnitHandler.AddUnit(Unit);
         Console.WriteLine();
     }
     

@@ -57,7 +57,7 @@ public class Camera2D
             Vector2 RotatedMovement = Vector2.Transform(MovementInput, Matrix.CreateRotationZ(-Rotation));
             TargetPosition += (RotatedMovement * MovementSpeed * DeltaTime);
         }
-        Position = Vector2.Lerp(Position, TargetPosition, MovementSpeed * DeltaTime);
+        Position = Vector2.Lerp(Position, TargetPosition, 1.0f - MathF.Exp(-MovementStiffness * DeltaTime));
         ClampPosition();
     }
 

@@ -45,6 +45,24 @@ public enum LogType
     Status,
 }
 
+public enum SelectionState
+{
+    Pathing,
+    CreateUnit,
+    CreateBuilding,
+    CreateEnemyUnit,
+    RemoveUnit,
+    RemoveBuilding,
+    RemoveEnemyUnit,
+    None
+}
+
+public enum UnitType
+{
+    Ally,
+    Enemy
+}
+
 public enum KeyAction
 {
     //Camera
@@ -54,13 +72,15 @@ public enum KeyAction
     //UI
     MenuBack,
     //Game
+    PathingSwitch,
     UnitSwitch,
-    RemoveUnit,
     BuildingSwitch,
-    RemoveBuilding,
-    TileSwitch,
-    NextSwitch,
-    PreviousSwitch
+    EnemyUnitSwitch,
+    RemoveUnitSwitch,
+    RemoveBuildingSwitch,
+    RemoveEnemyUnitSwitch,
+    NextSelection,
+    PreviousSelection,
 }
 
 #endregion
