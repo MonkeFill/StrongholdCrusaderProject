@@ -8,7 +8,6 @@ public abstract class BuildingTemplate
 {
     //Class Variables
     string Name;
-    public List<ResourceTemplate> BuildRequirement;
     public int MaxHealth;
     public int CurrentHealth;
     public Texture2D Texture;
@@ -19,21 +18,15 @@ public abstract class BuildingTemplate
 
     #region Public Facing Methods
     //Methods that can be accessed pubically
-    public BuildingTemplate(string InputName, List<ResourceTemplate> InputCost, int InputHealth, Point InputSize, Texture2D InputTexture)
+    public BuildingTemplate(string InputName, int InputHealth, Point InputSize, Texture2D InputTexture)
     {
         Name = InputName;
-        BuildRequirement = InputCost;
         MaxHealth = InputHealth;
         CurrentHealth = InputHealth;
         Texture = InputTexture;
         Size = InputSize;
         Position = new Vector2(0, 0);
         CurrentHealth = MaxHealth;
-    }
-
-    public void Update(GameTime TimeOfGame)
-    {
-        
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)

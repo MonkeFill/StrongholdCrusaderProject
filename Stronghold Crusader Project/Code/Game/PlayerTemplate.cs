@@ -7,7 +7,6 @@ namespace Stronghold_Crusader_Project.Code.Game;
 public class PlayerTemplate
 {
     //Class Variables
-    Dictionary<ResourceTemplate, int> Resources = new Dictionary<ResourceTemplate, int>();
     public UnitManager UnitHandler;
     BuildingManager BuildingHandler;
     

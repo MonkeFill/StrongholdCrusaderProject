@@ -35,10 +35,6 @@ public class BuildingManager
             Point GridPosition = GridHelper.WorldToGrid(MouseWorld);
             
         }
-        foreach (Tile ActiveTile in Map)
-        {
-            ActiveTile.Building.Update(TimeOfGame);
-        }
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
