@@ -23,7 +23,7 @@ public class UnitAnimationHandler
     {
         UnitName = InputUnitName;
         AnimationLibrary = InputAnimationLibrary;
-        FramesList = AnimationLibrary.GetAnimationList(UnitName, UnitState.Idle, UnitDirection.North);
+        FramesList = AnimationLibrary.GetAnimationList(UnitName, UnitState.Attacking, UnitDirection.North);
     }
 
     #region Public Facing

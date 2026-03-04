@@ -8,7 +8,7 @@ public class UnitMovementHandler
 {
     //Class Variables
     private int CurrentPathIndex;
-    private float Rotation = 0f;
+    public float Rotation = 0f;
     public Vector2 Position;
     private List<Point> CurrentPath;
     private Tile[,] Map = null;
@@ -53,7 +53,6 @@ public class UnitMovementHandler
         Map = UpdateMap;
         if (CurrentPath == null) //If it has no active path
         {
-            UnitFinishedPathing();
             return;
         }
 

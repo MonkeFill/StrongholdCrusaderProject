@@ -19,32 +19,64 @@ public class UnitManager
     private List<UnitTemplate> SelectedUnits;
     private List<string> AvailableUnitTypes = new List<string>{"Archer", "Maceman"};
     private int CurrentUnitSelection = 0;
+    private UnitType TypeOfUnit;
+
+    private Texture2D PathFindingTexture;
+    private Texture2D RemoveUnitTexture;
 
     //Class Methods
 
-    public UnitManager(ContentManager Content, GraphicsDevice Graphics, UnitType TypeOfUnit)
+    public UnitManager(ContentManager Content, GraphicsDevice Graphics, UnitType InputTypeOfUnit)
     {
+        TypeOfUnit = InputTypeOfUnit;
         Units = new List<UnitTemplate>();
         PathManager = new Pathing();
         AnimationLibrary = new UnitAnimationLibrary(Content, TypeOfUnit);
         UnitCreator = new UnitFactory(AnimationLibrary);
         SelectedUnits = new List<UnitTemplate>();
         Debugger = new UnitDebugging(Graphics);
+
+        switch (InputTypeOfUnit)
+        {
+            case UnitType.Ally:
+                PathFindingTexture = Content.Load<Texture2D>(Path.Combine(SelectionFolder, "Pathing"));
+                RemoveUnitTexture = Content.Load<Texture2D>(Path.Combine(SelectionFolder, "RemoveUnit"));
+                break;
+            case UnitType.Enemy:
+                PathFindingTexture = Content.Load<Texture2D>(Path.Combine(SelectionFolder, "EnemyPathing"));
+                RemoveUnitTexture = Content.Load<Texture2D>(Path.Combine(SelectionFolder, "RemoveEnemyUnit"));
+                break;
+        }
     }
 
     #region Public Methods
     //Classes that are publicly accessible
-    
-    public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler) //Updates all the units
+
+    public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler, UnitManager EnemyManager) //Updates all the units
     {
-        foreach (UnitTemplate ActiveUnit in Units) //Update all the units
+        if (Units.Count == 0)
         {
-            ActiveUnit.Update(TimeOfGame, Map);
+            return;
         }
+        for (int Count = 0; Count < Units.Count; Count++) //Update all the units
+        {
+            UnitTemplate ActiveUnit = Units[Count];
+            ActiveUnit.Update(TimeOfGame, Map);
+            if (ActiveUnit.CheckUnitDeath())
+            {
+                Units.Remove(ActiveUnit);
+            }
+        }
+        HandleCombat(EnemyManager);
+
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //A class that draws all the units
     {
+        if (Units.Count == 0)
+        {
+            return;
+        }
         foreach (UnitTemplate ActiveUnit in Units)
         {
             ActiveUnit.Draw(ActiveSpriteBatch);
@@ -61,6 +93,16 @@ public class UnitManager
         Vector2 ActualUnitPosition = new Vector2(UnitPosition.X - (UnitTexture.Width / 2f), UnitPosition.Y - (UnitTexture.Height / 2f) - (TileSize.Y / 2f));
         ActiveSpriteBatch.Draw(UnitTexture, ActualUnitPosition, Color.White * 0.75f);
     }
+
+    public void DrawRemoveUnit(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    {
+        ActiveSpriteBatch.Draw(RemoveUnitTexture, GetSelectionMousePosition(InputHandler, CameraHandler), Color.White * 0.75f);
+    }
+    
+    public void DrawPathing(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    {
+        ActiveSpriteBatch.Draw(PathFindingTexture, GetSelectionMousePosition(InputHandler, CameraHandler), Color.White * 0.75f);
+    }
     
 
     public void PathingUnits(InputManager InputHandler, Camera2D CameraHandler, Tile[,] Map) //A class for using units path fidning
@@ -75,14 +117,70 @@ public class UnitManager
 
     public void RemovingUnit(InputManager InputHandler, Camera2D CameraHandler) //A class for removing a unit
     {
-        
+        if (InputHandler.IsLeftClickedOnce())
+        {
+            Vector2 MousePosition = InputHandler.GetMouseWorldPosition(CameraHandler);
+            UnitTemplate Unit = GetUnitAtPosition(MousePosition);
+            if (Unit != null)
+            {
+                Units.Remove(Unit);
+            }
+        }
     }
     
     #endregion
     
     #region Helper Classes
     //Methods that help the class
+
+    private void HandleCombat(UnitManager EnemyManager)
+    {
+        for (int Count = 0; Count < Units.Count; Count++)
+        {
+            UnitTemplate PlayerUnits = Units[Count];
+            bool Attacking = false;
+            for (int Count2 = 0; Count2 < EnemyManager.Units.Count; Count2++)
+            {
+                UnitTemplate EnemyUnit = EnemyManager.Units[Count2];
+                if (Vector2.Distance(PlayerUnits.GetPosition(), EnemyUnit.GetPosition()) < UnitSelectionRadius)
+                {
+                    if (!Attacking)
+                    {
+                        if (PlayerUnits.ActiveState == UnitState.Idle)
+                        {
+                            PlayerUnits.ActiveState = UnitState.Attacking;
+                            Attacking = true;
+                        }
+                    }
+                    if (PlayerUnits.ActiveState == UnitState.Attacking)
+                    {
+                        Vector2 DirectionVector = EnemyUnit.GetPosition() - PlayerUnits.GetPosition();
+                        DirectionVector.Normalize();
+                        PlayerUnits.MovementManager.Rotation = MathF.Atan2(DirectionVector.Y, DirectionVector.X) * (180f / (float)Math.PI);
+                        if (PlayerUnits.MovementManager.Rotation  < 0)
+                        {
+                            PlayerUnits.MovementManager.Rotation  += 360;
+                        }
+                        float AttackPower = 1f;
+                        EnemyUnit.CurrentHealth -= AttackPower;
+                        Attacking = true;
+                    }
+                }
+                
+            }
+            if (!Attacking)
+            {
+                PlayerUnits.ActiveState = UnitState.Idle;
+            }
+        }
+    }
     
+    private Vector2 GetSelectionMousePosition(InputManager InputHandler, Camera2D CameraHandler) //Getting how far down to draw the selection stuff
+    {
+        Vector2 MousePosition = InputHandler.GetMouseWorldPosition(CameraHandler);
+        Vector2 BelowMousePosition = new Vector2(MousePosition.X, MousePosition.Y - (TileSize.Y / 2f));
+        return BelowMousePosition;
+    }
     private void CycleUnit(int Direction) //A class that will go through the units available to place
     {
         CurrentUnitSelection += Direction;

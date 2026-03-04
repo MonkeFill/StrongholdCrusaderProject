@@ -27,8 +27,8 @@ public class PlayerManager
     {
         CheckSelectionType(InputHandler);
         InputSelection(InputHandler, CameraHandler, Map);
-        AllyPlayer.Update(TimeOfGame, Map, InputHandler, CameraHandler);
-        EnemyPlayer.Update(TimeOfGame, Map, InputHandler, CameraHandler);
+        AllyPlayer.Update(TimeOfGame, Map, InputHandler, CameraHandler, EnemyPlayer.UnitHandler);
+        EnemyPlayer.Update(TimeOfGame, Map, InputHandler, CameraHandler, AllyPlayer.UnitHandler);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler) //Draws the players units and building
@@ -49,6 +49,10 @@ public class PlayerManager
         {
             SelectionType = SelectionState.Pathing;
         }
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.EnemyPathingSwitch))
+        {
+            SelectionType = SelectionState.EnemyPathing;
+        }
         if (InputHandler.IsKeybindPressedOnce(KeyAction.UnitSwitch))
         {
             SelectionType = SelectionState.CreateUnit;
@@ -61,7 +65,7 @@ public class PlayerManager
         {
             SelectionType = SelectionState.CreateEnemyUnit;
         }
-        if (InputHandler.IsKeybindPressedOnce(KeyAction.RemoveEnemyUnitSwitch))
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.RemoveUnitSwitch))
         {
             SelectionType = SelectionState.RemoveUnit;
         }
@@ -73,7 +77,6 @@ public class PlayerManager
         {
             SelectionType = SelectionState.RemoveEnemyUnit;
         }
-        LogEvent($"Selection Type - {SelectionType}", LogType.Info);
     }
 
     private void InputSelection(InputManager InputHandler, Camera2D CameraHandler, Tile[,] Map) //Handles the input depending on the selection type
@@ -82,6 +85,8 @@ public class PlayerManager
         {
             case SelectionState.Pathing:
                 AllyPlayer.HandleUnitPath(InputHandler, CameraHandler, Map);
+                break;
+            case SelectionState.EnemyPathing:
                 EnemyPlayer.HandleUnitPath(InputHandler, CameraHandler, Map);
                 break;
             case SelectionState.CreateUnit:
@@ -108,6 +113,10 @@ public class PlayerManager
         switch (SelectionType)
         {
             case SelectionState.Pathing:
+                AllyPlayer.DrawUnitPathing(ActiveSpriteBatch, InputHandler, CameraHandler);
+                break;
+            case SelectionState.EnemyPathing:
+                EnemyPlayer.DrawUnitPathing(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
             case SelectionState.CreateUnit:
                 AllyPlayer.DrawUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
@@ -118,10 +127,12 @@ public class PlayerManager
                 EnemyPlayer.DrawUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
             case SelectionState.RemoveUnit:
+                AllyPlayer.DrawRemoveUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
             case SelectionState.RemoveBuilding:
                 break;
             case SelectionState.RemoveEnemyUnit:
+                EnemyPlayer.DrawRemoveUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
         }
     }

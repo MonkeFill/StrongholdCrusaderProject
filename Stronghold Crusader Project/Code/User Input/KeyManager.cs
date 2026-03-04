@@ -122,12 +122,13 @@ public class KeyManager
         
         //Game Keys
         AddKeybind(KeyAction.PathingSwitch, Keys.D1);
-        AddKeybind(KeyAction.UnitSwitch, Keys.D2);
-        AddKeybind(KeyAction.BuildingSwitch, Keys.D3);
-        AddKeybind(KeyAction.EnemyUnitSwitch, Keys.D4);
-        AddKeybind(KeyAction.RemoveUnitSwitch, Keys.D5);
-        AddKeybind(KeyAction.RemoveBuildingSwitch, Keys.D6);
-        AddKeybind(KeyAction.RemoveEnemyUnitSwitch, Keys.D7);
+        AddKeybind(KeyAction.EnemyPathingSwitch, Keys.D2);
+        AddKeybind(KeyAction.UnitSwitch, Keys.D3);
+        AddKeybind(KeyAction.BuildingSwitch, Keys.D4);
+        AddKeybind(KeyAction.EnemyUnitSwitch, Keys.D5);
+        AddKeybind(KeyAction.RemoveUnitSwitch, Keys.D6);
+        AddKeybind(KeyAction.RemoveBuildingSwitch, Keys.D7);
+        AddKeybind(KeyAction.RemoveEnemyUnitSwitch, Keys.D8);
         AddKeybind(KeyAction.NextSelection, Keys.OemCloseBrackets);
         AddKeybind(KeyAction.PreviousSelection, Keys.OemOpenBrackets);
     }

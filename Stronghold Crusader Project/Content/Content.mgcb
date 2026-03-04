@@ -3493,6 +3493,66 @@
 /processorParam:TextureFormat=Color
 /build:Assets/UI/Game/Other/Selection.png
 
+#begin Assets/UI/Game/Other/SelectionIcons/EnemyPathing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/UI/Game/Other/SelectionIcons/EnemyPathing.png
+
+#begin Assets/UI/Game/Other/SelectionIcons/Pathing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/UI/Game/Other/SelectionIcons/Pathing.png
+
+#begin Assets/UI/Game/Other/SelectionIcons/RemoveBuilding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/UI/Game/Other/SelectionIcons/RemoveBuilding.png
+
+#begin Assets/UI/Game/Other/SelectionIcons/RemoveEnemyUnit.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/UI/Game/Other/SelectionIcons/RemoveEnemyUnit.png
+
+#begin Assets/UI/Game/Other/SelectionIcons/RemoveUnit.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/UI/Game/Other/SelectionIcons/RemoveUnit.png
+
 #begin Assets/UI/Game/Resources/Small/Food/Ale_Hover.png
 /importer:TextureImporter
 /processor:TextureProcessor

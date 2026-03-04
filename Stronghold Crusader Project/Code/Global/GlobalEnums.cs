@@ -48,6 +48,7 @@ public enum LogType
 public enum SelectionState
 {
     Pathing,
+    EnemyPathing,
     CreateUnit,
     CreateBuilding,
     CreateEnemyUnit,
@@ -73,6 +74,7 @@ public enum KeyAction
     MenuBack,
     //Game
     PathingSwitch,
+    EnemyPathingSwitch,
     UnitSwitch,
     BuildingSwitch,
     EnemyUnitSwitch,

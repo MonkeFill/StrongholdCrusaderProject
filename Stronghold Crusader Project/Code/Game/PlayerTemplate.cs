@@ -8,7 +8,7 @@ public class PlayerTemplate
 {
     //Class Variables
     Dictionary<ResourceTemplate, int> Resources = new Dictionary<ResourceTemplate, int>();
-    UnitManager UnitHandler;
+    public UnitManager UnitHandler;
     BuildingManager BuildingHandler;
     
     
@@ -21,9 +21,9 @@ public class PlayerTemplate
     #region Public Facing Methods
     //Methods that are public
     
-    public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler) //Updates units and buildings
+    public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler, UnitManager EnemyManager) //Updates units and buildings
     {
-        UnitHandler.Update(TimeOfGame, Map, InputHandler, CameraHandler);
+        UnitHandler.Update(TimeOfGame, Map, InputHandler, CameraHandler, EnemyManager);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws units and buildings
@@ -50,7 +50,16 @@ public class PlayerTemplate
     {
         UnitHandler.DrawUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
     }
+
+    public void DrawRemoveUnitSelection(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    {
+        UnitHandler.DrawRemoveUnit(ActiveSpriteBatch, InputHandler, CameraHandler);
+    }
+    
+    public void DrawUnitPathing(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    {
+        UnitHandler.DrawPathing(ActiveSpriteBatch, InputHandler, CameraHandler);
+    }
     
     #endregion
 }
-

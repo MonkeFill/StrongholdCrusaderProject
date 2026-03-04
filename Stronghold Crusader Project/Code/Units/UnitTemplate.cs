@@ -12,22 +12,25 @@ public abstract class UnitTemplate
     protected string UnitName;
     protected float MaxHealth;
     public float MovementSpeed;
-    protected float AttackPower;
+    public float AttackPower;
     protected float AttackSpeed;
     
     //Variables that don't depend on the unit type
-    private float CurrentHealth;
+    public float CurrentHealth;
     private UnitAnimationHandler AnimationManager;
-    private UnitMovementHandler MovementManager;
+    public UnitMovementHandler MovementManager;
     public UnitState ActiveState;
+    private float CurrentAttackCooldown = 0f;
     
 
 
     //Class Methods
     public UnitTemplate(string InputName, float InputMaxHealth, float InputMovementSpeed, float InputAttackPower, float InputAttackSpeed, UnitAnimationLibrary AnimationLibrary, Vector2 InputPosition)
     {
+        ActiveState = UnitState.Attacking;
         UnitName = InputName;
         MaxHealth = InputMaxHealth;
+        CurrentHealth = MaxHealth;
         MovementSpeed = InputMovementSpeed;
         AttackPower = InputAttackPower;
         AttackSpeed = InputAttackSpeed;
@@ -42,6 +45,25 @@ public abstract class UnitTemplate
     {
         MovementManager.Update(TimeOfGame, Map);
         AnimationManager.Update(TimeOfGame, ActiveState, MovementManager.GetDirection());
+        
+        if (CurrentAttackCooldown > 0)
+        {
+            CurrentAttackCooldown -= (float)TimeOfGame.ElapsedGameTime.TotalSeconds;
+        }
+
+        if (CurrentHealth <= 0)
+        {
+            ActiveState = UnitState.Dead;
+        }
+    }
+
+    public bool CheckUnitDeath()
+    {
+        if (CurrentHealth < 0)
+        {
+            return true;
+        }
+        return false;
     }
     
     public void Draw(SpriteBatch ActiveSpriteBatch) //Drawing the unit
@@ -61,6 +83,10 @@ public abstract class UnitTemplate
 
     public void MoveTo(List<Point> NewPath)
     {
+        if (ActiveState == UnitState.Dead)
+        {
+            return;
+        }
         if (NewPath != null)
         {
             ActiveState = UnitState.Walking;
