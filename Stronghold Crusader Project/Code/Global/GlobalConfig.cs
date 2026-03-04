@@ -30,6 +30,7 @@ public static class GlobalConfig{
     public static readonly string GameFolder = Path.Combine(UserInterfaceFolder, "Game");
     public static readonly string OtherGameFolder = Path.Combine(GameFolder, "Other");
     public static readonly string SelectionFolder = Path.Combine(OtherGameFolder, "SelectionIcons");
+    public static readonly string BuildingsFolder = Path.Combine(AssetsFolder, "Buildings");
     
     #endregion
     

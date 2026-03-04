@@ -8,25 +8,20 @@ public abstract class BuildingTemplate
 {
     //Class Variables
     string Name;
-    public int MaxHealth;
-    public int CurrentHealth;
-    public Texture2D Texture;
-    public Point Size;
-    public Vector2 Position;
+    Texture2D Texture;
+    Point Position;
+    Vector2 Size;
     
     //Class Methods
 
     #region Public Facing Methods
     //Methods that can be accessed pubically
-    public BuildingTemplate(string InputName, int InputHealth, Point InputSize, Texture2D InputTexture)
+    public BuildingTemplate(ContentManager Content, string InputName, string InputTexture, Point InputPosition, Vector2 InputSize)
     {
         Name = InputName;
-        MaxHealth = InputHealth;
-        CurrentHealth = InputHealth;
-        Texture = InputTexture;
+        Texture = Content.Load<Texture2D>(InputTexture);
+        Position = InputPosition;
         Size = InputSize;
-        Position = new Vector2(0, 0);
-        CurrentHealth = MaxHealth;
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
