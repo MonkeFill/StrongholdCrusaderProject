@@ -24,6 +24,7 @@ public class PlayerTemplate
     public void Update(GameTime TimeOfGame, Tile[,] Map, InputManager InputHandler, Camera2D CameraHandler, UnitManager EnemyManager) //Updates units and buildings
     {
         UnitHandler.Update(TimeOfGame, Map, InputHandler, CameraHandler, EnemyManager);
+        BuildingHandler.Update(Map);
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws units and buildings
@@ -74,9 +75,14 @@ public class PlayerTemplate
 
     public void DrawRemoveBuilding(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
     {
-        BuildingHandler.DrawRemoveBuilding(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+        BuildingHandler.DrawRemoveBuilding(ActiveSpriteBatch, InputHandler, CameraHandler);
     }
 
-    
+    public void HandleBuildingDeletion(InputManager InputHandler, Camera2D CameraHandler)
+    {
+        BuildingHandler.HandleBuildingDeletion(InputHandler, CameraHandler);
+    }
+
+
     #endregion
 }

@@ -10,8 +10,9 @@ public class BuildingManager
     private Tile[,] Map;
     private List<string> AvailableBuildingTypes = new List<string> { "Hotel", "Church" };
     private int CurrentBuildingSelection = 0;
-    private BuildingTemplate ActiveBuilding;
+    private Texture2D ActiveBuildingTexture;
     private Texture2D RemoveBuildingTexture;
+    private BuildingFactory BuildingsFactory;
 
     //Class Methodsj
 
@@ -21,30 +22,58 @@ public class BuildingManager
     {
         Map = InputMap;
         RemoveBuildingTexture = Content.Load<Texture2D>(Path.Combine(SelectionFolder, "RemoveBuilding"));
+        BuildingsFactory = new BuildingFactory(Content);
+        CycleBuilding(0);
     }
 
     public void DrawBuildingSelection(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler) //Draws the building that is currently being selected to place
     {
-        Vector2 BuildingPosition = GridHelper.GridToWorld(GridHelper.WorldToGrid(InputHandler.GetMouseWorldPosition(CameraHandler))); //Getting the mouse position and converting it to grid and then back to position to lock it to the centre of a tile
-        ActiveSpriteBatch.Draw(ActiveBuilding.Texture, ActiveBuilding.ReturnBounds(), Color.White * 0.75f);
+        ActiveSpriteBatch.Draw(ActiveBuildingTexture, GetCorrectMouse(InputHandler, CameraHandler), Color.White * 0.75f);
+    }
+
+    public void Update(Tile[,] UpdateMap)
+    {
+        Map = UpdateMap;
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
     {
         foreach (Tile ActiveTile in Map)
         {
+            if (ActiveTile == null)
+            {
+                continue;
+            }
+            if (ActiveTile.Building == null)
+            {
+                continue;
+            }
             ActiveTile.Building.Draw(ActiveSpriteBatch);
         }
     }
 
+    private Vector2 GetCorrectMouse(InputManager InputHandler, Camera2D CameraHandler)
+    {
+        Vector2 Position = GridHelper.GridToWorld(GridHelper.WorldToGrid(InputHandler.GetMouseWorldPosition(CameraHandler)));
+        return new Vector2(Position.X - (TileSize.X / 2), Position.Y - (TileSize.Y / 2));
+    }
+
     public void CreateBuilding(InputManager InputHandler, Camera2D CameraHandler)
     {
-
+        HandleBuildingPlacing(InputHandler, CameraHandler);
     }
 
     public void DrawRemoveBuilding(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
     {
         ActiveSpriteBatch.Draw(RemoveBuildingTexture, GetSelectionMousePosition(InputHandler, CameraHandler), Color.White * 0.75f);
+    }
+
+    public void HandleBuildingDeletion(InputManager InputHandler, Camera2D CameraHandler)
+    {
+        if (InputHandler.IsLeftClickedOnce())
+        {
+            RemoveBuilding(GridHelper.WorldToGrid(GetCorrectMouse(InputHandler, CameraHandler)));
+        }
     }
     #endregion
 
@@ -54,21 +83,22 @@ public class BuildingManager
     private void PlaceBuilding(BuildingTemplate ActiveBuilding, Point GridPosition)
     {
         ActiveBuilding.Position = GridHelper.GridToWorld(GridPosition);
+        ActiveBuilding.Position = new Vector2(ActiveBuilding.Position.X - (TileSize.X / 2), ActiveBuilding.Position.Y - (TileSize.Y / 2));
         for (int PositionX = 0; PositionX < ActiveBuilding.Size.X; PositionX++)
         {
             for (int PositionY = 0; PositionY < ActiveBuilding.Size.Y; PositionY++)
             {
-                Map[GridPosition.X + PositionY, GridPosition.Y + PositionY].Building = ActiveBuilding;
+                Map[GridPosition.X + PositionX, GridPosition.Y + PositionY].Building = ActiveBuilding;
             }
         }
     }
 
-    private void RemoveBuilding(Point GridPosition)
+    public void RemoveBuilding(Point GridPosition)
     {
         Tile ActiveTile = Map[GridPosition.X, GridPosition.Y];
         BuildingTemplate ActiveBuilding = ActiveTile.Building;
 
-        if (ActiveBuilding != null) //If there is no building on that tile
+        if (ActiveBuilding == null) //If there is no building on that tile
         {
             return;
         }
@@ -79,7 +109,7 @@ public class BuildingManager
         {
             for (int PositionY = 0; PositionY < ActiveBuilding.Size.Y; PositionY++)
             {
-                Map[GridPosition.X + PositionY, GridPosition.Y + PositionY].Building = null;
+                Map[GridPosition.X + PositionX, GridPosition.Y + PositionY].Building = null;
             }
         }
     }
@@ -95,7 +125,15 @@ public class BuildingManager
         {
             CurrentBuildingSelection = 0;
         }
-
+        switch (AvailableBuildingTypes[CurrentBuildingSelection])
+        {
+            case "Church":
+                ActiveBuildingTexture = BuildingsFactory.GetChurch(Vector2.Zero).Texture;
+                break;
+            case "Hotel":
+                ActiveBuildingTexture = BuildingsFactory.GetHotel(Vector2.Zero).Texture;
+                break;
+        }
         LogEvent($"Selected building Type: {AvailableBuildingTypes[CurrentBuildingSelection]}", LogType.Info);
     }
 
@@ -104,6 +142,33 @@ public class BuildingManager
         Vector2 MousePosition = InputHandler.GetMouseWorldPosition(CameraHandler);
         Vector2 BelowMousePosition = new Vector2(MousePosition.X, MousePosition.Y - (TileSize.Y / 2f));
         return BelowMousePosition;
+    }
+    
+    private void HandleBuildingPlacing(InputManager InputHandler, Camera2D CameraHandler)
+    {
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.NextSelection))
+        {
+            CycleBuilding(1);
+        }
+        if (InputHandler.IsKeybindPressedOnce(KeyAction.PreviousSelection))
+        {
+            CycleBuilding(-1);
+        }
+        if (InputHandler.IsLeftClickedOnce())
+        {
+            BuildingTemplate ActiveBuilding = null;
+            switch (AvailableBuildingTypes[CurrentBuildingSelection])
+            {
+                case "Church":
+                    ActiveBuilding = BuildingsFactory.GetChurch(GetCorrectMouse(InputHandler, CameraHandler));
+                    break;
+                case "Hotel":
+                    ActiveBuilding = BuildingsFactory.GetHotel(GetCorrectMouse(InputHandler, CameraHandler));
+                    break;
+            }
+            PlaceBuilding(ActiveBuilding, GridHelper.WorldToGrid(GetCorrectMouse(InputHandler, CameraHandler)));
+        }
+        
     }
 
     #endregion
