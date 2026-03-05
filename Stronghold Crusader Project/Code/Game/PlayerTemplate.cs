@@ -15,6 +15,7 @@ public class PlayerTemplate
     public PlayerTemplate(ContentManager Content, GraphicsDevice Graphics, Tile[,] Map, UnitType TypeOfUnit)
     {
         UnitHandler = new UnitManager(Content, Graphics, TypeOfUnit);
+        BuildingHandler = new BuildingManager(Map, Content);
     }
     
     #region Public Facing Methods
@@ -28,6 +29,7 @@ public class PlayerTemplate
     public void Draw(SpriteBatch ActiveSpriteBatch) //Draws units and buildings
     {
         UnitHandler.Draw(ActiveSpriteBatch);
+        BuildingHandler.Draw(ActiveSpriteBatch);
     }
 
     public void HandleUnitPath(InputManager InputHandler, Camera2D CameraHandler, Tile[,] Map) //handles units pathing
@@ -59,6 +61,22 @@ public class PlayerTemplate
     {
         UnitHandler.DrawPathing(ActiveSpriteBatch, InputHandler, CameraHandler);
     }
+
+    public void HandleBuildingCreation(InputManager InputHandler, Camera2D CameraHandler)
+    {
+        BuildingHandler.CreateBuilding(InputHandler, CameraHandler);
+    }
+
+    public void DrawBuildingSelection(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    {
+        BuildingHandler.DrawBuildingSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
+    }
+
+    public void DrawRemoveBuilding(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    {
+        BuildingHandler.DrawRemoveBuilding(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler)
+    }
+
     
     #endregion
 }

@@ -34,6 +34,7 @@ public class PlayerManager
     public void Draw(SpriteBatch ActiveSpriteBatch, InputManager InputHandler, Camera2D CameraHandler) //Draws the players units and building
     {
         AllyPlayer.Draw(ActiveSpriteBatch);
+
         EnemyPlayer.Draw(ActiveSpriteBatch);
         DrawSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
     }
@@ -122,6 +123,7 @@ public class PlayerManager
                 AllyPlayer.DrawUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
             case SelectionState.CreateBuilding:
+                AllyPlayer.DrawBuildingSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
             case SelectionState.CreateEnemyUnit:
                 EnemyPlayer.DrawUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
@@ -130,6 +132,7 @@ public class PlayerManager
                 AllyPlayer.DrawRemoveUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
                 break;
             case SelectionState.RemoveBuilding:
+                AllyPlayer.Draw
                 break;
             case SelectionState.RemoveEnemyUnit:
                 EnemyPlayer.DrawRemoveUnitSelection(ActiveSpriteBatch, InputHandler, CameraHandler);
