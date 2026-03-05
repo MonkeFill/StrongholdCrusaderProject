@@ -138,6 +138,10 @@ public class UnitManager
         for (int Count = 0; Count < Units.Count; Count++)
         {
             UnitTemplate PlayerUnits = Units[Count];
+            if (PlayerUnits.ActiveState != UnitState.Idle && PlayerUnits.ActiveState != UnitState.Attacking)
+            {
+                continue;
+            }
             bool Attacking = false;
             for (int Count2 = 0; Count2 < EnemyManager.Units.Count; Count2++)
             {

@@ -52,6 +52,7 @@ public class BuildingManager
 
     private void PlaceBuilding(BuildingTemplate ActiveBuilding, Point GridPosition)
     {
+        /*
         ActiveBuilding.Position = GridHelper.GridToWorld(GridPosition);
         for (int PositionX = 0; PositionX < ActiveBuilding.Size.X; PositionX++)
         {
@@ -60,11 +61,12 @@ public class BuildingManager
                 Map[GridPosition.X + PositionY, GridPosition.Y + PositionY].Building = ActiveBuilding;
             }
         }
-        
+        */
     }
 
     private void RemoveBuilding(Point GridPosition)
     {
+        /*
         Tile ActiveTile = Map[GridPosition.X, GridPosition.Y];
         BuildingTemplate ActiveBuilding = ActiveTile.Building;
 
@@ -81,7 +83,7 @@ public class BuildingManager
             {
                 Map[GridPosition.X + PositionY, GridPosition.Y + PositionY].Building = null;
             }
-        }
+        }*/
     }
     
     #endregion

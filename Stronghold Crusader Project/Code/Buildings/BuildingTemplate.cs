@@ -25,15 +25,17 @@ public abstract class BuildingTemplate
     }
 
     public void Draw(SpriteBatch ActiveSpriteBatch)
-    {
-        ActiveSpriteBatch.Draw(Texture, Position, Color.White);
+    {/*
+        ActiveSpriteBatch.Draw(Texture, Position, Color.White);*/
     }
     
     #endregion
 
     public Rectangle GetBounds()
     {
-        return new Rectangle((int)Position.X, (int)Position.Y, Size.X, Size.Y);
+        return new Rectangle(0,0,0,0);
+        /*
+        return new Rectangle((int)Position.X, (int)Position.Y, Size.X, Size.Y);*/
     }
     
     #region Helper Methods
