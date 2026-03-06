@@ -2,7 +2,7 @@
 
 public class Game1 : Game
 {
-    private GraphicsDeviceManager ActiveGraphics;
+    public GraphicsDeviceManager ActiveGraphics;
     private SpriteBatch ActiveSpriteBatch;
 
     double FpsTimer;
@@ -24,7 +24,8 @@ public class Game1 : Game
     protected override void Initialize()
     {
         //Setting the game to full screen borderless
-        Window.IsBorderless = false;
+        //ActiveGraphics.ToggleFullScreen();
+        Window.IsBorderless = true;
         ActiveGraphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         ActiveGraphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         ActiveGraphics.ApplyChanges();

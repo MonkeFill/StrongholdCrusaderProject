@@ -1,5 +1,3 @@
-using Assimp;
-
 namespace Stronghold_Crusader_Project.Code.Game;
 
 /// <summary>
@@ -12,6 +10,7 @@ public class GameEnvironment
     //Class Variables
     private ContentManager ActiveContent;
     private GraphicsDevice ActiveGraphics;
+    private Matrix ScaleMatrix;
 
     private TileLibary TilesHandler;
     private Borders BorderHandler;
@@ -24,10 +23,15 @@ public class GameEnvironment
     private PlayerManager PlayerHandler;
     private bool MapActive = false;
     
-    public GameEnvironment(ContentManager InputContent, GraphicsDevice InputGraphics)
+    public GameEnvironment(ContentManager InputContent, GraphicsDeviceManager InputGraphics)
     {
         ActiveContent = InputContent;
-        ActiveGraphics = InputGraphics;
+        ActiveGraphics = InputGraphics.GraphicsDevice;
+        ScaleMatrix = Matrix.Identity;
+        if (ScaleUI)
+        {
+            ScaleMatrix = CreateViewScale(InputGraphics);
+        }
     }
     
     #region Public methods
@@ -38,7 +42,7 @@ public class GameEnvironment
         TilesHandler = new TileLibary(ActiveContent);
         BorderHandler = new Borders(ActiveContent);
         KeyHandler = new KeyManager();
-        InputHandler = new InputManager(KeyHandler);
+        InputHandler = new InputManager(KeyHandler, ScaleMatrix);
         GameWorldHandler = new GameWorld(TilesHandler, BorderHandler);
         PlayerHandler = new PlayerManager(ActiveContent, ActiveGraphics, GameWorldHandler.Tiles);
         CameraHandler = new Camera2D(ActiveGraphics.Viewport);
@@ -67,7 +71,7 @@ public class GameEnvironment
             ActiveSpriteBatch.End();
         }
         
-        ActiveSpriteBatch.Begin();
+        ActiveSpriteBatch.Begin(transformMatrix: ScaleMatrix);
         //Anything that is drawn without the camera should be here
         MenuHandler.Draw(ActiveSpriteBatch);
         ActiveSpriteBatch.End();
@@ -110,6 +114,16 @@ public class GameEnvironment
         }
         
         CameraHandler.Update(TimeOfGame, Movement, Zoom, Rotation);
+    }
+    
+    private Matrix CreateViewScale(GraphicsDeviceManager Graphics)
+    {
+        //Getting the scale against the monitor sides
+        float ScaleY = (float)Graphics.PreferredBackBufferHeight / VirtualScreenHeight;
+        float ScaleX = (float)Graphics.PreferredBackBufferWidth / VirtualScreenWidth;
+
+        float Scale = Math.Min(ScaleX, ScaleY); //Getting whatever is the smaller scale
+        return Matrix.CreateScale(Scale, Scale, 1f); //Creating the scale
     }
     
     #endregion

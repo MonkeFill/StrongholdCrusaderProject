@@ -88,7 +88,7 @@ public static class GlobalConfig{
     public const int FontSize = 12;
     public const int BoxBigSize = 24;
     public const int BoxSmallSize = 8;
-    public const bool ScaleUI = true;
+    public const bool ScaleUI = false;
 
     #endregion
     

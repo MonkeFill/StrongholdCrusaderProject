@@ -11,7 +11,7 @@ public class PlayGame
 
     public PlayGame(Game1 Game)
     {
-        GameManager = new GameEnvironment(Game.Content, Game.GraphicsDevice);
+        GameManager = new GameEnvironment(Game.Content, Game.ActiveGraphics);
         GameManager.LoadContent(Game);
     }
 

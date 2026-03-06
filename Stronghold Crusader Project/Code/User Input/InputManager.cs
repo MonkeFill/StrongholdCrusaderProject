@@ -13,11 +13,13 @@ public class InputManager
     private KeyboardState PreviousKeyboardState;
     private MouseState CurrentMouseState;
     private MouseState PreviousMouseState;
+    private Matrix ScaleMatrix;
     
     //Class Methods
-    public InputManager(KeyManager KeybindsManagerInput)
+    public InputManager(KeyManager KeybindsManagerInput, Matrix InputScaleMatrix)
     {
         KeybindsManager = KeybindsManagerInput;
+        ScaleMatrix = InputScaleMatrix;
     }
 
     #region Public Facing Methods
@@ -97,12 +99,13 @@ public class InputManager
 
     public Vector2 GetMousePosition() //Returns the mouse position
     {
-        return new Vector2(CurrentMouseState.X, CurrentMouseState.Y);
+        Vector2 CurrentMouse = new Vector2(CurrentMouseState.X, CurrentMouseState.Y);
+        return Vector2.Transform(CurrentMouse, Matrix.Invert(ScaleMatrix));
     }
 
     public Vector2 GetMouseWorldPosition(Camera2D CameraHandler) //Returns the mouse position relative to the world
     {
-        Vector2 MousePosition = GetMousePosition();
+        Vector2 MousePosition = new Vector2(CurrentMouseState.X, CurrentMouseState.Y);
         return CameraHandler.ScreenToWorld(MousePosition);
     }
 
